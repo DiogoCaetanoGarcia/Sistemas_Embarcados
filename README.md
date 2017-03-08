@@ -28,9 +28,8 @@ Código: 206181 | Créditos: 4 | Turma: A | Locais e horários: Lab SS, 3as e 5a
 - Desenvolvimento para sistemas embarcados
 - Inicialização de sistemas embarcados
 - Subsistema de I/O
-- Recursos de sistemas I
+- Recursos de sistemas
 - Introdução ao RTOS
-- Recursos de sistemas II
 - Introdução ao LKM
 - Introdução aos device drivers
 
@@ -42,7 +41,9 @@ Aulas divididas de acordo com a técnica Pomodoro, com 3 períodos de 25 a 30 mi
 - 2o período: alunos responderão a perguntas teóricas propostas pelo professor;
 - 3o período: alunos responderão a perguntas práticas propostas pelo professor.
 
-Dentro do 2o e do 3o períodos, cada aluno deverá desenvolver ao máximo suas respostas, aproveitando o tempo disponível à exaustão, como esperado na técnica Pomodoro. Todas as respostas deverão ser armazenadas em um repositório GitHub público, no mesmo dia em que as questões forem colocadas.
+Dentro do 2o e do 3o períodos, cada aluno deverá desenvolver ao máximo suas respostas, aproveitando o tempo disponível à exaustão, como esperado na técnica Pomodoro.
+
+Todas as respostas deverão ser armazenadas em um repositório GitHub público, no mesmo dia em que as questões forem colocadas. Utilize arquivos diferentes para as respostas, separando-as por data. As respostas às questões poderão ser usadas pelo aluno durante a prova, especialmente funções em C para exercícios práticos. Sendo assim, organize bem o seu repositório.
 
 Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno decidir qual modelo de Raspberry Pi utilizar, de acordo com suas necessidades no projeto final.
 
@@ -70,7 +71,7 @@ Os pontos de controle serão prévias do projeto final. Cada dia de atraso na ap
 - PC3: refinamento do protótipo, acrescentando recursos básicos de sistema (múltiplos processos e threads, pipes, sinais, semáforos, MUTEX etc.).
 - PC4: refinamento do protótipo, acrescentando recursos de Linux em tempo real.
 
-Todos os relatórios dos pontos de controle serão entregues através do mesmo repositório GitHub das respostas às perguntas em sala de aula. Deverá haver SOMENTE UM ARQUIVO contendo o relatório EM FORMATO PDF. Em caso de cópias (integrais ou parciais), ambos os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:
+Todos os relatórios dos pontos de controle serão entregues através do mesmo repositório GitHub das respostas às perguntas em sala de aula. Crie uma pasta separada no repositório para a entrega dos pontos de controle. DEVERÁ HAVER SOMENTE UM ARQUIVO POR RELATÓRIO, EM FORMATO PDF. Em caso de cópias (integrais ou parciais), ambos os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:
 
 - Word: http://goo.gl/ghgLsR
 - Unix LaTeX: http://goo.gl/p3ExfQ
