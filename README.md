@@ -7,10 +7,8 @@ Código: 206181 | Créditos: 4 | Turma: A
 Locais e horários: Lab SS, 3as e 5as feiras – 16:00 às 17:50
 # Objetivos
 - Conhecer os fundamentos básicos de sistemas embarcados;
-- Compreender o processo de desenvolvimento de software para um sistema
-embarcado;
-- Conhecer as técnicas de desenvolvimento de aplicações e drivers para sistemas
-embarcados.
+- Compreender o processo de desenvolvimento de software para um sistema embarcado;
+- Conhecer as técnicas de desenvolvimento de aplicações e drivers para sistemas embarcados.
 # Ementa
 - Introdução aos sistemas embarcados
 - Introdução ao OS Linux
@@ -22,7 +20,7 @@ embarcados.
 - Recursos de sistemas II
 - Introdução ao LKM
 - Introdução aos device drivers
-Programa
+# Programa
 1. Introdução aos sistemas embarcados
 2. Introdução ao OS Linux
   a. Obtendo informações do sistema
