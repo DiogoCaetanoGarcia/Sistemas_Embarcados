@@ -1,10 +1,11 @@
 # Sistemas_Embarcados
 
-Repositório da disciplina da Universidade de Brasília: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
-
-Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
-
-Código: 206181 | Créditos: 4 | Turma: A | Locais e horários: Lab SS, 3as e 5as feiras – 16:00 às 17:50
+- Repositório da disciplina da Universidade de Brasília: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
+- Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
+- Código: 206181
+- Créditos: 4
+- Turma: A
+- Locais e horários: Lab SS, 3as e 5as feiras, sempre das 16:00 às 17:50
 
 # Datas importantes
 
@@ -12,8 +13,9 @@ Código: 206181 | Créditos: 4 | Turma: A | Locais e horários: Lab SS, 3as e 5a
 - 18/04/2017: primeiro teste
 - 02/05/2017: entrega do segundo ponto de controle
 - 16/05/2017: segundo teste
-- 30/06/2017: entrega do terceiro ponto de controle
+- 30/05/2017: entrega do terceiro ponto de controle
 - 13/06/2017: entrega do quarto ponto de controle
+- 27/06/2017: entrega do projeto final
 
 # Objetivos
 
