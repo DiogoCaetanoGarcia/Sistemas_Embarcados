@@ -1,6 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
-- Repositório da disciplina da Universidade de Brasília: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
+- Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
 - Créditos: 4
