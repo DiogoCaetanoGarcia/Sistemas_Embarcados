@@ -1,6 +1,6 @@
-Data: 21/03/2017
+Data: 23/03/2017
 
-Para todas as questões, compile-as com o gcc e execute-as via terminal.
+Para todas as questões, utilize as funções da norma POSIX (open(), close(), write(), read() e lseek()). Compile os códigos com o gcc e execute-os via terminal.
 
 1. Crie um código em C para escrever "Ola mundo!" em um arquivo chamado 'ola_mundo.txt'.
 
