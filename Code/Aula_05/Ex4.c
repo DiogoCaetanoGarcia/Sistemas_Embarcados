@@ -14,8 +14,8 @@ int main(int argc, const char * argv[])
 		exit(-1);
 	}
 	printf("\n");
-	printf("Arquivo 'exercicio4.bin' criado. Detalhes:\n");
-	system("ls -la exercicio4.bin");
+	printf("Arquivo 'exercicio4.txt' criado. Detalhes:\n");
+	system("ls -la exercicio4.txt");
 	printf("Percebeu a diferenca na chamada de open()?\n");
 	printf("\n");
 	close(fp);
