@@ -1,45 +1,37 @@
 Data: 28/03/2017
 
-Para todas as questões, utilize as funções da norma POSIX (open(), close(), write(), read() e lseek()). Compile os códigos com o gcc e execute-os via terminal.
+1. Crie um código em C para gerar três processos-filho usando o fork().
 
-1. Crie um código em C para escrever "Ola mundo!" em um arquivo chamado 'ola_mundo.txt'.
-
-2. Crie um código em C que pergunta ao usuário seu nome e sua idade, e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_1':
-	$ ./ola_usuario_1
-	$ Digite o seu nome: Eu
-	$ Digite a sua idade: 30
-	$ cat Eu.txt
-	$ Nome: Eu
-	$ Idade: 30 anos
+2. Crie um código em C que recebe o nome de diversos comandos pelos argumentos de entrada (argc e *argv[]), e executa cada um sequencialmente usando system(). Por exemplo, considerando que o código criado recebeu o nome de 'serial_system', e que ele foi executado na pasta '/Sistemas_Embarcados/Code/Aula_06', que contem diversos arquivos:
+	$ ./serial_system pwd echo ls echo cal
+	$ ~/Sistemas_Embarcados/Code/Aula_06
+	$
+	$ Ex1.c    Ex2b.c   Ex4.c   Ex6.c
+	$ Ex2a.c   Ex3.c    Ex5.c   serial_system
+	$
+	$     Março 2017
+	$ Do Se Te Qu Qu Se Sá
+	$           1  2  3  4
+	$  5  6  7  8  9 10 11
+	$ 12 13 14 15 16 17 18
+	$ 19 20 21 22 23 24 25
+	$ 26 27 28 29 30 31
 	$
 
-3. Crie um código em C que recebe o nome do usuário e e sua idade como argumentos de entrada (usando as variáveis argc e *argv[]), e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_2':
-	$ ./ola_usuario_2 Eu 30
-	$ cat Eu.txt
-	$ Nome: Eu
-	$ Idade: 30 anos
-	$
+3. Crie um código em C que recebe o nome de diversos comandos pelos argumentos de entrada (argc e *argv[]), e executa cada um usando fork() e exec().
 
-4. Crie uma função que retorna o tamanho de um arquivo, usando o seguinte protótipo:
+4. Crie um código em C que gera três processos-filho usando o fork(), e que cada processo-filho chama a seguinte função uma vez:
 
-	int tam_arq_texto(char *nome_arquivo);
+	int v_global = 0; // Variavel global para este exemplo
+	void Incrementa_Variavel_Global(pid_t id_atual)
+	{
+		v_global++;
+		printf("ID do processo que executou esta funcao = %d\n", id_atual);
+		printf("v_global = %d\n", v_global);
+	}
 
-Salve esta função em um arquivo separado chamado 'bib_arqs.c'. Salve o protótipo em um arquivo chamado 'bib_arqs.h'. Compile 'bib_arqs.c' para gerar o objeto 'bib_arqs.o'.
+(Repare que a função Incrementa_Variavel_Global() recebe como entrada o ID do processo que a chamou.)
+Responda: a variável global 'v_global' foi compartilhada por todos os processos-filho, ou cada processo enxergou um valor diferente para esta variável?
 
-5. Crie uma função que lê o conteúdo de um arquivo-texto e o guarda em uma string, usando o seguinte protótipo:
-
-	void le_arq_texto(char *nome_arquivo, char *conteúdo);
-
-Repare que o conteúdo do arquivo é armazenado no vetor 'conteudo[]'. Ou seja, ele é passado por referência. Salve esta função no mesmo arquivo da questão 4, chamado 'bib_arqs.c'. Salve o protótipo no arquivo 'bib_arqs.h'. Compile 'bib_arqs.c' novamente para gerar o objeto 'bib_arqs.o'.
-
-6. Crie um código em C que copia a funcionalidade básica do comando 'cat': escrever o conteúdo de um arquivo-texto no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de 'cat_falsificado':
-	$ echo Ola mundo cruel! Ola universo ingrato! > ola.txt
-	$ ./cat_falsificado ola.txt
-	$ Ola mundo cruel! Ola universo ingrato!
-	$
-
-7. Crie um código em C que conta a ocorrência de uma palavra-chave em um arquivo-texto, e escreve o resultado no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de 'busca_e_conta':
-	$ echo Ola mundo cruel! Ola universo ingrato! > ola.txt
-	$ ./busca_e_conta Ola ola.txt
-	$ 'Ola' ocorre 2 vezes no arquivo 'ola.txt'.
-	$
+5. Repita a questão anterior, mas desta vez faça com que o processo-pai também chame a função Incrementa_Variavel_Global().
+Responda: a variável global 'v_global' foi compartilhada por todos os processos-filho e o processo-pai, ou cada processo enxergou um valor diferente para esta variável?
