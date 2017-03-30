@@ -13,7 +13,7 @@ void funcao_para_control_c()
 int main()
 {
 	signal(SIGINT, funcao_para_control_c);
-	printf("Pressione CTRL-C, por favor.\n");
+	printf("Pressione CTRL-C para retirar o programa do loop infinito abaixo.\n");
 	while(1);
 	return 0;
 }

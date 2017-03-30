@@ -14,7 +14,7 @@ void tratamento_SIGUSR1()
 int main()
 {
 	int pid_filho;
-	signal(SIGUSR1,tratamento_SIGUSR1);
+	signal(SIGUSR1, tratamento_SIGUSR1);
 	printf("Processo pai [%d] vai criar o filho e dormir por 1 segundo.\n", getpid());
 	if((pid_filho=fork())==0) 
 	{

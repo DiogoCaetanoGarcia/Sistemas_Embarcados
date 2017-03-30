@@ -9,17 +9,9 @@ int main()
 	int pid;
 	int fd[2];
 	// Cria o pipe
-	if(pipe(fd) < 0)
-	{
-		printf("Erro na criacao do pipe\n");
-		return 1;
-	} 
+	pipe(fd);
 	// Cria o processo
-	if((pid = fork()) < 0)
-	{
-		printf("Erro na criacao do processo\n");
-		return 1;
-	}
+	pid = fork();
 	// Codigo do filho
 	if(pid == 0)
 	{
