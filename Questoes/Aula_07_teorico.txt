@@ -1,8 +1,6 @@
 Data: 30/03/2017
 
-1. Considere um processo pai e um processo filho. Variáveis declaradas antes da criação do filho serão enxergadas por estes dois processos. Pipes criados antes da criação do filho também serão enxergados pelos dois. Qual é a diferença entre compartilhar variáveis e compartilhar pipes, se ambos podem ser usados para comunicar informações entre processos?
-
-2. Quantos pipes serão criados após as linhas de código a seguir? Por quê?
+1. Quantos pipes serão criados após as linhas de código a seguir? Por quê?
 	(a) int pid;
 		int	fd[2];
 		pipe(fd);
@@ -12,9 +10,9 @@ Data: 30/03/2017
 		pid = fork();
 		pipe(fd);
 
-3. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
+2. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
 
-4. Considere o código a seguir:
+3. Considere o código a seguir:
 
 	 1. #include <signal.h>
 	 2. #include <unistd.h>
@@ -36,4 +34,4 @@ Data: 30/03/2017
 	18. 	return 0;
 	19. }
 
-Sabendo que a função alarm() tem como entrada a quantidade de segundos para terminar a contagem, quão precisos são os alarmes criados neste código? De onde vem a imprecisão?
+Sabendo que a função alarm() tem como entrada a quantidade de segundos para terminar a contagem, quão precisos são os alarmes criados neste código? De onde vem a imprecisão? Este é um método confiável para desenvolver aplicações em tempo real?

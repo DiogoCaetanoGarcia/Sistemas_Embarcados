@@ -1,3 +1,4 @@
 Data: 30/03/2017
 
 1. Crie um programa em C que cria um processo filho e um pipe de comunicação, e depois .
+
