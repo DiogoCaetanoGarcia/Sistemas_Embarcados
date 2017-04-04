@@ -55,3 +55,24 @@ int main (int argc, char** argv)
 	printf("Valor final: %d\n", varCompartilhada);
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
