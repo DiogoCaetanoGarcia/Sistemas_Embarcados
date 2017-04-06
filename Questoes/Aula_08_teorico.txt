@@ -1,6 +1,6 @@
-Data: 30/03/2017
+Data: 04/03/2017
 
-3. Quais são as vantagens e desvantagens em utilizar:
+1. Quais são as vantagens e desvantagens em utilizar:
 	(a) fork?
 	(b) threads?
 
