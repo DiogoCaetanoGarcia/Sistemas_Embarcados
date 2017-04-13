@@ -10,8 +10,6 @@
 char *build_get_query(char *host, char *page);
 char *get_ip(char *host);
  
-#define USERAGENT "HTMLGET 1.0"
- 
 int main(int argc, char **argv)
 {
 	struct sockaddr_in servidorAddr;
@@ -22,9 +20,9 @@ int main(int argc, char **argv)
 
 	if(argc != 3)
 	{
-		fprintf(stderr, "Uso: %s IP pagina\n", argv[0]);
-		fprintf(stderr, "   IP: o endereco do website. ex: 164.41.102.70\n");
-		fprintf(stderr, "   pagina: a pagina para obter. ex: index.html, default: \\\n");
+		fprintf(stderr, "Uso: %s host pagina\n", argv[0]);
+		fprintf(stderr, "   host: o endereco do website. ex: www.unb.br\n");
+		fprintf(stderr, "   pagina: a pagina para obter. ex: /\n");
 		exit(2);
 	}
 	host = argv[1];
@@ -40,7 +38,7 @@ int main(int argc, char **argv)
 
 	fprintf(stderr, "Obtendo o IP do servidor... ");
 	ip = get_ip(host);
-	fprintf(stderr, "%s\nFeito!\n", ip);
+	fprintf(stderr, "Feito!\n");
 
 	fprintf(stderr, "Conectando o socket ao IP %s pela porta %d... ", ip, port);
 	memset(&servidorAddr, 0, sizeof(servidorAddr));
@@ -103,14 +101,9 @@ char *build_get_query(char *host, char *page)
 {
 	char *query;
 	char *getpage = page;
-	char *tpl = "GET /%s HTTP/1.0\r\nHost: %s\r\nUser-Agent: %s\r\n\r\n";
-	if(getpage[0] == '/'){
-		getpage = getpage + 1;
-		//fprintf(stderr,"Removing leading \"/\", converting %s to %s\n", page, getpage);
-	}
-	// -5 is to consider the %s %s %s in tpl and the ending \0
-	query = (char *)malloc(strlen(host)+strlen(getpage)+strlen(USERAGENT)+strlen(tpl)-5);
-	sprintf(query, tpl, getpage, host, USERAGENT);
+	char *tpl = "GET %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: HTMLGET 1.1\r\nAccept: */*\r\n\r\n";
+	query = (char *)malloc(strlen(host)+strlen(getpage)+strlen(tpl));
+	sprintf(query, tpl, getpage, host);
 	return query;
 }
 
