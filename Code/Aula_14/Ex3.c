@@ -1,6 +1,7 @@
 #include "gpio_sysfs.h"
 #include <unistd.h>
 
+//Compile junto com o arquivo gpio_sysfs.c
 int main()
 {
 	int pin=4;
