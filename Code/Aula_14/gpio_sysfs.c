@@ -2,7 +2,7 @@
 #define VALID_PINS 0, 1, 4, 7, 8, 9, 10, 11, 14, 15, 17, 18, 21, 22, 23, 24, 25
 
 #include <stdio.h>
-#include "gpio.h"
+#include "gpio_sysfs.h"
 
 int setGPIO_Out(int pin)
 {	
