@@ -58,13 +58,10 @@ int main(void)
 interrupt(PORT1_VECTOR) P1_ISR(void)
 {
 	static unsigned char count = 0;
-	Pisca(LED1, count+1, DLY1);
-	P1OUT ^= LEDS;
-	count = (count+1)%6;
+	Pisca(LED1, count, DLY1);
 	Send_Data(count);
-	Atraso(DLY1);
-	P1OUT ^= LEDS;
-	Atraso(DLY2);
+	//count = (count+1)%6;
+	count = (count==5)?0:(count+1);
 	P1IFG &= ~BTN;
 }
 

@@ -5,10 +5,16 @@
 #include <fcntl.h>
 #include <termios.h>
 
+// Arquivo de acesso a porta serial
+#define TTY "/dev/ttyAMA0"
+// Arquivo de acesso a porta serial
+// PARA O RASPBERRY PI 3
+//#define TTY "/dev/ttyS0"
+
 int uart0_fd;
 void ctrl_c(void)
 {
-	puts(" Fechando /dev/ttyAMA0...");
+	puts(" Fechando " TTY "...");
 	close(uart0_fd);
 	exit(-1);
 }
@@ -19,13 +25,13 @@ int main(void)
 	char user_input, msp430_return=0;
 
 	signal(SIGINT, ctrl_c);
-	uart0_fd = open("/dev/ttyAMA0", O_RDWR); // | O_NOCTTY); // | O_NDELAY);
+	uart0_fd = open(TTY, O_RDWR); // | O_NOCTTY); // | O_NDELAY);
 	if(uart0_fd==-1)
 	{
 		puts("Erro abrindo a UART. Garanta que ela nao esteja sendo usada por outra aplicacao.");
 		return -1;
 	}
-	puts("/dev/ttyAMA0 aberto.");
+	puts(TTY " aberto.");
 	tcgetattr(uart0_fd, &options);
 	options.c_cflag = CS8 | CREAD | CLOCAL;
 	options.c_iflag = 0;
@@ -38,7 +44,7 @@ int main(void)
 	tcflush(uart0_fd, TCIOFLUSH);
 	tcsetattr(uart0_fd, TCSANOW, &options);
 	puts("UART configurada:");
-	system("stty -F /dev/ttyAMA0");
+	system("stty -F " TTY);
 	puts("");
 	user_input = 1;
 	while(user_input!=0)

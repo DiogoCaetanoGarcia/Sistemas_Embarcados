@@ -10,11 +10,17 @@
 // Este codigo ainda apresenta erros
 // na recepcao de dados vindos do MSP430
 
+// Arquivo de acesso a porta serial
+#define TTY "/dev/ttyAMA0"
+// Arquivo de acesso a porta serial
+// PARA O RASPBERRY PI 3
+//#define TTY "/dev/ttyS0"
+
 int uart0_fd;
 void ctrl_c(void)
 {
-	puts(" Fechando /dev/ttyAMA0...");
-	serialClose(uart0_fd);
+	puts(" Fechando " TTY "...");
+	close(uart0_fd);
 	exit(-1);
 }
 
@@ -24,7 +30,7 @@ int main(void)
 	int serial_status;
 
 	signal(SIGINT, ctrl_c);
-	uart0_fd = serialOpen("/dev/ttyAMA0", 9600);
+	uart0_fd = serialOpen(TTY, 9600);
 	if(uart0_fd==-1)
 	{
 		puts("Erro abrindo a UART. Garanta que ela nao");
@@ -36,12 +42,12 @@ int main(void)
 		puts("Erro em wiringPiSetup().");
 		return -1;
 	}
-	puts("/dev/ttyAMA0 aberto.");
+	puts(TTY " aberto.");
 	puts("UART configurada:");
-	system("stty -F /dev/ttyAMA0");
+	system("stty -F " TTY);
 	puts("");
 	serialFlush(uart0_fd);
-	while(msp430_input!=6)
+	while(msp430_input!=5)
 	{
 		msp430_input = (unsigned char) serialGetchar(uart0_fd);
 		serial_status = serialDataAvail(uart0_fd);
@@ -49,7 +55,7 @@ int main(void)
 		if(serial_status==-1)
 			printf("Erro = %s\n", strerror(errno));
 		else
-			printf("%d bytes disponiveis\n");
+			printf("%d bytes disponiveis\n", serial_status);
 	}
 	serialClose(uart0_fd);
 }
