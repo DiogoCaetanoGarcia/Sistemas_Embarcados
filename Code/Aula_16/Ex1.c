@@ -12,7 +12,7 @@
 //#define TTY "/dev/ttyS0"
 
 int uart0_fd;
-void ctrl_c(void)
+void ctrl_c(int sig)
 {
 	puts(" Fechando " TTY "...");
 	close(uart0_fd);

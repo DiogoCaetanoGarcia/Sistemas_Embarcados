@@ -6,8 +6,6 @@
 
 // Este codigo requer a biblioteca wringPi. Compile-o usando
 //    gcc Ex3.c -lwiringPi -o Ex3.out
-// Este codigo ainda apresenta erros
-// na recepcao de dados vindos do MSP430
 
 // Arquivo de acesso a porta serial
 #define TTY "/dev/ttyAMA0"
@@ -16,7 +14,7 @@
 //#define TTY "/dev/ttyS0"
 
 int uart0_fd;
-void ctrl_c(void)
+void ctrl_c(int sig)
 {
 	puts(" Fechando " TTY "...");
 	close(uart0_fd);
