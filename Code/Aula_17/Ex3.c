@@ -5,10 +5,9 @@
 #include <fcntl.h>
 #include <linux/ioctl.h>
 #include <linux/spi/spidev.h>
-//#include <wiringPi.h>
 
 // Este codigo requer a biblioteca wringPi. Compile-o usando
-//    gcc Ex3.c -lwiringPi -o Ex3.out
+//    gcc Ex3.c -o Ex3.out
 
 int spi_fd;
 void ctrl_c(int sig)

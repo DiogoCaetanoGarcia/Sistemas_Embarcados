@@ -7,8 +7,15 @@ acordo com o seguinte protocolo:
   		o que indica o começo de uma conversão AD.
 	II. Receber os bytes 0x01 e 0x02, e enviar o
 		byte menos significativo e o mais
-		significativo da conversão de 10 bits,
-		nesta ordem.
+		significativo da conversão de 10 bits do
+		sinal analogico no pino P1.0, nesta ordem.
+
+Conexoes:
+   P1.0: sinal analogico entre 0 e Vcc
+   P1.1: conexao SPI MISO
+   P1.2: conexao SPI MOSI
+   P1.4: conexao clock SPI
+   P1.6: LED verde da placa Launchpad
 
 */
 
@@ -57,10 +64,10 @@ interrupt(USCIAB0RX_VECTOR) Receive_Data(void)
 	if(UCA0RXBUF==0x55)
 	{
 		P1OUT |= LED;
-		//ADC10CTL0 |= ENC+ADC10SC;
-		//while( (ADC10CTL0 & ADC10IFG) == 0);
-		//d = ADC10MEM;
-		d=1023;
+		ADC10CTL0 |= ENC+ADC10SC;
+		while( (ADC10CTL0 & ADC10IFG) == 0);
+		d = ADC10MEM;
+		//d=1023;
 		Send_Data(d & 0xff);
 	}
 	else if(UCA0RXBUF==0x01)

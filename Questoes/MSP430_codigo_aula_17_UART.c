@@ -14,6 +14,13 @@ O LED2 da placa pisca a frequencia de 1 Hz.
 Enquanto o botao da placa for pressionado, o MSP430
 nao manda as leituras AD, e o LED2 eh mantido aceso.
 
+Conexoes:
+   P1.0: sinal analogico entre 0 e Vcc
+   P1.1: recepcao UART do MSP430
+   P1.2: transmissao UART do MSP430
+   P1.3: botao da placa Launchpad
+   P1.6: LED verde da placa Launchpad
+
 */
 
 #include <msp430g2452.h>

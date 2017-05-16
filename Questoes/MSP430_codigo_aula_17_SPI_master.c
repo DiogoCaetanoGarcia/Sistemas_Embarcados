@@ -7,18 +7,26 @@ o botao do pino P1.3:
 
 	I. Enviar o byte 0x55 e receber o byte 0xAA,
 		o que indica o começo de uma conversão AD.
-	III. Enviar os bytes 0x01 e 0x02, e receber o
+	II. Enviar os bytes 0x01 e 0x02, e receber o
 		byte menos significativo e o mais
 		significativo da conversão de 10 bits,
 		nesta ordem.
 
-Se o resultado da conversao AD for 1023 (ou seja,
-se o pino de leitura AD estiver conectado a Vcc),
+Se o resultado da conversao AD for maior do que 1020
+(ou seja, se o pino de leitura AD estiver proximo a Vcc),
 o LED verde ficara aceso por 0,5 s.
 
 Se o mestre enviar o byte inicial 0x55 e receber
 outro byte que nao 0xAA, o LED vermelho ficara
 aceso por 0,5 s.
+
+Conexoes:
+   P1.0: LED vermelho da placa Launchpad
+   P1.1: conexao SPI MISO
+   P1.2: conexao SPI MOSI
+   P1.3: botao da placa Launchpad
+   P1.4: conexao clock SPI
+   P1.6: LED verde da placa Launchpad
 
 */
 
@@ -99,7 +107,7 @@ interrupt(PORT1_VECTOR) P1_ISR(void)
 		WAIT_SPI;
 		d |= (UCA0RXBUF<<8);
 		
-		if(d==1023)
+		if(d>1020)
 			P1OUT |= LED2;
 	}
 	else

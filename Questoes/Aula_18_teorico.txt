@@ -1,0 +1,18 @@
+Data: 16/05/2017
+
+1. Cite as vantagens e desvantagens das comunicação serial I2C.
+
+2. Considere o caso em que a Raspberry Pi deve receber leituras analógico/digitais de um MSP430, e que a comunicação entre os dois é I2C. É tecnicamente possível que o MSP430 mande os resultados da conversão A/D a qualquer hora, ou ele deve aguardar a Raspberry Pi fazer um pedido ao MSP430? Por quê?
+
+3. Se o Raspberry Pi tiver de se comunicar com dois dispositivos via I2C, como executar a comunicação com o segundo dispositivo?
+
+
+
+
+
+
+
+
+
+
+
