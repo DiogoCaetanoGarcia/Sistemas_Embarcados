@@ -34,25 +34,37 @@ Pisque os LEDs numa frequência de 100 Hz.
 
 		void Release_UART(unsigned char TX_pin, unsigned char RX_pin);
 
-5. Considere um módulo serial I2C para display LCD (http://www.filipeflop.com/pd-179dbc-modulo-serial-i2c-para-display-lcd-arduino.html) e um MSP430 fazendo leituras AD. Ambos estão conectados ao Raspberry Pi pelas portas I2C. Os endereços I2C do módulo serial e do MSP430 são 0x20 e 0x51, respectivamente.
+5. Considere dois MSP430, onde um deles faz leituras AD em 8 canais, e o outro escreve em 4 displays de 7 segmentos. Ambos estão conectados ao Raspberry Pi pelas portas I2C, e seus respectivos endereços são 0x20 e 0x51, respectivamente.
 
 	(a) Escreva a função em C para configurar a comunicação I2C no Raspberry Pi.
-	(b) Escreva a função em C para configurar o display LCD.
-	(c) Escreva a função em C para ler uma conversão AD de 10 bits do MSP430. O Raspberry Pi manda o byte 0xAD para o MSP430, aguarda 100us, e lê os bytes menos e mais significativos da conversão, nessa ordem.
-	(d) Escreva a função em C para escrever uma string no display.
-	(e) Escreva a função em C para escrever a leitura atual no display. Por exemplo, se a leitura for igual a 500, o display deverá apresentar o seguinte texto: "AD = 500".
 
-6. Utilizando o módulo da questão anterior, escreva "Ola mundo!" no display LCD.
+		void Config_I2C(void);
 
-7. Considere um módulo serial SPI para display LCD (https://www.adafruit.com/product/292) e um MSP430 fazendo leituras AD, também conectado ao Raspberry Pi por SPI.
+	(b) Escreva a função em C para ler uma conversão AD de 10 bits do MSP430 de um dos oito canais. O Raspberry Pi manda o número do canal para o MSP430, aguarda 100us, e lê os bytes menos e mais significativos da conversão, nessa ordem.
 
-	(a) Escreva a função em C para configurar a comunicação SPI no Raspberry Pi.
-	(b) Escreva a função em C para configurar o display LCD.
-	(c) Escreva a função em C para ler uma conversão AD de 10 bits do MSP430. O Raspberry Pi manda o byte 0xAD, aguarda 100us, e manda os bytes 0xAE e 0xAF, recebendo do MSP430 os bytes menos e mais significativos da conversão, nessa ordem.
-	(d) Escreva a função em C para escrever uma string no display.
-	(e) Escreva a função em C para escrever a leitura atual no display. Por exemplo, se a leitura for igual a 500, o display deverá apresentar o seguinte texto: "AD = 500".
+		unsigned int AD_read_I2C(char channel);
 
-8. Utilizando o módulo da questão anterior, escreva "Ola mundo!" no display LCD.
+	(c) Escreva a função em C para escrever nos displays a leitura atual de tensão. Considere que o MSP430 mede tensões entre 0 e 3 V, e que o conversor AD é de 10 bits.
+
+		void Write_4_7seg_I2C(unsigned int value);
+
+	O MSP430 deverá receber a casas decimais do valor, da casa mais significativa para a menos significativa. Por exemplo, se value=1023, a Raspberry Pi deverá transmitir o vetor {3,0,0,0}.
+
+6. Considere dois MSP430, onde um deles faz leituras AD em 8 canais, e o outro escreve em 4 displays de 7 segmentos. Ambos estão conectados ao Raspberry Pi pelas portas SPI.
+
+	(a) Escreva a função em C para configurar a comunicação SPI no Raspberry Pi:
+
+		void Config_SPI(void);
+
+	(b) Escreva a função em C para ler uma conversão AD de 10 bits do MSP430 de um dos oito canais. O Raspberry Pi manda o número do canal para o MSP430, aguarda 100us, e lê os bytes menos e mais significativos da conversão, nessa ordem.
+
+		unsigned int AD_read_SPI(char channel);
+
+	(c) Escreva a função em C para escrever nos displays a leitura atual de tensão. Considere que o MSP430 mede tensões entre 0 e 3 V, e que o conversor AD é de 10 bits.
+
+		void Write_4_7seg_SPI(unsigned int value);
+
+	O MSP430 deverá receber a casas decimais do valor, da casa mais significativa para a menos significativa. Por exemplo, se value=1023, a Raspberry Pi deverá transmitir o vetor {3,0,0,0}.
 
 
 

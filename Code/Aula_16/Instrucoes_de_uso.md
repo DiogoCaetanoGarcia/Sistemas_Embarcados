@@ -1,10 +1,8 @@
-O Raspbian utiliza a porta serial assíncrona (UART)
-para acesso remoto ao terminal (bash):
+O Raspbian utiliza a porta serial assíncrona (UART) para acesso remoto ao terminal (bash):
 
 	http://elinux.org/RPi_Serial_Connection#Connection_to_a_microcontroller_or_other_peripheral
 
-Para utilizar a UART para outros propósitos, você
-deve desabilitar este acesso remoto, da seguinte maneira:
+Para utilizar a UART para outros propósitos, você deve desabilitar este acesso remoto, da seguinte maneira:
 
 1 - Execute
 
@@ -38,11 +36,7 @@ e troque "enable_uart=0" por "enable_uart=1".
 
 	$ sudo reboot
 
-4 - Se você estiver usando o Raspberry Pi 3, o arquivo
-de acesso à porta serial não é "/dev/ttyAMA0", e sim
-"/dev/ttyS0", pois "/dev/ttyAMA0" é a porta serial usada
-para comunicar com o módulo Bluetooth da placa. Assim,
-em todos os exemplos desta aula, troque as definições
+4 - Se você estiver usando o Raspberry Pi 3, o arquivo de acesso à porta serial não é "/dev/ttyAMA0", e sim "/dev/ttyS0", pois "/dev/ttyAMA0" é a porta serial usada para comunicar com o módulo Bluetooth da placa. Assim, em todos os exemplos desta aula, troque as definições
 
 	#define TTY /dev/ttyAMA0
 
