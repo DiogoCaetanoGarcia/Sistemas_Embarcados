@@ -28,8 +28,8 @@ int main(void)
 		lseek(pfd.fd, 0, SEEK_SET);
 		read(pfd.fd, &buffer, 1);
 		poll(&pfd, 1, -1);
-		puts("Borda de descida!");
 		//usleep(200000);
+		puts("Borda de subida!");
 		pos=s=0;
 		while(s<(N/2+1))
 		{
