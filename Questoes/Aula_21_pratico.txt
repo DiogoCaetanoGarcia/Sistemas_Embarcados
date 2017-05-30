@@ -1,0 +1,14 @@
+Data: 30/05/2017
+
+1. Faça um módulo do kernel do Linux que sempre retorna um caracter '1' inicialmente, ou o último caracter escrito nele.
+
+(Dica: utilize a função device_write() para descobrir o último caracter escrito.)
+
+2. Faça um módulo do kernel do Linux que retorna um número da sequência de Fibonacci, começando com 0 e depois 1. A sequência é atualizada a cada abertura do dispositivo. Escrever qualquer coisa nele reinicia a sequência.
+
+
+
+
+
+
+
