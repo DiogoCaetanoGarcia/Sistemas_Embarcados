@@ -21,3 +21,5 @@ Completando a instalação, execute
 2 - As aulas a seguir são baseadas no livro "The Linux Kernel Module Programming Guide", de P. Salzman, M. Burian e O. Pomerantz:
 
 	http://www.tldp.org/LDP/lkmpg/2.6/html/lkmpg.html
+
+O livro está disponível na pasta "Refs" deste repositório.
