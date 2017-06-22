@@ -79,9 +79,20 @@ para acrescentar o seguinte texto ao final deste arquivo:
 
 	device_tree=bcm2708-rpi-b.dtb
 
-De acordo com o modelo e o hardware do seu Raspberry Pi, troque o texto acima. Por exemplo, para o Raspberry Pi 3 B, 
+De acordo com o modelo e o hardware do seu Raspberry Pi, troque o texto acima. Execute
 
-	device_tree=bcm2837-rpi-3-b.dtb
+	cd /boot
+	ls *.dtb
+
+para ver outras opções:
+
+	bcm2708-rpi-0-w.dtb
+	bcm2708-rpi-b.dtb
+	bcm2708-rpi-b-plus.dtb
+	bcm2708-rpi-cm.dtb
+	bcm2709-rpi-2-b.dtb
+	bcm2710-rpi-3-b.dtb
+	bcm2710-rpi-cm3.dtb
 
 5 - Execute
 
