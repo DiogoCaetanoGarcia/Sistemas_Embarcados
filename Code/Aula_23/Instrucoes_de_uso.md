@@ -94,3 +94,8 @@ para reiniciar o Raspberry Pi.
 	uname -a
 
 para ver que o kernel foi alterado com o patch RT PREEMPT.
+
+7 - Os códigos nesta pasta são baseados nos seguintes documentos:
+
+	https://www.youtube.com/watch?v=uIXkvz1-weQ
+	http://www.isy.liu.se/edu/kurs/TSEA81/lecture_linux_realtime.html
