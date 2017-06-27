@@ -15,7 +15,7 @@
 - 16/05/2017: segundo teste (adiado para o dia 23/05/2017)
 - 30/05/2017: entrega do terceiro ponto de controle (adiado para o dia 06/06/2017)
 - 13/06/2017: entrega do quarto ponto de controle (adiado para o dia 20/06/2017)
-- 27/06/2017: entrega do projeto final
+- 27/06/2017: entrega do projeto final (adiado para o dia 04/07/2017)
 
 # Objetivos
 
