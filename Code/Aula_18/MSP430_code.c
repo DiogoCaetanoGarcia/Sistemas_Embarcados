@@ -2,7 +2,7 @@
 #include <legacymsp430.h>
 
 // Codigo para o MSP430 configurado como
-// escravo SPI
+// escravo I2C
 
 #define LED BIT0
 #define SCL BIT6
