@@ -1,5 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
+- REVISÃO DE NOTAS NA TERÇA-FEIRA, DIA 11/07/2017, DAS 9-12HS E DAS 14-17HS, NA MINHA SALA, NÚMERO 25.
 - Notas: https://docs.google.com/spreadsheets/d/1xf5WcqW_EdmWet1RoiWhByHICuwTHq4VMxnEkDGKMVQ/edit?usp=sharing
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
