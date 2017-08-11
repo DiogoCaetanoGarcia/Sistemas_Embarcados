@@ -2,17 +2,11 @@
 
 2. Crie dois programas em C para criar um cliente e um servidor. Execute a seguinte conversa entre cliente e servidor:
 
-	CLIENTE: Pai, qual é a verdadeira essência da sabedoria?
-	SERVIDOR: Não façais nada violento, praticai somente aquilo que é justo e equilibrado.
-	CLIENTE: Mas até uma criança de três anos sabe disso!
-	SERVIDOR: Sim, mas é uma coisa difícil de ser praticada até mesmo por um velho como eu...
+```
+CLIENTE: Pai, qual é a verdadeira essência da sabedoria?
+SERVIDOR: Não façais nada violento, praticai somente aquilo que é justo e equilibrado.
+CLIENTE: Mas até uma criança de três anos sabe disso!
+SERVIDOR: Sim, mas é uma coisa difícil de ser praticada até mesmo por um velho como eu...
+```
 
 Neste exercício, o cliente deve escrever no terminal as mensagens enviadas e recebidas.
-
-
-
-
-
-
-
-
