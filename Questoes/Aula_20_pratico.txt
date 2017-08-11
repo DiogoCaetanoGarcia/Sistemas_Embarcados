@@ -1,9 +1,0 @@
-Data: 25/05/2017
-
-1. Faça um módulo do kernel do Linux cujo MODULE_DESCRIPTION é fornecido pelo usuário que carrega o módulo. Confira o resultado do carregamento do módulo com o comando dmesg.
-
-(Dica: use uma string como module_param de entrada.)
-
-
-
-

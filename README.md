@@ -1,25 +1,23 @@
 # Sistemas Embarcados - Plano de Ensino
 
-- REVISÃO DE NOTAS NA TERÇA-FEIRA, DIA 11/07/2017, DAS 9-12HS E DAS 14-17HS, NA MINHA SALA, NÚMERO 25.
-- Notas: https://docs.google.com/spreadsheets/d/1xf5WcqW_EdmWet1RoiWhByHICuwTHq4VMxnEkDGKMVQ/edit?usp=sharing
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
 - Créditos: 4
 - Turma: A
-- Locais e horários: Lab SS, 3as e 5as feiras, sempre das 16:00 às 17:50
+- Locais e horários: Lab SS, 4as e 6as feiras, sempre das 16:00 às 17:50
 - Professor: Diogo Caetano Garcia
 - Email: diogogarcia(at)unb.br
 
 # Datas importantes
 
-- 04/04/2017: entrega do primeiro ponto de controle
-- 18/04/2017: primeiro teste
-- 02/05/2017: entrega do segundo ponto de controle (adiado para o dia 09/05/2017)
-- 16/05/2017: segundo teste (adiado para o dia 23/05/2017)
-- 30/05/2017: entrega do terceiro ponto de controle (adiado para o dia 06/06/2017)
-- 13/06/2017: entrega do quarto ponto de controle (adiado para o dia 20/06/2017)
-- 27/06/2017: entrega do projeto final (adiado para o dia 04/07/2017)
+- 06/09/2017: entrega do primeiro ponto de controle
+- 20/09/2017: primeiro teste
+- 04/10/2017: entrega do segundo ponto de controle
+- 18/10/2017: segundo teste
+- 01/11/2017: entrega do terceiro ponto de controle
+- 17/11/2017: entrega do quarto ponto de controle
+- 29/11/2017: entrega do projeto final
 
 # Objetivos
 
@@ -47,9 +45,9 @@ Aulas divididas de acordo com a técnica Pomodoro, com 3 períodos de 25 a 30 mi
 - 2o período: alunos responderão a perguntas teóricas propostas pelo professor;
 - 3o período: alunos responderão a perguntas práticas propostas pelo professor.
 
-Dentro do 2o e do 3o períodos, cada aluno deverá desenvolver ao máximo suas respostas, aproveitando o tempo disponível à exaustão, como esperado na técnica Pomodoro.
+Dentro do 2o e do 3o períodos, cada aluno deverá desenvolver ao máximo suas respostas, aproveitando o tempo disponível à exaustão, como esperado na técnica Pomodoro. As datas de entrega das respostas serão os fins de semana correspondentes às aulas.
 
-Todas as respostas deverão ser armazenadas em um repositório GitHub público, no mesmo dia em que as questões forem colocadas. Utilize arquivos diferentes para as respostas, separando-as por data. As respostas às questões poderão ser usadas pelo aluno durante a prova, especialmente funções em C para exercícios práticos. Sendo assim, organize bem o seu repositório.
+Todas as respostas deverão ser armazenadas em um repositório GitHub público. Utilize arquivos diferentes para as respostas, separando-as por data. Organize bem o seu repositório, com pastas individuais nomeadas **1_Respostas**, **2_PCs** e **3_Trabalho** para guardar as respostas das aulas, os pontos de controle e o trabalho final, respectivamente.
 
 Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno decidir qual modelo de Raspberry Pi utilizar, de acordo com suas necessidades no projeto final.
 

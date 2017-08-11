@@ -1,0 +1,35 @@
+1. Quantos pipes serão criados após as linhas de código a seguir? Por quê?
+	(a) int pid;
+		int	fd[2];
+		pipe(fd);
+		pid = fork();
+	(b) int pid;
+		int	fd[2];
+		pid = fork();
+		pipe(fd);
+
+2. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
+
+3. Considere o código a seguir:
+
+	 1. #include <signal.h>
+	 2. #include <unistd.h>
+	 3. #include <stdio.h>
+	 4. #include <stdlib.h>
+	 5.
+	 6. void tratamento_alarme(int sig)
+	 7. {
+	 8. 	system("date");
+	 9. 	alarm(1);
+	10. }
+	11. 
+	12. int main()
+	13. {
+	14. 	signal(SIGALRM, tratamento_alarme);
+	15. 	alarm(1);
+	16. 	printf("Aperte CTRL+C para acabar:\n");
+	17. 	while(1);
+	18. 	return 0;
+	19. }
+
+Sabendo que a função alarm() tem como entrada a quantidade de segundos para terminar a contagem, quão precisos são os alarmes criados neste código? De onde vem a imprecisão? Este é um método confiável para desenvolver aplicações em tempo real?
