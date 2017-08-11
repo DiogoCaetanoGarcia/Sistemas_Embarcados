@@ -6,6 +6,6 @@
 
 (c) www.unb.br
 
-(d) fga.unb.br
+(d) www.fga.unb.br
 
 Comente os resultados obtidos para cada página, em termos das respostas HTTP e HTML obtidas.
