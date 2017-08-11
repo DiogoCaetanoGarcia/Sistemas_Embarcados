@@ -2,18 +2,7 @@
 
 2. Considere um MSP430 sendo usado para leituras analógicas. O Raspberry Pi está conectado a ele via SPI, e é o mestre. O MSP430 foi programado para funcionar da seguinte forma:
 
-	I. Receber o byte 0x55 e enviar o byte 0xAA, o que indica o começo de conversão. 
-	II. 100us depois, o MSP430 recebe os bytes 0x01 e 0x02, e envia o byte menos significativo e o mais significativo da conversão de 10 bits, nesta ordem.
+- Receber o byte `0x55` e enviar o byte `0xAA`, o que indica o começo de conversão. 
+- 100us depois, o MSP430 recebe os bytes `0x01` e `0x02`, e envia o byte menos significativo e o mais significativo da conversão de 10 bits, nesta ordem.
  
 Escreva o código para o Raspberry Pi executar este protocolo, de forma a obter conversões a cada 10 ms. A cada 1 segundo ele deve apresentar no terminal a média das últimas 100 amostras.
-
-
-
-
-
-
-
-
-
-
-
