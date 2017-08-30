@@ -6,7 +6,7 @@
 //
 //    teste_retorno
 //
-// Este programa retorna 0 se o valor inserido for par, e 1 se ele for impar.
+// Este programa retorna o dobro do valor inserido.
 // Execute o proximo exemplo para ver o resultado.
 
 int main(int argc, const char *argv[])
