@@ -17,6 +17,10 @@ int main(int argc, char **argv)
 		printf(" --------------------------------\n");
 		return -1;
 	}
+	// printf("Argc = %d\n",argc);
+	// printf("Arg0: %s\n", argv[0]);
+	// printf("Arg1: %s\n", argv[1]);
+	// printf("Arg2: %s\n", argv[2]);
 	i = atoi(argv[1]);
 	printf("   1/%d = %g\n", i, reciprocal(i));
 	return 0;
