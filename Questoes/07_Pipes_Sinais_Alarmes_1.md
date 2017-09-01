@@ -3,7 +3,7 @@
 (a)
 ```C
 int pid;
-int	fd[2];
+int fd[2];
 pipe(fd);
 pid = fork();
 ```
@@ -11,7 +11,7 @@ pid = fork();
 (b)
 ```C
 int pid;
-int	fd[2];
+int fd[2];
 pid = fork();
 pipe(fd);
 ```
