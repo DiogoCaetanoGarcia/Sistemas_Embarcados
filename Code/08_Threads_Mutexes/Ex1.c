@@ -1,12 +1,18 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-// Imprime um caractere em stderr
+// Imprime continuamente um caractere em stderr
 void* print_xs (void* c)
 {
 	char *charactere = (char *) c;
-	while (1) fputc(*charactere, stderr);
+	while (1)
+	{
+		fputc(*charactere, stderr);
+		usleep(50000);
+	}
+
 	return NULL;
 }
 int main ()
@@ -25,10 +31,15 @@ int main ()
 	printf("A diferenca deste exemplo para o anterior eh que\n");
 	printf("neste a funcao print_xs() recebeu paramentos de entrada.\n");
 	system("pause");
+	printf("Pressione CONTROL+C para sair do programa\n\n");
 	pthread_create (&thread_id1, NULL, &print_xs, &c1);
 	pthread_create (&thread_id2, NULL, &print_xs, &c2);
 	// Imprime '-' continuamente em stderr
-	while(1) fputc ('-', stderr);
+	while(1)
+	{
+		fputc('-', stderr);
+		usleep(50000);
+	}
 	return 0;
 }
 

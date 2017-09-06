@@ -28,10 +28,10 @@ int main ()
 	printf("O que acontece com as threads?\n");
 	system("pause");
 	thread1_args.character = 'X';
-	thread1_args.count = 20000;
+	thread1_args.count = 10;
 	pthread_create (&thread1_id, NULL, &char_print, &thread1_args);
 	thread2_args.character = 'Y';
-	thread2_args.count = 10000;
+	thread2_args.count = 8;
 	pthread_create (&thread2_id, NULL, &char_print, &thread2_args);
 	pthread_join (thread1_id, NULL);
 	pthread_join (thread2_id, NULL);
