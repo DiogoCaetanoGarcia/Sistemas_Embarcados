@@ -113,12 +113,13 @@ void print_client_message(int client_socket)
 	text = (char*) malloc (length);
 	read(client_socket, text, length);
 	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
-	free (text);
 	if (!strcmp (text, "sair"))
 	{
+		free (text);
 		fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
 		end_server();
 	}
+	free (text);
 }
 
 void end_server(void)
