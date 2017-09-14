@@ -29,7 +29,6 @@ int main (int argc, char* const argv[])
 		puts("   transmitir o texto \"sair\", o servidor se");
 		puts("   encerra. Se o usuario pressionar CTRL-C para");
 		puts("   o servidor, ele tambem se encerra.");
-		puts("   encerra.");
 		puts("   Modo de Uso:");
 		printf("      %s <IP do Servidor> <Porta do servidor> <Mensagem>\n", argv[0]);
 		printf("   Exemplo: %s 127.0.0.1 8000 \"Ola socket\"\n", argv[0]);
