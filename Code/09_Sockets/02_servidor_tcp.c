@@ -31,7 +31,6 @@ int main (int argc, char* const argv[])
 		puts("   transmitir o texto \"sair\", o servidor se");
 		puts("   encerra. Se o usuario pressionar CTRL-C,");
 		puts("   o servidor tambem se encerra.");
-		puts("   encerra.");
 		puts("   Modo de Uso:");
 		printf("      %s <Numero da porta>\n", argv[0]);
 		printf("   Exemplo: %s 8080\n", argv[0]);
