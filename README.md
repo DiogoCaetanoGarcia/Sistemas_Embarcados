@@ -1,5 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
+- Notas da disciplina: https://goo.gl/GMPBqz
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
