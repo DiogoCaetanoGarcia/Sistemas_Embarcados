@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <signal.h>
 #include <wiringPi.h>
 #include <wiringSerial.h>
 
-// Este codigo requer a biblioteca wringPi. Compile-o usando
+// Este codigo requer a biblioteca wringPi:
+// http://wiringpi.com/download-and-install/
+// Compile-o usando
 //    gcc Ex2.c -lwiringPi -o Ex2.out
 
 // Arquivo de acesso a porta serial
@@ -17,7 +20,7 @@ int uart0_fd;
 void ctrl_c(int sig)
 {
 	puts(" Fechando " TTY "...");
-	close(uart0_fd);
+	serialClose(uart0_fd);
 	exit(-1);
 }
 

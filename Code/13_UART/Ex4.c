@@ -4,6 +4,7 @@
 #include <wiringPi.h>
 #include <wiringSerial.h>
 #include <errno.h>
+#include <string.h>
 
 // Este codigo requer a biblioteca wringPi. Compile-o usando
 //    gcc Ex4.c -lwiringPi -o Ex4.out
@@ -18,7 +19,7 @@ int uart0_fd;
 void ctrl_c(int sig)
 {
 	puts(" Fechando " TTY "...");
-	close(uart0_fd);
+	serialClose(uart0_fd);
 	exit(-1);
 }
 

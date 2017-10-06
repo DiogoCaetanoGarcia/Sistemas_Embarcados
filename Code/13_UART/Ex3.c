@@ -17,7 +17,7 @@ int uart0_fd;
 void ctrl_c(int sig)
 {
 	puts(" Fechando " TTY "...");
-	close(uart0_fd);
+	serialClose(uart0_fd);
 	exit(-1);
 }
 
