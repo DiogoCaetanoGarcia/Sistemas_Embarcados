@@ -2,11 +2,13 @@ SPI devices have a limited userspace API, supporting basic half-duplex
 read() and write() access to SPI slave devices.  Using ioctl() requests,
 full duplex transfers and device I/O configuration are also available.
 
+```
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <linux/types.h>
 #include <linux/spi/spidev.h>
+```
 
 Some reasons you might want to use this programming interface include:
 
