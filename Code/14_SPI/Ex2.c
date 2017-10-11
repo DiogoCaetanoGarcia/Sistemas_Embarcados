@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <wiringPi.h>
-//#include <wiringSerial.h>
-//#include <errno.h>
+#include <wiringPiSPI.h>
+#include <unistd.h>
 
 // Este codigo requer a biblioteca wringPi. Compile-o usando
 //    gcc Ex2.c -lwiringPi -o Ex2.out
