@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <fcntl.h>
-#include <linux/ioctl.h>
+#include <sys/ioctl.h>
 #include <linux/i2c-dev.h>
+#include <unistd.h>
 
 int i2c_fd;
 void ctrl_c(int sig)
@@ -14,7 +15,7 @@ void ctrl_c(int sig)
 
 int main(void)
 {
-	unsigned char user_input=1, msp430_ret, rpi_addr = 0xDA, slave_addr=0x0F;
+	unsigned char user_input=1, msp430_ret, slave_addr=0x0F;
 	signal(SIGINT, ctrl_c);
 	i2c_fd = open("/dev/i2c-1", O_RDWR);
 	ioctl(i2c_fd, I2C_SLAVE, slave_addr);

@@ -61,7 +61,7 @@ int main(void)
 	DCOCTL = CALDCO_1MHZ;
 	P1DIR |= LED;
 	P1OUT &= ~LED;
-	init_I2C(0xF); //0xAD);
+	init_I2C(0xF);
 	Pisca(LED, 1, DLY);
 	_BIS_SR(LPM0_bits + GIE);
 	return 0;
