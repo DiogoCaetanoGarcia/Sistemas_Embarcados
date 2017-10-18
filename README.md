@@ -15,9 +15,9 @@
 - 06/09/2017: entrega do primeiro ponto de controle
 - 20/09/2017: primeiro teste
 - 04/10/2017: entrega do segundo ponto de controle
-- 18/10/2017: segundo teste
-- 01/11/2017: entrega do terceiro ponto de controle
-- 17/11/2017: entrega do quarto ponto de controle
+- 18/10/2017: segundo teste (adiado para o dia 01/11/2017)
+- 01/11/2017: entrega do terceiro ponto de controle (adiada para o dia 08/11/2017)
+- 17/11/2017: entrega do quarto ponto de controle (adiada para o dia 22/11/2017)
 - 29/11/2017: entrega do projeto final
 
 # Objetivos
