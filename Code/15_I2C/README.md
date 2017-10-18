@@ -29,7 +29,8 @@ A mudança só será efetivada depois do reboot.
 5 - É necessário conectar resistores de pullup nas duas linhas, SCL (clock) e SDA (dados). A comunicação I2C requer estes resistores porque as linhas são conectadas na configuração coletor aberto (https://learn.sparkfun.com/tutorials/i2c/i2c-at-the-hardware-level):
 
 
-                        Vcc
+```
+                        Vcc
                         ---
                          |
                          /
@@ -48,6 +49,7 @@ dispositivo I2C        |\
                         -----
                          ---
                           -
+```
 
 Nesta configuração, qualquer dispositivo, mestre ou escravo, consegue levar a linha para 0 (GND) a qualquer momento, e qualquer dispositivo só consegue levar a linha para 1 (Vcc) se nenhum outro dispositivo "segurar" a linha em 0.
 
