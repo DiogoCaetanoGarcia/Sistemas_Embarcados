@@ -12,7 +12,7 @@ MODULE_DESCRIPTION("Ola Linux Kernel Module!");
 // Este modulo do kernel vai ser linkado com outros modulos,
 // e estas variaveis estarao disponiveis (veja o arquivo /proc/kallsyms).
 // Sendo assim, use nomes que provavelmente nao serao usados
-// em outros lugares. Aqui, usei o prefixo "hello_" paraevitar este problema.
+// em outros lugares. Aqui, usei o prefixo "hello_" para evitar este problema.
 static int hello_int = 0;
 static char *hello_str  = "Bla bla bla";
 
