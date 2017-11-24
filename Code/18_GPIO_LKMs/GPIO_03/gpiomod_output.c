@@ -31,10 +31,14 @@ int init_module(void)
 		return ret;
 	}
 	MSG_OK("modulo carregado");
-	// Comeca o timer, adiciona funcao do timer
+	// Comeca o timer
 	init_timer(&blink_timer);
+	// Ao final da contagem do timer, a funcao blink_timer_func() deve ser executada 
 	blink_timer.function = blink_timer_func;
 	blink_timer.data = 1L;	// Comeca com o LED ligado
+	// jiffies eh uma variavel global que indica a quantidade de periodos do clock desde que ocorreu o boot do sistema
+	// HZ representa a quantidade de ciclos para contabilizar um segundo
+	// LED_FREQ_2 = 200ms
 	blink_timer.expires = jiffies + LED_FREQ_2;
 	add_timer(&blink_timer);
 	return ret;
