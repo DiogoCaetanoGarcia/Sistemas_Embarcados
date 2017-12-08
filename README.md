@@ -1,6 +1,7 @@
 # Sistemas Embarcados - Plano de Ensino
 
-- Notas da disciplina: https://goo.gl/GMPBqz
+- **ATENÇÃO!!! As menções da disciplina foram definidas: https://goo.gl/GMPBqz. A revisão de notas será realizada na terça-feira, dia 12/12, das 14 às 17hs, na sala do professor, número 25.**
+
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
