@@ -12,7 +12,7 @@ int main()
 	printf("de 10 segundos para terminar sua execucao.\n");
 	printf("O programa principal hiberna por 5 segundos,\n");
 	printf("e cancela a thread criada.\n");
-	system("pause");
+	
 	printf("********************\n");
 	printf("* Criando a thread *\n");
 	printf("********************\n");

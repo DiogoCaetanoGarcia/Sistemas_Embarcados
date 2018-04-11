@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void* print_1(void)
+void* print_1(void* dummy_ptr)
 {
 	// Imprime '1' continuamente em stderr.
 	while(1)
@@ -14,7 +14,7 @@ void* print_1(void)
 	return NULL;
 }
 
-void* print_2(void)
+void* print_2(void* dummy_ptr)
 {
 	// Imprime '2' continuamente em stderr.
 	while(1)
@@ -37,7 +37,8 @@ int main ()
 	printf("continuamente '-' na tela.\n\n");
 	printf("Repare na ordem com que os caracteres sao escritos.\n");
 	printf("Percebe algum padrao?\n");
-	system("pause");
+	getchar();
+	
 	printf("Pressione CONTROL+C para sair do programa\n\n");
 	pthread_create (&thread_id1, NULL, &print_1, NULL);
 	// Cria um novo thread. A nova thread irá chamar a função print_2
@@ -48,7 +49,6 @@ int main ()
 		fputc('-', stderr);
 		usleep(50000);
 	}
-	// fputc ('-', stderr);
 	return 0;
 }
 

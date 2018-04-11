@@ -26,7 +26,8 @@ int main ()
 	printf("Este exemplo eh igual ao anterior, exceto pelo uso da funcao pthread_join()\n");
 	printf("antes de o programa principal terminar sua execucao em seguida.\n\n");
 	printf("O que acontece com as threads?\n");
-	system("pause");
+	getchar();
+	
 	thread1_args.character = 'X';
 	thread1_args.count = 10;
 	pthread_create (&thread1_id, NULL, &char_print, &thread1_args);

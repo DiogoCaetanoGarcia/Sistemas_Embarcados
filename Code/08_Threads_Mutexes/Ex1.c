@@ -30,7 +30,7 @@ int main ()
 	printf("continuamente '-' na tela.\n\n");
 	printf("A diferenca deste exemplo para o anterior eh que\n");
 	printf("neste a funcao print_xs() recebeu paramentos de entrada.\n");
-	system("pause");
+	getchar();
 	printf("Pressione CONTROL+C para sair do programa\n\n");
 	pthread_create (&thread_id1, NULL, &print_xs, &c1);
 	pthread_create (&thread_id2, NULL, &print_xs, &c2);

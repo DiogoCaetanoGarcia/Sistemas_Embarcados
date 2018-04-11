@@ -34,7 +34,7 @@ int main ()
 	printf("\n");
 	printf("O programa principal ira terminar sua execucao em seguida.\n");
 	printf("O que acontece com as threads?\n");
-	system("pause");
+	getchar();
 
 	thread1_args.character = 'x';
 	thread1_args.count = 100;
