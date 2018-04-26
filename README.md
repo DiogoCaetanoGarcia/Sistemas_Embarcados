@@ -1,5 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
+- **Notas e comentários do 1o Ponto de Controle: https://docs.google.com/spreadsheets/d/15Qkq6bc14O1HTG5GIDtw7RdffkyX0hukFqLLgLtt2Gk/edit?usp=sharing**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
