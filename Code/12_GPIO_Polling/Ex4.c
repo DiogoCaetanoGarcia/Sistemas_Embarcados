@@ -9,9 +9,9 @@ int main(void)
 	struct pollfd pfd;
 	char buffer;
 	int btn_press;
-	system("echo 4      > /sys/class/gpio/export");
-	system("echo rising > /sys/class/gpio/gpio4/edge");
-	system("echo in     > /sys/class/gpio/gpio4/direction");
+	system("echo 4       > /sys/class/gpio/export");
+	system("echo falling > /sys/class/gpio/gpio4/edge");
+	system("echo in      > /sys/class/gpio/gpio4/direction");
 	pfd.fd = open("/sys/class/gpio/gpio4/value", O_RDONLY);
 	if(pfd.fd < 0)
 	{
@@ -28,7 +28,12 @@ int main(void)
 		read(pfd.fd, &buffer, 1);
 		poll(&pfd, 1, -1);
 		puts("Borda de descida!");
-		usleep(200000);
+		do
+		{
+			lseek(pfd.fd, 0, SEEK_SET);
+			read(pfd.fd, &buffer, 1);
+		}while(buffer=='0');
+		usleep(300000);
 	}
 	close(pfd.fd);
 	system("echo 4 > /sys/class/gpio/unexport");

@@ -17,7 +17,7 @@ int main()
 	if(pid == 0)
 	{
 		printf("Filho vai ler o pipe\n");
-		if(read(fd[0], mensagem, 30) < 0) 
+		if(read(fd[0], mensagem, 30) < 0)
 			printf("Erro na leitura do pipe\n");
 		else
 			printf("Filho leu: %s\n", mensagem);

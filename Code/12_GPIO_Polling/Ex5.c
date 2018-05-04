@@ -4,7 +4,7 @@
 #include <sys/poll.h>
 #include <unistd.h>
 
-#define N 100
+#define N 1000
 #define Nlim (N*3)/4
 
 void poll_btn(struct pollfd *pfd)
