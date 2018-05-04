@@ -40,7 +40,7 @@ int main(void)
 	options.c_cc[VTIME] = 0;
 	options.c_cc[VMIN]  = 1;
 	cfsetospeed(&options, B9600);
-        cfsetispeed(&options, B9600);
+	cfsetispeed(&options, B9600);
 	tcflush(uart0_fd, TCIOFLUSH);
 	tcsetattr(uart0_fd, TCSANOW, &options);
 	puts("UART configurada:");
