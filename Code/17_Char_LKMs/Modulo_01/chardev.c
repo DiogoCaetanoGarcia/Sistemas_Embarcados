@@ -40,7 +40,7 @@ int init_module(void)
 		return Major;
 	}
 	printk(KERN_INFO "Major number assinalado: %d.\n", Major);
-	printk(KERN_INFO "Para comunicar como driver, crie um arquivo dev:\n");
+	printk(KERN_INFO "Para comunicar com o driver, crie um arquivo dev:\n");
 	printk(KERN_INFO "   mknod /dev/%s c %d %d\n", DEVICE_NAME, Major, Minor);
 	printk(KERN_INFO "Tente varios minors. Tente usar cat e echo com o arquivo dev.\n");
 	printk(KERN_INFO "Remova o arquivo dev e o modulo quando terminar.\n");
