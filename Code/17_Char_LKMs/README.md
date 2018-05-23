@@ -30,4 +30,4 @@ brw-rw---- 1 root disk   1, 0 Nov 17 12:39 /dev/ram0
 crw-rw---- 1 root spi  153, 0 Nov 17 12:39 /dev/spidev0.0
 ```
 
-indicando que `/dev/ram0` é um dispotivo de bloco, e `/dev/spidev0.0` é um dispositivo de caracter.
+indicando que `/dev/ram0` é um dispositivo de bloco, e `/dev/spidev0.0` é um dispositivo de caracter.
