@@ -1,10 +1,10 @@
-Dentre os vários módulos do *kernel* Linux, *device drivers* permite a comunicação entre programas e o *hardware* conectado. Por exemplo, executando
+Dentre os vários módulos do *kernel* Linux, *device drivers* permitem a comunicação entre programas e o *hardware* conectado. Por exemplo, executando
 
 ```
 ls -l /dev/spi*
 ```
 
-no terminal do Raspbian mostra portas SPI disponíveis. Por exemplo,
+no terminal do Raspbian, são apresentadas as portas SPI disponíveis:
 
 ```
 crw-rw---- 1 root spi 153, 0 Nov 17 12:39 /dev/spidev0.0
@@ -15,10 +15,7 @@ Repare os números apresentados antes da data de criação. O primeiro número, 
 
 O segundo número (0 e 1) é o *minor number* do *device driver*. Ele é usado para o *driver* distinguir dois ou mais dispositivos.
 
-Existem dois tipo de *device drivers*: de caracter e de bloco. Dispositivos de caracter permitem leituras
-e escritas de qualquer quantidade de *bytes*, e dispositivos de bloco só permitem leituras e escritas em tamanho pré-determinado.
-Dispositivos de bloco também possuem um *buffer* para pedidos de leitura e escrita, para que definam em qual ordem atenderão a pedidos.
-Isto é importante para dispositivos de memória, aonde é mais rápido ler e escrever setores próximos ao invés de distantes.
+Existem dois tipo de *device drivers*: de caracter e de bloco. Dispositivos de caracter permitem leituras e escritas de qualquer quantidade de *bytes*, e dispositivos de bloco só permitem leituras e escritas em tamanho pré-determinado. Dispositivos de bloco também possuem um *buffer* para pedidos de leitura e escrita, para que eles definam em qual ordem atenderão a pedidos. Isto é importante para dispositivos de memória, aonde é mais rápido ler e escrever setores próximos ao invés de distantes.
 
 Dispositivos de bloco e de caracter são diferenciados pelo seu primeiro caracter na saída do comando `ls -l`. Por exemplo,
 
