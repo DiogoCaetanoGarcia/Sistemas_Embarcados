@@ -57,14 +57,14 @@ static int device_open(struct inode *inode, struct file *file)
 	if(Device_Open) return -EBUSY;
 	Device_Open++; // Trava acesso ao device
 	Device_Counter = 0; // Conta quantos caracteres foram lidos
-	try_module_get(THIS_MODULE); // Incrementa o contador de uso do modulo
+	try_module_get(THIS_MODULE); // Incrementa o contador de uso do modulo, impedindo que ele seja removido (rmmod)
 	return 0;
 }
 
 static int device_release(struct inode *inode, struct file *file)
 {
 	Device_Open--; // Libera acesso ao device
-	module_put(THIS_MODULE); // Decrementa o contador de uso do modulo
+	module_put(THIS_MODULE); // Decrementa o contador de uso do modulo, permitindo que ele seja removido (rmmod)
 	return 0;
 }
 
