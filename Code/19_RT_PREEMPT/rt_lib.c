@@ -100,7 +100,8 @@ void dumptimestamps(int unused)
 	std /= (double)(MAX_LOGENTRIES-1);
 	std = sqrt(std);
 	end_gpio(PIN_VALUE, pin0);
-	char last_msg[256];
-	printf(last_msg, "Media = %f ns\nDesvio-padrao = %f", mean, std);
-	panic(last_msg);
+	fprintf(stderr, "\n\nEstatisticas dos timestamps:\n\n");
+	fprintf(stderr, "   Media         = %2.6f ms\n",mean*1.0e-6);
+	fprintf(stderr, "   Desvio-padrao = %2.6f ms\n\n",std*1.0e-6);
+	exit(1);
 }
