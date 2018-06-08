@@ -44,9 +44,9 @@ int main(void)
 	while(1)
 	{
 		sleep_until(&ts, DELAY_NS);
-		logtimestamp(&t[logindex]);
 		setiopin(pin0,val);
 		INC_CNT(logindex, MAX_LOGENTRIES);
 		INC_CNT(val, 2);
+		logtimestamp(&t[logindex]);
 	}
 }
