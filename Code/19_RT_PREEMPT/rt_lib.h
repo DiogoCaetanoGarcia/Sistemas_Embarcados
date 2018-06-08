@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <math.h>
 #include <stdint.h>
 #include <pthread.h>
 #include <sys/mman.h>
