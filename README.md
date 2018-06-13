@@ -16,9 +16,9 @@
 - 18/04/2018: primeiro teste
 - 02/05/2018: entrega do segundo ponto de controle
 - 16/05/2018: segundo teste
-- 30/05/2018: entrega do terceiro ponto de controle
-- 13/06/2018: entrega do quarto ponto de controle
-- 27/06/2018: entrega do projeto final
+- 30/05/2018: entrega do terceiro ponto de controle (adiada para 06/06/2018)
+- 13/06/2018: entrega do quarto ponto de controle (adiada para 20/06/2018)
+- 27/06/2018: entrega do projeto final (adiada para 04/07/2018)
 
 # Objetivos
 
