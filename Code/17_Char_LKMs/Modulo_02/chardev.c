@@ -13,7 +13,7 @@ MODULE_AUTHOR("Sistemas Embarcados");
 MODULE_DESCRIPTION("Ola char driver!");
 
 #define DEVICE_NAME "chardev"
-#define CLASS_NAME  "chardev_class" 
+#define CLASS_NAME  "chardev_class"
 
 int init_module(void);
 void cleanup_module(void);

@@ -33,7 +33,7 @@ int init_module(void)
 	MSG_OK("modulo carregado");
 	// Comeca o timer
 	init_timer(&blink_timer);
-	// Ao final da contagem do timer, a funcao blink_timer_func() deve ser executada 
+	// Ao final da contagem do timer, a funcao blink_timer_func() deve ser executada
 	blink_timer.function = blink_timer_func;
 	blink_timer.data = 1L;	// Comeca com o LED ligado
 	// jiffies eh uma variavel global que indica a quantidade de periodos do clock desde que ocorreu o boot do sistema
