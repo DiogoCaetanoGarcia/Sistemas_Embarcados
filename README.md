@@ -1,8 +1,5 @@
 # Sistemas Embarcados - Plano de Ensino
 
-- **ATENÇÃO! Revisão de notas amanhã, dia 11 de julho, das 15 às 18hs na minha sala, número 25.**
-- **NOTAS FINAIS: https://docs.google.com/spreadsheets/d/1Kd_k7VfMbqh2lF5_P3UXDmnf_C8jdkwndXKLS4OUqEc/edit?usp=sharing**
-- **Notas e comentários do 1o Ponto de Controle: https://docs.google.com/spreadsheets/d/15Qkq6bc14O1HTG5GIDtw7RdffkyX0hukFqLLgLtt2Gk/edit?usp=sharing**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
@@ -14,13 +11,13 @@
 
 # Datas importantes
 
-- 04/04/2018: entrega do primeiro ponto de controle
-- 18/04/2018: primeiro teste
-- 02/05/2018: entrega do segundo ponto de controle
-- 16/05/2018: segundo teste
-- 30/05/2018: entrega do terceiro ponto de controle (adiada para 06/06/2018)
-- 13/06/2018: entrega do quarto ponto de controle (adiada para 20/06/2018)
-- 27/06/2018: entrega do projeto final (adiada para 04/07/2018)
+- 05/09/2018: entrega do primeiro ponto de controle
+- 21/09/2018: primeiro teste
+- 05/10/2018: entrega do segundo ponto de controle
+- 19/10/2018: entrega do terceiro ponto de controle
+- 31/10/2018: segundo teste
+- 16/11/2018: entrega do quarto ponto de controle
+- 30/11/2018: entrega do projeto final
 
 # Objetivos
 
