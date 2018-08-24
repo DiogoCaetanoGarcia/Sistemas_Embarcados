@@ -1,5 +1,11 @@
 # Sistemas Embarcados - Plano de Ensino
 
+**Prezados alunos,**
+
+**Devido à comemoração dos 10 anos da FGA, não haverá aula amanhã, dia 24/08.**
+
+**Att., Prof. Diogo**
+
 - **ENVIE SEUS DADOS PARA O PROFESSOR VIA O SEGUINTE FORMULÁRIO: https://goo.gl/forms/oQIifEMJvQJmBfr82**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
