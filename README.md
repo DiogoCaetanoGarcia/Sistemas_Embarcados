@@ -1,5 +1,7 @@
 # Sistemas Embarcados - Plano de Ensino
 
+**PREZADOS ALUNOS, AMANHÃ NÃO HAVERÁ AULA DEVIDO À DEDETIZAÇÃO DA FGA. FORAM ACRSCENTADOS EXERCÍCIOS REFERENTES AO USO DA BIBLIOTECA** STDIO.H **EM https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Questoes/04_File_stdio_extra.md**
+
 - **ENVIE SEUS DADOS PARA O PROFESSOR VIA O SEGUINTE FORMULÁRIO: https://goo.gl/forms/oQIifEMJvQJmBfr82**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
