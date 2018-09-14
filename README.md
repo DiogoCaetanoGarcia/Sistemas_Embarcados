@@ -1,7 +1,5 @@
 # Sistemas Embarcados - Plano de Ensino
 
-**PREZADOS ALUNOS, NÃO HAVERÁ AULA AMANHÃ, DIA 31/08, DEVIDO À DEDETIZAÇÃO DA FGA. FORAM ACRESCENTADOS EXERCÍCIOS REFERENTES AO USO DA BIBLIOTECA** STDIO.H **EM https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Questoes/04_File_stdio_extra.md**
-
 - **ENVIE SEUS DADOS PARA O PROFESSOR VIA O SEGUINTE FORMULÁRIO: https://goo.gl/forms/oQIifEMJvQJmBfr82**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
@@ -15,12 +13,12 @@
 # Datas importantes
 
 - 05/09/2018: entrega do primeiro ponto de controle
-- 21/09/2018: primeiro teste
-- 05/10/2018: entrega do segundo ponto de controle
-- 19/10/2018: entrega do terceiro ponto de controle
-- 31/10/2018: segundo teste
-- 16/11/2018: entrega do quarto ponto de controle
-- 30/11/2018: entrega do projeto final
+- 21/09/2018: primeiro teste **(adiado para o dia 05/10/2018)**
+- 05/10/2018: entrega do segundo ponto de controle **(adiado para o dia 19/10/2018)**
+- 19/10/2018: entrega do terceiro ponto de controle **(adiado para o dia 31/10/2018)**
+- 31/10/2018: segundo teste **(adiado para o dia 16/11/2018)**
+- 16/11/2018: entrega do quarto ponto de controle **(adiado para o dia 30/11/2018)**
+- 30/11/2018: entrega do projeto final **(adiado para o dia 05/12/2018)**
 
 # Objetivos
 
