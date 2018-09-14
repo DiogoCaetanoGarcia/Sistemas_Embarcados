@@ -8,7 +8,7 @@ int main()
 {
 	int pid;	// PID do processo filho
 	int fd[2];	// Descritores do pipe
-	char mensagem[30] = "HELLO PIPE";
+	char mensagem[30];
 	// Cria o pipe
 	pipe(fd);
 	// Cria o processo
@@ -25,8 +25,9 @@ int main()
 	// Codigo do pai
 	else
 	{
+		strcpy(mensagem, "HELLO PIPE");
 		printf("Pai vai escrever no pipe\n");
-		if (write(fd[1], mensagem, sizeof(mensagem)) < 0)
+		if (write(fd[1], mensagem, 30) < 0)
 			printf("Erro na escrita do pipe\n");
 		printf("Pai terminou de escrever no pipe\n");
 	}

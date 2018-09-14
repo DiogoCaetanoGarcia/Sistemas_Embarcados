@@ -22,7 +22,7 @@ int main()
 		else
 			printf("Valor lido pelo filho = %s\n", buffer_filho);
 		printf("Filho vai escrever no pipe\n");
-		if (write(fd[1], msg_filho, sizeof(msg_filho)) < 0)
+		if (write(fd[1], msg_filho, 30) < 0)
 			printf("Erro na escrita do pipe\n");
 		printf("Filho terminou de escrever no pipe\n");
 	}
@@ -31,7 +31,7 @@ int main()
 	{
 		char buffer_pai[30], msg_pai[30] = "PAI DIZ: HELLO PIPE";
 		printf("Pai vai escrever no pipe\n");
-		if (write(fd[1], msg_pai, sizeof(msg_pai)) < 0)
+		if (write(fd[1], msg_pai, 30) < 0)
 			printf("Erro na escrita do pipe\n");
 		printf("Pai terminou de escrever no pipe\n");
 		printf("Pai vai hibernar por 1 segundo, para dar tempo do filho ler o pipe\n");

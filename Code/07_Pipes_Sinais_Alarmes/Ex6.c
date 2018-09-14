@@ -16,7 +16,8 @@ int main()
 	int pid_filho;
 	signal(SIGUSR1, tratamento_SIGUSR1);
 	printf("Processo pai   [%d] vai criar o filho e dormir por 1 segundo.\n", getpid());
-	if((pid_filho=fork())==0) 
+	pid_filho = fork();
+	if(pid_filho==0) 
 	{
 		printf("Processo filho [%d] vai entrar num loop infinito.\n", getpid());
 		while(1);
