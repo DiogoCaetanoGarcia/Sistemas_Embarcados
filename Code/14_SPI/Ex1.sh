@@ -11,7 +11,7 @@ echo echo -ne \"\\x01\"
 echo escreve o valor hexadecimal 0x01 na tela,
 echo sem pular a linha \(\\n\).
 echo O comando
-echo echo -ne "\x01" > /dev/spidev0.0
+echo echo -ne "\x01" \> /dev/spidev0.0
 echo escreve o valor hexadecimal 0x01 em /dev/spidev0.0.
 echo Se você tiver compilado e executado o código MSP430_code.c
 echo no MSP430G2553, ele deverá piscar o LED uma vez.
