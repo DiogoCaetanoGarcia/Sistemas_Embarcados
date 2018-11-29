@@ -1,7 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
-- **NOTAS DO PC1 E COMENTÁRIOS DO PROFESSOR: https://docs.google.com/spreadsheets/d/1Uda1J04DOROOSOU4fYhfuC3U5RYCRCy919y5_HzW--4/edit?usp=sharing**
-- **ENVIE SEUS DADOS PARA O PROFESSOR VIA O SEGUINTE FORMULÁRIO: https://goo.gl/forms/oQIifEMJvQJmBfr82**
+- **NOTAS DAS PROVAS: https://docs.google.com/spreadsheets/d/1Uda1J04DOROOSOU4fYhfuC3U5RYCRCy919y5_HzW--4/edit?usp=sharing**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
 - Código: 206181
