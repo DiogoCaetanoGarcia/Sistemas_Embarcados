@@ -1,5 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
+- **AVISO DO DIA 05/12: Prezados alunos, quem quiser pode chegar mais cedo, a partir das 15hs, para apresentar o trabalho final. Teremos assim menos pressa em cada apresentação.**
 - **NOTAS DAS PROVAS: https://docs.google.com/spreadsheets/d/1Uda1J04DOROOSOU4fYhfuC3U5RYCRCy919y5_HzW--4/edit?usp=sharing**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
