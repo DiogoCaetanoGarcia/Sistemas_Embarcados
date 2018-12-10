@@ -1,6 +1,6 @@
 # Sistemas Embarcados - Plano de Ensino
 
-- **AVISO DO DIA 05/12: Prezados alunos, quem quiser pode chegar mais cedo, a partir das 15hs, para apresentar o trabalho final. Teremos assim menos pressa em cada apresentação.**
+**A REVISÃO DE NOTAS SERÁ FEITA AMANHÃ, DIA 11/12, DAS 14 ÀS 18 HS NA MINHA SALA, NÚMERO 25. ESTOU TERMINANDO DE CORRIGIR OS TRABALHOS.**
 - **NOTAS DAS PROVAS: https://docs.google.com/spreadsheets/d/1Uda1J04DOROOSOU4fYhfuC3U5RYCRCy919y5_HzW--4/edit?usp=sharing**
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
