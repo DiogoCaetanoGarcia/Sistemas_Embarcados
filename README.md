@@ -1,26 +1,23 @@
-# Sistemas Embarcados - Plano de Ensino
+# Sistemas Operacionais Embarcados - Plano de Ensino
 
-**Prezados alunos, seguem as menções finais: https://docs.google.com/spreadsheets/d/1Uda1J04DOROOSOU4fYhfuC3U5RYCRCy919y5_HzW--4/edit?usp=sharing**
-
-**A REVISÃO DE NOTAS SERÁ FEITA AMANHÃ, DIA 11/12, DAS 14 ÀS 18 HS NA MINHA SALA, NÚMERO 25.**
-- Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=206181
-- Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=206181
-- Código: 206181
-- Créditos: 4
+- Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
+- Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=120961
+- Código: 120961
+- Créditos: 6
 - Turma: A
-- Locais e horários: Lab SS, 4as e 6as feiras, sempre das 16:00 às 17:50
+- Locais e horários: Lab SS, 2as, 4as e 6as feiras, sempre das 14:00 às 15:50
 - Professor: Diogo Caetano Garcia
 - Email: diogogarcia(at)unb.br
 
 # Datas importantes
 
-- 05/09/2018: entrega do primeiro ponto de controle
-- 21/09/2018: primeiro teste **(adiado para o dia 05/10/2018)**
-- 05/10/2018: entrega do segundo ponto de controle **(adiado para o dia 19/10/2018)**
-- 19/10/2018: entrega do terceiro ponto de controle **(adiado para o dia 31/10/2018)**
-- 31/10/2018: segundo teste **(adiado para o dia 16/11/2018)**
-- 16/11/2018: entrega do quarto ponto de controle **(adiado para o dia 30/11/2018)**
-- 30/11/2018: entrega do projeto final **(adiado para o dia 05/12/2018)**
+- 29/03/2019: entrega do primeiro ponto de controle
+- 08/04/2019: primeiro teste
+- 29/04/2019: entrega do segundo ponto de controle
+- 13/05/2019: segundo teste
+- 27/05/2019: entrega do terceiro ponto de controle
+- 10/06/2019: entrega do quarto ponto de controle
+- 05/07/2019: entrega do projeto final
 
 # Objetivos
 
