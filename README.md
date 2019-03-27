@@ -136,6 +136,19 @@ Todos os relatórios dos pontos de controle serão entregues através do mesmo r
 
 # Bibliografia
 
+Bibliografia básica: 
+1) Doug Abbott, Embedded Technology: Linux for Embedded and Real-Time Applications, 2nd Ed., Newnes, USA, 2006. 
+2) Mark Mitchell, Jeffrey Oldham e Alex Samuel, Advanced Linux Programming, New Riders, USA, 2001. 
+3) Christopher Hallinan, Embedded Linux Primer: A Practical Real-World Approach, Prentice Hall, USA, 2006. 
+4) Qing Li e Caroline Yao, Real-Time Concepts for Embedded Systems, CMP, USA, 2003. 
+
+Bibliografia complementar: 
+1) Rajaram Regupathy, Bootstrap Yourself with Linux-USB Stack : Design, Develop, Debug, and Validate Embedded USB, Course Technology, USA, 2011. 
+2) Daniel Bovet e Marco Cesati, Understanding the Linux Kernel, 3rd Ed., O'Reilly, USA, 2005. 
+3) Jonathan Corbet, Alessandro Rubini e Greg Kroah-Hartman, Linux Device Drivers, 3rd Ed., O'Reilly, USA, 2005. 
+4) Karim Yaghmour, Jon Masters e Gilad Ben-Yossef, Building Embedded Linux Systems, 3rd Ed., O'Reilly, USA, 2003.
+
+<!--
 Básica:
 
 - Mitchell, M., Oldham, J. & Samuel, A., Advanced Linux Programming, Editora: Newriders, 2001.
@@ -148,3 +161,4 @@ Complementar:
 - Corbet, J., Rubini, A. & Kroah-Hartman, G., Linux device drivers, 3o Edição, Editora: O'Reilly, 2005.
 - Karim Yaghmour, Building Embedded Linux Systems, Publisher: O'Reilly, 2003.
 - David Kalinsky, Introduction to Real-Time Operating Systems, White paper Xenomai API, www.xenomai.org.
+-->
