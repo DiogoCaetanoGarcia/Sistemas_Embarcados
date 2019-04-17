@@ -39,20 +39,18 @@ int main (int argc, char* const argv[])
 	}
 	servidorPorta = atoi(argv[1]);
 
-	fprintf(stderr, "Definindo o tratamento de SIGINT... ");
+	// Definindo o tratamento de SIGINT
 	signal(SIGINT, sigint_handler);
-	fprintf(stderr, "Feito!\n");
 	
-	fprintf(stderr, "Abrindo o socket local... ");
+	// Abrindo o socket local
 	socket_id = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if(socket_id < 0)
 	{
 		fprintf(stderr, "Erro na criacao do socket!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Ligando o socket a porta %d... ", servidorPorta);
+	// Ligando o socket a porta "servidorPorta"
 	memset(&servidorAddr, 0, sizeof(servidorAddr)); // Zerando a estrutura de dados
 	servidorAddr.sin_family = AF_INET;
 	servidorAddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -62,15 +60,13 @@ int main (int argc, char* const argv[])
 		fprintf(stderr, "Erro na ligacao!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Tornando o socket passivo (para virar um servidor)... ");
+	// Tornando o socket passivo (para virar um servidor)
 	if(listen(socket_id, 10) < 0)
 	{
 		fprintf(stderr, "Erro!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 
 	while(1)
 	{
@@ -78,21 +74,18 @@ int main (int argc, char* const argv[])
 		struct sockaddr_in clienteAddr;
 		unsigned int clienteLength;
 
-		fprintf(stderr, "Aguardando a conexao de um cliente... ");
+		// Aguardando a conexao de um cliente
 		clienteLength = sizeof(clienteAddr);
 		if((socketCliente = accept(socket_id, (struct sockaddr *) &clienteAddr, &clienteLength)) < 0)
 			fprintf(stderr, "Falha no accept().\n");
-		fprintf(stderr, "Feito!\n");
 		
 		fprintf(stderr, "Conexão do Cliente %s\n", inet_ntoa(clienteAddr.sin_addr));
 		
-		fprintf(stderr, "Tratando comunicacao com o cliente... ");
+		// Tratando comunicacao com o cliente
 		print_client_message(socketCliente);
-		fprintf(stderr, "Feito!\n");
 
-		fprintf(stderr, "Fechando a conexao com o cliente... ");
+		// Fechando a conexao com o cliente
 		close(socketCliente);
-		fprintf(stderr, "Feito\n");
 	}
 	return 0;
 }
@@ -107,12 +100,12 @@ void print_client_message(int client_socket)
 {
 	int length;
 	char* text;
-	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
+	//fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 	read(client_socket, &length, sizeof (length));
-	fprintf(stderr, "%d bytes.", length);
+	//fprintf(stderr, "%d bytes.", length);
 	text = (char*) malloc (length);
 	read(client_socket, text, length);
-	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
+	fprintf(stderr,"Mensagem = %s\n\n", text);
 	if (!strcmp (text, "sair"))
 	{
 		free (text);
@@ -124,8 +117,7 @@ void print_client_message(int client_socket)
 
 void end_server(void)
 {
-	fprintf(stderr, "Fechando o socket local... ");
+	// Fechando o socket local
 	close(socket_id);
-	fprintf(stderr, "Feito!\n");
 	exit(0);
 }

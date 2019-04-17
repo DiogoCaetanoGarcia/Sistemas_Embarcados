@@ -38,16 +38,15 @@ int main (int argc, char* const argv[])
 	servidorPorta = atoi(argv[2]);
 	mensagem = argv[3];
 
-	fprintf(stderr, "Abrindo o socket para o cliente... ");
+	// Abrindo o socket para o cliente
 	socket_id = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if(socket_id < 0)
 	{
 		fprintf(stderr, "Erro na criacao do socket!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 	
-	fprintf(stderr, "Conectando o socket ao IP %s pela porta %d... ", IP_Servidor, servidorPorta);
+	// Conectando o socket ao IP "IP_Servidor" pela porta "servidorPorta"
 	memset(&servidorAddr, 0, sizeof(servidorAddr)); // Zerando a estrutura de dados
 	servidorAddr.sin_family = AF_INET;
 	servidorAddr.sin_addr.s_addr = inet_addr(IP_Servidor);
@@ -58,16 +57,13 @@ int main (int argc, char* const argv[])
 		fprintf(stderr, "Erro na conexao!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Mandando mensagem ao servidor... ");
+	// Mandando mensagem ao servidor
 	length = strlen(mensagem) + 1;
 	write(socket_id, &length, sizeof(length));
 	write(socket_id, mensagem, length);
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Fechando o socket local... ");
+	// Fechando o socket local
 	close(socket_id);
-	fprintf(stderr, "Feito!\n");
 	return 0;
 }

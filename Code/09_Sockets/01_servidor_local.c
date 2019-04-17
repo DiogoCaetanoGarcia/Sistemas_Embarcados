@@ -40,23 +40,19 @@ int main (int argc, char* const argv[])
 		strcpy(socket_name, argv[1]);
 
 
-	fprintf(stderr, "Definindo o tratamento de SIGINT... ");
+	// Definindo o tratamento de SIGINT
 	signal(SIGINT, sigint_handler);
-	fprintf(stderr, "Feito!\n");
 	
-	fprintf(stderr, "Abrindo o socket local... ");
+	// Abrindo o socket local
 	socket_id = socket(PF_LOCAL, SOCK_STREAM, 0);
-	fprintf(stderr, "Feito!\n");
-
-	fprintf(stderr, "Ligando o socket ao endereco local \"%s\"... ", socket_name);
+	
+	// Ligando o socket ao endereco local "socket_name"
 	socket_struct.sa_family = AF_LOCAL;
 	strcpy(socket_struct.sa_data, socket_name);
 	bind(socket_id, &socket_struct, sizeof(socket_struct));
-	fprintf(stderr, "Feito!\n");
-
-	fprintf(stderr, "Tornando o socket passivo (para virar um servidor)... ");
+	
+	// Tornando o socket passivo (para virar um servidor)
 	listen(socket_id, 10);
-	fprintf(stderr, "Feito!\n");
 
 	while(1)
 	{
@@ -64,17 +60,14 @@ int main (int argc, char* const argv[])
 		int socket_id_cliente;
 		socklen_t cliente_len;
 
-		fprintf(stderr, "Aguardando a conexao de um cliente... ");
+		// Aguardando a conexao de um cliente
 		socket_id_cliente = accept(socket_id, &cliente, &cliente_len);
-		fprintf(stderr, "Feito!\n");
 
-		fprintf(stderr, "Obtendo a informacao transmitida pelo cliente...");
+		// Obtendo a informacao transmitida pelo cliente
 		print_client_message(socket_id_cliente);
-		fprintf(stderr, "Feito!\n");
 
-		fprintf(stderr, "Fechando a conexao com o cliente... ");
+		// Fechando a conexao com o cliente
 		close(socket_id_cliente);
-		fprintf(stderr, "Feito!\n");
 	}
 	return 0;
 }
@@ -89,12 +82,12 @@ void print_client_message(int client_socket)
 {
 	int length;
 	char* text;
-	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
+	//fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 	read(client_socket, &length, sizeof (length));
-	fprintf(stderr, "%d bytes.", length);
+	//fprintf(stderr, "%d bytes.", length);
 	text = (char*) malloc (length);
 	read(client_socket, text, length);
-	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
+	fprintf(stderr,"Mensagem = %s\n\n", text);
 	if (!strcmp (text, "sair"))
 	{
 		free (text);
@@ -106,11 +99,9 @@ void print_client_message(int client_socket)
 
 void end_server(void)
 {
-	fprintf(stderr, "Apagando \"%s\" do sistema... ", socket_name);
+	// Apagando "socket_name" do sistema
 	unlink(socket_name);
-	fprintf(stderr, "Feito!\n");
-	fprintf(stderr, "Fechando o socket local... ");
+	// Fechando o socket local
 	close(socket_id);
-	fprintf(stderr, "Feito!\n");
 	exit(0);
 }

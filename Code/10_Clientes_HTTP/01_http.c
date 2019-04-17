@@ -28,19 +28,17 @@ int main(int argc, char **argv)
 	host = argv[1];
 	page = argv[2];
 
-	fprintf(stderr, "Abrindo o socket para o cliente... ");
+	// Abrindo o socket para o cliente
 	if((socket_id = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) < 0)
 	{
 		fprintf(stderr, "Erro na criacao do socket!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Obtendo o IP do servidor... ");
+	// Obtendo o IP do servidor
 	ip = get_ip(host);
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Conectando o socket ao IP %s pela porta %d... ", ip, port);
+	// Conectando o socket ao IP "ip" pela porta "port"
 	memset(&servidorAddr, 0, sizeof(servidorAddr));
 	servidorAddr.sin_family = AF_INET;
 	servidorAddr.sin_addr.s_addr = inet_addr(ip);
@@ -51,7 +49,6 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Erro na conexao!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
 
 	get = build_get_query(host, page);
 	fprintf(stderr, "Pedido HTTP:\n\n");
@@ -59,9 +56,8 @@ int main(int argc, char **argv)
 	fprintf(stderr, "%s", get);
 	fprintf(stderr, "---------------------------------------\n");
  
-	fprintf(stderr, "Enviando o pedido HTTP ao servidor... ");
+	// Enviando o pedido HTTP ao servidor
 	write(socket_id, get, strlen(get));
-	fprintf(stderr, "Feito!\n");
 
 	free(get);
 	free(ip);
@@ -76,7 +72,6 @@ int main(int argc, char **argv)
 	}
 	if(tmpres < 0)
 		fprintf(stderr, "Erro no recebimento de dados!\n");
-	fprintf(stderr, "Feito!\n");
 	close(socket_id);
 	fclose(fp);
 	return 0;

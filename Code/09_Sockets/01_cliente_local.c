@@ -36,24 +36,20 @@ int main (int argc, char* const argv[])
 	socket_name = argv[1];
 	mensagem = argv[2];
 
-	fprintf(stderr, "Abrindo o socket local... ");
+	// Abrindo o socket local
 	socket_id = socket(PF_LOCAL, SOCK_STREAM,0);
-	fprintf(stderr, "Feito!\n");
-
-	fprintf(stderr, "Conectando o socket ao servidor no endereco local \"%s\"... ", socket_name);
+	
+	//Conectando o socket ao servidor no endereco local "socket_name"
 	name.sa_family = AF_LOCAL;
 	strcpy(name.sa_data, socket_name);
 	connect(socket_id, &name, sizeof(name));
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Mandando mensagem ao servidor... ");
+	// Mandando mensagem ao servidor
 	length = strlen(mensagem) + 1;
 	write(socket_id, &length, sizeof(length));
 	write(socket_id, mensagem, length);
-	fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Fechando o socket local... ");
+	// Fechando o socket local
 	close(socket_id);
-	fprintf(stderr, "Feito!\n");
 	return 0;
 }
