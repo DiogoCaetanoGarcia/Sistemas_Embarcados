@@ -1,24 +1,9 @@
-1. Apresente 5 sistemas operacionais suportados pelo Raspberry Pi, e algumas de suas características.
+1. Com relação às conexões GPIO do modelo de Raspberry Pi que você usará no projeto, responda:
 
-2. Apresente as formas de instalação de sistemas operacionais para o Raspberry Pi.
+(a) Quais pinos podem ser utilizados como entradas e saídas digitais comuns?
 
-3. Apresente 3 formas de desenvolvimento de software para o Raspberry Pi.
+(b) Quais pinos possuem resistores de pull-up e pull-down?
 
-4. Apresente 3 formas de acesso remoto ao Raspberry Pi.
+(c) Quais formas de comunicação serial são suportados pelos pinos GPIO?
 
-5. Apresente as formas possíveis de compilação de código em C para o Raspberry Pi.
-
-6. Apresente as formas possíveis de compilação de código em Python para o Raspberry Pi.
-
-
-
-
-
-
-
-
-
-
-
-
-
+2. Apresente outras 3 bibliotecas de acesso I/O em C para o Raspberry Pi.
