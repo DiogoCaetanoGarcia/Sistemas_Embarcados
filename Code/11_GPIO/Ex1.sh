@@ -1,5 +1,6 @@
 #!/bin/bash
 
+clear
 echo Hello RPi LED blink!
 echo
 echo Torne este script executavel usando chmod
@@ -11,12 +12,14 @@ echo Conecte o resistor ao GND.
 echo
 echo Veja os arquivos disponiveis para conexao I/O
 ls -l /sys/class/gpio
-echo
+read
+clear
 echo Criando conexao ao GPIO4 via sysfs...
 echo 4 >> /sys/class/gpio/export
 echo Confira a criacao da pasta \'gpio4\'
 ls -l /sys/class/gpio
-echo
+read
+clear
 echo Tornando o pino GPIO4 saida em nivel alto para ligar o LED...
 sudo echo out > /sys/class/gpio/gpio4/direction
 sudo echo 1 > /sys/class/gpio/gpio4/value

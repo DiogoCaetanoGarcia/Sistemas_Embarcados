@@ -5,7 +5,7 @@
 #include "gpio_sysfs.h"
 
 int setGPIO_Out(int pin)
-{	
+{
 	/* This is a function to export a GPIO pin - and set it's direction to output... */
 	int valid_pins[]={VALID_PINS};
 	int c;
@@ -40,8 +40,8 @@ int setGPIO_Out(int pin)
 	 * Note that the length is n+1 as C strings are nul-terminated - so for a two-digit value - we
 	 * need to specify 3 chars to be used. */
 	char str_pin[3];
-	snprintf(str_pin, (3*sizeof(char)), "%d", pin);	
-	
+	snprintf(str_pin, (3*sizeof(char)), "%d", pin);
+
 	/* To actually export the pin - we simply write the string value of the pin number to the
 	 * sysfs gpio/export file */
 	if (fwrite(&str_pin, sizeof(char), 3, sysfs_handle)!=3)
@@ -50,7 +50,7 @@ int setGPIO_Out(int pin)
 		return 2;
 	}
 	fclose(sysfs_handle);
-	
+
 	/* If we got to here, then we've been able to export the pin - so now we need to set the direction */
 	/* We open the direction file for the pin...*/
 	char str_direction_file[MAXSTR];
@@ -60,16 +60,16 @@ int setGPIO_Out(int pin)
 		fprintf(stderr, "ERROR: Cannot open direction file...\n(Is this program running as root?)\n");
 		return 3;
 	}
-	
+
 	/* ...and then we'll write "out" to the direction file.*/
 	if (fwrite("out", sizeof(char), 4, sysfs_handle) != 4)
 	{
-	
+
 		fprintf(stderr, "ERROR: Unable to write direction for GPIO%d\n", pin);
 		return 4;
 	}
 	fclose(sysfs_handle);
-	
+
 	// If everything worked, we'll return 0 - an non-zero return value signifies something went wrong
 	return 0;
 }
@@ -135,7 +135,7 @@ int unsetGPIO(int pin)
 		return 2;
 	}
 	fclose(sysfs_handle);
-	
+
 	/* Once we've done that - the last step is to open the gpio/unexport file - and write the pin
 	 * number to it - to unexport the pin. */
 	if ((sysfs_handle = fopen("/sys/class/gpio/unexport", "w")) == NULL)
