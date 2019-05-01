@@ -14,7 +14,7 @@
 
 - 29/03/2019: entrega do primeiro ponto de controle
 - 08/04/2019: primeiro teste **(ADIADO PARA O DIA 12/04/2019)**
-- 29/04/2019: entrega do segundo ponto de controle
+- 29/04/2019: entrega do segundo ponto de controle **(ADIADA PARA O DIA 03/05/2019)**
 - 13/05/2019: segundo teste
 - 27/05/2019: entrega do terceiro ponto de controle
 - 10/06/2019: entrega do quarto ponto de controle
