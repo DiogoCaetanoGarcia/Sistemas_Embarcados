@@ -6,7 +6,7 @@
 #define SAIDA 7
 #define ENTRADA 2
 #define MAX_MEIO_PERIODO (1e6/2)
-#define MIN_MEIO_PERIODO (1e6/128)
+#define MIN_MEIO_PERIODO (1e6/64)
 
 int meio_periodo = MAX_MEIO_PERIODO;
 
