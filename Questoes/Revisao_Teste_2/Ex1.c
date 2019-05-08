@@ -4,7 +4,7 @@
 #include <signal.h>
 
 #define SAIDA 7
-#define ENTRADA 11
+#define ENTRADA 2
 #define MAX_MEIO_PERIODO (1e6/2)
 #define MIN_MEIO_PERIODO (1e6/128)
 
@@ -43,7 +43,7 @@ int main(void)
 			while(digitalRead(ENTRADA)>0);
 			kill(filho,SIGUSR1);
 			while(digitalRead(ENTRADA)==0);
-			usleep(100000);
+			usleep(300000);
 		}
 	}
 }
