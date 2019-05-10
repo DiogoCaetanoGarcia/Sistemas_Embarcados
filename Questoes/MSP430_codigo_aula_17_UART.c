@@ -23,7 +23,7 @@ Conexoes:
 
 */
 
-#include <msp430g2452.h>
+#include <msp430g2553.h>
 #include <legacymsp430.h>
 
 #define AD_IN BIT0

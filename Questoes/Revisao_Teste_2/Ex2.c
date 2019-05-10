@@ -22,17 +22,17 @@ void ctrl_c(int sig)
 
 int main(void)
 {
-	unsigned long sum = 0;
+	unsigned int sum = 0;
 	unsigned int counter = 0;
 
 	signal(SIGINT, ctrl_c);
-	uart0_fd = serialOpen(TTY, 9600);
 	wiringPiSetup();
+	uart0_fd = serialOpen(TTY, 9600);
 	serialFlush(uart0_fd);
 	while(1)
 	{
-		sum += (unsigned long) serialGetchar(uart0_fd);
-		sum += ((unsigned long) serialGetchar(uart0_fd))<<8;
+		sum += (unsigned int) serialGetchar(uart0_fd);
+		sum += ((unsigned int) serialGetchar(uart0_fd))<<8;
 		counter++;
 		if(counter==N)
 		{

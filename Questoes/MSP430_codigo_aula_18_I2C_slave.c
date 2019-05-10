@@ -1,7 +1,8 @@
 /* 
 
-Codigo para o MSP430 funcionar como escravo I2C de
-acordo com o seguinte protocolo:
+Codigo para o MSP430 funcionar como escravo I2C 
+(com o endereço 0x0F) de acordo com o seguinte
+protocolo:
 
   	I. Receber o byte 0x55, o que indica o começo
   		de uma conversão AD.
@@ -10,7 +11,7 @@ acordo com o seguinte protocolo:
 		sinal analogico no pino P1.0, nesta ordem.
 
 Conexoes:
-   P1.0: LED vermelho da placa Launchpad
+   P1.0: sinal analogico entre 0 e Vcc
    P1.3: botao da placa Launchpad
    P1.6: conexao clock I2C (SCL)
    P1.7: conexao dados I2C (SDA)
@@ -35,9 +36,8 @@ int main(void)
 	WDTCTL = WDTPW + WDTHOLD;                 // Stop WDT
 	BCSCTL1 = CALBC1_1MHZ;
 	DCOCTL = CALDCO_1MHZ;
-	init_P1();
 	init_AD();
-	init_I2C(0xAD);
+	init_I2C(0x0F);
 	_BIS_SR(LPM0_bits | GIE);
 	return 0;
 }
@@ -66,12 +66,6 @@ void Transmit(unsigned char data[], unsigned int len)
 	}
 }
 
-void init_P1(void)
-{
-	P1OUT &= ~LED;
-	P1DIR |= LED;
-}
-
 void init_AD(void)
 {
 	ADC10AE0  = AD_IN;
@@ -83,7 +77,6 @@ interrupt(USCIAB0TX_VECTOR) USCIAB0TX_ISR(void)
 {
 	unsigned int d = 1023;
 	unsigned char d_send[2];
-	P1OUT |= LED;
 	if(IFG2 & UCB0RXIFG)
 	{
 		if(UCB0RXBUF==0x55)
@@ -97,7 +90,6 @@ interrupt(USCIAB0TX_VECTOR) USCIAB0TX_ISR(void)
 			Transmit(d_send, 2);
 			UCB0STAT &= ~(UCSTPIFG | UCSTTIFG);
 		}
-		P1OUT &= ~LED;	
 	}
 	IFG2 &= ~(UCB0TXIFG|UCB0RXIFG);
 }
