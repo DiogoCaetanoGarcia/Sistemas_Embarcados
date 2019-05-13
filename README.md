@@ -1,6 +1,10 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**
+**PREZADOS ALUNOS, o teste de hoje será adiado para a sexta-feira, dia 17/05/2019, pois a FGA está de luto devido ao falecimento da Professora Lourdes Mattos Brasil. No dia 15/05/2019, estarei na minha sala para tirar dúvidas.**
+
+**Prof. Diogo, 13 de maio de 2019**
+
+<!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=120961
 - Código: 120961
@@ -15,7 +19,7 @@
 - 29/03/2019: entrega do primeiro ponto de controle
 - 08/04/2019: primeiro teste **(ADIADO PARA O DIA 12/04/2019)**
 - 29/04/2019: entrega do segundo ponto de controle **(ADIADA PARA O DIA 03/05/2019)**
-- 13/05/2019: segundo teste
+- 13/05/2019: segundo teste **(ADIADO PARA O DIA 17/05/2019)**
 - 27/05/2019: entrega do terceiro ponto de controle
 - 10/06/2019: entrega do quarto ponto de controle
 - 05/07/2019: entrega do projeto final
