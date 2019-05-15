@@ -1,8 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-**PREZADOS ALUNOS, o teste de hoje será adiado para a sexta-feira, dia 17/05/2019, pois a FGA está de luto devido ao falecimento da Professora Lourdes Mattos Brasil. No dia 15/05/2019, estarei na minha sala para tirar dúvidas.**
-
-**Prof. Diogo, 13 de maio de 2019**
+**PREZADOS ALUNOS, o teste foi adiado para a sexta-feira, dia 17/05/2019. Devido às paralizações de hoje, dia 15/05/2019, não haverá aula. Qualquer dúvida sobre a prova, favor entrar em contato via email.**
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
