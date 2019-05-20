@@ -1,6 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-**Notas da primeira prova disponíveis em https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
+**NOTAS DAS DUAS PROVAS DISPONÍVEIS EM https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
