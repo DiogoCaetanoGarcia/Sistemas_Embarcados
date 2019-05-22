@@ -22,3 +22,4 @@ Dicas:
 * https://www.kernel.org/doc/html/v4.16/process/howto.html
 * https://en.wikipedia.org/wiki/User_space
 * https://wiki.archlinux.org/index.php/Kernel_module
+* http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/
