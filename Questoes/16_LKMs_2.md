@@ -8,7 +8,7 @@
 
 5. Qual é a diferença entre Linux e GNU/Linux?
 
-6. O que é um Linux Kernel Module (LKM)? Quais são suas vantagens?
+6. O que é um _Linux Kernel Module_ (LKM)? Quais são suas vantagens?
 
 7. O que são _device drivers_?
 
