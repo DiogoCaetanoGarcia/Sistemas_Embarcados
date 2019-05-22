@@ -8,14 +8,17 @@
 
 5. Qual é a diferença entre Linux e GNU/Linux?
 
-6. O que são _device drivers_?
+6. O que é um Linux Kernel Module (LKM)? Quais são suas vantagens?
 
-7. Cite uma situação prática em que vale a pena desenvolver um device driver.
+7. O que são _device drivers_?
 
-8. O que é GPL? Quais são suas características?
+8. Cite uma situação prática em que vale a pena desenvolver um _device driver_.
+
+9. O que é a _General Public License_ (GPL)? Quais são suas características?
 
 Dicas:
 * https://developer.ibm.com/articles/l-linux-kernel/
 * https://www.gnu.org/licenses/gpl-faq.html
 * https://www.kernel.org/doc/html/v4.16/process/howto.html
 * https://en.wikipedia.org/wiki/User_space
+* https://wiki.archlinux.org/index.php/Kernel_module
