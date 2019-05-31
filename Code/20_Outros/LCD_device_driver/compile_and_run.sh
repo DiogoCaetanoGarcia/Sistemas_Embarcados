@@ -16,7 +16,7 @@ sudo cat /dev/$MOD
 read
 clear
 echo Escrevendo $TEXTO no LCD
-sudo echo $TEXTO > /dev/$MOD
+sudo echo -n $TEXTO > /dev/$MOD
 echo Lendo o texto atual do LCD...
 sudo cat /dev/$MOD
 read
