@@ -13,13 +13,15 @@ sudo chmod 777 /dev/$MOD
 echo
 echo Lendo o texto atual do LCD...
 sudo cat /dev/$MOD
-echo
+read
+clear
 echo Escrevendo $TEXTO no LCD
 sudo echo $TEXTO > /dev/$MOD
 echo Lendo o texto atual do LCD...
 sudo cat /dev/$MOD
-echo
-echo Descarregando o módulo e apagando o LED...
+read
+clear
+echo Descarregando o módulo...
 sudo rmmod $MOD
 echo
 echo Limpando a pasta...
