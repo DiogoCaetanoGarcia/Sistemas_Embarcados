@@ -10,7 +10,7 @@ sudo insmod $MOD.ko
 echo
 echo Alterando permissões no device para permitir sua escrita...
 sudo chmod 777 /dev/$MOD
-echo
+clear
 echo Lendo o texto atual do LCD...
 sudo cat /dev/$MOD
 read

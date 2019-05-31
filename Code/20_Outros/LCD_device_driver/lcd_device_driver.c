@@ -186,7 +186,7 @@ static ssize_t device_write(struct file *filp, const char *buff, size_t len, lof
 	Device_Counter = 0;
 	for(i=0; (i<len)&&(Device_Counter<LCD_LINE_LEN); i++, Device_Counter++)
 		local_buff[i] = lcd_text[Device_Counter] = buff[i];
-	local_buff[i] = '\0';
+	local_buff[i] = lcd_text[Device_Counter] = '\0';
 	Send_String(local_buff);
 	return i;
 }
