@@ -2,21 +2,30 @@
 #include <time.h>
 #include <unistd.h>
 
+#define N 150
+#define DELAY_US 10000 
 int main(void)
 {
 	unsigned int i;
-	struct timespec t1, t2;
-	double dummy_calc;
+	struct timespec t[2];
+	double media;
 	long diff_ts;
-	clock_gettime(CLOCK_MONOTONIC, &t1);
-	usleep(1E6);
-	clock_gettime(CLOCK_MONOTONIC, &t2);
-	diff_ts = t2.tv_nsec - t1.tv_nsec;
-	dummy_calc = difftime(t2.tv_sec, t1.tv_sec);
-	if(dummy_calc>0.0)
-			diff_ts += 1000*1000*1000;
-	printf("Atraso de usleep(1E6): %f s\n\n",
-		((float)diff_ts)/1.0E9);
+
+	clock_gettime(CLOCK_MONOTONIC, &t[0]);
+	for(i=1; i<=N; i++)
+		usleep(DELAY_US);
+	clock_gettime(CLOCK_MONOTONIC, &t[1]);
+	media = difftime(t[1].tv_sec,
+		t[0].tv_sec)*1.0E9;
+	media += (float)(t[1].tv_nsec -
+			t[0].tv_nsec);
+	media /= (float)N;
+	printf("Cálculo de tempo usando "
+		"clock_gettime():\n");
+	printf("N = %d\n", N);
+	printf("Media de tempo de usleep(%d)\n"
+		"   %2.1f us\n",
+		DELAY_US, media/1000.0);
 	printf("clock_gettime(CLOCK_MONOTONIC)\n");
 	printf("   retorna o tempo do clock\n");
 	printf("   'monotônico' - isto é, não\n");
@@ -24,5 +33,4 @@ int main(void)
 	printf("   no tempo do sistema (p.ex.,\n");
 	printf("   se o administrador mudar o\n");
 	printf("   relógio do sistema.\n");
-
 }

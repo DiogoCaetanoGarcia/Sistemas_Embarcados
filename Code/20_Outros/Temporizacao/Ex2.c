@@ -1,26 +1,28 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
-int main()
+#define LEN 150
+int main ()
 {
-	struct tm strtime;
-	time_t timeoftheday;
+	char buf[LEN];
+	time_t curtime;
+	struct tm *loc_time;
 
-	timeoftheday = time(NULL);
-	printf("Data atual:\n   %s", ctime(&timeoftheday));
+	// Hora atual do sistema
+	curtime = time(NULL);
 
-	puts("Setando estrutura para\n   04/02/2010, 03:30:38");
-	strtime.tm_year = 2010-1900; // Anos desde 1900
-	strtime.tm_mon = 1; // Meses desde janeiro, 0-11
-	strtime.tm_mday = 4;
-	strtime.tm_hour = 02; // Horas desde meia-noite, 0-23
-	strtime.tm_min = 30;
-	strtime.tm_sec = 38;
-	strtime.tm_isdst = 0;
-	timeoftheday = mktime(&strtime);
-	printf("Tempo retornado:\n   %s", ctime(&timeoftheday));
-	printf("Conferindo resultado\n   com programa 'cal'\n\n");
-	system("cal 2 2010");
+	// Converte hora atual para estrutura tm
+	loc_time = localtime (&curtime);
+
+	// Apresenta data e hora em formato padrão
+	printf("%s", asctime (loc_time));
+
+	// Apresenta data e hora em formato
+	// de escolha do programador
+	strftime(buf, LEN,
+		"Dia:  %A, %b %d\nHora: %I:%M %p",
+		loc_time);
+	puts(buf);
+
 	return 0;
 }
