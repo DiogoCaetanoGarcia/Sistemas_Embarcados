@@ -13,7 +13,7 @@ int main(void)
 	for(i=1; i<=N; i++)
 		usleep(DELAY_US);
 	CPU_time[1] = clock();
-	media += (float)(CPU_time[1]-CPU_time[0]);
+	media = (float)(CPU_time[1]-CPU_time[0]);
 	media /= (float)N;
 	media /= (float)CLOCKS_PER_SEC;
 	printf("Cálculo de tempo usando clock():\n");

@@ -5,13 +5,21 @@
 int main()
 {
 	struct tm strtime;
+	struct tm *tm_s;
 	time_t timeoftheday;
+	char *dias[] = {"Domingo", "Segunda",
+		"Terça", "Quarta", "Quinta",
+		"Sexta", "Sábado"};
 
 	// Hora atual do sistema
 	timeoftheday = time(NULL);
 	// Apresenta data e hora em formato padrão
 	printf("Data atual:\n   %s",
 		ctime(&timeoftheday));
+
+	tm_s = localtime(&timeoftheday);
+	printf("Dia da semana: %s\n", 
+		dias[tm_s->tm_wday]);
 
 	puts("Setando estrutura para\n"
 		"   04/02/2010, 03:30:38");

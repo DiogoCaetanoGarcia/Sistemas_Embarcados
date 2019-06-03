@@ -9,7 +9,6 @@ int main(void)
 	unsigned int i;
 	struct timespec t[2];
 	double media;
-	long diff_ts;
 
 	clock_gettime(CLOCK_MONOTONIC, &t[0]);
 	for(i=1; i<=N; i++)
