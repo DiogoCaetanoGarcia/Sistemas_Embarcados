@@ -30,10 +30,7 @@ int main(void)
 	media += (float)(t[1].tv_nsec -
 			t[0].tv_nsec);
 	media /= (float)N;
-	printf("Cálculo de tempo usando "
-		"clock_gettime():\n");
-	printf("N = %d\n", N);
 	printf("Media de tempo de clock_nanosleep(%d)\n"
-		"   %2.1f us\n",
-		DELAY_NS, media/1000.0);
+		"   N =  %d, %2.1f us\n",
+		DELAY_NS, N, media/1000.0);
 }
