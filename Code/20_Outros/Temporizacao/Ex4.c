@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
+#define N 150000000
 int main(void)
 {
 	unsigned int i;
@@ -9,7 +10,7 @@ int main(void)
 	// clock desde o começo
 	// da execução do processo
 	CPU_time_1 = clock();
-	for(i = 0; i < 150000000; i++);
+	for(i = 0; i < N; i++);
 	// Quantidade de ciclos de
 	// clock desde o começo
 	// da execução do processo
