@@ -6,7 +6,7 @@ then
 	exit 1
 fi
 
-make $1 CFLAGS="-O3 -fno-inline"
+make $1 CFLAGS="-O3"
 echo
 echo "--- TIME ---"
 time ./$1
