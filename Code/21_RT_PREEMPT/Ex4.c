@@ -18,7 +18,8 @@
 // que o este programa, o Linux podera salvar a memoria deste programa
 // no swap space, atrasando sua performance.
 // (Ref.: https://www.linux.com/news/all-about-linux-swap-space)
-
+//
+// Referência: https://wiki.linuxfoundation.org/realtime/documentation/howto/applications/application_base
 
 #include "rt_lib.h"
 

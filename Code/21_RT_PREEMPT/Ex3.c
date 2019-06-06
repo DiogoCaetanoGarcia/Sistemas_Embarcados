@@ -10,6 +10,8 @@
 // que por sua vez chama a funcao clock_nanosleep(). A prioridade
 // de execucao deste programa eh definida chamando a funcao
 // pthread_attr_setschedparam().
+//
+// Referência: https://wiki.linuxfoundation.org/realtime/documentation/howto/applications/application_base
 
 #include "rt_lib.h"
 
