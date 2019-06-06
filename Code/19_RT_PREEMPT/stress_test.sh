@@ -9,7 +9,7 @@ function send_signal_by_name()
 		s=$2
 	fi
 	p=$(pidof $1)
-	if [ -z "{$p}" ];
+	if [ -z $p ];
 	then
 		echo $1 terminated
 	else
@@ -35,5 +35,6 @@ echo "'cat /dev/urandom > /dev/null &' e './eatmem.out' em paralelo..."
 sudo $1 &
 sleep 6
 send_signal_by_name $1 SIGINT
-send_signal_by_name "./eatmem.out" SIGKILL
+sleep 1
 send_signal_by_name cat
+send_signal_by_name "./eatmem.out"

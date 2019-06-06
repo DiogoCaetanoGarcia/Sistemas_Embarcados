@@ -82,8 +82,8 @@ int main(int argc, char* argv[])
 		return ret;
 	}
 
-	pthread_getschedparam(thread, &ret, &param);
-	printf("policy = %d, sched_priority = %d\n", ret, param.sched_priority);
+	//pthread_getschedparam(thread, &ret, &param);
+	//printf("policy = %d, sched_priority = %d\n", ret, param.sched_priority);
 
 	/* Join the thread and wait until it is done */
 	ret = pthread_join(thread, NULL);
