@@ -28,11 +28,9 @@ cat /dev/urandom > /dev/null &
 sudo $1 &
 sleep 6
 send_signal_by_name $1 SIGINT
-send_signal_by_name cat
 
 echo "Executando '$1' por 6 segundos, com"
 echo "'cat /dev/urandom > /dev/null &' e './eatmem.out' em paralelo..."
-cat /dev/urandom > /dev/null &
 ./eatmem.out &
 sudo $1 &
 sleep 6
