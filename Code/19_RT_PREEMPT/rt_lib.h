@@ -8,6 +8,8 @@
 #include <pthread.h>
 #include <sys/mman.h>
 #include <signal.h>
+#include <limits.h>
+#include <sched.h>
 
 #define INC_CNT(CNT, MAX_CNT) CNT=(CNT+1)%(MAX_CNT)
 
