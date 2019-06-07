@@ -3,8 +3,8 @@
 // A cada 1 ms, o pino eh invertido.
 //
 // Aperte CTRL-C durante a execucao do programa para para-lo,
-// e confira a temporizacao do sistema lendo o arquivo
-// "dumpfile.txt".
+// e confira os valores de média e de desvio-padrão da
+// temporizacao do sistema.
 //
 // A temporizacao eh feita chamando a funcao sleep_until(),
 // que por sua vez chama a funcao clock_nanosleep(). A prioridade
