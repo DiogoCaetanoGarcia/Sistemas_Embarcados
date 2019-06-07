@@ -10,7 +10,7 @@ void combo_changed(GtkWidget *wid, gpointer ptr)
 	int sel = gtk_combo_box_get_active(GTK_COMBO_BOX(wid));
 	char *selected = gtk_combo_box_text_get_active_text(
 	GTK_COMBO_BOX_TEXT(wid));
-	printf("The value of the combo is %d %s\n", sel, selected);
+	printf("O valor do combo é: posição %d (opção '%s')\n", sel, selected);
 }
 
 void main(int argc, char *argv[])
