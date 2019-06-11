@@ -169,7 +169,18 @@ A instalação de aplicativos de serviços em nuvem pode ser uma solução simpl
 * https://riptutorial.com/dropbox-api/example/1356/uploading-a-file-via-curl
 * https://olivermarshall.net/how-to-upload-a-file-to-google-drive-from-the-command-line/
 
+No Google Drive, é possível criar formulários com campos específicos, e definir uma planilha _online_ para receber os resultados do preenchimento deste formulário. Por exemplo, confira o formulário em https://docs.google.com/forms/d/e/1FAIpQLSf4wN-l8EwZRKXqAlMODInnRIFZQfEBBmjURl4M_-vgJ1r39A/viewform.
 
+É possível automatizar o preenchimento deste formulário pelo comando ```curl```. Obtenha o identificador do formulário na sua URL de edição, e os nomes dos campos a serem preenchidos usando o inspetor de elementos HTML do seu _browser_ (_Ferramentas de desenvolvedor_ no Google Chrome). No exemplo acima, o identificador é ```18YYhW1Dk3xtge66XdG38SfBuPEhm7esfBI4Ajhyh4Bg```, e os campos são ```entry.1962235247``` e ```entry.146553730```. Repare que o identificador não é o mesmo que aquele em https://docs.google.com/forms/d/e/1FAIpQLSf4wN-l8EwZRKXqAlMODInnRIFZQfEBBmjURl4M_-vgJ1r39A/viewform.
+
+Para enviar o nome "Eu Mesmo' e a idade "18" para o formulário, execute
+
+```
+formid="18YYhW1Dk3xtge66XdG38SfBuPEhm7esfBI4Ajhyh4Bg"
+curl https://docs.google.com/forms/d/$formid/formResponse -d ifq -d "entry.1962235247=Eu Mesmo" -d "entry.146553730=18" -d submit=Submit
+```
+
+Confira os resultados em https://docs.google.com/spreadsheets/d/1-LeRomMtqndDE1nhHrhR7lkyY1sh0eXhOJHJ6dPbc-I/edit?usp=sharing.
 
 # E-mail
 
