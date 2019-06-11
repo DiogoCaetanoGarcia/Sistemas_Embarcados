@@ -163,11 +163,19 @@ curl -v -o exemplo_POST.txt https://fga.unb.br/search/articles?query=eletronica
 
 ## Atualização de serviços em nuvem
 
-A instalação de aplicativos de serviços em nuvem pode ser uma solução simples, mas custosa computacionalmente, já que estes aplicativos continuamente conferem se houve mudanças em suas pastas principais e secundárias. Para fazer o _upload_ de arquivos pelo terminal, cada serviço oferece uma solução diferente:
+A instalação de aplicativos de serviços em nuvem pode ser uma solução simples, mas custosa computacionalmente, já que estes aplicativos continuamente conferem se houve mudanças em suas pastas principais e secundárias. Para fazer o _upload_ de arquivos pelo terminal, cada serviço oferece uma solução diferente. Confira algumas delas nos _links_ ao final deste documento.
 
-* https://www.dropbox.com/developers/documentation/http/documentation
-* https://riptutorial.com/dropbox-api/example/1356/uploading-a-file-via-curl
-* https://olivermarshall.net/how-to-upload-a-file-to-google-drive-from-the-command-line/
+## Comunicação via Telegram
+
+Com o comando ```curl```, é possível criar _bots_ no Telegram. Por exemplo, para mandar uma mensagem "Olá mundo", execute
+
+```
+curl -s -X POST https://api.telegram.org/bot<TOKEN>/sendMessage -d chat_id=<CHAT_ID> -d text="Hello World"
+```
+
+onde ```<TOKEN>``` é uma _string_ necessária para autorizar o _bot_ a mandar pedidos à API do Telegram (por exemplo, ```4334584910:AAEPmjlh84N62Lv3jGWEgOftlxxAfMhB1gs```), e ```<CHAT_ID>``` é o identificador da conversa.
+
+## Armazenamento de dados no Google Sheets
 
 No Google Drive, é possível criar formulários com campos específicos, e definir uma planilha _online_ para receber os resultados do preenchimento deste formulário. Por exemplo, confira o formulário em https://docs.google.com/forms/d/e/1FAIpQLSf4wN-l8EwZRKXqAlMODInnRIFZQfEBBmjURl4M_-vgJ1r39A/viewform.
 
@@ -184,30 +192,26 @@ Confira os resultados em https://docs.google.com/spreadsheets/d/1-LeRomMtqndDE1n
 
 # E-mail
 
-O comando ```curl``` trabalha com diversos protocolos, incluindo SMTP. Assim, ele permite o envio de e-mails. Por exemplo,
+O comando ```curl``` trabalha com diversos protocolos, incluindo SMTP. Assim, ele permite o envio de e-mails. Por exemplo, execute
 
 ```
-curl smtp://mail.example.com --mail-from myself@example.com --mail-rcpt
-receiver@example.com --upload-file email.txt
+email_from="EMAIL_REMETENTE"
+passw_from="SENHA_REMETENTE"
+email_to="EMAIL_DESTINATARIO"
+servidor_envio="smtp://smtp.unb.br:587"
+criptografia="--ssl"
+email_subject="ASSUNTO"
+email_msg="MENSAGEM"
+echo "From: <$email_from>" > email.txt
+echo "To: <$email_to>" >> email.txt
+echo Subject: $email_subject >> email.txt
+echo Date: $(date) >> email.txt
+echo $email_msg >> email.txt
+curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
+rm email.txt
 ```
 
-envia um e-mail do endereço ```myself@example.com``` para o endereço ```receiver@example.com```, onde o corpo do e-mail se encontra no arquivo ```email.txt```:
-
-```
-From: John Smith <john@example.com>
-To: Joe Smith <smith@example.com>
-Subject: an example.com example email
-Date: Mon, 7 Nov 2016 08:45:16
-Dear Joe,
-Welcome to this example email. What a lovely day.
-```
-
-## Instalação
-
-```
-sudo apt-get install mailutils
-sudo apt-get install ssmtp
-```
+onde ```EMAIL_REMETENTE``` e ```SENHA_REMETENTE``` são o endereço e a senha de quem está enviando o email, ```EMAIL_DESTINATARIO``` é o endereço de destino do email, ```ASSUNTO``` é o assunto do email e ```MENSAGEM``` é a mensagem do email. Repare que a variável ```$servidor_envio``` contém um endereço SMTP do servidor da UnB e a porta correspondente, e a variável ```$criptografia``` indica o tipo de criptografia a ser utilizada, de acordo com as instruções de configuração de email da UnB (http://www.cpd.unb.br/cpd-ser-email, _Normas e Tutoriais_). Ou seja, este exemplo funciona para ```EMAIL_REMETENTE``` com final ```@unb.br```. Cada provedor de email utilizará um servidor diferente, bem como uma porta e um tipo de criptografia.
 
 ## Referências
 
@@ -216,3 +220,11 @@ sudo apt-get install ssmtp
 * https://www.hostinger.com.br/tutoriais/comando-curl-linux/
 * https://www.matthuisman.nz/2019/01/download-google-drive-files-wget-curl.html
 * http://worldtimeapi.org/
+* https://www.dropbox.com/developers/documentation/http/documentation
+* https://riptutorial.com/dropbox-api/example/1356/uploading-a-file-via-curl
+* https://olivermarshall.net/how-to-upload-a-file-to-google-drive-from-the-command-line/
+* https://www.shellhacks.com/telegram-api-send-message-personal-notification-bot/
+* https://eureka.ykyuen.info/2014/07/30/submit-google-forms-by-curl-command/
+* https://stackoverflow.com/questions/14722556/using-curl-to-send-email
+* https://www.commandlinefu.com/commands/view/6716/send-email-with-curl-and-gmail
+* https://raspberry-projects.com/pi/software_utilities/email/ssmtp-to-send-emails
