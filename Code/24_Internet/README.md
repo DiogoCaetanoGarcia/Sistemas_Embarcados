@@ -251,6 +251,70 @@ rm email.txt $nome_imagem
 
 Neste exemplo, baixamos uma imagem de https://fga.unb.br/articles/0001/7219/guia-unb-gama.png, e a acrescentamos ao arquivo ```email.txt``` utilizando o comando ```base64```. Também indicamos no arquivo ```email.txt``` que este anexo é uma imagem do tipo PNG em ```echo Content-Type: image/png\; name=\"$nome_imagem\" >> email.txt```. Para outros tipos de arquivos (JPEG, PDF etc.), este campo deve ser modificado.
 
+# Servidor web local
+
+É possível criar um servidor web no Raspberry Pi para que seus dados estejam acessíveis via internet, seja na rede local ou globalmente. No segundo caso, é necessário adquirir um domínio. Dentre os diversos servidores web disponíveis no Linux, vejamos o ```apache```.
+
+Execute
+
+```
+sudo apt-get update
+sudo apt-get install apache2 -y
+```
+
+para instalar o ```apache2``` no Raspberry Pi. Acesse http://localhost/ em um _browser_ no Raspberry Pi, ou [http://IP_DO_RASPBERRY_PI](http://IP_DO_RASPBERRY_PI) em um computador, _tablet_ ou celular ligado à mesma rede para visualizar a seguinte página:
+
+![](https://www.raspberrypi.org/documentation/remote-access/web-server/images/apache-it-works.png)
+
+Quando você acessa esta página, você faz um requerimento HTTP GET da página HTML localizada em ```/var/www/html/index.html``` no Raspberry Pi com o ```apache2``` instalado e executando. Mude esta página HTML para apresentar o que quiser ao usuário. (Por precaução, execute ```sudo cp /var/www/html/index.html /var/www/html/index_original.html``` para manter uma cópia desta página no seu Raspberry Pi.)
+
+Você deve ter percebido que a página web funcionou logo após a instalação do ```apache2```. Isso quer dizer que ele está executando continuamente. Execute ```sudo /etc/init.d/apache2 stop; sudo update-rc.d apache2 disable``` para parar sua execução, e ```sudo update-rc.d apache2 enable; sudo /etc/init.d/apache2 stop``` para reinicia-lo.
+
+## Envio de dados do cliente para o servidor
+
+O envio de informações de um cliente para um servidor pode ser feito através de requisições HTTP GET e POST. Com o ```apache2``` em execução, execute
+
+```
+sudo cp formulario_RPi1.html /var/www/html/index.html
+sudo cp obrigado.html /var/www/html/obrigado.html
+```
+
+onde os arquivos ```formulario_RPi1.html``` e ```obrigado.html``` se encontram nesta pasta. Acesse o servidor para visualizar uma página com um formulário contendo três campos de preenchimento e um menu _dropdown_. Digite qualquer coisa nestes campos, pressione o botão _Submit_ e execute ```tail -1 /var/log/apache2/access.log``` para ver o último acesso feito ao arquivo ```/var/www/html/index.html``` via internet. Repare que o que você digitou nos campos do formulário aparecem após a palavra GET, e você pode utilizar isto para ler o que o usuário mandou de informação para o seu Raspberry Pi.
+
+Execute ```sudo cp formulario_RPi2.html /var/www/html/index.html``` para visualizar um formulário com melhor aparência.
+
+## Atualização da página
+
+Execute
+
+```
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Temperatura do Raspberry Pi</title></head><body><div class="container"><h1>' > index.html
+echo $(date) >> index.html
+echo '</h1><p>' >> index.html
+echo $(/opt/vc/bin/vcgencmd measure_temp) >> index.html
+echo '</p></div></body></html>' >> index.html
+sudo mv index.html /var/www/html/index.html
+```
+
+e acesse o servidor para visualizar uma página com informação da temperatura da GPU do Raspberry Pi. Isto é posível graças ao comando ```/opt/vc/bin/vcgencmd measure_temp```.
+
+Atualize a página do servidor, e perceba que o valor indicado na página não muda. Isto acontece porque a página HTML não foi atualizada. Execute
+
+```
+while true
+do
+	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Temperatura do Raspberry Pi</title></head><body><div class="container"><h1>' > index.html
+	echo $(date) >> index.html
+	echo '</h1><p>' >> index.html
+	echo $(/opt/vc/bin/vcgencmd measure_temp) >> index.html
+	echo '</p></div></body></html>' >> index.html
+	sudo mv index.html /var/www/html/index.html
+	sleep 1
+done
+```
+
+para que a página seja atualizada a cada segundo. (Aperte CONTROL-C para parar esta atualização.)
+
 # Referências
 
 * https://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
@@ -268,3 +332,7 @@ Neste exemplo, baixamos uma imagem de https://fga.unb.br/articles/0001/7219/guia
 * https://raspberry-projects.com/pi/software_utilities/email/ssmtp-to-send-emails
 * https://stackoverflow.com/questions/30351465/html-email-with-inline-attachments-and-non-inline-attachments
 * https://en.wikipedia.org/wiki/MIME
+* https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
+* https://www.w3schools.com/howto/howto_css_contact_form.asp
+* https://raspberrypi.stackexchange.com/questions/75248/apache-server-monitoring
+* https://www.e-tinkers.com/2018/04/how-to-control-raspberry-pi-gpio-via-http-web-server/
