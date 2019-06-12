@@ -140,6 +140,12 @@ Para conferir a hora atual via o fuso-horário de Brasília/São Paulo, execute 
 
 Para conferir os fuso-horários disponíveis, execute ```curl http://worldtimeapi.org/api/timezone.txt```.
 
+Para atualizar a hora do seu Raspberry Pi a partir do horário retornado por http://worldtimeapi.org, execute
+
+```
+sudo date +%s -s @$(curl -s http://worldtimeapi.org/api/timezone/America/Sao_Paulo.txt | grep unixtime | sed "s/unixtime: //")
+```
+
 # Envio de informações (formulários, arquivos etc.)
 
 Páginas web possuem diversos campos destinados a formulários. Por exemplo, a página de _login_ de uma página geralmente possui campos para usuário e senha, além de um botão para envio destas informações. Barras de busca são outro exemplo relevante.
