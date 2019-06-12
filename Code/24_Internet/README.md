@@ -264,7 +264,7 @@ sudo apt-get install apache2 -y
 
 para instalar o ```apache2``` no Raspberry Pi. Acesse http://localhost/ em um _browser_ no Raspberry Pi, ou [http://IP_DO_RASPBERRY_PI](http://IP_DO_RASPBERRY_PI) em um computador, _tablet_ ou celular ligado à mesma rede para visualizar a seguinte página:
 
-![](https://www.raspberrypi.org/documentation/remote-access/web-server/images/apache-it-works.png)
+![Página inicial do Apache2](https://www.raspberrypi.org/documentation/remote-access/web-server/images/apache-it-works.png "Página inicial do Apache2")
 
 Quando você acessa esta página, você faz um requerimento HTTP GET da página HTML localizada em ```/var/www/html/index.html``` no Raspberry Pi com o ```apache2``` instalado e executando. Mude esta página HTML para apresentar o que quiser ao usuário. (Por precaução, execute ```sudo cp /var/www/html/index.html /var/www/html/index_original.html``` para manter uma cópia desta página no seu Raspberry Pi.)
 
@@ -333,6 +333,7 @@ para que a página seja atualizada a cada segundo. (Aperte CONTROL-C para parar 
 * https://stackoverflow.com/questions/30351465/html-email-with-inline-attachments-and-non-inline-attachments
 * https://en.wikipedia.org/wiki/MIME
 * https://www.raspberrypi.org/documentation/remote-access/web-server/apache.md
+* https://raspberrypi.stackexchange.com/questions/64115/how-to-stop-apache-from-running-a-local-web-server-on-boot
 * https://www.w3schools.com/howto/howto_css_contact_form.asp
 * https://raspberrypi.stackexchange.com/questions/75248/apache-server-monitoring
 * https://www.e-tinkers.com/2018/04/how-to-control-raspberry-pi-gpio-via-http-web-server/
