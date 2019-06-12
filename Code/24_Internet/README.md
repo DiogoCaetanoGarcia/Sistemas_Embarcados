@@ -213,6 +213,44 @@ rm email.txt
 
 onde ```EMAIL_REMETENTE``` e ```SENHA_REMETENTE``` são o endereço e a senha de quem está enviando o email, ```EMAIL_DESTINATARIO``` é o endereço de destino do email, ```ASSUNTO``` é o assunto do email e ```MENSAGEM``` é a mensagem do email. Repare que a variável ```$servidor_envio``` contém um endereço SMTP do servidor da UnB e a porta correspondente, e a variável ```$criptografia``` indica o tipo de criptografia a ser utilizada, de acordo com as instruções de configuração de email da UnB (http://www.cpd.unb.br/cpd-ser-email, _Normas e Tutoriais_). Ou seja, este exemplo funciona para ```EMAIL_REMETENTE``` com final ```@unb.br```. Cada provedor de email utilizará um servidor diferente, bem como uma porta e um tipo de criptografia.
 
+## E-mail arquivos em anexo
+
+Repare que o email enviado anteriormente foi escrito no arquivo ```email.txt``` antes de ser enviado com a opção ```-T email.txt``` do ```curl```. Para acrescentarmos arquivos em anexo ao email, devemos inserir mais informações a este arquivo:
+
+```
+nome_imagem="imagem.png"
+email_from="EMAIL_REMETENTE"
+passw_from="SENHA_REMETENTE"
+email_to="EMAIL_DESTINATARIO"
+servidor_envio="smtp://smtp.unb.br:587"
+criptografia="--ssl"
+email_subject="ASSUNTO"
+email_msg="MENSAGEM"
+curl -o $nome_imagem https://fga.unb.br/articles/0001/7219/guia-unb-gama.png
+echo "From: <$email_from>" > email.txt
+echo "To: <$email_to>" >> email.txt
+echo Subject: $email_subject >> email.txt
+echo Date: $(date) >> email.txt
+echo Content-Type: multipart/mixed\; boundary=corpo_msg  >> email.txt
+echo >> email.txt
+echo --corpo_msg >> email.txt
+echo Content-Type: text/plain\; charset=UTF-8 >> email.txt
+echo >> email.txt
+echo $email_msg >> email.txt
+echo >> email.txt
+echo --corpo_msg >> email.txt
+echo Content-Type: image/png\; name=\"$nome_imagem\" >> email.txt
+echo Content-Transfer-Encoding: base64 >> email.txt
+echo Content-Disposition: attachment; filename=\"$nome_imagem\" >> email.txt
+echo >> email.txt
+cat $nome_imagem | base64 >> email.txt
+echo --corpo_msg-- >> email.txt
+curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
+rm email.txt $nome_imagem
+```
+
+Neste exemplo, baixamos uma imagem de https://fga.unb.br/articles/0001/7219/guia-unb-gama.png, e a acrescentamos ao arquivo ```email.txt``` utilizando o comando ```base64```. Também indicamos no arquivo ```email.txt``` que este anexo é uma imagem do tipo PNG em ```echo Content-Type: image/png\; name=\"$nome_imagem\" >> email.txt```. Para outros tipos de arquivos (JPEG, PDF etc.), este campo deve ser modificado.
+
 ## Referências
 
 * https://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
@@ -228,3 +266,5 @@ onde ```EMAIL_REMETENTE``` e ```SENHA_REMETENTE``` são o endereço e a senha de
 * https://stackoverflow.com/questions/14722556/using-curl-to-send-email
 * https://www.commandlinefu.com/commands/view/6716/send-email-with-curl-and-gmail
 * https://raspberry-projects.com/pi/software_utilities/email/ssmtp-to-send-emails
+* https://stackoverflow.com/questions/30351465/html-email-with-inline-attachments-and-non-inline-attachments
+* https://en.wikipedia.org/wiki/MIME
