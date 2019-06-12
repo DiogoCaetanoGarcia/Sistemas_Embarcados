@@ -313,7 +313,16 @@ done
 
 para que a página seja atualizada a cada segundo. (Aperte CONTROL-C para parar esta atualização.)
 
+## _Streaming_ de video
+
+Existem diversas soluções para oferecer _streaming_ de video via web no Raspberry Pi, usando o _Raspberry Pi Camera Module_ ou _webcams_ USB:
+
+* https://github.com/silvanmelchior/RPi_Cam_Web_Interface
+* https://motion-project.github.io/index.html
+* https://www.videolan.org/vlc/streaming.html
+
 # Referências
+
 
 * https://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
 * https://curl.haxx.se/book.html
@@ -335,3 +344,8 @@ para que a página seja atualizada a cada segundo. (Aperte CONTROL-C para parar 
 * https://www.w3schools.com/howto/howto_css_contact_form.asp
 * https://raspberrypi.stackexchange.com/questions/75248/apache-server-monitoring
 * https://www.e-tinkers.com/2018/04/how-to-control-raspberry-pi-gpio-via-http-web-server/
+* https://www.filipeflop.com/blog/streaming-com-raspberry-pi/
+* https://medium.com/@gonzalovazquez/raspberry-pi-and-motioneye-setting-up-your-own-video-surveilance-95444e0faad
+* https://stackoverflow.com/questions/49846400/raspberry-pi-use-vlc-to-stream-webcam-logitech-c920-h264-video-without-tran
+* https://raspberrypi.stackexchange.com/questions/4412/streaming-h264-with-logitech-c920
+* https://raspberry-projects.com/pi/pi-hardware/raspberry-pi-camera/streaming-video-using-vlc-player
