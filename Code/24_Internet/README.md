@@ -213,7 +213,7 @@ rm email.txt
 
 onde ```EMAIL_REMETENTE``` e ```SENHA_REMETENTE``` são o endereço e a senha de quem está enviando o email, ```EMAIL_DESTINATARIO``` é o endereço de destino do email, ```ASSUNTO``` é o assunto do email e ```MENSAGEM``` é a mensagem do email. Repare que a variável ```$servidor_envio``` contém um endereço SMTP do servidor da UnB e a porta correspondente, e a variável ```$criptografia``` indica o tipo de criptografia a ser utilizada, de acordo com as instruções de configuração de email da UnB (http://www.cpd.unb.br/cpd-ser-email, _Normas e Tutoriais_). Ou seja, este exemplo funciona para ```EMAIL_REMETENTE``` com final ```@unb.br```. Cada provedor de email utilizará um servidor diferente, bem como uma porta e um tipo de criptografia.
 
-## E-mail arquivos em anexo
+## E-mail com arquivos em anexo
 
 Repare que o email enviado anteriormente foi escrito no arquivo ```email.txt``` antes de ser enviado com a opção ```-T email.txt``` do ```curl```. Para acrescentarmos arquivos em anexo ao email, devemos inserir mais informações a este arquivo:
 
@@ -251,7 +251,7 @@ rm email.txt $nome_imagem
 
 Neste exemplo, baixamos uma imagem de https://fga.unb.br/articles/0001/7219/guia-unb-gama.png, e a acrescentamos ao arquivo ```email.txt``` utilizando o comando ```base64```. Também indicamos no arquivo ```email.txt``` que este anexo é uma imagem do tipo PNG em ```echo Content-Type: image/png\; name=\"$nome_imagem\" >> email.txt```. Para outros tipos de arquivos (JPEG, PDF etc.), este campo deve ser modificado.
 
-## Referências
+# Referências
 
 * https://weworkweplay.com/play/automatically-connect-a-raspberry-pi-to-a-wifi-network/
 * https://curl.haxx.se/book.html
