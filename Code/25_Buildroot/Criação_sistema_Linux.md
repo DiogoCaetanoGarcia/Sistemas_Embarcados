@@ -28,7 +28,7 @@ O termo _boot_ vem de _bootstrap load_, que por sua vez vem da frase "_to pull o
 
 O processo de _boot_ no Raspberry Pi segue estes passos:
 
-![Imagem](https://camo.githubusercontent.com/0de31ec65dc36abf5cc76899ab71113fd2351437/687474703a2f2f33332e6d656469612e74756d626c722e636f6d2f64363535303833306138386562363466303832616466336132366139623936622f74756d626c725f696e6c696e655f6d7161696d754439715531717a347267702e706e67)[1]
+![Imagem](processo_boot.png)[1]
 
 # Referências
 
