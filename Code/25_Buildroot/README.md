@@ -8,7 +8,7 @@ O _Buildroot_ é importante no desenvolvimento de sistemas embarcados porque vá
 
 ## Requerimentos
 
-Execute ```sudo apt-get install build-essential libncurses5-dev bzr cvs git mercurial rsync subversion```no terminal.
+Execute ```sudo apt-get install build-essential libncurses5-dev bzr cvs git mercurial rsync subversion``` no terminal.
 
 ## _Download_
 
