@@ -183,16 +183,11 @@ onde ```<TOKEN>``` é uma _string_ necessária para autorizar o _bot_ a mandar p
 
 ## Outros sistemas de mensagens e notificações
 
-Pushbullet: conexão entre dispositivos
-https://www.pushbullet.com/
-IFTTT (_If This, Than That_): conexão entre serviços na nuvem
-* https://ifttt.com/
-MQTT: protocolo de comunicações máquina/máquina (M2M - _Internet of Things_)
-* [mqtt.org](mqtt.org)
-PUSHETTA: notificações em tempo real para diferentes dispositivos (_smartphones_, _browsers_, _smart_ TV etc.)
-* http://www.pushetta.com/
-yowsup: comunicação via WhatsApp
-* https://github.com/tgalal/yowsup
+* [Pushbullet](https://www.pushbullet.com/): conexão entre dispositivos
+* [IFTTT](https://www.pushbullet.com/) (_If This, Than That_): conexão entre serviços na nuvem
+* [MQTT](mqtt.org): protocolo de comunicações máquina/máquina (M2M - _Internet of Things_)
+* [PUSHETTA](http://www.pushetta.com/): notificações em tempo real para diferentes dispositivos (_smartphones_, _browsers_, _smart_ TV etc.)
+* [yowsup](https://github.com/tgalal/yowsup): comunicação via WhatsApp
 
 ## Armazenamento de dados no Google Sheets
 
