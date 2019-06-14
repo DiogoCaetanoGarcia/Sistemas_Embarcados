@@ -181,6 +181,19 @@ curl -s -X POST https://api.telegram.org/bot<TOKEN>/sendMessage -d chat_id=<CHAT
 
 onde ```<TOKEN>``` é uma _string_ necessária para autorizar o _bot_ a mandar pedidos à API do Telegram (por exemplo, ```4334584910:AAEPmjlh84N62Lv3jGWEgOftlxxAfMhB1gs```), e ```<CHAT_ID>``` é o identificador da conversa.
 
+## Outros sistemas de mensagens e notificações
+
+Pushbullet: conexão entre dispositivos
+https://www.pushbullet.com/
+IFTTT (_If This, Than That_): conexão entre serviços na nuvem
+* https://ifttt.com/
+MQTT: protocolo de comunicações máquina/máquina (M2M - _Internet of Things_)
+* [mqtt.org](mqtt.org)
+PUSHETTA: notificações em tempo real para diferentes dispositivos (_smartphones_, _browsers_, _smart_ TV etc.)
+* http://www.pushetta.com/
+yowsup: comunicação via WhatsApp
+* https://github.com/tgalal/yowsup
+
 ## Armazenamento de dados no Google Sheets
 
 No Google Drive, é possível criar formulários com campos específicos, e definir uma planilha _online_ para receber os resultados do preenchimento deste formulário. Por exemplo, confira o formulário em https://docs.google.com/forms/d/e/1FAIpQLSf4wN-l8EwZRKXqAlMODInnRIFZQfEBBmjURl4M_-vgJ1r39A/viewform.
@@ -339,6 +352,7 @@ Existem diversas soluções para oferecer _streaming_ de video via web no Raspbe
 * https://riptutorial.com/dropbox-api/example/1356/uploading-a-file-via-curl
 * https://olivermarshall.net/how-to-upload-a-file-to-google-drive-from-the-command-line/
 * https://www.shellhacks.com/telegram-api-send-message-personal-notification-bot/
+* https://thepihut.com/blogs/raspberry-pi-tutorials/using-ifttt-with-the-raspberry-pi
 * https://eureka.ykyuen.info/2014/07/30/submit-google-forms-by-curl-command/
 * https://stackoverflow.com/questions/14722556/using-curl-to-send-email
 * https://www.commandlinefu.com/commands/view/6716/send-email-with-curl-and-gmail
