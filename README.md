@@ -1,6 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-**Prezados alunos, hoje, 22/05/2019, não haverá aula. Ainda estou me recuperando de uma gripe bem forte. Foi acrescentado o arquivo [_Questões/16_LKMs_2.md_](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Questoes/16_LKMs_2.md), com questões-extra referentes à aula de 20/05/2019.**
+**Prezados alunos, hoje, 14/06/2019, não haverá aula, devido à paralisação dos rodoviários.**
 
 **NOTAS DAS DUAS PROVAS DISPONÍVEIS EM https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
 
