@@ -184,8 +184,8 @@ onde ```<TOKEN>``` é uma _string_ necessária para autorizar o _bot_ a mandar p
 ## Outros sistemas de mensagens e notificações
 
 * [Pushbullet](https://www.pushbullet.com/): conexão entre dispositivos
-* [IFTTT](https://www.pushbullet.com/) (_If This, Than That_): conexão entre serviços na nuvem
-* [MQTT](mqtt.org): protocolo de comunicações máquina/máquina (M2M - _Internet of Things_)
+* [IFTTT](https://ifttt.com/) (_If This, Than That_): conexão entre serviços na nuvem
+* [MQTT](https://mqtt.org/): protocolo de comunicações máquina/máquina (M2M - _Internet of Things_)
 * [PUSHETTA](http://www.pushetta.com/): notificações em tempo real para diferentes dispositivos (_smartphones_, _browsers_, _smart_ TV etc.)
 * [yowsup](https://github.com/tgalal/yowsup): comunicação via WhatsApp
 
