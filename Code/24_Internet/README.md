@@ -280,7 +280,21 @@ para instalar o ```apache2``` no Raspberry Pi. Acesse http://localhost/ em um _b
 
 Quando você acessa esta página, você faz um requerimento HTTP GET da página HTML localizada em ```/var/www/html/index.html``` no Raspberry Pi com o ```apache2``` instalado e executando. Mude esta página HTML para apresentar o que quiser ao usuário. (Por precaução, execute ```sudo cp /var/www/html/index.html /var/www/html/index_original.html``` para manter uma cópia desta página no seu Raspberry Pi.)
 
-Você deve ter percebido que a página web funcionou logo após a instalação do ```apache2```. Isso quer dizer que ele está executando continuamente. Execute ```sudo /etc/init.d/apache2 stop; sudo update-rc.d apache2 disable``` para parar sua execução, e ```sudo update-rc.d apache2 enable; sudo /etc/init.d/apache2 stop``` para reinicia-lo.
+Você deve ter percebido que a página web funcionou logo após a instalação do ```apache2```. Isso quer dizer que ele está executando continuamente. Execute
+
+```
+sudo /etc/init.d/apache2 stop
+sudo update-rc.d apache2 disable
+```
+
+para parar sua execução, e
+
+```
+sudo update-rc.d apache2 enable
+sudo /etc/init.d/apache2 start
+```
+
+para reinicia-lo.
 
 ## Envio de dados do cliente para o servidor
 
@@ -331,6 +345,7 @@ para que a página seja atualizada a cada segundo. (Aperte CONTROL-C para parar 
 
 Existem diversas soluções para oferecer _streaming_ de video via web no Raspberry Pi, usando o _Raspberry Pi Camera Module_ ou _webcams_ USB:
 
+* https://www.linux-projects.org/uv4l/
 * https://github.com/silvanmelchior/RPi_Cam_Web_Interface
 * https://motion-project.github.io/index.html
 * https://www.videolan.org/vlc/streaming.html
