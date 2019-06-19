@@ -15,6 +15,14 @@ void main(int argc, char *argv[])
 	g_signal_connect(win, "delete_event", G_CALLBACK(end_program),
 	NULL);
 	GtkWidget *lbl = gtk_label_new("My label");
+	// No exemplo anterior, recebemos a mensagem
+	// "GtkWindow can only contain one
+	// widget at a time; it already
+	// contains a widget of type GtkButton".
+	// Vamos criar uma caixa vertical
+	// que recebe o texto ('label')
+	// e o botão, e adicionar somente a
+	// caixa à janela
 	GtkWidget *box = gtk_vbox_new(FALSE, 5);
 	gtk_box_pack_start(GTK_BOX(box), lbl, TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(box), btn, TRUE, TRUE, 0);

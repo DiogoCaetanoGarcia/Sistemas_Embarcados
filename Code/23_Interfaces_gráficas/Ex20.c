@@ -7,6 +7,8 @@ void end_program(GtkWidget *wid, gpointer ptr)
 
 static void save_file(GtkWidget *btn, gpointer ptr)
 {
+	// Abrir caixa de escolha de arquivos
+	// depois de pressionar o botão
 	GtkWidget *sch = gtk_file_chooser_dialog_new("Save file",
 	GTK_WINDOW(ptr), GTK_FILE_CHOOSER_ACTION_SAVE, "Cancel", 0, "OK", 1, NULL);
 	if(gtk_dialog_run(GTK_DIALOG(sch)) == 1)

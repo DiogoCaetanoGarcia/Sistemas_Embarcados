@@ -28,7 +28,18 @@ void main(int argc, char *argv[])
 	GtkWidget *btn2 = gtk_button_new_with_label("Count button");
 	g_signal_connect(btn2, "clicked", G_CALLBACK(count_button),
 	lbl);
+	// Ao invés de uma caixa vertical,
+	// vamos adicionar uma tabela, para
+	// que possamos colocar botões em
+	// linhas e colunas
 	GtkWidget *tbl = gtk_table_new(2, 2, TRUE);
+	// gtk_table_attach_defaults(
+	//    GtkTable *table,
+	//    GtkWidget *widget,
+	//    guint left_attach,
+	//    guint right_attach,
+	//    guint top_attach,
+	//    guint bottom_attach);
 	gtk_table_attach_defaults(GTK_TABLE(tbl), lbl, 0, 1, 0, 1);
 	gtk_table_attach_defaults(GTK_TABLE(tbl), btn2, 1, 2, 0, 1);
 	gtk_table_attach_defaults(GTK_TABLE(tbl), btn, 0, 2, 1, 2);

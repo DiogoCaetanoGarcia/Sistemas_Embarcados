@@ -1,5 +1,8 @@
 #include <gtk/gtk.h>
 
+// Variável global para
+// contar quantas vezes
+// um dos botões foi pressionado
 int count = 0;
 
 void end_program(GtkWidget *wid, gpointer ptr)
@@ -10,8 +13,12 @@ void end_program(GtkWidget *wid, gpointer ptr)
 void count_button(GtkWidget *wid, gpointer ptr)
 {
 	char buffer[30];
+	// Incrementa contagem do botão
 	count++;
+	// Escreve resultado numa string
 	sprintf(buffer, "Button pressed %d times", count);
+	// Atualiza resultado no
+	// 'label' da janela
 	gtk_label_set_text(GTK_LABEL(ptr), buffer);
 }
 
@@ -25,6 +32,9 @@ void main(int argc, char *argv[])
 	g_signal_connect(win, "delete_event", G_CALLBACK(end_program),
 	NULL);
 	GtkWidget *lbl = gtk_label_new("My label");
+	// Adicionar um botão que conta
+	// quantas vezes foi pressionado
+	// via a função count_button()
 	GtkWidget *btn2 = gtk_button_new_with_label("Count button");
 	g_signal_connect(btn2, "clicked", G_CALLBACK(count_button), lbl);
 	GtkWidget *box = gtk_vbox_new(FALSE, 5);

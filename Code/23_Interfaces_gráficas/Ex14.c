@@ -7,6 +7,8 @@ void end_program(GtkWidget *wid, gpointer ptr)
 
 void row_selected(GtkWidget *wid, gpointer ptr)
 {
+	// Ler opção selecionada na lista
+	// e mostra-la no terminal
 	GtkTreeSelection *sel;
 	GtkTreeModel *model;
 	GtkTreeIter iter;

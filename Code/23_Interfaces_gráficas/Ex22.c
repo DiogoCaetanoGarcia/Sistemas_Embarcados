@@ -7,6 +7,7 @@ void end_program(GtkWidget *wid, gpointer ptr)
 
 static void fnt_selected(GtkFontButton *btn, gpointer ptr)
 {
+	// Mostrar no terminal a fonte selecionada
 	printf("font = %s\n", gtk_font_button_get_font_name(btn));
 }
 
@@ -19,6 +20,7 @@ void main(int argc, char *argv[])
 	g_signal_connect(win, "delete_event", G_CALLBACK(end_program), NULL);
 	GtkWidget *vbox = gtk_vbox_new(FALSE, 5);
 	gtk_container_add(GTK_CONTAINER(win), vbox);
+	// Adicionar botão de seleção de fonte
 	GtkWidget *fnt_btn = gtk_font_button_new();
 	g_signal_connect(fnt_btn, "font-set", G_CALLBACK(fnt_selected), NULL);
 	gtk_box_pack_start(GTK_BOX(vbox), fnt_btn, TRUE, TRUE, 0);

@@ -9,6 +9,8 @@ void end_program(GtkWidget *wid, gpointer ptr)
 
 void copy_text(GtkWidget *wid, gpointer ptr)
 {
+	// Copiar valor numérico
+	// ao label da janela
 	const char *input = gtk_entry_get_text(GTK_ENTRY(txt));
 	gtk_label_set_text(GTK_LABEL(ptr), input);
 }
@@ -23,7 +25,16 @@ void main(int argc, char *argv[])
 	GtkWidget *lbl = gtk_label_new("My label");
 	GtkWidget *btn2 = gtk_button_new_with_label("Copy button");
 	g_signal_connect(btn2, "clicked", G_CALLBACK(copy_text), lbl);
+	// Acrescentar campo numérico
+	// gtk_adjustment_new (gdouble value,
+	//    gdouble lower,
+	//    gdouble upper,
+	//    gdouble step_increment,
+	//    gdouble page_increment,
+	//    gdouble page_size);
 	GtkObject *adj = gtk_adjustment_new(0, -10, 10, 1, 0, 0);
+	// Ligar campo númerico a um seletor
+	// numérico
 	txt = gtk_spin_button_new(GTK_ADJUSTMENT(adj), 0, 0);
 	GtkWidget *tab = gtk_table_new(2, 2, TRUE);
 	gtk_table_attach_defaults(GTK_TABLE(tab), lbl, 0, 1, 0, 1);

@@ -33,6 +33,8 @@ void main(int argc, char *argv[])
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(file_mi), f_menu);
 	GtkWidget *quit_mi = gtk_menu_item_new_with_label("Quit");
 	gtk_menu_shell_append(GTK_MENU_SHELL(f_menu), quit_mi);
+	// Fechar programa ao pressionar
+	// botão na opção do menu
 	g_signal_connect(quit_mi, "activate", G_CALLBACK(end_program), NULL);
 	gtk_box_pack_start(GTK_BOX(vbox), btn, TRUE, TRUE, 0);
 	gtk_widget_show_all(win);

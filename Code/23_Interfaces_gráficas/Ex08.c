@@ -9,7 +9,10 @@ void end_program(GtkWidget *wid, gpointer ptr)
 
 void copy_text(GtkWidget *wid, gpointer ptr)
 {
+	// Obter o texto inserido
+	// no campo de texto
 	const char *input = gtk_entry_get_text(GTK_ENTRY(txt));
+	// Atualizar o label com este texto 
 	gtk_label_set_text(GTK_LABEL(ptr), input);
 }
 
@@ -23,6 +26,7 @@ void main(int argc, char *argv[])
 	GtkWidget *lbl = gtk_label_new("My label");
 	GtkWidget *btn2 = gtk_button_new_with_label("Copy button");
 	g_signal_connect(btn2, "clicked", G_CALLBACK(copy_text), lbl);
+	// Criar um campo para inserção de texto
 	txt = gtk_entry_new();
 	GtkWidget *tab = gtk_table_new(2, 2, TRUE);
 	gtk_table_attach_defaults(GTK_TABLE(tab), lbl, 0, 1, 0, 1);

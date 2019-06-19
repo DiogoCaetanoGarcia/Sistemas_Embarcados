@@ -15,6 +15,8 @@ void copy_text(GtkWidget *wid, gpointer ptr)
 
 void check_toggle(GtkWidget *wid, gpointer ptr)
 {
+	// Mostrar no terminal o
+	// valor atual do check mark
 	printf("The state of the button is %d\n",
 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wid)));
 }
@@ -27,9 +29,13 @@ void main(int argc, char *argv[])
 	g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL);
 	g_signal_connect(win, "delete_event", G_CALLBACK(end_program), NULL);
 	GtkWidget *lbl = gtk_label_new("My label");
+	// Criar um check mark
 	GtkWidget *chk = gtk_check_button_new_with_label("My check");
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk), TRUE);
+	// Obter o valor atual do check mark
 	int state = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk));
+	// Executar check_toggle() quando
+	// o check mark for invertido
 	g_signal_connect(chk, "toggled", G_CALLBACK(check_toggle), NULL);
 	GtkObject *adj = gtk_adjustment_new(0, -10, 10, 1, 0, 0);
 	txt = gtk_spin_button_new(GTK_ADJUSTMENT(adj), 0, 0);
