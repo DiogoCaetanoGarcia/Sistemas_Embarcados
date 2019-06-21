@@ -16,6 +16,8 @@ _Toolchain_ é o conjunto de ferramentas de desenvolvimento de software. Ela é 
 3. **Assembler**: converte o código-fonte _assembly_ em arquivo objeto.
 4. **Linker**: converte um ou mais arquivos objeto no binário final (_firmware_, aplicação, etc).
 
+![Toolchain](toolchain.gif)
+
 Uma _toolchain_ pode ser nativa (_native toolchain_) ou de compilação cruzada (_cross-compiling toolchain_). No primeiro caso, a _toolchain_ compila código para ser executado em um processador da mesma família. No outro caso, ela compila código para ser executado em outra família de processadores, economizando recursos no dispositivo-alvo (por exemplo, evitando a instalação do GCC no Raspberry Pi).
 
 A _toolchain_ de compilação cruzada para o Raspberry Pi está disponível em https://github.com/raspberrypi/tools.
@@ -24,11 +26,33 @@ A _toolchain_ de compilação cruzada para o Raspberry Pi está disponível em h
 
 Quando uma CPU é energizada inicialmente, ela não possui código para executar na sua memória principal. O _bootloader_ é um sistema que fornece este código inicial.
 
-O termo _boot_ vem de _bootstrap load_, que por sua vez vem da frase "_to pull oneself up by one's bootstraps_", ou "se levantar pelas próprias alças das botas". É uma variante do paradoxo do ovo e da galinha, implicando que é impossível a CPU iniciar sua execução sem código para iniciar sua execução. Por isso, é necessário algum _hardware_ externo ou _firmware_ para niciar o processo de _boot_.
+O termo _boot_ vem de _bootstrap load_, que por sua vez vem da frase "_to pull oneself up by one's bootstraps_", ou "se levantar pelas próprias alças das botas". É uma variante do paradoxo do ovo e da galinha, implicando que é impossível a CPU iniciar sua execução sem código para iniciar sua execução. Por isso, é necessário algum _hardware_ externo ou _firmware_ para iniciar o processo de _boot_.
 
 O processo de _boot_ no Raspberry Pi segue estes passos:
 
-![Imagem](processo_boot.png)[1]
+![Boot](processo_boot.png)[1]
+
+## _Kernel_
+
+O _kernel_ é o núcleo do sistema operacional, servindo de ponte entre aplicativos e o _hardware_ do computador, o que inclui:
+
+* CPU: ordem de execução dos processos etc.
+* Memória: localização e acesso de dispositivos de memória para os aplicativos (memória RAM, cache etc.).
+* Dispositivos de entrada e saída: teclados, _mouses_, HDs, impressoras, telas e adaptadores de rede, dentre outros.
+
+O _kernel_ também gerencia recursos de aplicativos, tais como a memória utilizada e a identificação de processos e _threads_, e realiza o sincronismo e a comunicação entre eles.
+
+![Kernel](Kernel_Layout.png)
+
+## _Rootfs_
+
+O Linux diz respeito somente ao _kernel_ do sistema operacional. Para completar este, são necessários aplicativos, bibliotecas e um sistema de arquivos. Este último é montado pelo _kernel_ quando este termina seu processo de inicialização. O _kernel_ também procura e executa uma aplicação que configura e inicializa o restante do sistema operacional (geralmente o processo ```init```).
+
+_Rootfs_ significa _root file system_, o sistema de arquivos típico de sistemas operacionais baseados em _kernel_ Linux:
+
+![Rootfs](Sistema_Arquivos.png)
+
+"Montar o _rootfs_" significa acessar este dispositivo de armazenamento, interpretar os dados de diretórios e arquivos e disponibilizar o acesso à estes diretórios e arquivos a partir do diretório ```/``` do sistema.
 
 # Referências
 
@@ -36,6 +60,8 @@ O processo de _boot_ no Raspberry Pi segue estes passos:
 * https://sergioprado.org/desmistificando-toolchains-em-linux-embarcado/
 * https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/bootflow.md
 * https://quorten.github.io/quorten-blog1/blog/2018/09/24/rpi-otp-doc
+* https://en.wikipedia.org/wiki/Kernel_(operating_system)
+* https://sergioprado.org/sistemas-de-arquivo-em-linux-embarcado-parte-1/
 
 [[1]](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/bootflow.md) Inicialmente, a memória OTP (_one-time programmable memory_) é lida para decidir quais modos de _boot_ são válidos e estão habilitados. A ordem já instalada é o _boot_ pelo cartão SD, seguido do _boot_ por um dispositivo USB.
 
