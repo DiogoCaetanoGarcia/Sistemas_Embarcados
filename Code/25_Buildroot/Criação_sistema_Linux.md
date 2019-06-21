@@ -48,11 +48,16 @@ O _kernel_ também gerencia recursos de aplicativos, tais como a memória utiliz
 
 O Linux diz respeito somente ao _kernel_ do sistema operacional. Para completar este, são necessários aplicativos, bibliotecas e um sistema de arquivos. Este último é montado pelo _kernel_ quando este termina seu processo de inicialização. O _kernel_ também procura e executa uma aplicação que configura e inicializa o restante do sistema operacional (geralmente o processo ```init```).
 
-_Rootfs_ significa _root file system_, o sistema de arquivos típico de sistemas operacionais baseados em _kernel_ Linux:
+_Rootfs_ significa _root file system_, o sistema de arquivos típico de sistemas operacionais baseados em _kernel_ Linux. Ao montar o _rootfs_, o acesso aos dados de diretórios e arquivos é disponibilizado a partir do diretório ```/``` do sistema.
 
 ![Rootfs](Sistema_Arquivos.png)
 
-"Montar o _rootfs_" significa acessar este dispositivo de armazenamento, interpretar os dados de diretórios e arquivos e disponibilizar o acesso à estes diretórios e arquivos a partir do diretório ```/``` do sistema.
+Para montar o _rootfs_, o _kernel_ verifica durante o _boot_ do sistema qual partição corresponde à pasta ```/``` e qual sistema de arquivos deve ser utilizado (ext2, ext3, ext4, ntfs etc.) para esta partição. Diferentes tipos de sistemas de arquivos existem para atenderem a objetivos específicos: melhor performance, maior segurança, menor uso de espaço em disco etc.:
+
+* Alguns sistemas de arquivo, como o ext3 e o btrfs, possuem _journaling_, em que todas as alterações em disco são gravadas em um _journal_, uma espécie de _log_, antes de escrever em um arquivo. Após a atualização no arquivo, a entrada no _journal_ é removida. Se houver um _crash_ do sistema, ou um _reboot_ inesperado, as entradas completas não-apagadas no _journal_ podem ser lidas e recuperadas.
+* Sistemas de arquivo comprimidos, como o CramFS e o SquashFS, armazenam os dados de forma comprimida no dispositivo de armazenamento, economizando espaço em disco.  
+* Sistemas de arquivo voláteis, como o ramfs e o tmpfs, permitem manter um diretório no sistema montado em RAM, para maior velocidade de escrita e leitura. Estes dados são perdidos após o _reboot_ do sistema.
+* O NFS (_Network Filesystem_) permite a montagem de um sistema de arquivo pela rede, acelerando o processo de desenvolvimento de aplicações embarcadas por exemplo.
 
 # Referências
 
