@@ -1,7 +1,5 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-**Prezados alunos, hoje, 14/06/2019, não haverá aula, devido à paralisação dos rodoviários.**
-
 **NOTAS DAS DUAS PROVAS DISPONÍVEIS EM https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
