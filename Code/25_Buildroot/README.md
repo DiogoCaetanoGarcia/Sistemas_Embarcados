@@ -18,4 +18,4 @@ Para rodar os exemplos desta pasta, execute ```git clone https://github.com/buil
 
 ## Referências
 
-Livro [Refs/Buildroot_Manual.pdf](Refs/Buildroot_Manual.pdf).
+Livro [Refs/Embedded_Linux_Training___Buildroot/Buildroot_Manual.pdf](Refs/Embedded_Linux_Training___Buildroot/Buildroot_Manual.pdf).
