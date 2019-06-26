@@ -56,3 +56,19 @@ function folder_size()
 		du -h .  | tail -1
 	fi
 }
+
+function pinout()
+{
+	gpio readall
+}
+
+function i2cfind()
+{
+	i2cdetect -y 1
+}
+
+function check_internet_connection()
+{
+	echo "ping www.google.com"
+	ping www.google.com
+}
