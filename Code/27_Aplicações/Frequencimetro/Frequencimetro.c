@@ -4,10 +4,10 @@
 #include <wiringPi.h>
 #include <time.h>
 
-// Usar GPIO Pino 4, que é Pino 0 na wiringPi
+// Usar GPIO Pino 4, que é Pino 7 na wiringPi
 #define PINO_ENT 7
 
-#define T_AMOSTRAGEM 2000000000ul
+#define T_AMOSTRAGEM 1000000000ul
 
 unsigned long contagem_eventos;
 struct timespec t[2];
@@ -49,13 +49,13 @@ int main(void)
 	wiringPiISR(PINO_ENT, INT_EDGE_FALLING, &conta_eventos);
 	while(1)
 	{
-		printf("Medir freq: ENTER / Sair: CTRL-C ");
-		getchar();
+		//printf("Medir freq: ENTER / Sair: CTRL-C ");
+		//getchar();
 		contagem_eventos = 0;
 		clock_gettime(CLOCK_MONOTONIC, &ts);
 		sleep_until(&ts, T_AMOSTRAGEM);
 		freq  = (double)t[1].tv_sec;
-		freq -= (double)t[0].tv_sec; 
+		freq -= (double)t[0].tv_sec;
 		freq += ((double)t[1].tv_nsec)*1.0e-9;
 		freq -= ((double)t[0].tv_nsec)*1.0e-9;
 		freq /= (double)(contagem_eventos-1);
