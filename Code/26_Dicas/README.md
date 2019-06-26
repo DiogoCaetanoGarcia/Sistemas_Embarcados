@@ -1,4 +1,4 @@
-# Dicas de uso do Linux e do Raspberry Pi
+# Dicas Linux e Raspberry Pi
 
 ## Execução automática de programas e _scripts_
 
