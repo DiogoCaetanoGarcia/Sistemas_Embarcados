@@ -44,7 +44,7 @@ Alguns exemplos de uso:
 
 * ```0  20 * * 1-5 comando```: executa o comando de segunda a sexta (1-5), exatamente às 20h.
 * ```10 10 1 * * comando```: executa o commando às 10h10 do dia 1º de todos os meses.
-* ```0,10,20,30,40,50, * 31 12 * comando```: executa o comando no dia 31 de dezembro, a cada dez minutos, durante todo o dia. 
+* ```0,10,20,30,40,50 * 31 12 * comando```: executa o comando no dia 31 de dezembro, a cada dez minutos, durante todo o dia. 
 * ```*/10 * 31 12 * comando```: mesmo que o exemplo anterior.
 * ```* * * * * comando```: executa o comando de minuto em minuto.
 
