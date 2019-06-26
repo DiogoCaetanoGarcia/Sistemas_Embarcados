@@ -6,7 +6,7 @@ Existem diversas maneiras de executar automaticamente programas e _scripts_ no L
 
 * Arquivo ```/etc/rc.local``` - acrescente o comando ou _script_ ao final deste arquivo, antes do comando ```exit 0```. Se o arquivo não existir ou estiver vazio, acrescente o comando de sua escolha e o comando ```exit 0``` na linha final do arquivo. Os comandos neste arquivo são executados no _boot_ do sistema.
 * Arquivo ```~/.bashrc``` - acrescente o comando ou script ao final deste arquivo. A execução ocorrerá assim que for feito _login_ do usuário nesta conta (Lembre-se de que a pasta ```~``` corresponde a ```/home/NOME_DO_USUARIO```).
-* Diretório ```/etc/init.d```: crie um _script_ neste diretório com todos os comandos que você deseja executar. Acrescente o seguinte texto ao começo do _script_, depois do comando ```#! /bin/bash```:
+* Diretório ```/etc/init.d```: crie um _script_ neste diretório com todos os comandos que você deseja executar. Acrescente o seguinte texto ao começo do _script_, depois do comando ```#!/bin/bash```:
 
 ```
 ### BEGIN INIT INFO
@@ -36,7 +36,7 @@ Estes campos também podem utilizar caracteres especiais:
 
 * `*`: todos valores possíveis;
 * `-`: indicador de intervalo (por exemplo, `1-3` indica os números `1`, `2` e `3`);
-* `,`: sequẽncia de valores (por exemplo, `1;3` indica os números `1` e `3`);
+* `,`: sequência de valores (por exemplo, `1,3` indica os números `1` e `3`);
 * `/`: tamanho do salto (por exemplo, `0-10/5` indica os números `0`, `5` e `10`);
 * `#`: delimitador de comentário.
 
@@ -69,7 +69,7 @@ Execute ```who -r``` para descobrir em qual _runlevel_ seu sistema está operand
 Dependendo do sistema a ser desenvolvido, é possível desligar alguns recursos do Raspberry Pi para economizar energia. Obviamente, desligue somente o que você não precisar:
 
 * _Chip_ USB: se você não precisar da porta USB, é possível desabilitar o acesso à porta USB executando ```echo '1-1' |sudo tee /sys/bus/usb/drivers/usb/unbind```. Para reabilitar o acesso, execute ```echo '1-1' |sudo tee /sys/bus/usb/drivers/usb/bind```.
-* Sada HDMI: desabilite a saída de video executando ```sudo /opt/vc/bin/tvservice -o```, e a reabilite executando ```sudo /opt/vc/bin/tvservice -p```.
+* Saída HDMI: desabilite a saída de video executando ```sudo /opt/vc/bin/tvservice -o```, e a reabilite executando ```sudo /opt/vc/bin/tvservice -p```.
 * WiFi e Bluetooth: desabilite estes serviços acrescentando as linhas ```dtoverlay=pi3-disable-wifi``` e ```dtoverlay=pi3-disable-bt``` ao arquivo ```/boot/config.txt```. As mudanças ocorrerão após o _boot_ do sistema. Remova estas linhas do arquivo ```/boot/config.txt``` para reabilitar estes serviços.
 * LEDs da placa: assim como a WiFi e o Bluetooth, desabilite os LEDs acrescentando as linhas ```dtparam=act_led_trigger=none``` e ```dtparam=act_led_activelow=on``` ao arquivo ```/boot/config.txt```.
 
