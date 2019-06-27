@@ -1,0 +1,18 @@
+#!/bin/sh
+
+logger "["$(cut -d ' ' -f1 /proc/uptime)"] Hello: Starting /usr/bin/hello_buildroot"
+logger "["$(cut -d ' ' -f1 /proc/uptime)"] Hello: Try ps | grep hello_buildroot"
+
+case "$1" in
+  start)
+    /usr/bin/hello_buildroot &
+    ;;
+  stop)
+    exit 1
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+
+exit 0
