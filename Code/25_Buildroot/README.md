@@ -91,7 +91,7 @@ para abrir a interface gráfica de personalização da ompilação do sistema op
 * `Target packages ==> Miscellaneous ==> hello_buildroot`
 * `Target packages ==> BusyBox ==> Show packages that are also provided by busybox`
 
-e salve estas configurações. Execute ```make``` para criar uma nova imagem do sistema operacional, e a istale em um cartão SD.
+e salve estas configurações. Execute ```make``` para criar uma nova imagem do sistema operacional, e a instale em um cartão SD.
 
 Depois de ligar o Raspberry Pi com o novo sistema operacional, faça _login_ como `root` sem senha, e execute ```grep Hello /var/log/message``` para ver as mensagens deixadas durante o _boot_ do sistema pelo _script_ `hello_buildroot-init`. Execute ```ps | grep hello``` para ver que o programa _Hello World_ está em execução. Execute ```hello_buildroot``` para ver o programa _Hello World_ em execução, e aperte CONTROL-C para sair.
 
