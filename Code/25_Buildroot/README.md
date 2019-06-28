@@ -37,7 +37,7 @@ O Buildroot possui configurações pré-definidas para uma série de placas. Exe
   raspberrypi_defconfig               - Build for raspberrypi
 ```
 
-A partir daí, escolha a configuração para a sua placa. Por exemplo, para o Raspberry Pi 0W, execute ```make raspberrypi0w_defconfig```. Assim, será criado um ```Makefile``` necessário para compilar todo um sistema Linux mínimo para esta placa. Execute então ```make``` e aguarde cerca de uma hora.
+A partir daí, escolha a configuração para a sua placa. Por exemplo, para o Raspberry Pi 0W, execute ```make raspberrypi0w_defconfig```. Assim, será criado um ```Makefile``` necessário para compilar todo um sistema Linux mínimo para esta placa. (Executando ```make xconfig```, surge uma interface gráfica para a definição de diversas opções de compilação.) Execute então ```make``` e aguarde cerca de uma hora.
 
 Se não ocorrerem erros, o arquivo ```~/exemplos_buildroot/buildroot/output/images/sdcard.img``` conterá a imagem do sistema operacional mínimo. Instale esta imagem em um cartão SD. No Linux, insira um cartão SD, execute ```lsblk``` para ver quais partições seu cartão SD possui e onde estão montadas, e desmonte-as. Por exemplo, se o seu cartão SD tiver 2 partições montadas em ```/dev/sdb1``` e ```/dev/sdb2```, desmonte-as executando ```sudo umount /dev/sdb1 /dev/sdb2```. Finalmente, instale a imagem executando ```sudo dd bs=4M if=~/exemplos_buildroot/buildroot/output/images/sdcard.img of=/dev/sdb conv=fsync status=progress``` e retire o cartão SD.
 
@@ -45,7 +45,7 @@ Com este sistema instalado, é necessário usar o Raspberry Pi com teclado e tel
 
 ## _Hello World_
 
-Execute
+Neste exemplo, criaremos um sistema operacional semelhante ao anterior, mas com um programa _Hello World_ já compilado e executado durante o _boot_. Execute
 
 ```
 cd ~/exemplos_buildroot
@@ -58,9 +58,46 @@ wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/ma
 wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/25_Buildroot/hello_buildroot/hello_buildroot.mk
 ```
 
+para baixar o código do _Hello World_ e outros arquivos importantes:
+
+* `hello_buildroot.c` é o código do _Hello World_, e `Makefile` é o arquivo para compilação do mesmo;
+* `hello_buildroot-init` é um _script_ a ser instalado na pasta `/etc/init.d`, garantindo a execução do programa no _boot_ do sistema;
+* `Config.in` contém descrições de opções deste programa;
+* `hello_buildroot.mk` indica o caminho do código do _Hello World_ para o Buildroot, como compila-lo, aonde instala-lo (```/usr/bin```), e aonde instalar o _script_ `hello_buildroot-init`.
+
+Execute
+
+```
+cd ~/exemplos_buildroot/buildroot/packages
+mkdir hello_buildroot
+cd hello_buildroot
+cp ~/exemplos_buildroot/hello_buildroot/Config.in .
+cp ~/exemplos_buildroot/hello_buildroot/hello_buildroot.mk .
+cd .. 
+```
+
+Agora, abra o arquivo `~/exemplos_buildroot/buildroot/packages/Config.in`, procure pelo texto `menu "Miscellaneous"` e insira a linha `source "package/hello_buildroot/Config.in"` mantendo a ordem alfabética dos comandos abaixo da minha `menu "Miscellaneous"`.
+
+Execute
+
+```
+cd ..
+make xconfig
+```
+
+para abrir a interface gráfica de personalização da ompilação do sistema operacional. Marque as seguintes opções:
+
+* `System Configuration ==> Run a getty (login prompt) after boot`
+* `Target packages ==> Miscellaneous ==> hello_buildroot`
+* `Target packages ==> BusyBox ==> Show packages that are also provided by busybox`
+
+e salve estas configurações. Execute ```make``` para criar uma nova imagem do sistema operacional, e a istale em um cartão SD.
+
+Depois de ligar o Raspberry Pi com o novo sistema operacional, faça _login_ como `root` sem senha, e execute ```grep Hello /var/log/message``` para ver as mensagens deixadas durante o _boot_ do sistema pelo _script_ `hello_buildroot-init`. Execute ```ps | grep hello``` para ver que o programa _Hello World_ está em execução. Execute ```hello_buildroot``` para ver o programa _Hello World_ em execução, e aperte CONTROL-C para sair.
+
 ## Referências
 
-* [Manual Buildroot](../../Refs/Buildroot/Buildroot_Manual.pdf).
+* [Manual Buildroot](../../Refs/Buildroot/Buildroot_Manual.pdf)
 * http://www.chip-community.org/index.php/Startup_Program_with_Buildroot
 * https://www.cyberciti.biz/tips/howto-linux-unix-write-to-syslog.html
 * https://unix.stackexchange.com/questions/108281/how-long-system-has-been-awake-running-since-restart
