@@ -1,4 +1,4 @@
-config BR2_PACKAGE_HELLO_BUILDROOTs
+config BR2_PACKAGE_HELLO_BUILDROOT
 	bool "hello_buildroot"
 	help
 	  Hello Buildroot World!
