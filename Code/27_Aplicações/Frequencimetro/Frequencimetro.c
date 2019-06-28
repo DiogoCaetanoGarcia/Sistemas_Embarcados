@@ -14,10 +14,19 @@ struct timespec t[2];
 
 void conta_eventos(void)
 {
+	struct timespec t_now;
+	clock_gettime(CLOCK_MONOTONIC, &t_now);
+
 	if(contagem_eventos==0)
-		clock_gettime(CLOCK_MONOTONIC, &t[0]);
+	{
+		t[0].tv_sec = t_now.tv_sec;
+		t[0].tv_nsec = t_now.tv_nsec;
+	}
 	else
-		clock_gettime(CLOCK_MONOTONIC, &t[1]);
+	{
+		t[1].tv_sec = t_now.tv_sec;
+		t[1].tv_nsec = t_now.tv_nsec;
+	}
 	contagem_eventos++;
 }
 
@@ -46,7 +55,7 @@ int main(void)
 		clock_gettime(CLOCK_MONOTONIC, &ts);
 		sleep_until(&ts, T_AMOSTRAGEM);
 		freq  = (double)t[1].tv_sec;
-		freq -= (double)t[0].tv_sec;
+		freq -= (double)t[0].tv_sec; 
 		freq += ((double)t[1].tv_nsec)*1.0e-9;
 		freq -= ((double)t[0].tv_nsec)*1.0e-9;
 		freq /= (double)(contagem_eventos-1);
