@@ -7,6 +7,7 @@ void config_freq(void)
 	wiringPiSetup();
 	wiringPiISR(PINO_ENT, INT_EDGE_FALLING, &conta_eventos);
 	Config_Pins();
+	Config_LCD();
 }
 
 void conta_eventos(void)
@@ -47,13 +48,14 @@ void calc_freq(void)
 	while(1)
 	{
 		fc.contagem_eventos = 0;
-		sleep_until(&ts, T_AMOSTRAGEM);
+		sleep_until(T_AMOSTRAGEM);
 		freq  = (double)fc.t[1].tv_sec;
 		freq -= (double)fc.t[0].tv_sec;
 		freq += ((double)fc.t[1].tv_nsec)*1.0e-9;
 		freq -= ((double)fc.t[0].tv_nsec)*1.0e-9;
 		freq /= (double)(fc.contagem_eventos-1);
 		freq = 1.0/freq;
+		Clear_LCD();
 		Send_String("F = ");
 		if(freq>=1.0e6)
 		{
@@ -71,5 +73,4 @@ void calc_freq(void)
 			Send_String("Hz");
 		}
 	}
-	return 0;
 }
