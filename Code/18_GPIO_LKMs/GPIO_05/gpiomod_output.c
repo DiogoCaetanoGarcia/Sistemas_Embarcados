@@ -146,14 +146,14 @@ static int device_release(struct inode *inode, struct file *file)
 void long_para_string(long int x, char s[])
 {
 	long int pot10=1;
-        int i=0;
-        for(pot10=1; pot10<=x; pot10 *= 10){}
-        pot10 /= 10;
-        for(i=0; pot10>0; i++)
-        {
-                s[i] = x/pot10 + '0';
-                x = x%pot10;
-                pot10 /=10;
+	int i=0;
+	for(pot10=1; pot10<=x; pot10 *= 10){}
+	pot10 /= 10;
+	for(i=0; pot10>0; i++)
+	{
+		s[i] = x/pot10 + '0';
+		x = x%pot10;
+		pot10 /=10;
 	}
 	s[i] = '\0';
 }
