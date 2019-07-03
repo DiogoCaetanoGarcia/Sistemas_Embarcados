@@ -76,7 +76,7 @@ cp ~/exemplos_buildroot/hello_buildroot/hello_buildroot.mk .
 cd .. 
 ```
 
-Agora, abra o arquivo `~/exemplos_buildroot/buildroot/packages/Config.in`, procure pelo texto `menu "Miscellaneous"` e insira a linha `source "package/hello_buildroot/Config.in"` mantendo a ordem alfabética dos comandos abaixo da minha `menu "Miscellaneous"`.
+Agora, abra o arquivo `~/exemplos_buildroot/buildroot/packages/Config.in`, procure pelo texto `menu "Miscellaneous"` e insira a linha `source "package/hello_buildroot/Config.in"` mantendo a ordem alfabética dos comandos abaixo da linha `menu "Miscellaneous"`.
 
 Execute
 
