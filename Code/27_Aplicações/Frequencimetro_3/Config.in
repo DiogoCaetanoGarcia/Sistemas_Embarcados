@@ -1,4 +1,5 @@
 config BR2_PACKAGE_FREQUENCIMETRO
 	bool "frequencimetro"
+	select BR2_PACKAGE_WIRINGPI
 	help
 	  Frequencimetro com display LCD.
