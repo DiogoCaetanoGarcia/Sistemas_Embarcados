@@ -1,0 +1,4 @@
+config BR2_PACKAGE_FREQUENCIMETRO
+	bool "frequencimetro"
+	help
+	  Frequencimetro com display LCD.

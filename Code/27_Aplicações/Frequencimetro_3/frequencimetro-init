@@ -1,0 +1,17 @@
+#!/bin/sh
+
+logger "["$(cut -d ' ' -f1 /proc/uptime)"] Frequencimetro: Starting /usr/bin/freq"
+
+case "$1" in
+  start)
+    /usr/bin/freq &
+    ;;
+  stop)
+    exit 1
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+
+exit 0

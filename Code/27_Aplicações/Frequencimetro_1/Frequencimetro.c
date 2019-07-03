@@ -30,20 +30,21 @@ void conta_eventos(void)
 	contagem_eventos++;
 }
 
-void sleep_until(struct timespec *ts, unsigned long delay)
+void sleep_until(unsigned long delay)
 {
+	struct timespec ts;
+	clock_gettime(CLOCK_MONOTONIC, &ts);
 	while(delay >= 1000000000ul)
 	{
-		ts->tv_sec++;
+		ts.tv_sec++;
 		delay -= 1000000000ul;
 	}
-	ts->tv_nsec += delay;
-	clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, ts,  NULL);
+	ts.tv_nsec += delay;
+	clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts,  NULL);
 }
 
 int main(void)
 {
-	struct timespec ts;
 	double freq;
 	wiringPiSetup();
 	wiringPiISR(PINO_ENT, INT_EDGE_FALLING, &conta_eventos);
@@ -52,8 +53,7 @@ int main(void)
 		//printf("Medir freq: ENTER / Sair: CTRL-C ");
 		//getchar();
 		contagem_eventos = 0;
-		clock_gettime(CLOCK_MONOTONIC, &ts);
-		sleep_until(&ts, T_AMOSTRAGEM);
+		sleep_until(T_AMOSTRAGEM);
 		freq  = (double)t[1].tv_sec;
 		freq -= (double)t[0].tv_sec;
 		freq += ((double)t[1].tv_nsec)*1.0e-9;
