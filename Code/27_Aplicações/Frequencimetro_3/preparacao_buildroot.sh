@@ -53,7 +53,7 @@ for arq in Makefile freq.c freq.h lcd.c lcd.h main.c
 do
 	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/Frequencimetro_2/$arq
 done
-cd ../buildroot/packages
+cd ../buildroot/package
 mkdir frequencimetro
 cd frequencimetro
 for arq in frequencimetro-init Config.in frequencimetro.mk
