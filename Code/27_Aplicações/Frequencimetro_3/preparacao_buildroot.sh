@@ -65,4 +65,5 @@ sed -i '/menu "Miscellaneous"/a\\tsource "package/frequencimetro/Config.in"' Con
 cd ..
 make $arquitetura
 sed -i 's/# BR2_PACKAGE_FREQUENCIMETRO is not set/BR2_PACKAGE_FREQUENCIMETRO=y/' .config
+sed -i 's/# BR2_PACKAGE_BUSYBOX_SHOW_OTHERS is not set/BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y/' .config
 time make
