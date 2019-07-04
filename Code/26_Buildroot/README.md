@@ -1,6 +1,6 @@
 # _Buildroot_
 
-_Buildroot_ é uma ferramenta que simplifica e automatiza [o processo de montar um sistema Linux completo](Cria%C3%A7%C3%A3o_sistema_Linux.md) para um sistema embarcado, usando compilação cruzada (_cross-compilation_).
+_Buildroot_ é uma ferramenta que simplifica e automatiza [o processo de montar um sistema Linux completo](Cria%C3%A7%C3%A3o_sistema_Linux.md) para um sistema embarcado, usando compilação cruzada (_cross-compilation_). Outras opções são o [OpenWRT Project](https://openwrt.org/) e o [Yocto Project](https://www.yoctoproject.org/).
 
 Esta ferramenta gera uma _toolchain_ de _cross-compilation_, o sistema de arquivos _root_, uma imagem do _kernel_ do  Linux e um _bootloader_ para o sistema embarcado. (Você pode escolher executar somente a parte destes resultados que te interessar.)
 
