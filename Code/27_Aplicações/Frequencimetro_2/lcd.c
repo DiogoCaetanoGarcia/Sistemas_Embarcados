@@ -72,6 +72,11 @@ void Send_Int(int x)
 		Send_String("-");
 		x = -x;
 	}
+	if(x==0)
+	{
+		Send_String("0");
+		return;
+	}
 	for(pot10=1; pot10<=x; pot10 *= 10){}
 	pot10 /= 10;
 	for(i=0; pot10>0; i++)
@@ -92,6 +97,10 @@ void Send_Double(double x, int decimal_places)
 		x = -x;
 	Send_String(".");
 	for(i=0; i<decimal_places; i++)
+	{
 		x *= 10;
+		if(x<1.0)
+			Send_Int(0);
+	}
 	Send_Int((int)x);
 }

@@ -45,6 +45,7 @@ void sleep_until(unsigned long delay)
 void calc_freq(void)
 {
 	double freq;
+	char str[80];
 	while(1)
 	{
 		fc.contagem_eventos = 0;
@@ -59,18 +60,22 @@ void calc_freq(void)
 		Send_String("F = ");
 		if(freq>=1.0e6)
 		{
+			//sprintf(str, "F = %f MHz", freq*1.0e-6);
 			Send_Double(freq*1.0e-6, 6);
 			Send_String("MHz");
 		}
 		else if(freq>=1.0e3)
 		{
+			//sprintf(str, "F = %f kHz", freq*1.0e-3);
 			Send_Double(freq*1.0e-3, 6);
 			Send_String("kHz");
 		}
 		else
 		{
+			//sprintf(str, "F = %f Hz", freq);
 			Send_Double(freq, 6);
 			Send_String("Hz");
 		}
+		//Send_String(str);
 	}
 }

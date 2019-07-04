@@ -1,8 +1,8 @@
 #ifndef _FREQ_H_
 #define _FREQ_H_
 
-// #include <stdio.h>
-// #include <string.h>
+#include <stdio.h>
+#include <string.h>
 // #include <stdlib.h>
 #include <wiringPi.h>
 #include <time.h>
