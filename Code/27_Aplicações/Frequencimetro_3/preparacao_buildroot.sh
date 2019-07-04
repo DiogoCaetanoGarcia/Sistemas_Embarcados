@@ -64,6 +64,10 @@ cd ..
 sed -i '/menu "Miscellaneous"/a\\tsource "package/frequencimetro/Config.in"' Config.in
 cd ..
 make $arquitetura
-sed -i 's/# BR2_PACKAGE_FREQUENCIMETRO is not set/BR2_PACKAGE_FREQUENCIMETRO=y/' .config
-sed -i 's/# BR2_PACKAGE_BUSYBOX_SHOW_OTHERS is not set/BR2_PACKAGE_BUSYBOX_SHOW_OTHERS=y/' .config
-time make
+echo 'Para terminar a criação do exemplo, execute'
+echo '   $ cd ~/exemplos_buildroot/buildroot'
+echo '   $ menu xconfig'
+echo 'selecione "Target packages ==> Miscellaneous ==> frequencimetro",'
+echo 'salve a configuração do Buildroot, e execute'
+echo '   $ time make'
+echo 'para criar a imagem a ser instalada no cartão SD.'
