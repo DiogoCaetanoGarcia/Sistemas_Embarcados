@@ -66,7 +66,7 @@ cd ..
 make $arquitetura
 echo 'Para terminar a criação do exemplo, execute'
 echo '   $ cd ~/exemplos_buildroot/buildroot'
-echo '   $ menu xconfig'
+echo '   $ make xconfig'
 echo 'selecione "Target packages ==> Miscellaneous ==> frequencimetro",'
 echo 'salve a configuração do Buildroot, e execute'
 echo '   $ time make'
