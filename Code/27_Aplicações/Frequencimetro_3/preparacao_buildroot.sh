@@ -49,14 +49,14 @@ cd ~/exemplos_buildroot
 git clone https://github.com/buildroot/buildroot.git buildroot
 mkdir frequencimetro
 cd frequencimetro
-for arq in Makefile freq.c freq.h lcd.c lcd.h main.c
+for arq in Makefile freq.c freq.h lcd.c lcd.h main.c frequencimetro-init
 do
 	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/Frequencimetro_2/$arq
 done
 cd ../buildroot/package
 mkdir frequencimetro
 cd frequencimetro
-for arq in frequencimetro-init Config.in frequencimetro.mk
+for arq in Config.in frequencimetro.mk
 do
 	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/Frequencimetro_3/$arq
 done
