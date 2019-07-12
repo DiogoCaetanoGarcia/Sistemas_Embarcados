@@ -1,8 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> **NOTAS ATUALIZADAS DISPONÍVEIS EM https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
-
-> **Prezados alunos: a revisão de notas será no dia 10/7 às 16hs, na minha sala. Alunos que não apresentaram o trabalho final no dia 5/7 poderão apresenta-lo no dia 10/7 às 14hs, em sala de aula.**
+> **NOTAS FINAIS EM https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
