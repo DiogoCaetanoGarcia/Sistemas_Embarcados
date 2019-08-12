@@ -1,6 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> **NOTAS FINAIS EM https://docs.google.com/spreadsheets/d/1kb5Xr16WnuqoxGTRp2YWrys0eVhumtlTsjJOWN4U3aw/edit?usp=sharing**
+> Formulário para envio do link do repositório pessoal: https://docs.google.com/forms/d/e/1FAIpQLSfy-YwLPu66BHLRhiW-bR_8lrEO7BFXPOxvv4RQf2tKux1p9w/viewform
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
