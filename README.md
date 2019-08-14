@@ -14,6 +14,8 @@
 
 # Datas importantes
 
+![Calendário 2019/2](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendário_2019_02.png)
+
 - 30/08/2019: entrega do primeiro ponto de controle
 - 13/09/2019: primeiro teste
 - 30/09/2019: entrega do segundo ponto de controle
