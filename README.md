@@ -14,13 +14,13 @@
 
 # Datas importantes
 
-- 29/03/2019: entrega do primeiro ponto de controle
-- 08/04/2019: primeiro teste **(ADIADO PARA O DIA 12/04/2019)**
-- 29/04/2019: entrega do segundo ponto de controle **(ADIADA PARA O DIA 03/05/2019)**
-- 13/05/2019: segundo teste **(ADIADO PARA O DIA 17/05/2019)**
-- 27/05/2019: entrega do terceiro ponto de controle
-- 10/06/2019: entrega do quarto ponto de controle
-- 05/07/2019: entrega do projeto final
+- 30/08/2019: entrega do primeiro ponto de controle
+- 13/09/2019: primeiro teste
+- 30/09/2019: entrega do segundo ponto de controle
+- 18/10/2019: segundo teste
+- 28/10/2019: entrega do terceiro ponto de controle
+- 11/11/2019: entrega do quarto ponto de controle
+- 02/12/2019: entrega do projeto final
 
 # Objetivos
 
