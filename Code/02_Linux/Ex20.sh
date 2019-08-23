@@ -5,7 +5,7 @@ fatorial()
   fat=1
   for i in $(seq $1)
   do
-    fat=$((($fat)*($i)))
+    fat=$((fat*i))
   done
   echo $fat
 }
