@@ -27,3 +27,5 @@ Repare o tamanho do programa criado. Agora, execute:
 	$ ls -l reciprocal
  
 Repare novamente o tamanho do programa criado.
+
+Confira [aqui](https://www.rapidtables.com/code/linux/gcc/gcc-o.html) as principais opções de compilação do GCC.
