@@ -7,10 +7,12 @@ int main(int argc, const char * argv[])
 {
 	int fp;
 	
-	fp = open("exemplo.bin", O_RDWR);
+	fp = open("exemplo.bin",
+		O_RDWR);
 	if(fp==-1)
 	{
-		printf("Erro na abertura do arquivo.\n");
+		printf("Erro na abertura"
+			" do arquivo.\n");
 		exit(-1);
 	}
 	close(fp);

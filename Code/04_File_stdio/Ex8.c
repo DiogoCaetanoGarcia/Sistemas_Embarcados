@@ -5,22 +5,20 @@ int main()
 	FILE *fp;
 	float pi = 3.1415;
 	float pilido;
-	if((fp = fopen("arquivo.bin", "wb")) == NULL)
+	if((fp = fopen("arquivo.txt", "w")) == NULL)
 	{
 		printf("Erro na abertura do arquivo");
 		exit(1);
 	}
-	if(fwrite(&pi, sizeof(float), 1,fp) != 1)
-		printf("Erro na escrita do arquivo");
+	fprintf(fp, "pi = %f\n", pi);
 	fclose(fp);
 
-	if((fp = fopen("arquivo.bin", "rb")) == NULL)
+	if((fp = fopen("arquivo.txt", "rb")) == NULL)
 	{
 		printf("Erro na abertura do arquivo");
 		exit(1);
 	}
-	if(fread(&pilido, sizeof(float), 1,fp) != 1)
-		printf("Erro na leitura do arquivo");
+	fscanf(fp, "pi = %f\n", &pilido);
 	printf("\nO valor de PI "
 		"(lido do arquivo) eh: %f\n\n",
 		pilido);
