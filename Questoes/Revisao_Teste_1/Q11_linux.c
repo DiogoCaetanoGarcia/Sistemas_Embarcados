@@ -5,16 +5,17 @@
 #include <semaphore.h>
 
 volatile int cnt=0;
-static pthread_mutex_t mutexLock;
 
 void *thread_function(void *arg)
 {
-	int i1=cnt;
-	while(i1!=10)
+	int i = cnt;
+	while(i!=10)
 	{
-		while(i1==cnt);
-		i1 = cnt;
-		printf("%d\n", i1);
+		if(i!=cnt)
+		{
+			printf("cnt = %d\n", cnt);
+			i = cnt;
+		}
 	}
 	pthread_exit(0);
 }
