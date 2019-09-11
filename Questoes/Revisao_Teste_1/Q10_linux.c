@@ -9,22 +9,19 @@ static pthread_mutex_t mutexLock;
 
 void *thread_function(void *arg)
 {
-	int i1, i2;
+	int i;
 	pthread_mutex_lock(&mutexLock);
-	i2 = cnt;
+	i = cnt;
 	pthread_mutex_unlock(&mutexLock);
-	while(i2!=10)
+	while(i!=10)
 	{
 		pthread_mutex_lock(&mutexLock);
-		i1 = cnt;
-		pthread_mutex_unlock(&mutexLock);
-		do
+		if(i!=cnt)
 		{
-			pthread_mutex_lock(&mutexLock);
-			i2 = cnt;
-			pthread_mutex_unlock(&mutexLock);
-		}while(i1==i2);
-		printf("%d\n", i2);
+			printf("cnt = %d\n", cnt);
+			i = cnt;
+		}
+		pthread_mutex_unlock(&mutexLock);
 	}
 	pthread_exit(0);
 }
