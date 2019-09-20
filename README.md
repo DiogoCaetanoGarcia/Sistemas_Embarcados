@@ -1,6 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> Formulário para envio do link do repositório pessoal: https://docs.google.com/forms/d/e/1FAIpQLSfy-YwLPu66BHLRhiW-bR_8lrEO7BFXPOxvv4RQf2tKux1p9w/viewform
+> Prezados alunos, a pasta [```/Refs/Acesso_Remoto_RPi```](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Refs/Acesso_Remoto_RPi) neste repositório contém diversas informações para acesso remoto ao Raspberry Pi.
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
