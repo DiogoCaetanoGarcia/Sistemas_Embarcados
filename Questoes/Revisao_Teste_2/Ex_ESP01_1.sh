@@ -2,7 +2,7 @@
 
 F=/dev/ttyS0
 
-if [ $# -lt 2 ]
+if [ $# -lt 3 ]
 then
 	echo "Teste de comunicação com o ESP-01, por envio"
 	echo "de pedidos AT. Por exemplo, tente:"
