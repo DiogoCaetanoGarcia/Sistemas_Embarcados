@@ -47,17 +47,20 @@ void read_ESP01(int fd, char *str)
 
 int main(int argc, char *argv[])
 {
+	char resposta_final[200];
 	char resposta[200];
 
 	if(argc<3)
 	{
 		printf("Teste de comunicação com o ESP-01, por envio\n");
 		printf("de pedidos AT. Por exemplo, tente:\n");
-		printf("   $0 AT+CWLAP OK\n");
-		printf("   $0 AT+GMR OK\n");
-		printf("   $0 AT+CIFSR OK\n");
+		printf("   %s AT OK\n", argv[0]);
+		printf("   %s AT+CWLAP OK\n", argv[0]);
+		printf("   %s AT+GMR OK\n", argv[0]);
+		printf("   %s AT+CIFSR OK\n", argv[0]);
 		return -2;
 	}
+	sprintf(resposta_final,"%s\r\n",argv[2]);
 	signal(SIGINT, ctrl_c);
 	wiringPiSetup();
 	uart0_fd = serialOpen(TTY, BAUD_RATE);
@@ -68,7 +71,7 @@ int main(int argc, char *argv[])
 	{
 		read_ESP01(uart0_fd, resposta);
 		printf("%s", resposta);
-	} while(strcmp(resposta, argv[2]));
+	} while(strcmp(resposta, resposta_final));
 	serialClose(uart0_fd);
 	return 0;
 }
