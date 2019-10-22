@@ -1,5 +1,27 @@
 #! /bin/bash
 
+function weather()
+{
+  curl -s "wttr.in/$1?m1"
+}
+
+function up()
+{
+  times=$1
+  while [ "$times" -gt "0" ]; do
+    cd ..
+    times=$(($times - 1))
+  done
+}
+
+function mkcd()
+{
+        mkdir $1
+        cd $1
+}
+
+alias lsla='ls -la'
+
 function extract ()
 {
 	if [ -f $1 ] ; then
