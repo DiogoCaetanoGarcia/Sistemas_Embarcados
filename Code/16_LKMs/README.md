@@ -2,8 +2,8 @@
 
 Execute:
 
+	sudo apt install raspberrypi-kernel-headers
 	sudo wget https://raw.githubusercontent.com/notro/rpi-source/master/rpi-source -O /usr/bin/rpi-source && sudo chmod +x /usr/bin/rpi-source && /usr/bin/rpi-source -q --tag-update
-
 	rpi-source
 
 Se este último não completar a instalação, siga as instruções na tela para instalar as dependências que faltam. Por exemplo, se surgir a mensagem:
