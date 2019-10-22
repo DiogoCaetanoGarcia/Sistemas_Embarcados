@@ -94,3 +94,11 @@ function check_internet_connection()
 	echo "ping www.google.com"
 	ping www.google.com
 }
+
+function testa_desempenho_SO()
+{
+        arq="output_os_test.txt"
+        sudo cyclictest -l100000 -m -S -p90 -i200 -h400 -q > $arq
+        tail -8 $arq
+        rm $arq
+}
