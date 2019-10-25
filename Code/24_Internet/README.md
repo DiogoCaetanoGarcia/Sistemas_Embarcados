@@ -276,7 +276,9 @@ sudo apt-get update
 sudo apt-get install apache2 -y
 ```
 
-para instalar o ```apache2``` no Raspberry Pi. Acesse http://localhost/ em um _browser_ no Raspberry Pi, ou [http://IP_DO_RASPBERRY_PI](http://IP_DO_RASPBERRY_PI) em um computador, _tablet_ ou celular ligado à mesma rede para visualizar a seguinte página: https://www.raspberrypi.org/documentation/remote-access/web-server/images/apache-it-works.png.
+para instalar o ```apache2``` no Raspberry Pi. Acesse http://localhost/ em um _browser_ no Raspberry Pi, ou [http://IP_DO_RASPBERRY_PI](http://IP_DO_RASPBERRY_PI) em um computador, _tablet_ ou celular ligado à mesma rede para visualizar a seguinte página:
+
+![Apache em funcionamento](https://workaround.org/wp-content/uploads/2015/10/ispmail-jessie-apache-default.png "Apache em funcionamento")
 
 Quando você acessa esta página, você faz um requerimento HTTP GET da página HTML localizada em ```/var/www/html/index.html``` no Raspberry Pi com o ```apache2``` instalado e executando. Mude esta página HTML para apresentar o que quiser ao usuário. (Por precaução, execute ```sudo cp /var/www/html/index.html /var/www/html/index_original.html``` para manter uma cópia desta página no seu Raspberry Pi.)
 
