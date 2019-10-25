@@ -303,19 +303,20 @@ para reinicia-lo.
 O envio de informações de um cliente para um servidor pode ser feito através de requisições HTTP GET e POST. Com o ```apache2``` em execução, execute
 
 ```
-sudo cp formulario_RPi1.html /var/www/html/index.html
-sudo cp obrigado.html /var/www/html/obrigado.html
+sudo curl -o /var/www/html/index.html https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/24_Internet/formulario_RPi1.html
+sudo curl -o /var/www/html/obrigado.html https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/24_Internet/obrigado.html
 ```
 
-onde os arquivos ```formulario_RPi1.html``` e ```obrigado.html``` se encontram nesta pasta. Acesse o servidor para visualizar uma página com um formulário contendo três campos de preenchimento e um menu _dropdown_. Digite qualquer coisa nestes campos, pressione o botão _Submit_ e execute ```tail -1 /var/log/apache2/access.log``` para ver o último acesso feito ao arquivo ```/var/www/html/index.html``` via internet. Repare que o que você digitou nos campos do formulário aparecem após a palavra GET, e você pode utilizar isto para ler o que o usuário mandou de informação para o seu Raspberry Pi.
+Acesse o servidor para visualizar uma página com um formulário contendo três campos de preenchimento e um menu _dropdown_. Digite qualquer coisa nestes campos, pressione o botão _Submit_ e execute ```tail -1 /var/log/apache2/access.log``` para ver o último acesso feito ao arquivo ```/var/www/html/index.html``` via internet. Repare que o que você digitou nos campos do formulário aparecem após a palavra GET, e você pode utilizar isto para ler o que o usuário mandou de informação para o seu Raspberry Pi.
 
-Execute ```sudo cp formulario_RPi2.html /var/www/html/index.html``` para visualizar um formulário com melhor aparência.
+Execute ```sudo curl -o /var/www/html/index.html https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/24_Internet/formulario_RPi2.html``` para visualizar um formulário com melhor aparência.
 
 ## Atualização da página
 
 Execute
 
 ```
+cd ~
 echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Temperatura do Raspberry Pi</title></head><body><div class="container"><h1>' > index.html
 echo $(date) >> index.html
 echo '</h1><p>' >> index.html
@@ -329,16 +330,9 @@ e acesse o servidor para visualizar uma página com informação da temperatura 
 Atualize a página do servidor, e perceba que o valor indicado na página não muda. Isto acontece porque a página HTML não foi atualizada. Execute
 
 ```
-while true
-do
-	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Temperatura do Raspberry Pi</title></head><body><div class="container"><h1>' > index.html
-	echo $(date) >> index.html
-	echo '</h1><p>' >> index.html
-	echo $(/opt/vc/bin/vcgencmd measure_temp) >> index.html
-	echo '</p></div></body></html>' >> index.html
-	sudo mv index.html /var/www/html/index.html
-	sleep 1
-done
+curl -o update_servidor.sh  https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/24_Internet/update_servidor.sh
+chmod +x update_servidor.sh
+./update_servidor.sh
 ```
 
 para que a página seja atualizada a cada segundo. (Aperte CONTROL-C para parar esta atualização.)
