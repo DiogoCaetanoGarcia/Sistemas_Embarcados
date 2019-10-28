@@ -1,6 +1,8 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> Prezados alunos, a pasta [```/Refs/Acesso_Remoto_RPi```](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Refs/Acesso_Remoto_RPi) neste repositório contém diversas informações para acesso remoto ao Raspberry Pi.
+> **Prezados alunos, a apresentação do terceiro ponto de controle foi adiado para o dia 01/11, sexta-feira. Amanhã, dia 28/10, estarei em minha sala, número 25, para tirar dúvidas.**
+
+<!--> Prezados alunos, a pasta [```/Refs/Acesso_Remoto_RPi```](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Refs/Acesso_Remoto_RPi) neste repositório contém diversas informações para acesso remoto ao Raspberry Pi.-->
 
 <!--**- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
