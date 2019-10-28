@@ -1,6 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> **Prezados alunos, a apresentação do terceiro ponto de controle foi adiado para o dia 01/11, sexta-feira. Amanhã, dia 28/10, estarei em minha sala, número 25, para tirar dúvidas.**
+> **Prezados alunos, a apresentação do terceiro ponto de controle foi adiada para o dia 01/11/2019, sexta-feira. Amanhã, dia 28/10/2019, estarei em minha sala, número 25, para tirar dúvidas.**
 
 <!--> Prezados alunos, a pasta [```/Refs/Acesso_Remoto_RPi```](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Refs/Acesso_Remoto_RPi) neste repositório contém diversas informações para acesso remoto ao Raspberry Pi.-->
 
@@ -22,7 +22,7 @@
 - 13/09/2019: primeiro teste
 - 30/09/2019: entrega do segundo ponto de controle
 - 18/10/2019: segundo teste
-- 28/10/2019: entrega do terceiro ponto de controle
+- 28/10/2019: entrega do terceiro ponto de controle **(adiada para o dia 01/11/2019)**
 - 11/11/2019: entrega do quarto ponto de controle
 - 02/12/2019: entrega do projeto final
 
