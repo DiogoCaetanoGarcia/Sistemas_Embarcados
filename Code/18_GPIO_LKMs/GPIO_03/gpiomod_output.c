@@ -4,6 +4,8 @@
 #include <linux/kernel.h>
 #include <linux/gpio.h>
 
+#define NEWER_KERNEL_TIMER
+
 #define DEVICE_NAME "gpiomod_output"
 #define MSG_OK(s) printk(KERN_INFO "%s: %s\n", DEVICE_NAME, s)
 #define MSG_BAD(s, err_val) printk(KERN_ERR "%s: %s %d\n", DEVICE_NAME, s, err_val)
@@ -12,13 +14,16 @@
 #define LED_FREQ_2 (HZ/5)
 static struct timer_list blink_timer;
 
+#ifdef NEWER_KERNEL_TIMER
+static void blink_timer_func(struct timer_list* data)
+#else
 static void blink_timer_func(unsigned long data)
+#endif
 {
-	gpio_set_value(LED1, data);
 	// Agendar proxima execucao
-	blink_timer.data = !data; // Inverte o valor do LED
 	blink_timer.expires = jiffies + LED_FREQ_2;
 	add_timer(&blink_timer);
+	gpio_set_value(LED1, !gpio_get_value(LED1));
 }
 
 int init_module(void)
@@ -32,10 +37,13 @@ int init_module(void)
 	}
 	MSG_OK("modulo carregado");
 	// Comeca o timer
+#ifdef NEWER_KERNEL_TIMER
+	__init_timer(&blink_timer, blink_timer_func, 0);
+#else
 	init_timer(&blink_timer);
+#endif
 	// Ao final da contagem do timer, a funcao blink_timer_func() deve ser executada
 	blink_timer.function = blink_timer_func;
-	blink_timer.data = 1L;	// Comeca com o LED ligado
 	// jiffies eh uma variavel global que indica a quantidade de periodos do clock desde que ocorreu o boot do sistema
 	// HZ representa a quantidade de ciclos para contabilizar um segundo
 	// LED_FREQ_2 = 200ms
