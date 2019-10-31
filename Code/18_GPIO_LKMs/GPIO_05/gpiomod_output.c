@@ -8,6 +8,8 @@
 #include <linux/device.h> // Header to support the kernel Driver Model
 #include <linux/gpio.h>
 
+#define NEWER_KERNEL_TIMER
+
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Sistemas Embarcados");
 MODULE_DESCRIPTION("Ola gpiomod_output driver!");
@@ -22,13 +24,16 @@ MODULE_DESCRIPTION("Ola gpiomod_output driver!");
 static struct timer_list blink_timer;
 static long int periodo=HZ/5;
 
+#ifdef NEWER_KERNEL_TIMER
+static void blink_timer_func(struct timer_list* data)
+#else
 static void blink_timer_func(unsigned long data)
+#endif
 {
-	gpio_set_value(LED1, data);
 	// Agendar proxima execucao
-	blink_timer.data = !data; // Inverte o valor do LED
 	blink_timer.expires = jiffies + periodo;
 	add_timer(&blink_timer);
+	gpio_set_value(LED1, !gpio_get_value(LED1));
 }
 
 int init_module(void);
@@ -112,9 +117,13 @@ int init_module(void)
 		return ret;
 	}
 	MSG_OK("obteve acesso ao GPIO");
+// Comeca o timer
+#ifdef NEWER_KERNEL_TIMER
+	__init_timer(&blink_timer, blink_timer_func, 0);
+#else
 	init_timer(&blink_timer);
+#endif
 	blink_timer.function = blink_timer_func;
-	blink_timer.data = 1L;
 	blink_timer.expires = jiffies + periodo;
 	add_timer(&blink_timer);
 	return 0;
