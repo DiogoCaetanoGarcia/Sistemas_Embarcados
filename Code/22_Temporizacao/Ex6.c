@@ -19,17 +19,7 @@ int main(void)
 	media += (float)(t[1].tv_nsec -
 			t[0].tv_nsec);
 	media /= (float)N;
-	printf("Cálculo de tempo usando "
-		"clock_gettime():\n");
-	printf("N = %d\n", N);
 	printf("Media de tempo de usleep(%d)\n"
-		"   %2.1f us\n",
-		DELAY_US, media/1000.0);
-	printf("clock_gettime(CLOCK_MONOTONIC)\n");
-	printf("   retorna o tempo do clock\n");
-	printf("   'monotônico' - isto é, não\n");
-	printf("   afetado por descontinuidades\n");
-	printf("   no tempo do sistema (p.ex.,\n");
-	printf("   se o administrador mudar o\n");
-	printf("   relógio do sistema.\n");
+		"   N =  %d, %2.1f us\n",
+		DELAY_US, N, media/1000.0);
 }
