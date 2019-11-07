@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( Contraste_brilho )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( Contraste_brilho Contraste_brilho.cpp )
+target_link_libraries( Contraste_brilho ${OpenCV_LIBS} )

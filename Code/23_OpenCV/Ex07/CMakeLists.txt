@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( Misturar_Imagens )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( Misturar_Imagens Misturar_Imagens.cpp )
+target_link_libraries( Misturar_Imagens ${OpenCV_LIBS} )
