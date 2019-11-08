@@ -1,6 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> **Prezados alunos, seguem as notas da primeira prova: https://docs.google.com/spreadsheets/d/1eN025ov55h18_47g_G3Yg7zrsnSsSwACTy23OwNDLGQ/edit?usp=sharing**
+> **Prezados alunos, seguem as notas das DUAS provas: https://docs.google.com/spreadsheets/d/1eN025ov55h18_47g_G3Yg7zrsnSsSwACTy23OwNDLGQ/edit?usp=sharing**
 
 <!-- > **Prezados alunos, a apresentação do terceiro ponto de controle foi adiada para o dia 01/11/2019, sexta-feira. Amanhã, dia 28/10/2019, estarei em minha sala, número 25, para tirar dúvidas.**-->
 <!-- > Prezados alunos, a pasta [```/Refs/Acesso_Remoto_RPi```](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Refs/Acesso_Remoto_RPi) neste repositório contém diversas informações para acesso remoto ao Raspberry Pi.-->
