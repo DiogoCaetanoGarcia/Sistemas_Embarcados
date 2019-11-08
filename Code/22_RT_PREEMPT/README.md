@@ -22,7 +22,7 @@ Para instalar o _patch_ RT PREEMPT, execute os comandos a seguir em um computado
 ```
 ~$ mkdir ~/rpi-kernel
 ~$ cd ~/rpi-kernel 
-~rpi-kernel$ mkdir rt-kernel
+~/rpi-kernel$ mkdir rt-kernel
 ~/rpi-kernel$ git clone https://github.com/raspberrypi/linux.git -b rpi-4.14.y-rt
 ~/rpi-kernel$ git clone https://github.com/raspberrypi/tools.git
 ```
