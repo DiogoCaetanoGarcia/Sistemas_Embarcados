@@ -19,7 +19,7 @@ Existem diversas maneiras de executar automaticamente programas e _scripts_ no L
 ### END INIT INFO
 ```
 
-Este texto documenta todas as dependẽncias do seu _script_ para ele ser executado durante o processo de _boot_.
+Este texto documenta todas as dependências do seu _script_ para ele ser executado durante o processo de _boot_.
 * Comando ```crontab -e```: execute-o para adicionar tarefas a serem executadas pelo programa ```cron```. Escolha um dos editores de texto indicados pelo  comando ```crontab```, e um arquivo será aberto neste editor. Adicione ```@reboot sudo NOME_DO_COMANDO_OU_SCRIPT``` ao final do arquivo aberto para o comando ou _script_ ser executado no _boot_ do sistema.
 
 ## Agendamento de tarefas
