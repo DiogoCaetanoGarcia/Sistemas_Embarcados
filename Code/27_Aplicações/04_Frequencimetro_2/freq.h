@@ -8,8 +8,8 @@
 #include <time.h>
 #include "lcd.h"
 
-// Usar GPIO Pino 4, que é Pino 7 na wiringPi
-#define PINO_ENT 7
+// Usar GPIO Pino 27, que é Pino 2 na wiringPi
+#define PINO_ENT 2
 #define T_AMOSTRAGEM 1000000000ul
 
 struct freq_calc

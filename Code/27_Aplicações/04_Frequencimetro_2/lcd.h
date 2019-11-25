@@ -4,7 +4,7 @@
 #include <wiringPi.h> // pinMode() e digitalWrite()
 #include <unistd.h> // usleep()
 
-#define EN 2
+#define EN 7
 #define RS 0
 #define D4 3
 #define D5 4

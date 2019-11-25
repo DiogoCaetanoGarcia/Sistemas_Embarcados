@@ -42,7 +42,7 @@ void jiffies_delay(unsigned int n);
 
 static struct gpio lcd_pins[] = {
 		{  4, GPIOF_OUT_INIT_LOW, "EN" },
-		{ 27, GPIOF_OUT_INIT_LOW, "RS" },
+		{ 17, GPIOF_OUT_INIT_LOW, "RS" },
 		{ 22, GPIOF_OUT_INIT_LOW, "D4" },
 		{ 23, GPIOF_OUT_INIT_LOW, "D5" },
 		{ 24, GPIOF_OUT_INIT_LOW, "D6" },
