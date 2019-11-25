@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define EN 4
+#define EN 27
 #define RS 17
 #define D4 22
 #define D5 23
