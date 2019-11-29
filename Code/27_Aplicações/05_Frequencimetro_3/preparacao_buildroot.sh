@@ -51,15 +51,15 @@ mkdir frequencimetro
 cd frequencimetro
 for arq in Makefile freq.c freq.h lcd.c lcd.h main.c
 do
-	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/Frequencimetro_2/$arq
+	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/04_Frequencimetro_2/$arq
 done
-wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/Frequencimetro_3/frequencimetro-init
+wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/05_Frequencimetro_3/frequencimetro-init
 cd ../buildroot/package
 mkdir frequencimetro
 cd frequencimetro
 for arq in Config.in frequencimetro.mk
 do
-	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/Frequencimetro_3/$arq
+	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/05_Frequencimetro_3/$arq
 done
 cd ..
 sed -i '/menu "Miscellaneous"/a\\tsource "package/frequencimetro/Config.in"' Config.in
