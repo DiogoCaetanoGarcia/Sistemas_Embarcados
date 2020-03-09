@@ -1,13 +1,6 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-> **Prezados alunos, seguem as menções finais da disciplina: https://docs.google.com/spreadsheets/d/1eN025ov55h18_47g_G3Yg7zrsnSsSwACTy23OwNDLGQ/edit?usp=sharing**
-
-> **A revisão de notas será feita no dia 11/12/2019, das 14 às 16hs, na minha sala, número 25.**
-
-
-<!-- > **Prezados alunos, a apresentação do terceiro ponto de controle foi adiada para o dia 01/11/2019, sexta-feira. Amanhã, dia 28/10/2019, estarei em minha sala, número 25, para tirar dúvidas.**-->
-<!-- > Prezados alunos, a pasta [```/Refs/Acesso_Remoto_RPi```](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Refs/Acesso_Remoto_RPi) neste repositório contém diversas informações para acesso remoto ao Raspberry Pi.-->
-<!-- **- Link para envio de repositórios: https://goo.gl/forms/cNsbfsr2TtTRYrHr2**-->
+- **Link para envio de repositórios: https://forms.gle/Dqg1oZZ55Dxpttw66**
 
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=120961
