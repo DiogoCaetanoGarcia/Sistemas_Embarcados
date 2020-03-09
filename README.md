@@ -13,15 +13,15 @@
 
 # Datas importantes
 
-![Calendário 2020/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendário_2020_01.png)
+![Calendário 2020/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calend%C3%A1rio_2020_1.png)
 
-- 30/08/2019: entrega do primeiro ponto de controle
-- 13/09/2019: primeiro teste
-- 30/09/2019: entrega do segundo ponto de controle
-- 18/10/2019: segundo teste
-- 28/10/2019: entrega do terceiro ponto de controle **(adiada para o dia 01/11/2019)**
-- 11/11/2019: entrega do quarto ponto de controle
-- 02/12/2019: entrega do projeto final **(adiada para o dia 06/12/2019)**
+- 30/03/2020: entrega do primeiro ponto de controle
+- 17/04/2020: primeiro teste
+- 29/04/2020: entrega do segundo ponto de controle
+- 15/05/2020: segundo teste
+- 29/05/2020: entrega do terceiro ponto de controle
+- 15/06/2020: entrega do quarto ponto de controle
+- 29/06/2020: entrega do projeto final
 
 # Objetivos
 
