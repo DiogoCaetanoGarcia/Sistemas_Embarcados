@@ -8,7 +8,7 @@
 
 **Com relação às aulas do período de 16 a 20 de março de 2020, serão adicionados ao repositório videos com os conteúdos correspondentes. As questões de cada aula continuam disponibilizadas na pasta "Questões" do repositório, devendo ser respondidas até o dia 23 de março de 2020.**
 
-**Não consegui obter o email de todos os alunos matriculados. Por favor, avisem seus colegas. O aviso também será indicado no repositório da disciplina.**
+**Não consegui obter o email de todos os alunos matriculados. Por favor, avisem seus colegas.**
 
 **Atenciosamente,
 Prof. Diogo Garcia
