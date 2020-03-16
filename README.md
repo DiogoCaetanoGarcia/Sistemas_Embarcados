@@ -1,3 +1,19 @@
+# AVISO - 16/03/2020
+
+**Prezados alunos,**
+
+**Em função da suspensão de atividades presenciais na UnB pelas próximas duas semanas (https://noticias.unb.br/69-informe/4001-prorrogacao-do-periodo-de-suspensao-das-atividades-presenciais), as seguintes alterações serão feitas ao Plano de Ensino:**
+
+* **A data do primeiro ponto de controle (PC1) será adiada de 30/03/2020 para 06/04/2020.**
+
+**Com relação às aulas do período de 16 a 20 de março de 2020, serão adicionados ao repositório videos com os conteúdos correspondentes. As questões de cada aula continuam disponibilizadas na pasta "Questões" do repositório, devendo ser respondidas até o dia 23 de março de 2020.**
+
+**Não consegui obter o email de todos os alunos matriculados. Por favor, avisem seus colegas. O aviso também será indicado no repositório da disciplina.**
+
+**Atenciosamente,
+Prof. Diogo Garcia
+Eng. Eletrônica - FGA/UnB**
+
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
 - **Link para envio de repositórios: https://forms.gle/Dqg1oZZ55Dxpttw66**
@@ -15,7 +31,7 @@
 
 ![Calendário 2020/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calend%C3%A1rio_2020_1.png)
 
-- 30/03/2020: entrega do primeiro ponto de controle
+- 30/03/2020: entrega do primeiro ponto de controle **(ADIADO PARA O DIA 06/04/2020)**
 - 17/04/2020: primeiro teste
 - 29/04/2020: entrega do segundo ponto de controle
 - 15/05/2020: segundo teste
