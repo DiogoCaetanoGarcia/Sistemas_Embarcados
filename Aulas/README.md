@@ -6,7 +6,7 @@
 * 11/03 - Linux Básico
   * [Slides](../Aulas/01_Linux%20básico.pdf)
   * [Questões teóricas](../Questoes/02_Intro_Linux_1.md)
-  * [Questes práticas](../Questoes/02_Intro_Linux_2.md)
+  * [Questões práticas](../Questoes/02_Intro_Linux_2.md)
 * 14/03 - Shell Script
   * [Video-aula](https://youtu.be/rmFLxwW9IxU)
   * [Slides](01_Linux%20básico_Shell_Script.pdf)
