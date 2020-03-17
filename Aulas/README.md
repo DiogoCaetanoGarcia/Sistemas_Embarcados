@@ -7,7 +7,7 @@
   * [Slides](../Aulas/01_Linux%20básico.pdf)
   * [Questões teóricas](../Questoes/02_Intro_Linux_1.md)
   * [Questões práticas](../Questoes/02_Intro_Linux_2.md)
-* 14/03 - Shell Script
+* 16/03 - Shell Script
   * [Video-aula](https://youtu.be/rmFLxwW9IxU)
   * [Slides](01_Linux%20básico_Shell_Script.pdf)
   * [Código](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Code/02_Linux)
