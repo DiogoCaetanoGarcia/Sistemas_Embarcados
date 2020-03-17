@@ -1,13 +1,14 @@
 # Datas das aulas 2020/1
 
-* 09/03
-  * Aulas/01_Sistemas Embarcados - Aula 1 - Introdução.pdf
-  * Questoes/01_Intro_Sist_Emb.md
-* 11/03
-  * Aulas/01_Linux básico.pdf
-  * Questoes/02_Intro_Linux_1.md
-  * Questoes/02_Intro_Linux_2.md
-* 14/03
-  * Aulas/Aula3_shell_script.mp4
-  * Aulas/01_Linux básico_Shell_Script.pdf
-  * Questoes/02_Intro_Linux_3.md
+* 09/03 - Introdução a Sistemas Embarcados
+  * [Slides](01_Sistemas%20Embarcados%20-%20Aula%201%20-%20Introdução.pdf)
+  * [Questões](../Questoes/01_Intro_Sist_Emb.md)
+* 11/03 - Linux Básico
+  * [Slides](../Aulas/01_Linux%20básico.pdf)
+  * [Questões teóricas](../Questoes/02_Intro_Linux_1.md)
+  * [Questes práticas](../Questoes/02_Intro_Linux_2.md)
+* 14/03 - Shell Script
+  * [Video-aula](https://youtu.be/rmFLxwW9IxU)
+  * [Slides](01_Linux%20básico_Shell_Script.pdf)
+  * [Código](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Code/02_Linux)
+  * [Questões](../Questoes/02_Intro_Linux_3.md)
