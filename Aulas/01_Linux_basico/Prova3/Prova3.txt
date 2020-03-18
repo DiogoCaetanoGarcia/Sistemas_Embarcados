@@ -1,0 +1,4 @@
+1) Quem criou o Linux?
+2) O que é licença GNU?
+3) Liste quatro distribuições Linux.
+4) Qual é a diferença entre endereço absoluto e relativo no terminal Linux?
