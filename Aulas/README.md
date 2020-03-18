@@ -5,6 +5,7 @@
   * [Slides](Aula1_Intro_Sist_Emb.pdf)
   * [Questões](../Questoes/01_Intro_Sist_Emb.md)
 * 11/03 - Linux Básico
+  * [Video-aula](https://youtu.be/R1uoW-Jh41c)
   * [Slides](Aula2_Linux_básico.pdf)
   * [Questões teóricas](../Questoes/02_Intro_Linux_1.md)
   * [Questões práticas](../Questoes/02_Intro_Linux_2.md)

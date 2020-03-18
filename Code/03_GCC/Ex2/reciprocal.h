@@ -1,1 +1,0 @@
-double reciprocal(int i);
