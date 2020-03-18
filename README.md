@@ -6,7 +6,7 @@
 
 * **A data do primeiro ponto de controle (PC1) será adiada de 30/03/2020 para 06/04/2020.**
 
-**Com relação às aulas do período de 16 a 27 de março de 2020, serão indicados videos com os conteúdos correspondentes. As informações referentes a essas aulas (videos, slides e questões correspondentes) estão indicadas [neste arquivo](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Aulas/README.md). As questões deverão ser respondidas até o dia 23 de março de 2020.**
+**Com relação às aulas do período de 16 a 27 de março de 2020, serão indicados videos com os conteúdos correspondentes. As informações referentes a essas aulas (videos, slides e questões correspondentes) estão indicadas [AQUI](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Aulas/README.md). As questões deverão ser respondidas até o dia 30 de março de 2020.**
 
 **Não consegui obter o email de todos os alunos matriculados. Por favor, avisem seus colegas.**
 
