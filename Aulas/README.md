@@ -12,5 +12,10 @@
 * 16/03 - Shell Script
   * [Video-aula](https://youtu.be/rmFLxwW9IxU)
   * [Slides](Aula3_Shell_script.pdf)
-  * [Código](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/tree/master/Code/02_Linux)
+  * [Código](../Code/02_Linux)
   * [Questões](../Questoes/02_Intro_Linux_3.md)
+* 18/03 - GCC e make
+  * [Video-aula](https://youtu.be/wUzb5wW-K1M)
+  * [Slides](Aula4_GCC_e_make.pdf)
+  * [Código](../Code/03_GCC)
+  * [Questões](../Questoes/03_GCC.md)
