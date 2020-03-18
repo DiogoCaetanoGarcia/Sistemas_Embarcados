@@ -10,9 +10,7 @@
 
 **Não consegui obter o email de todos os alunos matriculados. Por favor, avisem seus colegas.**
 
-**Atenciosamente,
-Prof. Diogo Garcia
-Eng. Eletrônica - FGA/UnB**
+**Atenciosamente, Prof. Diogo Garcia, Eng. Eletrônica, FGA/UnB**
 
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
