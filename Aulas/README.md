@@ -19,3 +19,9 @@
   * [Slides](Aula4_GCC_e_make.pdf)
   * [Código](../Code/03_GCC)
   * [Questões](../Questoes/03_GCC.md)
+* 20/03 - Acesso a arquivos
+  * [Video-aula](https://youtu.be/npDeE-VMEn4)
+  * [Slides](Aula5_Acesso_a_arquivos.pdf)
+  * [Código](../Code/04_File_stdio)
+  * [Questões](../Questoes/04_File_stdio.md)
+  
