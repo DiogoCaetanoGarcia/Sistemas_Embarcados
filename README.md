@@ -1,14 +1,12 @@
-# AVISO - 16/03/2020
+# AVISO - 23/03/2020
 
 **Prezados alunos,**
 
-**Em função da [suspensão de atividades presenciais na UnB pelas próximas duas semanas](https://noticias.unb.br/69-informe/4001-prorrogacao-do-periodo-de-suspensao-das-atividades-presenciais), as seguintes alterações serão feitas ao Plano de Ensino:**
+**Em função da [suspensão do calendário da UnB](https://noticias.unb.br/69-informe/4022-informe-sobre-suspensao-do-calendario-academico), o Plano de Ensino será todo revisado assim que um novo calendário for definido.**
 
-* **A data do primeiro ponto de controle (PC1) será adiada de 30/03/2020 para 06/04/2020.**
+**Com relação às aulas do período de 16 a 20 de março de 2020, foram indicados videos com os conteúdos correspondentes. As informações referentes a essas aulas (videos, slides e questões correspondentes) estão indicadas [AQUI](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Aulas/README.md).**
 
-**Com relação às aulas do período de 16 a 27 de março de 2020, serão indicados videos com os conteúdos correspondentes. As informações referentes a essas aulas (videos, slides e questões correspondentes) estão indicadas [AQUI](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Aulas/README.md). As questões deverão ser respondidas até o dia 30 de março de 2020.**
-
-**Não consegui obter o email de todos os alunos matriculados. Por favor, avisem seus colegas.**
+**Quaisquer dúvidas serão respondidas por e-mail.**
 
 **Atenciosamente, Prof. Diogo Garcia, Eng. Eletrônica, FGA/UnB**
 
