@@ -9,13 +9,12 @@ int main(int argc, const char * argv[])
 	if(!fp)
 	{
 		printf( "Erro na abertura do arquivo");
-		exit(0);
+		exit(-1);
 	}
 	printf("Entre com a string a"
-		" ser gravada no arquivo:");
+		" ser gravada no arquivo: ");
 	gets(string);
-	// Grava a string, caractere a caractere
-	for(i=0; string[i]; i++)
+	for(i=0; string[i]!='\0'; i++)
 		putc(string[i], fp);
 	putc('\n', fp);
 	fclose(fp);

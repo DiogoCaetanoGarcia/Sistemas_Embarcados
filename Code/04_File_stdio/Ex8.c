@@ -1,27 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+FILE * abre_arq(char* arquivo, char *modo);
+
 int main()
 {
 	FILE *fp;
 	float pi = 3.1415;
 	float pilido;
-	if((fp = fopen("arquivo.txt", "w")) == NULL)
-	{
-		printf("Erro na abertura do arquivo");
-		exit(1);
-	}
+
+	fp = abre_arq("arquivo.txt", "w");
 	fprintf(fp, "pi = %f\n", pi);
 	fclose(fp);
-
-	if((fp = fopen("arquivo.txt", "rb")) == NULL)
-	{
-		printf("Erro na abertura do arquivo");
-		exit(1);
-	}
+	
+	fp = abre_arq("arquivo.txt", "r");
 	fscanf(fp, "pi = %f\n", &pilido);
-	printf("\nO valor de PI "
-		"(lido do arquivo) eh: %f\n\n",
+	printf("O valor de PI "
+		"(lido do arquivo) eh: %f\n",
 		pilido);
 	fclose(fp);
 	return(0);
+}
+
+FILE * abre_arq(char* arquivo, char *modo)
+{
+	FILE *p = fopen(arquivo, modo);
+	if(p==NULL)
+	{
+		printf("Erro! Impossivel abrir o arquivo!\n");
+		exit(-1);
+	}
+	return p;
 }

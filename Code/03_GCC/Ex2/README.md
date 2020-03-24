@@ -6,9 +6,9 @@ Execute os seguintes comandos para ver a pasta antes e depois da compilação:
 
 Execute o programa recém criado:
 
-	$ ./reciprocal
-	$ ./reciprocal 2
-	$ ./reciprocal 10
+	$ ./mensagens
+	$ ./mensagens Fulano
+	$ ./mensagens Beltrano
 
 Para apagar os arquivos criados, execute:
 
@@ -18,14 +18,14 @@ A flag 'CFLAGS' no arquivo 'Makefile' permite acrescentar argumentos às chamada
 
 	$ make clean
 	$ make CFLAGS=-O0
-	$ ls -l reciprocal
+	$ ls -l mensagens
 
 Repare o tamanho do programa criado. Agora, execute:
 
 	$ make clean
 	$ make CFLAGS=-O3
-	$ ls -l reciprocal
+	$ ls -l mensagens
  
 Repare novamente o tamanho do programa criado.
 
-Confira [aqui](https://www.rapidtables.com/code/linux/gcc/gcc-o.html) as principais opções de compilação do GCC.
+[Confira as principais opções de compilação do GCC](https://www.rapidtables.com/code/linux/gcc/gcc-o.html).

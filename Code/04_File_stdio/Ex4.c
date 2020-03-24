@@ -10,13 +10,12 @@ int main(int argc, const char * argv[])
 		printf( "Erro na abertura do arquivo");
 		exit(-1);
 	}
-	// Enquanto não chegar ao final do arquivo
-	for(c = getc(fp); c != EOF; c = getc(fp))
+	c = getc(fp);
+	while( c != EOF )
 	{
-		// Imprime o caracter lido
 		printf("%c", c);
+		c = getc(fp);
 	}
-	printf("\n");
 	fclose(fp);
 	return 0;
 }
