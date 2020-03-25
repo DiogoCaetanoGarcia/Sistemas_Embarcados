@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 int main(void)
 {
@@ -17,7 +18,9 @@ int main(void)
 	}
 	else
 	{
-		printf("Processo-PAI\n");
+		printf("Processo-PAI aguardará filho\n");
+		wait(NULL);
+		printf("Fim do processo-PAI\n");
 	}
 	return 0;
 }

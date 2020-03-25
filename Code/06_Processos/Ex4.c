@@ -3,29 +3,31 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-int main(int argc, const char *argv[])
+void func(int x, int y, int z)
 {
-	char * lista_de_argumentos[] = { "ls", NULL};
-	pid_t pid_filho = fork();
-	if (pid_filho == 0)
+	printf("PID = %d, "
+		"x=%d, y=%d e z=%d\n",
+		getpid(), x, y, z);
+}
+
+int main(void)
+{
+	int a = 1, b = 2, c = 3;
+	pid_t pid_filho;
+	func(a, b, c);
+
+	pid_filho = fork();
+	if(pid_filho == 0)
 	{
-		printf("*********************************************\n");
-		printf("* Este é o processo FILHO, executando '%s'. *\n", lista_de_argumentos[0]);
-		printf("*********************************************\n");
-		printf("\n");
-		execvp(lista_de_argumentos[0], lista_de_argumentos);
-		printf("*******************************************\n");
-		printf("* Este printf() so eh executado se houver *\n");
-		printf("* um erro de execucao em execvp().        *\n");
-		printf("*******************************************\n");
-		printf("\n");
+		a=7;
+		b=8;
+		c=9;
+		func(a, b, c);
 	}
 	else
 	{
-		printf("*************************\n");
-		printf("* Este é o processo PAI *\n");
-		printf("*************************\n");
-		printf("\n");
+		sleep(1);
+		func(a, b, c);
 	}
 	return 0;
 }
