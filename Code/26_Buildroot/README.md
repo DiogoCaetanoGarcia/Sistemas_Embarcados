@@ -85,7 +85,17 @@ cd ..
 make xconfig
 ```
 
-para abrir a interface gráfica de personalização da ompilação do sistema operacional. Marque as seguintes opções:
+para abrir a interface gráfica de personalização da ompilação do sistema operacional. 
+Obs.: Se no seu terminal der algum erro e aparecer
+
+```
+* Could not find Qt via pkg-config.
+* Please install either Qt 4.8 or 5.x. and make sure it's in PKG_CONFIG_PATH
+```
+
+Use `menuconfig` ao invés do `xconfig`
+
+Marque as seguintes opções:
 
 * `System Configuration ==> Run a getty (login prompt) after boot`
 * `Target packages ==> Miscellaneous ==> hello_buildroot`
