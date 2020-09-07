@@ -1,4 +1,4 @@
-all: Ex1.out Ex2.out teste_retorno Ex3.out Ex4.out Ex5.out Ex6.out Ex7.out Ex8.out
+all: Ex1.out Ex2.out teste_retorno Ex3.out Ex4.out Ex5.out Ex6.out Ex7.out Ex8.out Ex9.out
 Ex1.out: Ex1.c
 	gcc Ex1.c -o Ex1.out
 Ex2.out: Ex2.c
@@ -17,5 +17,7 @@ Ex7.out: Ex7.c
 	gcc Ex7.c -o Ex7.out
 Ex8.out: Ex8.c
 	gcc Ex8.c -o Ex8.out
+Ex9.out: Ex9.c
+	gcc Ex9.c -o Ex9.out
 clean:
 	rm -f *.out *.bin *.txt teste_retorno

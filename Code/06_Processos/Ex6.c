@@ -7,17 +7,17 @@ int main(void)
 {
 	char * lista_de_argumentos[] = { "ls", "-l", NULL};
 	pid_t pid_filho = fork();
-	if (pid_filho == 0)
+	if(pid_filho == 0)
 	{
-		printf("Processo-FILHO\n");
-		execvp(lista_de_argumentos[0],
-			lista_de_argumentos);
-		printf("Mensagem escrita se houver"
-			" erro de execucao em execvp()\n");
+		printf("Processo-FILHO: ---\n");
 	}
 	else
 	{
-		printf("Processo-PAI\n");
+		printf("Processo-PAI: ---\n");
+		execvp(lista_de_argumentos[0],
+			lista_de_argumentos);
+		printf("Processo-PAI: mensagem escrita se houver"
+			" erro de execucao em execvp()\n");
 	}
 	return 0;
 }

@@ -2,25 +2,22 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <sys/wait.h>
 
 int main(void)
 {
-	char * lista_de_argumentos[] = { "abcde", NULL};
+	char * lista_de_argumentos[] = { "ls", NULL};
 	pid_t pid_filho = fork();
-	if (pid_filho == 0)
+	if(pid_filho == 0)
 	{
-		printf("Processo-FILHO\n");
+		printf("Processo-FILHO: ---\n");
 		execvp(lista_de_argumentos[0],
 			lista_de_argumentos);
-		printf("Mensagem escrita se houver"
+		printf("Processo-FILHO: Mensagem escrita se houver"
 			" erro de execucao em execvp()\n");
 	}
 	else
 	{
-		printf("Processo-PAI aguardará filho\n");
-		wait(NULL);
-		printf("Fim do processo-PAI\n");
+		printf("Processo-PAI: ---\n");
 	}
 	return 0;
 }
