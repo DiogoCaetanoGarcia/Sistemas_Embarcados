@@ -8,12 +8,9 @@ int main()
 {
 	int pid;
 	int fd[2];
-	// Cria o pipe
 	pipe(fd);
-	// Cria o processo
 	pid = fork();
-	// Codigo do filho
-	if(pid == 0)
+	if(pid == 0) // Codigo do filho
 	{
 		char buffer_filho[30], msg_filho[30] = "FILHO DIZ: HELLO PIPE";
 		printf("Filho vai ler o pipe\n");
@@ -26,8 +23,7 @@ int main()
 			printf("Erro na escrita do pipe\n");
 		printf("Filho terminou de escrever no pipe\n");
 	}
-	// Codigo do pai
-	else
+	else // Codigo do pai
 	{
 		char buffer_pai[30], msg_pai[30] = "PAI DIZ: HELLO PIPE";
 		printf("Pai vai escrever no pipe\n");

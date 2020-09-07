@@ -7,7 +7,7 @@ void tratamento_alarme(int sig)
 {
 	alarm(1);
 	// system("date");
-	system("date +%s%3N");
+	system("date +%H:%M:%S.%N");
 }
 
 int main()

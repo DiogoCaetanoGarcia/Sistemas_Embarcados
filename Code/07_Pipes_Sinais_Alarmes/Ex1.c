@@ -9,12 +9,9 @@ int main()
 	int pid;	// PID do processo filho
 	int fd[2];	// Descritores do pipe
 	char mensagem[30];
-	// Cria o pipe
-	pipe(fd);
-	// Cria o processo
-	pid = fork();
-	// Codigo do filho
-	if(pid == 0)
+	pipe(fd); // Cria o pipe
+	pid = fork(); // Cria o processo
+	if(pid == 0) // Codigo do filho
 	{
 		printf("Filho vai ler o pipe\n");
 		if(read(fd[0], mensagem, 30) < 0)
@@ -22,8 +19,7 @@ int main()
 		else
 			printf("Filho leu: %s\n", mensagem);
 	}
-	// Codigo do pai
-	else
+	else // Codigo do pai
 	{
 		strcpy(mensagem, "HELLO PIPE");
 		printf("Pai vai escrever no pipe\n");
