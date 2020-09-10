@@ -12,6 +12,6 @@ int main()
 {
 	char *p;
 	signal(SIGSEGV, funcao_sigsegv);
-	printf("Vou forcar um segment fault.\n");
+	printf("Vou forçar um segment fault.\n");
 	printf("%s", *p);
 }

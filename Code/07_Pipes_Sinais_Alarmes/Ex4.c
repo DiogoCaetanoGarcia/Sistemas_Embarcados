@@ -5,7 +5,7 @@
 
 void funcao_para_control_c()
 {
-	printf("\nQuem mandou voce pressionar CTRL-C?\n");
+	printf("\nQuem mandou você pressionar CTRL-C?\n");
 	printf("Vou ter de fechar o programa!\n");
 	exit(1);
 }
