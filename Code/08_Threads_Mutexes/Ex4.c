@@ -7,19 +7,15 @@ volatile int varCompartilhada=0;
 
 void* incrementa_contador (void *arg)
 {
-	for (unsigned int i=0; i < 10000; i++)
-	{
+	for (unsigned int i=0; i<10000; i++)
 		varCompartilhada++;
-	}
 	return NULL;
 }
 
 void* decrementa_contador (void *arg)
 {
-	for (unsigned int i=0; i < 10000; i++)
-	{
+	for (unsigned int i=0; i<10000; i++)
 		varCompartilhada--;
-	}
 	return NULL;
 }
 
