@@ -1,107 +1,32 @@
-// Servidor Local
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <signal.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-
-char socket_name[50];
-int socket_id;
-void sigint_handler(int signum);
-void print_client_message(int client_socket);
-void end_server(void);
+#include "server_funcs.h"
 
 int main (int argc, char* const argv[])
 {
-	struct sockaddr socket_struct;
-
-	if (argc < 2)
+	if(argc < 2)
 	{
-		puts("   Este programa cria um servidor local ");
-		puts("   no caminho especificado pelo usuario.");
-		puts("   Para permitir que o cliente comunique-se");
-		puts("   com este servidor, o servidor deve ser");
-		puts("   executado inicialmente com um caminho definido,");
-		puts("   e o cliente devera ser executado em outra");
-		puts("   janela ou em outra aba do terminal, utilizando");
-		puts("   o mesmo caminho. O servidor escreve na tela");
-		puts("   todo texto enviado pelo cliente. Se o cliente");
-		puts("   transmitir o texto \"sair\", o servidor se");
-		puts("   encerra. Se o usuario pressionar CTRL-C,");
-		puts("   o servidor tambem se encerra.");
-		puts("   Modo de Uso:");
-		printf("      %s <caminho_do_socket>\n", argv[0]);
-		printf("   Exemplo: %s /tmp/socket1\n", argv[0]);
+		puts("Modo de Uso:");
+		printf("%s NOME_SOCKET\n", argv[0]);
 		exit(1);
 	}
-	else
-		strcpy(socket_name, argv[1]);
-
-
-	// Definindo o tratamento de SIGINT
-	signal(SIGINT, sigint_handler);
-	
-	// Abrindo o socket local
+	struct sockaddr socket_struct;
+	signal(SIGINT, end_server);
+	strcpy(socket_name, argv[1]);
 	socket_id = socket(PF_LOCAL, SOCK_STREAM, 0);
-	
-	// Ligando o socket ao endereco local "socket_name"
 	socket_struct.sa_family = AF_LOCAL;
 	strcpy(socket_struct.sa_data, socket_name);
 	bind(socket_id, &socket_struct, sizeof(socket_struct));
-	
-	// Tornando o socket passivo (para virar um servidor)
 	listen(socket_id, 10);
-
 	while(1)
 	{
 		struct sockaddr cliente;
-		int socket_id_cliente;
+		int socket_id_cliente, end_server_ok;
 		socklen_t cliente_len;
 
-		// Aguardando a conexao de um cliente
 		socket_id_cliente = accept(socket_id, &cliente, &cliente_len);
-
-		// Obtendo a informacao transmitida pelo cliente
-		print_client_message(socket_id_cliente);
-
-		// Fechando a conexao com o cliente
+		end_server_ok = print_client_message(socket_id_cliente);
 		close(socket_id_cliente);
+		if(end_server_ok)
+			end_server(0);
 	}
 	return 0;
-}
-
-void sigint_handler(int signum)
-{
-	fprintf(stderr, "\nRecebido o sinal CTRL+C... vamos desligar o servidor!\n");
-	end_server();
-}
-
-void print_client_message(int client_socket)
-{
-	int length;
-	char* text;
-	//fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
-	read(client_socket, &length, sizeof (length));
-	//fprintf(stderr, "%d bytes.", length);
-	text = (char*) malloc (length);
-	read(client_socket, text, length);
-	fprintf(stderr,"Mensagem = %s\n\n", text);
-	if (!strcmp (text, "sair"))
-	{
-		free (text);
-		fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
-		end_server();
-	}
-	free (text);
-}
-
-void end_server(void)
-{
-	// Apagando "socket_name" do sistema
-	unlink(socket_name);
-	// Fechando o socket local
-	close(socket_id);
-	exit(0);
 }
