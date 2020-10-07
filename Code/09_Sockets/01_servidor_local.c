@@ -11,6 +11,7 @@ int main (int argc, char* const argv[])
 	struct sockaddr socket_struct;
 	signal(SIGINT, end_server);
 	strcpy(socket_name, argv[1]);
+	//fprintf(stderr, "%s\n", socket_name);
 	socket_id = socket(PF_LOCAL, SOCK_STREAM, 0);
 	socket_struct.sa_family = AF_LOCAL;
 	strcpy(socket_struct.sa_data, socket_name);

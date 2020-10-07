@@ -10,4 +10,4 @@ all: 01_http_client.out 02_http_client.out
 client_funcs.o:
 	gcc -c client_funcs.c
 clean:
-	rm -f *.out *.o *.bin *.txt
+	rm -f *.out *.o *.bin *.txt *.html
