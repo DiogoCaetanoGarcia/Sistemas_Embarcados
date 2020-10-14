@@ -7,6 +7,7 @@ int main(int argc, char **argv)
 	// Set up gpi pointer for direct register access
 	setup_io();
 	INP_GPIO(4);
+	GPIO_PULL = 1<<4;
 	while(1)
 	{
 		puts("Pressione o botao");

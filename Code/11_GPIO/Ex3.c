@@ -1,16 +1,15 @@
-#include "gpio_sysfs.h"
-#include <unistd.h>
+ // Access from ARM Running Linux
+#include "gpio_dev_mem.h"
 
-//Compile junto com o arquivo gpio_sysfs.c
-int main()
+//Compile junto com o arquivo gpio_dev_mem.c
+int main(int argc, char **argv)
 {
-	int pin=4;
-	if(setGPIO_Out(pin))
-		return -1;
-	if (GPIO_Write(pin,1))
-		return 1;
+	// Set up gpi pointer for direct register access
+	setup_io();
+	INP_GPIO(4);
+	OUT_GPIO(4);
+	GPIO_SET = 1<<4;
 	sleep(5);
-	if(unsetGPIO(pin))
-		return 2;
+	GPIO_CLR = 1<<4;
 	return 0;
-}
+} // main
