@@ -1,8 +1,8 @@
 #include <msp430g2553.h>
 #include <legacymsp430.h>
 
-#define RX BIT1
-#define TX BIT2
+#define TX BIT1
+#define RX BIT2
 #define BTN BIT3
 #define LED1 BIT0
 #define LED2 BIT6
