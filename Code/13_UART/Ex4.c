@@ -6,14 +6,10 @@
 #include <errno.h>
 #include <string.h>
 
-// Este codigo requer a biblioteca wringPi. Compile-o usando
-//    gcc Ex4.c -lwiringPi -o Ex4.out
-
-// Arquivo de acesso a porta serial
-#define TTY "/dev/ttyAMA0"
-// Arquivo de acesso a porta serial
-// PARA O RASPBERRY PI 3
-//#define TTY "/dev/ttyS0"
+// Para RPi 0, 1 e 2
+// #define TTY "/dev/ttyAMA0"
+// Para RPi 0W, 3 e 4
+#define TTY "/dev/ttyS0"
 
 int uart0_fd;
 void ctrl_c(int sig)

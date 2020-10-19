@@ -1,8 +1,9 @@
 #!/bin/bash
 
-UART=/dev/ttyAMA0
-# Se voce estiver usando o Raspberry Pi 3, descomente a linha abaixo
-# UART=/dev/ttyS0
+# Para RPi 0, 1 e 2
+# UART=/dev/ttyAMA0
+# Para RPi 0W, 3 e 4
+UART=/dev/ttyS0
 
 echo Leia o arquivo README.txt antes de rodar este exemplo!
 echo
