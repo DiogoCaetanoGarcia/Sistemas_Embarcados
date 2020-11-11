@@ -13,6 +13,7 @@
 #define LED1_NAME "LED1"
 #define LED_FREQ_2 (HZ/5)
 static struct timer_list blink_timer;
+static unsigned long t;
 
 #ifdef NEWER_KERNEL_TIMER
 static void blink_timer_func(struct timer_list* data)
@@ -20,8 +21,9 @@ static void blink_timer_func(struct timer_list* data)
 static void blink_timer_func(unsigned long data)
 #endif
 {
+	t += LED_FREQ_2;
 	// Agendar proxima execucao
-	blink_timer.expires = jiffies + LED_FREQ_2;
+	blink_timer.expires = t;//jiffies + LED_FREQ_2;
 	add_timer(&blink_timer);
 	gpio_set_value(LED1, !gpio_get_value(LED1));
 }
@@ -47,17 +49,17 @@ int init_module(void)
 	// jiffies eh uma variavel global que indica a quantidade de periodos do clock desde que ocorreu o boot do sistema
 	// HZ representa a quantidade de ciclos para contabilizar um segundo
 	// LED_FREQ_2 = 200ms
-	blink_timer.expires = jiffies + LED_FREQ_2;
+	blink_timer.expires = t = jiffies + LED_FREQ_2;
 	add_timer(&blink_timer);
 	return ret;
 }
 
 void cleanup_module(void)
 {
-	gpio_set_value(LED1, 0);
-	gpio_free(LED1);
 	// Desativa o timer, se ele estiver rodando
 	del_timer_sync(&blink_timer);
+	gpio_set_value(LED1, 0);
+	gpio_free(LED1);
 	MSG_OK("modulo descarregado");
 }
 
