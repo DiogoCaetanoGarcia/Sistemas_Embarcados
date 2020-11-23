@@ -12,28 +12,28 @@ int main(int argc, char** argv)
 	for(y=0; y<A.rows; y++)
 		for(x=0; x<A.cols; x++)
 			A.at<uchar>(y, x) = x;
-	imshow("Matriz 256x256", A);
+	imshow("Matriz 512x256", A);
 	waitKey(0);
 
 	A = Mat(512,256, CV_8UC3, Scalar(0));
 	for(y=0; y<A.rows; y++)
 		for(x=0; x<A.cols; x++)
 			A.at<Vec3b>(y, x)[0] = x;
-	imshow("Matriz 256x256", A);
+	imshow("Matriz 512x256", A);
 	waitKey(0);
 
 	A = Mat(512,256, CV_8UC3, Scalar(0));
 	for(y=0; y<A.rows; y++)
 		for(x=0; x<A.cols; x++)
 			A.at<Vec3b>(y, x)[1] = x;
-	imshow("Matriz 256x256", A);
+	imshow("Matriz 512x256", A);
 	waitKey(0);
 
 	A = Mat(512,256, CV_8UC3, Scalar(0));
 	for(y=0; y<A.rows; y++)
 		for(x=0; x<A.cols; x++)
 			A.at<Vec3b>(y, x)[2] = x;
-	imshow("Matriz 256x256", A);
+	imshow("Matriz 512x256", A);
 	waitKey(0);
 	return 0;
 }
