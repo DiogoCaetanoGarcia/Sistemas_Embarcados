@@ -4,6 +4,6 @@ mkdir build
 cd build
 cmake ../ > /dev/null
 make > /dev/null
-./Contraste_brilho ../../Imagens/Lena.png
+./Mapeamento_Linear ../../Imagens/Lena.png
 cd ..
 rm -rf build

@@ -16,9 +16,9 @@ int main(int argc, char** argv)
 	Mat image = imread(argv[1]);
 	Mat media_linhas, media_colunas;
 	reduce(image, media_linhas, 0,
-		CV_REDUCE_AVG, image.type());
+		1, image.type());
 	reduce(image, media_colunas, 1,
-		CV_REDUCE_AVG, image.type());
+		1, image.type());
 	cout << " ==> Imagem: " << argv[1] << endl;
 	cout << " Linhas: " << media_linhas << endl;
 	cout << " Colunas: " << media_colunas << endl;

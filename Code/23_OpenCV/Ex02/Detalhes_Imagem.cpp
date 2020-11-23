@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	// Ler imagem e guardar em um objeto
 	// da classe 'Mat'
 	Mat image;
-	image = imread(argv[1],CV_LOAD_IMAGE_COLOR);
+	image = imread(argv[1]);//CV_LOAD_IMAGE_COLOR);
 	if (!image.data)
 	{
 		printf("Imagem não-encontrada\n");

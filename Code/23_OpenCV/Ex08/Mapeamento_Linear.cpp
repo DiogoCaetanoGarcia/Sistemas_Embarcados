@@ -5,7 +5,7 @@
 using namespace std;
 using namespace cv;
 
-Mat Contraste_Brilho(Mat &img1, float alpha, float beta);
+Mat Mapeamento_Linear(Mat &img1, float alpha, float beta);
 int main(int argc, char** argv)
 {
 	if(argc != 2)
@@ -16,17 +16,17 @@ int main(int argc, char** argv)
 	}	
 	Mat img1 = imread(argv[1]);
 	float alpha, beta;
-	for(beta=0.5; beta<2.0; beta+=0.5)
+	for(beta=0.0; beta<75.0; beta+=25.0)
 		for(alpha=0.5; alpha<2.0; alpha+=0.5)
 			imshow(to_string(alpha) + 
 				"x + " + to_string(beta),
-				Contraste_Brilho(img1,
+				Mapeamento_Linear(img1,
 					alpha, beta));
 	waitKey(0);
 	return 0;
 }
 
-Mat Contraste_Brilho(Mat &img1, float alpha, float beta)
+Mat Mapeamento_Linear(Mat &img1, float alpha, float beta)
 {
 	Mat img2(img1.rows, img1.cols,
 		CV_8UC(img1.channels()), Scalar(0));
