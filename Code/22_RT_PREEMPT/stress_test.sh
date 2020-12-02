@@ -23,6 +23,11 @@ sudo $1 &
 sleep $T
 send_signal_by_name $1 SIGINT
 
+echo "Executando '$1' por $T segundos com nice 19..."
+nice -n 19 sudo $1 &
+sleep $T
+send_signal_by_name $1 SIGINT
+
 echo "Executando '$1' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' em paralelo..."
 cat /dev/urandom > /dev/null &
