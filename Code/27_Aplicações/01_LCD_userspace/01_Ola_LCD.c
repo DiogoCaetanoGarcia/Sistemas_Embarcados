@@ -3,52 +3,42 @@
 //	sudo ./olalcd
 //
 
-#include "gpio_sysfs.h"
-#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <wiringPi.h>
 
-#define EN 4
-#define RS 17
-#define D4 22
-#define D5 23
-#define D6 24
-#define D7 25
-#define DADO 1
+#define EN      7 // wiringPi#, BCM #4
+#define RS      0 // wiringPi#, BCM #17
+#define D4      3 // wiringPi#, BCM #22
+#define D5      4 // wiringPi#, BCM #23
+#define D6      5 // wiringPi#, BCM #24
+#define D7      6 // wiringPi#, BCM #25
+#define DADO    1
 #define COMANDO 0
 
 void Config_Pins(void)
 {
-	setGPIO_Out(EN);
-	setGPIO_Out(RS);
-	setGPIO_Out(D4);
-	setGPIO_Out(D5);
-	setGPIO_Out(D6);
-	setGPIO_Out(D7);
-}
-
-void Free_Pins(void)
-{
-	unsetGPIO(EN);
-	unsetGPIO(RS);
-	unsetGPIO(D4);
-	unsetGPIO(D5);
-	unsetGPIO(D6);
-	unsetGPIO(D7);
+	pinMode(EN, OUTPUT);
+	pinMode(RS, OUTPUT);
+	pinMode(D4, OUTPUT);
+	pinMode(D5, OUTPUT);
+	pinMode(D6, OUTPUT);
+	pinMode(D7, OUTPUT);
 }
 
 char Send_Nibble(char nibble, char nibble_type)
 {
 	if((nibble_type!=DADO)&&(nibble_type!=COMANDO))
 		return -1;
-	GPIO_Write(EN, 1);
-	GPIO_Write(RS, nibble_type);
-	GPIO_Write(D4, nibble&1);
-	GPIO_Write(D5, (nibble>>1)&1);
-	GPIO_Write(D6, (nibble>>2)&1);
-	GPIO_Write(D7, (nibble>>3)&1);
-	GPIO_Write(EN, 0);
+	digitalWrite(EN, 1);
+	digitalWrite(RS, nibble_type);
+	digitalWrite(D4, nibble&1);
+	digitalWrite(D5, (nibble>>1)&1);
+	digitalWrite(D6, (nibble>>2)&1);
+	digitalWrite(D7, (nibble>>3)&1);
+	digitalWrite(EN, 0);
 	usleep(500);
 	return 0;
 }

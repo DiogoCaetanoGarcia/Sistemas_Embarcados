@@ -1,4 +1,4 @@
-olalcd: 01_Ola_LCD.c  gpio_sysfs.c
-	gcc 01_Ola_LCD.c  gpio_sysfs.c -o olalcd
+olalcd: 01_Ola_LCD.c
+	gcc -lwiringPi 01_Ola_LCD.c -o olalcd
 clean:
 	rm olalcd

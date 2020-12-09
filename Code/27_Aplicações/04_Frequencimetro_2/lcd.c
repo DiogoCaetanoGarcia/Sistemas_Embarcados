@@ -2,12 +2,12 @@
 
 void Config_Pins(void)
 {
-	pinMode(EN, OUTPUT) ;
-	pinMode(RS, OUTPUT) ;
-	pinMode(D4, OUTPUT) ;
-	pinMode(D5, OUTPUT) ;
-	pinMode(D6, OUTPUT) ;
-	pinMode(D7, OUTPUT) ;
+	pinMode(EN, OUTPUT);
+	pinMode(RS, OUTPUT);
+	pinMode(D4, OUTPUT);
+	pinMode(D5, OUTPUT);
+	pinMode(D6, OUTPUT);
+	pinMode(D7, OUTPUT);
 }
 
 char Send_Nibble(char nibble, char nibble_type)
