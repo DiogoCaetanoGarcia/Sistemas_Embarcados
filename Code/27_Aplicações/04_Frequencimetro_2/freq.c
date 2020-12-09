@@ -33,12 +33,17 @@ void sleep_until(unsigned long delay)
 	struct timespec ts;
 
 	clock_gettime(CLOCK_MONOTONIC, &ts);
-	while(delay >= 1000000000ul)
+	while(delay >= SEC_N)
 	{
 		ts.tv_sec++;
-		delay -= 1000000000ul;
+		delay -= SEC_N;
 	}
 	ts.tv_nsec += delay;
+	while(ts.tv_nsec >= SEC_N)
+	{
+		ts.tv_sec++;
+		ts.tv_nsec -= SEC_N;
+	}
 	clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts,  NULL);
 }
 

@@ -10,7 +10,8 @@
 
 // Usar GPIO Pino 27, que é Pino 2 na wiringPi
 #define PINO_ENT 2
-#define T_AMOSTRAGEM 1000000000ul
+#define SEC_N        1000000000ul
+#define T_AMOSTRAGEM SEC_N
 
 struct freq_calc
 {
