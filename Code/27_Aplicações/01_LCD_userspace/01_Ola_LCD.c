@@ -94,6 +94,5 @@ int main()
 		puts("Digite uma palavra (EXIT para sair):");
 		scanf("%s", str);
 	}while(strcmp(str,"EXIT")!=0);
-	Free_Pins();
 	return 0;
 }
