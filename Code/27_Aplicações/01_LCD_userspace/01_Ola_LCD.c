@@ -62,6 +62,7 @@ void Clear_LCD(void)
 void Config_LCD(void)
 {
 	usleep(10000);
+	wiringPiSetup();
 	Config_Pins();
 	Send_Nibble(0x2, COMANDO);
 	Send_Byte(0x20, COMANDO);
