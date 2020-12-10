@@ -7,8 +7,6 @@
 - Professor: Diogo Caetano Garcia
 - Email: diogogarcia(at)unb.br
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oENLZSt8EmQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 # Datas importantes
 
 ![Calendário 2020/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calend%C3%A1rio_2020_1.png)
