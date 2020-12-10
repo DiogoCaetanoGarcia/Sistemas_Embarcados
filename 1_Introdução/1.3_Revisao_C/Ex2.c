@@ -2,48 +2,15 @@
 
 int main(void)
 {
-	float v[10];
-	float max, min, media;
-	int i;
-	// Preencher vetor
-	for(i=0; i<10; i++)
-	{
-		v[i] = (float)(i+1)*(i+1);
-	}
-	// Calcular minimo
-	min = v[0];
-	for(i=0; i<10; i++)
-	{
-		if(v[i]<min)
-		{
-			min = v[i];
-		}
-	}
-	// Calcular maximo
-	max = v[0];
-	for(i=0; i<10; i++)
-	{
-		if(v[i]>max)
-		{
-			max = v[i];
-		}
-	}
-	// Calcular media
-	media = 0.0;
-	for(i=0; i<10; i++)
-	{
-		media += v[i];
-	}
-	media /= 10.0;
-
-	printf("Vetor = [");
-	for(i=0; i<10; i++)
-	{
-		printf("%f ", v[i]);
-	}
-	printf("\b]\n");
-	printf("Mínimo = %f\n", min);
-	printf("Máximo = %f\n", max);
-	printf("Média = %f\n", media);
-	return 0;	
+	char var1 = 10, var2 = 20;
+	char *p1, *p2;
+	printf("Antes,  var1 = %d e var2 = %d\n",
+		var1, var2);
+	p1 = &var1;
+	p2 = &var2;
+	*p1 = 30;
+	*p2 = 40;
+	printf("Depois, var1 = %d e var2 = %d\n",
+		var1, var2);
+	return 0;
 }

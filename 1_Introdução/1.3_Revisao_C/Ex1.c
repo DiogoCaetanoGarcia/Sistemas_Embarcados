@@ -1,90 +1,29 @@
-#include <stdio.h>
 
-void msg_fixa();
-void msg(char *str);
-int soma_ponderada1(int a, int b);
-int soma_ponderada2(int a, int b);
-int soma_ponderada3(int *a, int *b);
-int soma_ponderada4(int *a, int *b);
-void somas_ponderadas(int a, int b, int *soma1, int *soma2);
+#include <stdio.h>
 
 int main(void)
 {
-	int x, y, z, w;
+	char v[] = {5,4,3,2,1};
+	char palavra2[] = "Texto";
+	char palavra1[5] = {'t', 'E', 'X', 'T', 'O'};
 
-	msg_fixa();
-	msg("Olá!");
-	x = 3;
-	y = 5;
-	z = soma_ponderada1(x, y);
-	printf("x = %d, y = %d, z = %d\n", x, y, z);
-
-	x = 3;
-	y = 5;
-	z = soma_ponderada2(x, y);
-	printf("x = %d, y = %d, z = %d\n", x, y, z);
-
-	x = 3;
-	y = 5;
-	z = soma_ponderada3(&x, &y);
-	printf("x = %d, y = %d, z = %d\n", x, y, z);
-
-	x = 3;
-	y = 5;
-	z = soma_ponderada4(&x, &y);
-	printf("x = %d, y = %d, z = %d\n", x, y, z);
-	
-	x = 3;
-	y = 5;
-	somas_ponderadas(x, y, &z, &w);
-	printf("x = %d, y = %d, z = %d, w = %d\n", x, y, z, w);
+	printf("%d %d %d %d %d %d\n",
+		palavra2[0],
+		palavra2[1],
+		palavra2[2],
+		palavra2[3],
+		palavra2[4],
+		palavra2[5]);
+	printf("%c %c %c %c %c %c\n",
+		palavra2[0],
+		palavra2[1],
+		palavra2[2],
+		palavra2[3],
+		palavra2[4],
+		palavra2[5]);
+	printf("%s", palavra2);
+	printf("\n");
+	printf("%s", palavra1);
+	printf("\n");
 	return 0;
-}
-
-void msg_fixa()
-{
-	printf("------------\n");
-	printf("| MENSAGEM |\n");
-	printf("------------\n");
-}
-
-void msg(char *str)
-{
-	printf("\nMENSAGEM = %s\n\n", str);
-}
-
-int soma_ponderada1(int a, int b)
-{
-	int c;
-	c = (a + b + b)/3;
-	return c;
-}
-
-int soma_ponderada2(int a, int b)
-{
-	int c;
-	c = (a + b + b)/3;
-	a++;
-	return c;
-}
-
-int soma_ponderada3(int *a, int *b)
-{
-	int c;
-	c = ((*a) + (*b) + (*b))/3;
-	return c;
-}
-
-int soma_ponderada4(int *a, int *b)
-{
-	int c;
-	c = ((*a) + (*b) + (*b))/3;
-	(*a)++;
-	return c;
-}
-
-void somas_ponderadas(int a, int b, int *soma1, int *soma2)
-{
-	*soma1 = (a + b + b)/3;
-	*soma2 = (a + a + b)/3;
 }
