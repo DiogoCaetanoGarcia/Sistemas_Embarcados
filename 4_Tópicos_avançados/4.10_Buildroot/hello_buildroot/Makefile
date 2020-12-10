@@ -1,9 +1,9 @@
 OBJS=hello_buildroot.o
 
-all:	hello_buildroot
+all:	hello_buildroot.out
 
-hello_buildroot:	$(OBJS)
-	$(CC) $(LDFLAGS) -o hello_buildroot $(OBJS)
+hello_buildroot.out:	$(OBJS)
+	$(CC) $(LDFLAGS) -o hello_buildroot.out $(OBJS)
 
 $(OBJS): %.o:	%.c
 	$(CC) $(CFLAGS) -c -o $@ $<

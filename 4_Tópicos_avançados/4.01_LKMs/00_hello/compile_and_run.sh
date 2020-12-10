@@ -5,6 +5,6 @@ echo vamos ver as chamadas ao sistema feitas pelo "Olá mundo".
 echo
 read
 echo
-gcc hello.c -o hello
-strace ./hello
-rm hello
+gcc hello.c -o hello.out
+strace ./hello.out
+rm hello.out

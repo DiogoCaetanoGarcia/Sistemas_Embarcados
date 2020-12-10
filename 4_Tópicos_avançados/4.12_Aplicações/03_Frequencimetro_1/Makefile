@@ -1,4 +1,4 @@
 freq: Frequencimetro.c
-	gcc -lwiringPi Frequencimetro.c -o freq
+	gcc -lwiringPi Frequencimetro.c -o freq.out
 clean:
-	rm freq
+	rm freq.out

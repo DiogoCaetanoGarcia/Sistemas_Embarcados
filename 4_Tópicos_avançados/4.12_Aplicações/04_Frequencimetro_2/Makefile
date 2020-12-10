@@ -1,5 +1,5 @@
 freq: freq.o lcd.o main.o
-	$(CC) -lwiringPi main.o freq.o lcd.o -o freq
+	$(CC) -lwiringPi main.o freq.o lcd.o -o freq.out
 main.o: main.c freq.h
 	$(CC) -lwiringPi -c main.c
 freq.o: freq.c freq.h lcd.h
@@ -7,4 +7,4 @@ freq.o: freq.c freq.h lcd.h
 lcd.o: lcd.c lcd.h
 	$(CC) -lwiringPi -c lcd.c
 clean:
-	rm freq *.o
+	rm freq.out *.o

@@ -13,7 +13,7 @@ define HELLO_BUILDROOT_BUILD_CMDS
 endef
 
 define HELLO_BUILDROOT_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/hello_buildroot $(TARGET_DIR)/usr/bin/hello_buildroot
+	$(INSTALL) -D -m 0755 $(@D)/hello_buildroot $(TARGET_DIR)/usr/bin/hello_buildroot.out
 
 	$(INSTALL) -D -m 0755 $(@D)/hello_buildroot-init $(TARGET_DIR)/etc/init.d/S90hello_buildroot	
 endef
