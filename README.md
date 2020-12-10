@@ -1,7 +1,5 @@
 # Sistemas Operacionais Embarcados - Plano de Ensino
 
-- Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
-- Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=120961
 - Código: 120961
 - Créditos: 6
 - Turma: A
