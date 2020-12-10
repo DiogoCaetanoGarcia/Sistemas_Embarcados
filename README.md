@@ -1,28 +1,4 @@
-# AVISO - 23/03/2020
-
-**Prezados alunos,**
-
-**Em função da [suspensão do calendário da UnB](https://noticias.unb.br/69-informe/4022-informe-sobre-suspensao-do-calendario-academico), o Plano de Ensino será todo revisado assim que um novo calendário for definido.**
-
-**Com relação às aulas do período de 16 a 20 de março de 2020, foram indicados videos com os conteúdos correspondentes. As informações referentes a essas aulas (videos, slides e questões correspondentes) estão indicadas [AQUI](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Aulas/README.md).**
-
-**Quaisquer dúvidas serão respondidas por e-mail.**
-
-**Atenciosamente, Prof. Diogo Garcia, Eng. Eletrônica, FGA/UnB**
-
-<iframe 
-  src="https://docs.google.com/presentation/d/e/2PACX-1vRVUsTdGZ4GKtSKmV9_uNDhvQHcJG8HnrEt-6PFD1A08UwpxY7vOSktL1s5qkjz7Q/embed?start=false&loop=false&delayms=60000"
-  frameborder="0"
-  width="1067"
-  height="829"
-  allowfullscreen="true"
-  mozallowfullscreen="true"
-  webkitallowfullscreen="true">
-</iframe>
-
 # Sistemas Operacionais Embarcados - Plano de Ensino
-
-- **Link para envio de repositórios: https://forms.gle/Dqg1oZZ55Dxpttw66**
 
 - Disciplina: https://matriculaweb.unb.br/graduacao/disciplina.aspx?cod=120961
 - Oferta: https://matriculaweb.unb.br/graduacao/oferta_dados.aspx?cod=120961
@@ -37,7 +13,7 @@
 
 ![Calendário 2020/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calend%C3%A1rio_2020_1.png)
 
-- 30/03/2020: entrega do primeiro ponto de controle **(ADIADO PARA O DIA 06/04/2020)**
+- 30/03/2020: entrega do primeiro ponto de controle
 - 17/04/2020: primeiro teste
 - 29/04/2020: entrega do segundo ponto de controle
 - 15/05/2020: segundo teste
