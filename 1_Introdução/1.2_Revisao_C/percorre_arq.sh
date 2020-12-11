@@ -9,7 +9,6 @@ fi
 
 function aviso()
 {
-	echo
 	N_AVISO=${#1}
 	N_AVISO=$((N_AVISO + 8))
 	LINHA_AVISO=""
@@ -80,7 +79,8 @@ LINHAS=($(grep ${DELIM} -n $1 | grep -oP "^.*?(?=\:)"))
 XTRA=($(grep -oP "(?<=${DELIM}\().*?(?=\))" $1))
 SED_SEARCH="s/${DELIM}\([0-9]*\)//"
 
-for i in $(seq ${#LINHAS[@]})
+i=1
+while [ $i -le ${#LINHAS[@]} ]
 do
 	l=${LINHAS[$((i-1))]}
 	k=${XTRA[$((i-1))]}
@@ -103,7 +103,15 @@ do
 		tail -${NLK} $1 | sed -r "${SED_SEARCH}"
 	fi
 	echo
-	DIRECTION=$(read_key)
+	if [ $(read_key) == "B" ]
+	then
+		if [ ${i} -gt 1 ]
+		then
+			i=$((i-1))
+		fi
+	else
+		i=$((i+1))
+	fi
 done
 clear
 printf "${BLU}"
