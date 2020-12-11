@@ -1,21 +1,3 @@
-O Raspbian não tem a comunicação SPI habilitada inicialmente. Para utiliza-la, você deve habilita-la da seguinte maneira:
+# _Links_
 
-1 - Execute
-
-	$ sudo raspi-config
-
-vá em Advanced options -> SPI, e habilite o acesso:
-
-	Would you like the SPI interface to be enabled? Yes.
-
-2 - Reinicie (reboot) o sistema para tornar esta mudança efetiva.
-
-3 - Execute
-
-	$ cat /boot/config.txt | grep spi
-
-Deverá aparecer o texto
-
-	dtparam=spi=on
-
-indicando que a SPI está habilitada.
+- [Aula via Microsoft Teams (requer conta da UnB)](https://web.microsoftstream.com/video/45948a49-c442-4efc-9322-4bfa45a1d6fd)
