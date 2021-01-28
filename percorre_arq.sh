@@ -7,21 +7,6 @@ then
 	exit
 fi
 
-function aviso()
-{
-	N_AVISO=${#1}
-	N_AVISO=$((N_AVISO + 8))
-	LINHA_AVISO=""
-	for n in $(seq $N_AVISO)
-	do
-		LINHA_AVISO=${LINHA_AVISO}'='
-	done
-	echo ${LINHA_AVISO}
-	echo "===" $1 "==="
-	echo ${LINHA_AVISO}
-	echo
-}
-
 function read_key()
 {
 	read -rsn1 ui
@@ -90,6 +75,23 @@ function change_color()
 	esac
 }
 
+function aviso()
+{
+	change_color "Blue"
+	N_AVISO=${#1}
+	N_AVISO=$((N_AVISO + 8))
+	LINHA_AVISO=""
+	for n in $(seq $N_AVISO)
+	do
+		LINHA_AVISO=${LINHA_AVISO}'='
+	done
+	echo ${LINHA_AVISO}
+	echo "===" $1 "==="
+	echo ${LINHA_AVISO}
+	echo
+	change_color "No color"
+}
+
 DELIM="SOE"
 N=$(wc -l < $1)
 
@@ -103,9 +105,7 @@ do
 	l=${LINHAS[$((i-1))]}
 	k=${XTRA[$((i-1))]}
 	clear
-	change_color "Blue"
 	aviso $1
-	change_color "No color"
 	if [ ${l} -gt 1 ]
 	then
 		head -$((l-1)) $1 | sed -r "${SED_SEARCH}"
@@ -132,7 +132,15 @@ do
 	fi
 done
 clear
-change_color "Blue"
 aviso $1
-change_color "No color"
 cat $1 | sed -r "${SED_SEARCH}"
+
+echo
+aviso "Compilação do código"
+EXEC_1=${1%.?}.out
+make ${EXEC_1}
+
+echo
+aviso "Código executado"
+./${EXEC_1}
+rm ${EXEC_1}

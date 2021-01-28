@@ -12,7 +12,7 @@ int main(void)
 	por bloco*/
 	printf("Olá mundo!\n");
 	printf("Mesmo valor, diferentes interpretações:\n");
-	//SOE(1) A mesma variável 'a' é interpretada como número 115 e como caracter ASCII 's'
+	//SOE(1) A mesma variável 'a' é interpretada como número, 115, e como caracter ASCII, 's'
 	printf("\ta = %d ('%c' em ASCII)\n", a, a);
 	//SOE(1) A representação em ponto flutuante pode ser enganadora
 	float d = 0.1, e = 0.2;
