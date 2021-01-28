@@ -39,15 +39,19 @@
 
 # Método de Ensino
 
-Aulas divididas de acordo com a técnica Pomodoro, com 3 períodos de 25 a 30 minutos, intercalados com descansos de 5 minutos:
+O curso consistirá em aulas síncronas via video-conferência na [plataforma Microsoft Teams](https://teams.microsoft.com/l/team/19%3a2809b11f011d4f74873ff8fc7aef404d%40thread.tacv2/conversations?groupId=1f383544-68d8-409c-8dae-c14cf77b2a87&tenantId=ec359ba1-630b-4d2b-b833-c8e6d48f8059), nas segundas, quartas e sextas, sempre das 14:00 às 15:50. As aulas síncronas serão gravadas e disponibilizadas para acompanhamento assíncrono também na plataforma Microsoft Teams. Todo o conteúdo, listas de exercícios, provas e entrega de trabalhos estarão disponíveis via [página no Moodle Aprender 3](https://aprender3.unb.br/course/view.php?id=6529).
 
-- 1o período: aula expositiva do professor;
+O aluno pode tirar dúvidas via fórum de dúvidas no Moodle da disciplina, ou pode agendar por e-mail uma reunião via video-conferência.
+
+<!--Aulas divididas de acordo com a técnica Pomodoro, com 3 períodos de 25 a 30 minutos, intercalados com descansos de 5 minutos:-->
+
+<!--- 1o período: aula expositiva do professor;
 - 2o período: alunos responderão a perguntas teóricas propostas pelo professor;
-- 3o período: alunos responderão a perguntas práticas propostas pelo professor.
+- 3o período: alunos responderão a perguntas práticas propostas pelo professor.-->
 
-Dentro do 2o e do 3o períodos, cada aluno deverá desenvolver ao máximo suas respostas, aproveitando o tempo disponível à exaustão, como esperado na técnica Pomodoro. As datas de entrega das respostas serão os fins de semana correspondentes às aulas.
+<!--Dentro do 2o e do 3o períodos, cada aluno deverá desenvolver ao máximo suas respostas, aproveitando o tempo disponível à exaustão, como esperado na técnica Pomodoro. As datas de entrega das respostas serão os fins de semana correspondentes às aulas.-->
 
-Todas as respostas deverão ser armazenadas em um repositório GitHub público. Utilize arquivos diferentes para as respostas, separando-as por data. Organize bem o seu repositório, com pastas individuais nomeadas **1_Respostas**, **2_PCs** e **3_Trabalho** para guardar as respostas das aulas, os pontos de controle e o trabalho final, respectivamente.
+<!--Todas as respostas deverão ser armazenadas em um repositório GitHub público. Utilize arquivos diferentes para as respostas, separando-as por data. Organize bem o seu repositório, com pastas individuais nomeadas **1_Respostas**, **2_PCs** e **3_Trabalho** para guardar as respostas das aulas, os pontos de controle e o trabalho final, respectivamente.-->
 
 Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno decidir qual modelo de Raspberry Pi utilizar, de acordo com suas necessidades no projeto final.
 
