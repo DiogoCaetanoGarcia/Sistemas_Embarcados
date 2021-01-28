@@ -53,14 +53,17 @@ O aluno pode tirar dúvidas via fórum de dúvidas no Moodle da disciplina, ou p
 
 <!--Todas as respostas deverão ser armazenadas em um repositório GitHub público. Utilize arquivos diferentes para as respostas, separando-as por data. Organize bem o seu repositório, com pastas individuais nomeadas **1_Respostas**, **2_PCs** e **3_Trabalho** para guardar as respostas das aulas, os pontos de controle e o trabalho final, respectivamente.-->
 
+A presença dos alunos será conferida via lista de participantes nas video-conferências pela plataforma Microsoft Teams. **FAVOR CONFERIR SEU NOME NA PLATAFORMA, PARA EVITAR ERROS NAS LISTAS DE PRESENÇA.** Alunos que não tiverem condições de acompanhar as aulas sincronamente deverão assistir às aulas gravadas e indicar que o fizeram pela plataforma Teams.
+
 Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno decidir qual modelo de Raspberry Pi utilizar, de acordo com suas necessidades no projeto final.
 
 # Avaliação
 
 - Dois testes (40% da nota final);
 - Projeto de fim de curso (30% da nota final);
-- Pontos de controle (20% da nota final).
-- Respostas dos ciclos Pomodoro em sala de aula (10% da nota final).
+- Pontos de controle (20% da nota final);
+- Respostas dos questionários das aulas no Moodle (10% da nota final).
+<!--- Respostas dos ciclos Pomodoro em sala de aula (10% da nota final).-->
 
 Os alunos formarão duplas para montar um projeto final de maior dificuldade, cobrindo os tópicos vistos em sala de aula. Os projetos serão propostos pelos alunos, e será apresentado um protótipo em funcionamento e o relatório do mesmo, na forma de relatório científico com formatação IEEE, contendo os seguintes tópicos:
 
