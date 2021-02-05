@@ -1,7 +1,7 @@
 #!/bin/bash
 saida1=`ls -l`
-echo $saida1
+echo Variável saida1 = $saida1
 echo ---------------------------
 saida2=$(ls -l)
-echo $saida2
+echo Variável saida2 = $saida2
 

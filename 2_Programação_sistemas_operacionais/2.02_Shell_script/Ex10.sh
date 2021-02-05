@@ -17,4 +17,6 @@ case $opcao in
     read nome;
     echo "Olá $nome!"
     ;;
+  *)
+    echo "Opção inválida!!!"
 esac
