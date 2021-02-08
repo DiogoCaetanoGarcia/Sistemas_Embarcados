@@ -5,4 +5,4 @@ main.o: main.c mensagens.h
 mensagens.o: mensagens.c mensagens.h
 	gcc $(CFLAGS) -c mensagens.c
 clean:
-	rm -f *.o mensagens
+	rm -f *.o mensagens.out
