@@ -1,4 +1,4 @@
-all: Ex2.out Ex3.out Ex4.out Ex5.out Ex6.out
+all: Ex2.out Ex3.out Ex4.out Ex5.out Ex6.out Ex7.out Ex8.out Ex9.out
 Ex2.out: Ex2.o gpio_sysfs.o
 	gcc Ex2.o gpio_sysfs.o -o Ex2.out
 Ex3.out: Ex3.o gpio_dev_mem.o
@@ -9,6 +9,12 @@ Ex5.out: Ex5.o gpio_dev_mem.o
 	gcc Ex5.o gpio_dev_mem.o -o Ex5.out
 Ex6.out: Ex6.o gpio_dev_mem.o
 	gcc Ex6.o gpio_dev_mem.o -o Ex6.out
+Ex7.out: Ex7.c
+	gcc Ex7.c -o Ex7.out -lwiringPi
+Ex8.out: Ex8.c
+	gcc Ex8.c -o Ex8.out -lwiringPi
+Ex9.out: Ex9.c
+	gcc Ex9.c -o Ex9.out -lwiringPi
 Ex2.o: Ex2.c
 	gcc -c Ex2.c
 Ex3.o: Ex3.c
