@@ -19,8 +19,8 @@ int main(void)
 	puts("Pressione o botao");
 	while(i_global<15)
 	{
-                sleep(1);
-                printf("Loop principal, i_global = %d\n", i_global);
-        }
+		sleep(1);
+		printf("Loop principal, i_global = %d\n", i_global);
+	}
 	return 0;
 }
