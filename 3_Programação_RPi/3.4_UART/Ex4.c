@@ -25,16 +25,16 @@ int main(void)
 	int serial_status;
 
 	signal(SIGINT, ctrl_c);
+	if(wiringPiSetup() == -1)
+	{
+		puts("Erro em wiringPiSetup().");
+		return -1;
+	}
 	uart0_fd = serialOpen(TTY, 9600);
 	if(uart0_fd==-1)
 	{
 		puts("Erro abrindo a UART. Garanta que ela nao");
 		puts("esteja sendo usada por outra aplicacao.");
-		return -1;
-	}
-	if(wiringPiSetup() == -1)
-	{
-		puts("Erro em wiringPiSetup().");
 		return -1;
 	}
 	puts(TTY " aberto.");
@@ -53,4 +53,5 @@ int main(void)
 			printf("%d bytes disponiveis\n", serial_status);
 	}
 	serialClose(uart0_fd);
+	return 0;
 }

@@ -71,4 +71,5 @@ int main(void)
 		puts("");
 	}
 	close(uart0_fd);
+	return 0;
 }
