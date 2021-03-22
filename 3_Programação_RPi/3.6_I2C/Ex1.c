@@ -38,4 +38,5 @@ int main(void)
 		puts("");
 	}
 	close(i2c_fd);
+	return 0;
 }
