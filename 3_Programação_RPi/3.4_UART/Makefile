@@ -14,4 +14,4 @@ MSPcode:
 	sudo mspdebug rf2500 "prog out.elf"
 	rm out.elf
 clean:
-	rm -f *.out *.o *.bin *.txt *.html
+	rm -f *.out *.o *.bin *.txt *.html out.elf
