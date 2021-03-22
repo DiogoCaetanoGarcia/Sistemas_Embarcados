@@ -47,4 +47,5 @@ int main(void)
 		puts("");
 	}
 	close(spi_fd);
+	return 0;
 }
