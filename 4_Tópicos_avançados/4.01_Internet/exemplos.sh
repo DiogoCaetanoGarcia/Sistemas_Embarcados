@@ -61,7 +61,7 @@ case $1 in
 	8) show_box "Repare na forma como o 'curl' se identifica para o servidor (campo 'User-Agent:')"
 		curl -v www.unb.br > /dev/null
 		show_box "Busca VÁLIDA no Google pelo termo 'raspberry pi'"
-		curl -A USER-AGENT -o saida.html https://www.google.com/search?q=raspberry+pi
+		curl -v -A USER-AGENT -o saida.html https://www.google.com/search?q=raspberry+pi
 		xdg-open saida.html;;
 	9) show_box "Hora atual pela internet, baseado no IP"
 		curl http://worldtimeapi.org/api/ip.txt
@@ -81,7 +81,7 @@ case $1 in
 		sudo date +%s -s @$(curl -s http://worldtimeapi.org/api/ip.txt | grep unixtime | sed "s/unixtime: //")
 		date;;
 	13) show_box "Exemplo de requisição POST"
-		curl -v -o saida.html -d query=eletronica http://noticias.unb.br/component/search/
+		curl -v -o saida.html -d searchword=eletronica http://noticias.unb.br/component/search/
 		show_box "Aperte ENTER para continuar"
 		xdg-open saida.html
 		read
@@ -136,7 +136,7 @@ case $1 in
 		curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
 		show_box "Este foi o arquivo usado para enviar o e-mail"
 		cat email.txt
-		rm email.txt $nome_imagem;;
+		rm email.txt;;
 	17) show_box "Envio de dados do browser para o RPi usando o Apache"
 		./exemplos.sh 22
 		sudo cp formulario_RPi1.html /var/www/html/index.html
