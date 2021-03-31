@@ -18,6 +18,8 @@ function show_box()
 }
 
 case $1 in
+	0) show_box "Apagar arquivos desnecessários"
+		rm -f *.txt index.html saida.html Arquivo_na_nuvem1.pdf Arquivo_na_nuvem2.pdf README.md;;
 	1) show_box "Listar redes Wi-Fi. Interfaces disponíveis:"
 		ifconfig -s
 		show_box "Digite o nome da interface"
@@ -29,13 +31,13 @@ case $1 in
 		wpa_passphrase testing;;
 	3) show_box "Download de arquivos com o wget"
 		wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/README.md
-		wget www.unb.br
+		wget https://www.unb.br
 		show_box "Arquivos 'README.md' e 'index.html' baixados"
 		ls -l README.md index.html;;
 	4) show_box "Download de arquivos com o curl"
 		rm README.md
 		curl -O https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/README.md
-		curl -o saida.html www.unb.br
+		curl -o saida.html https://www.unb.br
 		show_box "Arquivos 'README.md' e 'saida.html' baixados"
 		ls -l README.md saida.html;;
 	5) show_box "Download de arquivo no Google Drive"
@@ -72,14 +74,20 @@ case $1 in
 		echo;;
 	12) show_box "Update da hora do computador a partir do fuso-horário de Greenwich"
 		sudo date +%s -s @$(curl -s http://worldtimeapi.org/api/timezone/Etc/GMT.txt | grep unixtime | sed "s/unixtime: //")
+		date
 		show_box "Aperte ENTER para continuar"
 		read
 		show_box "Update da hora do computador a partir do seu IP"
-		sudo date +%s -s @$(curl -s http://worldtimeapi.org/api/ip.txt | grep unixtime | sed "s/unixtime: //");;
+		sudo date +%s -s @$(curl -s http://worldtimeapi.org/api/ip.txt | grep unixtime | sed "s/unixtime: //")
+		date;;
 	13) show_box "Exemplo de requisição POST"
-		curl -v -o exemplo_POST.txt -d query=eletronica https://fga.unb.br/search/articles
+		curl -v -o saida.html -d query=eletronica http://noticias.unb.br/component/search/
 		show_box "Aperte ENTER para continuar"
+		xdg-open saida.html
 		read
-		less exemplo_POST.txt;;
+		rm saida.html;;
+	14) show_box "Envio de dados para Google Forms"
+		formid="18YYhW1Dk3xtge66XdG38SfBuPEhm7esfBI4Ajhyh4Bg"
+		curl https://docs.google.com/forms/d/$formid/formResponse -d ifq -d "entry.1962235247=Eu Mesmo" -d "entry.146553730=18" -d submit=Submit;;
 	*) echo "Opção inválida";;
 esac
