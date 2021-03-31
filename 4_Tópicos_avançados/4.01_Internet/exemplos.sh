@@ -151,7 +151,7 @@ case $1 in
 		./exemplos.sh 21;;
 	18) show_box "Envio de dados do browser para o RPi usando o Apache, com um formulário mais bonito"
 		./exemplos.sh 22
-		sudo cp formulario_RPi1.html /var/www/html/index.html
+		sudo cp formulario_RPi2.html /var/www/html/index.html
 		sudo cp obrigado.html /var/www/html/obrigado.html
 		show_box "Acesse o servidor em um browser e responda o formulário"
 		show_box "Quando terminar, aperte ENTER aqui"
