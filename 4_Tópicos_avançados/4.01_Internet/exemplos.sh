@@ -139,7 +139,6 @@ case $1 in
 		rm email.txt $nome_imagem;;
 	17) show_box "Envio de dados do browser para o RPi usando o Apache"
 		./exemplos.sh 22
-		sudo cp /var/www/html/index.html /var/www/html/index_original.html
 		sudo cp formulario_RPi1.html /var/www/html/index.html
 		sudo cp obrigado.html /var/www/html/obrigado.html
 		show_box "Acesse o servidor em um browser e responda o formulário"
