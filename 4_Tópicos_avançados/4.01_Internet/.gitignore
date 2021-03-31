@@ -1,5 +1,8 @@
-index.html
-README.md
+*.html
+!formulario_RPi1.html
+!formulario_RPi2.html
+!obrigado.html
+*.md
 *.html.*
 *.md.*
 *.txt

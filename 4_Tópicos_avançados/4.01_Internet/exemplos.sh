@@ -89,5 +89,103 @@ case $1 in
 	14) show_box "Envio de dados para Google Forms"
 		formid="18YYhW1Dk3xtge66XdG38SfBuPEhm7esfBI4Ajhyh4Bg"
 		curl https://docs.google.com/forms/d/$formid/formResponse -d ifq -d "entry.1962235247=Eu Mesmo" -d "entry.146553730=18" -d submit=Submit;;
+	15) show_box "Envio de e-mail com o curl"
+		email_from="EMAIL_REMETENTE"
+		passw_from="SENHA_REMETENTE"
+		email_to="EMAIL_DESTINATARIO"
+		servidor_envio="smtp://smtp.unb.br:587"
+		criptografia="--ssl"
+		email_subject="ASSUNTO"
+		email_msg="MENSAGEM"
+		echo "From: <$email_from>" > email.txt
+		echo "To: <$email_to>" >> email.txt
+		echo Subject: $email_subject >> email.txt
+		echo Date: $(date) >> email.txt
+		echo $email_msg >> email.txt
+		curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
+		show_box "Este foi o arquivo usado para enviar o e-mail"
+		cat email.txt
+		rm email.txt;;
+	16) show_box "Envio de e-mail com imagem em anexo"
+		nome_imagem="unb.png"
+		email_from="EMAIL_REMETENTE"
+		passw_from="SENHA_REMETENTE"
+		email_to="EMAIL_DESTINATARIO"
+		servidor_envio="smtp://smtp.unb.br:587"
+		criptografia="--ssl"
+		email_subject="ASSUNTO"
+		email_msg="MENSAGEM"
+		echo "From: <$email_from>" > email.txt
+		echo "To: <$email_to>" >> email.txt
+		echo Subject: $email_subject >> email.txt
+		echo Date: $(date) >> email.txt
+		echo Content-Type: multipart/mixed\; boundary=corpo_msg >> email.txt
+		echo >> email.txt
+		echo --corpo_msg >> email.txt
+		echo Content-Type: text/plain\; charset=UTF-8 >> email.txt
+		echo >> email.txt
+		echo $email_msg >> email.txt
+		echo >> email.txt
+		echo --corpo_msg >> email.txt
+		echo Content-Type: image/png\; name=\"$nome_imagem\" >> email.txt
+		echo Content-Transfer-Encoding: base64 >> email.txt
+		echo Content-Disposition: attachment; filename=\"$nome_imagem\" >> email.txt
+		echo >> email.txt
+		cat $nome_imagem | base64 >> email.txt
+		echo --corpo_msg-- >> email.txt
+		curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
+		show_box "Este foi o arquivo usado para enviar o e-mail"
+		cat email.txt
+		rm email.txt $nome_imagem;;
+	17) show_box "Envio de dados do browser para o RPi usando o Apache"
+		./exemplos.sh 22
+		sudo cp /var/www/html/index.html /var/www/html/index_original.html
+		sudo cp formulario_RPi1.html /var/www/html/index.html
+		sudo cp obrigado.html /var/www/html/obrigado.html
+		show_box "Acesse o servidor em um browser e responda o formulário"
+		show_box "Quando terminar, aperte ENTER aqui"
+		read
+		show_box "Confira se a sua resposta chegou ao RPi"
+		tail -1 /var/log/apache2/access.log
+		sudo cp /var/www/html/index_original.html /var/www/html/index.html
+		./exemplos.sh 21;;
+	18) show_box "Envio de dados do browser para o RPi usando o Apache, com um formulário mais bonito"
+		./exemplos.sh 22
+		sudo cp formulario_RPi1.html /var/www/html/index.html
+		sudo cp obrigado.html /var/www/html/obrigado.html
+		show_box "Acesse o servidor em um browser e responda o formulário"
+		show_box "Quando terminar, aperte ENTER aqui"
+		read
+		show_box "Confira se a sua resposta chegou ao RPi"
+		tail -1 /var/log/apache2/access.log
+		./exemplos.sh 21;;
+	19) show_box "Mostrar temperatura do RPi no browser"
+		./exemplos.sh 22
+		echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>Temperatura do Raspberry Pi</title></head><body><div class="container"><h1>' > index.html
+		echo $(date) >> index.html
+		echo '</h1><p>' >> index.html
+		echo $(/opt/vc/bin/vcgencmd measure_temp) >> index.html
+		echo '</p></div></body></html>' >> index.html
+		sudo cp index.html /var/www/html/index.html
+		show_box "Acesse o servidor em um browser"
+		show_box "Quando terminar, aperte ENTER aqui"
+		read
+		show_box "Acesse novamente o servidor em um browser, e repare que os dados não mudaram"
+		show_box "Quando terminar, aperte ENTER aqui"
+		read
+		./exemplos.sh 21;;
+	20) show_box "Mostrar temperatura do RPi no browser, atualizando a cada segundo"
+		./exemplos.sh 22
+		show_box "Acesse o servidor em um browser, e atualize a página periodicamente"
+		show_box "Quando terminar, aperte CTRL-C para matar este processo e execute './exemplos.sh 21'"
+		./update_servidor.sh;;
+	21) show_box "Parar a execução do Apache"
+		sudo cp /var/www/html/index_original.html /var/www/html/index.html
+		sudo /etc/init.d/apache2 stop
+		sudo update-rc.d apache2 disable;;
+	22)	show_box "Reiniciar a execução do Apache"
+		sudo cp /var/www/html/index.html /var/www/html/index_original.html
+		sudo update-rc.d apache2 enable
+		sudo /etc/init.d/apache2 start;;
 	*) echo "Opção inválida";;
 esac
