@@ -33,6 +33,7 @@ int main(void)
 			buffer = 0x55;
 			wiringPiSPIDataRW(0, &buffer, 1);
 		}while(buffer!=0xAA);
+		usleep(100);
 		buffer = 1;
 		wiringPiSPIDataRW(0, &buffer, 1);
 		media += (float)buffer;
