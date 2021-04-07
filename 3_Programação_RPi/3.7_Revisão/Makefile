@@ -1,4 +1,4 @@
-all: Ex01.out Ex02.out Ex03.out Ex04.out Ex05.out Ex06.out Ex07.out Ex08.out Ex09.out Ex10.out Ex11.out
+all: Ex01.out Ex02.out Ex03.out Ex04.out Ex05.out Ex06.out Ex07.out Ex08.out Ex09.out
 Ex01.out: Ex01.c
 	gcc Ex01.c -o Ex01.out -lwiringPi
 Ex02.out: Ex02.c
@@ -14,13 +14,9 @@ Ex06.out: Ex06.c
 Ex07.out: Ex07.c
 	gcc Ex07.c -o Ex07.out -lwiringPi
 Ex08.out: Ex08.c
-	gcc Ex08.c -o Ex08.out -lpthread -lwiringPi
+	gcc Ex08.c -o Ex08.out -lwiringPi
 Ex09.out: Ex09.c
-	gcc Ex09.c -o Ex09.out -lpthread -lwiringPi
-Ex10.out: Ex10.c
-	gcc Ex10.c -o Ex10.out -lwiringPi
-Ex11.out: Ex11.c
-	gcc Ex11.c -o Ex11.out -lwiringPi
+	gcc Ex09.c -o Ex09.out -lwiringPi
 MSP_UART:
 	# Para compilar códigos para o MSP430 em Linux, execute
 	# sudo apt-get install msp430-libc mspdebug msp430mcu binutils-msp430 gcc-msp430 gdb-msp430

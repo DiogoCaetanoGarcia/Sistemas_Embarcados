@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <fcntl.h>
 #include <sys/ioctl.h>
 #include <linux/i2c-dev.h>
-#include <fcntl.h>
 #include <unistd.h>
-#include <errno.h>
-#include <string.h>
 
 int i2c_fd;
 void ctrl_c(int sig)
@@ -17,25 +15,24 @@ void ctrl_c(int sig)
 
 int main(void)
 {
-	char buffer, leituras[2];
-	unsigned char slave_addr = 0xF;
-	int contador;
+	unsigned char slave_addr=0x0F;
 	float media;
-
+	int contador;
+	char buffer_I2C[2];
 	signal(SIGINT, ctrl_c);
 	i2c_fd = open("/dev/i2c-1", O_RDWR);
 	ioctl(i2c_fd, I2C_SLAVE, slave_addr);
-	contador = 0;
 	media = 0.0;
+	contador = 0;
 	while(1)
 	{
 		usleep(10000);
-		buffer = 0x55;
-		write(i2c_fd, &buffer, 1);
+		buffer_I2C[0] = 0x55;
+		write(i2c_fd, &buffer_I2C[0], 1);
 		usleep(100);
-		read(i2c_fd, leituras, 2);
-		media += (float)leituras[0];
-		media += ((float)(leituras[1]))*256;
+		read(i2c_fd, buffer_I2C, 2);
+		media += (float)buffer_I2C[0];
+		media += ((float)buffer_I2C[1])*256.0;
 		contador++;
 		if(contador==100)
 		{
@@ -47,4 +44,3 @@ int main(void)
 	}
 	return 0;
 }
-
