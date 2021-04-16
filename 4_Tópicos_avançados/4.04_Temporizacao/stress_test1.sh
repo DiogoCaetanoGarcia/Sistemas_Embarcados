@@ -14,7 +14,7 @@ printf "   relógio do sistema.\n"
 
 for i in {1..5}
 do
-	./Ex6
+	./Ex6.out
 done
 
 p=$(pidof cat)

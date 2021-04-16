@@ -2,11 +2,11 @@
 
 cat /dev/urandom > /dev/null &
 
-./eatmem &
+./eatmem.out &
 
 for i in {1..5}
 do
-	./Ex7
+	./Ex7.out
 done
 
 p=$(pidof cat)

@@ -4,7 +4,7 @@ cat /dev/urandom > /dev/null &
 
 for i in {1..5}
 do
-	./Ex7
+	./Ex7.out
 done
 
 p=$(pidof cat)
