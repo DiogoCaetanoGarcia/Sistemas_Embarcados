@@ -61,13 +61,16 @@ function search_history()
 	history | grep $1
 }
 
+function search_ps()
+{
+        ps aux | head -1
+        ps aux | grep grep -v | grep "ps aux" -v | grep $1
+}
+
 function disk_usage()
 {
-	if [ "$#" -ne "0" ]; then
-		df -h /dev/sda$1
-	else
-		df -h /dev/sda7
-	fi
+	df -h | head -1
+	df -h | grep /$
 }
 
 function folder_size()
@@ -77,6 +80,21 @@ function folder_size()
 	else
 		du -h .  | tail -1
 	fi
+}
+
+function folders_size()
+{
+        if [ "$#" -ne "0" ]; then
+                for f in ${1}/*/
+                do
+                        folder_size $f
+                done
+        else
+                for f in ./*/
+                do
+                        folder_size $f
+                done
+        fi
 }
 
 function pinout()
