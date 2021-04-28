@@ -17,30 +17,48 @@ function send_signal_by_name()
 	fi
 }
 
+if [ $# -lt 1 ]
+then
+	make
+	echo "Digite o número correspondente ao código compilado:"
+	for f in Ex*.out
+	do
+		echo $(echo ${f} | grep -oP "(?<=Ex).*?(?=\.out)")": ${f}"
+	done
+	exit -1
+fi
+
+
 T=5.1
-echo "Executando '$1' por $T segundos..."
-sudo $1 &
-sleep $T
-send_signal_by_name $1 SIGINT
+E=./Ex${1}.out
+if [ ! -f $E ]; then
+	echo Programa $E não existe!
+	exit -2
+fi
 
-echo "Executando '$1' por $T segundos com nice 19..."
-nice -n 19 sudo $1 &
+echo "Executando '$E' por $T segundos..."
+sudo $E &
 sleep $T
-send_signal_by_name $1 SIGINT
+send_signal_by_name $E SIGINT
 
-echo "Executando '$1' por $T segundos, com"
+echo "Executando '$E' por $T segundos com nice 19..."
+nice -n 19 sudo $E &
+sleep $T
+send_signal_by_name $E SIGINT
+
+echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' em paralelo..."
 cat /dev/urandom > /dev/null &
-sudo $1 &
+sudo $E &
 sleep $T
-send_signal_by_name $1 SIGINT
+send_signal_by_name $E SIGINT
 
-echo "Executando '$1' por $T segundos, com"
+echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' e './eatmem.out' em paralelo..."
 ./eatmem.out &
-sudo $1 &
+sudo $E &
 sleep $T
-send_signal_by_name $1 SIGINT
+send_signal_by_name $E SIGINT
 sleep 1
 send_signal_by_name cat
 send_signal_by_name "./eatmem.out"
