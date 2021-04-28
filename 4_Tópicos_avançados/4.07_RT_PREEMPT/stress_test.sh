@@ -29,7 +29,7 @@ then
 fi
 
 
-T=5.1
+T=10.1
 E=./Ex${1}.out
 if [ ! -f $E ]; then
 	echo Programa $E não existe!
