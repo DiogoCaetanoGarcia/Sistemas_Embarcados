@@ -152,37 +152,22 @@ static int device_release(struct inode *inode, struct file *file)
 	return 0;
 }
 
-void long_para_string(long int x, char s[])
-{
-	long int pot10=1;
-	int i=0;
-	for(pot10=1; pot10<=x; pot10 *= 10){}
-	pot10 /= 10;
-	for(i=0; pot10>0; i++)
-	{
-		s[i] = x/pot10 + '0';
-		x = x%pot10;
-		pot10 /=10;
-	}
-	s[i] = '\0';
-}
-
 static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 			   char *buffer,	/* buffer to fill with data */
 			   size_t length,	/* length of the buffer     */
 			   loff_t * offset)
 {
-	long int F = ((100*HZ)/2)/periodo;
+	int F;
 	char Fstr[10];
 	int i, j;
-	long_para_string(F, Fstr);
+	F = (100*HZ+periodo)/(2*periodo);
+	sprintf(Fstr, "%d", F);
 	for(i=0; Fstr[i]!='\0'; i++);
 	Fstr[i+1] = Fstr[i];
 	Fstr[i] = Fstr[i-1];
 	Fstr[i-1] = Fstr[i-2];
 	Fstr[i-2] = '.';
 	i++;
-
 	if(Device_Counter>=i)
 		return 0;
 	for(j=0; (j<length) && (Device_Counter<i); Device_Counter++, j++)
@@ -192,22 +177,37 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 
 static ssize_t device_write(struct file *filp, const char *buff, size_t len, loff_t * off)
 {
-	long int x;
-	int i, val_len;
-	long int casas;
-	for(val_len=0; val_len<len; val_len++)
-		if((buff[val_len]!='.') && ((buff[val_len]<'0') || (buff[val_len]>'9')))
-				break;
-	for(i=0; (i<val_len) && (buff[i]!='.'); i++);
-	casas = val_len - i - 1;
-	for(x=0, i=0; i<val_len; i++)
-		if(buff[i]!='.')
-			x = (x*10) + (buff[i]-'0');
-	periodo = HZ/(2*x);
-	while(casas>0)
+	int x1, x2, casas_decimais;
+	if(strstr(buff,".")==NULL)
 	{
-		periodo *= 10;
-		casas--;
+		if(sscanf(buff, "%d", &x1)<1)
+                {
+                        MSG_BAD("Invalid frequency value!", -1l);
+                        return 0;
+                }
+                if(x1<=0)
+                {
+                        MSG_BAD("Invalid frequency value!", -1l);
+                        return 0;
+                }
+                periodo = (HZ+x1)/(2*x1);
+
+	}
+	else
+	{
+		if(sscanf(buff, "%d.%d", &x1, &x2)<2)
+		{
+			MSG_BAD("Invalid frequency value!", -1l);
+			return 0;
+		}
+		if(x1<=0)
+		{
+			MSG_BAD("Invalid frequency value!", -1l);
+			return 0;
+		}
+		for(casas_decimais=1; casas_decimais<=x2; casas_decimais*=10);
+		x1 = x1*casas_decimais+x2;
+		periodo = (HZ*casas_decimais+x1)/(2*x1);
 	}
 	return len;
 }
