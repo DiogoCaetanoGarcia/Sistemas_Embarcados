@@ -12,7 +12,7 @@ static struct gpio leds[] = {
 };
 
 static struct gpio btns[] = {
-		{  4, GPIOF_IN, "BUTTON 1" },
+		{ 17, GPIOF_IN, "BUTTON 1" },
 };
 
 static int button_irqs[] = {-1};

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Módulo que liga/desliga um LED no GPIO24 de acordo com um botão no GPIO4.
+echo Módulo que liga/desliga um LED no GPIO24 de acordo com um botão no GPI17.
 echo
 echo Compilando o modulo...
 make
