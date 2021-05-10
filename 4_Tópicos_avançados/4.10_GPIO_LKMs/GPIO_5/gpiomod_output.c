@@ -153,9 +153,9 @@ static int device_release(struct inode *inode, struct file *file)
 }
 
 static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
-			   char *buffer,	/* buffer to fill with data */
-			   size_t length,	/* length of the buffer     */
-			   loff_t * offset)
+			char *buffer,	/* buffer to fill with data */
+			size_t length,	/* length of the buffer     */
+			loff_t * offset)
 {
 	int F;
 	char Fstr[10];
@@ -181,17 +181,16 @@ static ssize_t device_write(struct file *filp, const char *buff, size_t len, lof
 	if(strstr(buff,".")==NULL)
 	{
 		if(sscanf(buff, "%d", &x1)<1)
-                {
-                        MSG_BAD("Invalid frequency value!", -1l);
-                        return 0;
-                }
-                if(x1<=0)
-                {
-                        MSG_BAD("Invalid frequency value!", -1l);
-                        return 0;
-                }
-                periodo = (HZ+x1)/(2*x1);
-
+		{
+			MSG_BAD("Invalid frequency value!", -1l);
+			return 0;
+		}
+		if(x1<=0)
+		{
+			MSG_BAD("Invalid frequency value!", -1l);
+			return 0;
+		}
+		periodo = (HZ+x1)/(2*x1);
 	}
 	else
 	{
