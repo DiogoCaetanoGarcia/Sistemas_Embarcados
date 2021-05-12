@@ -226,6 +226,9 @@ void Clear_LCD(void)
 void Config_LCD(void)
 {
 	jiffies_delay(1);
+	Send_Nibble(0x3, COMANDO);
+	Send_Nibble(0x3, COMANDO);
+	Send_Nibble(0x3, COMANDO);
 	Send_Nibble(0x2, COMANDO);
 	Send_Byte(0x20, COMANDO);
 	Send_Byte(0x14, COMANDO);

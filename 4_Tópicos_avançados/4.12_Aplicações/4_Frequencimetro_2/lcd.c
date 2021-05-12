@@ -1,22 +1,4 @@
-// Compile incluindo o arquivo gpio_sysfs.c, e execute como root:
-//	gcc 01_Ola_LCD.c gpio_sysfs.c -o olalcd
-//	sudo ./olalcd
-//
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <wiringPi.h>
-
-#define EN      7 // wiringPi#, BCM #4
-#define RS      0 // wiringPi#, BCM #17
-#define D4      3 // wiringPi#, BCM #22
-#define D5      4 // wiringPi#, BCM #23
-#define D6      5 // wiringPi#, BCM #24
-#define D7      6 // wiringPi#, BCM #25
-#define DADO    1
-#define COMANDO 0
+#include "lcd.h"
 
 void Config_Pins(void)
 {
@@ -62,8 +44,10 @@ void Clear_LCD(void)
 void Config_LCD(void)
 {
 	usleep(10000);
-	wiringPiSetup();
 	Config_Pins();
+	Send_Nibble(0x3, COMANDO);
+	Send_Nibble(0x3, COMANDO);
+	Send_Nibble(0x3, COMANDO);
 	Send_Nibble(0x2, COMANDO);
 	Send_Byte(0x20, COMANDO);
 	Send_Byte(0x14, COMANDO);
@@ -82,18 +66,44 @@ void Send_String(char *str)
 	}
 }
 
-//Compile junto com o arquivo gpio_sysfs.c
-int main()
+void Send_Int(int x)
 {
-	char str[200] = "OLA LCD!";
-
-	Config_LCD();
-	do
+	int pot10=1;
+	int i=0;
+	if(x<0)
 	{
-		Clear_LCD();
-		Send_String(str);
-		puts("Digite uma palavra (EXIT para sair):");
-		scanf("%s", str);
-	}while(strcmp(str,"EXIT")!=0);
-	return 0;
+		Send_String("-");
+		x = -x;
+	}
+	if(x==0)
+	{
+		Send_String("0");
+		return;
+	}
+	for(pot10=1; pot10<=x; pot10 *= 10){}
+	pot10 /= 10;
+	for(i=0; pot10>0; i++)
+	{
+		Send_Byte(x/pot10 + '0', DADO);
+		x = x%pot10;
+		pot10 /=10;
+	}
+}
+
+void Send_Double(double x, int decimal_places)
+{
+	int i, N;
+	N = (int)x;
+	Send_Int(N);
+	x -= (double)N;
+	if(x<0.0)
+		x = -x;
+	Send_String(".");
+	for(i=0; i<decimal_places; i++)
+	{
+		x *= 10;
+		if(x<1.0)
+			Send_Int(0);
+	}
+	Send_Int((int)x);
 }
