@@ -1,0 +1,7 @@
+config BR2_PACKAGE_FREQUENCIMETRO
+	bool "frequencimetro"
+	select BR2_PACKAGE_WIRINGPI
+	select BR2_TARGET_GENERIC_GETTY
+	select BR2_PACKAGE_BUSYBOX_SHOW_OTHERS
+	help
+	  Frequencimetro com display LCD.
