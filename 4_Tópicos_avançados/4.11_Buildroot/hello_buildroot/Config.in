@@ -1,8 +1,0 @@
-config BR2_PACKAGE_HELLO_BUILDROOT
-	bool "hello_buildroot"
-	help
-	  Hello Buildroot World!
-
-	  Provides the simplest example you
-	  can think of for adding a new
-	  package in Buildroot.
