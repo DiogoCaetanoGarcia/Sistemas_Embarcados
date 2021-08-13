@@ -19,11 +19,11 @@ int main (int argc, char* const argv[])
 	listen(socket_id, 10);
 	while(1)
 	{
-		struct sockaddr cliente;
 		int socket_id_cliente, end_server_ok;
-		socklen_t cliente_len;
+		struct sockaddr clienteAddr;
+		socklen_t clienteLength = sizeof( (struct sockaddr *) &clienteAddr);
 
-		socket_id_cliente = accept(socket_id, &cliente, &cliente_len);
+		socket_id_cliente = accept(socket_id, &clienteAddr, &clienteLength);
 		end_server_ok = print_client_message(socket_id_cliente);
 		close(socket_id_cliente);
 		if(end_server_ok)
