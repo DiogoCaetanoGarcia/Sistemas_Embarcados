@@ -23,7 +23,7 @@ int main (int argc, char* const argv[])
 	{
 		int socketCliente, end_server_ok;
 		struct sockaddr_in clienteAddr;
-		unsigned int clienteLength;
+		unsigned int clienteLength = sizeof( (struct sockaddr *) &clienteAddr);
 
 		socketCliente = accept(socket_id, (struct sockaddr *) &clienteAddr, &clienteLength);		
 		fprintf(stderr, "Conexão do Cliente %s\n", inet_ntoa(clienteAddr.sin_addr));
