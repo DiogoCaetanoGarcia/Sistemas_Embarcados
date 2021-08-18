@@ -21,9 +21,9 @@ int main(int argc, char *argv[])
 		tamanho++;
 		c = getc(fp);
 	}
-	rewind(fp);
 	// Alocando memória e lendo o arquivo
 	texto = (char*) malloc(tamanho*sizeof(char));
+	rewind(fp);
 	fread(texto, sizeof(char), tamanho, fp);
 	fclose(fp);
 	// Procura string várias vezes usando strstr()
