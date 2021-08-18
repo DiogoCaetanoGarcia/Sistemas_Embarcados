@@ -34,6 +34,7 @@ int main(void)
 		printf("FILHO: %s\n", frase_in);
 		strcpy(frase_out, "Sim, mas é uma coisa difícil de ser praticada até mesmo por um velho como eu...");
 		write(fd_f2s[1], frase_out, 100);
+		wait(NULL);
 	}
 	return 0;
 }

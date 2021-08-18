@@ -1,4 +1,4 @@
-all: Ex01.out Ex02.out Ex03.out Ex04.out Ex05.out Ex06.out Ex07.out Ex08.out Ex09.out Ex10.out Ex11.out
+all: Ex01.out Ex02.out Ex03.out Ex04.out Ex05.out Ex06.out Ex07.out Ex08.out Ex09.out Ex10.out Ex11.out Ex01_2021_1.out Ex02_2021_1.out Ex03_2021_1.out
 Ex01.out: Ex01.c
 	gcc Ex01.c -o busca_e_conta1.out
 Ex02.out: Ex02.c
@@ -21,5 +21,11 @@ Ex10.out: Ex10.c
 	gcc Ex10.c -o Ex10.out
 Ex11.out: Ex11.c
 	gcc Ex11.c -o Ex11.out
+Ex01_2021_1.out: Ex01_2021_1.c
+	gcc Ex01_2021_1.c -o Ex01_2021_1.out
+Ex02_2021_1.out: Ex02_2021_1.c
+	gcc Ex02_2021_1.c -o Ex02_2021_1.out
+Ex03_2021_1.out: Ex03_2021_1.c
+	gcc Ex03_2021_1.c -o Ex03_2021_1.out
 clean:
 	rm -f *.out *.bin *.txt
