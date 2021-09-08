@@ -81,7 +81,7 @@ case $1 in
 		sudo date +%s -s @$(curl -s http://worldtimeapi.org/api/ip.txt | grep unixtime | sed "s/unixtime: //")
 		date;;
 	13) show_box "Exemplo de requisição POST"
-		curl -v -o saida.html -d searchword=eletronica http://noticias.unb.br/component/search/
+		curl -v -o saida.html -d searchword=eletronica https://noticias.unb.br/component/search/
 		show_box "Aperte ENTER para continuar"
 		xdg-open saida.html
 		read
@@ -133,7 +133,7 @@ case $1 in
 		echo >> email.txt
 		cat $nome_imagem | base64 >> email.txt
 		echo --corpo_msg-- >> email.txt
-		curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
+		echo curl -u $email_from:$passw_from -n -v --mail-from $email_from --mail-rcpt $email_to --url $servidor_envio $criptografia -T email.txt
 		show_box "Este foi o arquivo usado para enviar o e-mail"
 		cat email.txt
 		rm email.txt;;
