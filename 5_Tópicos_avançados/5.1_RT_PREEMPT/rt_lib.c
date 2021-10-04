@@ -67,7 +67,7 @@ void end_gpio(int gpioport, FILE* fp)
 }
 
 void sleep_until(struct timespec *ts, int delay)
-{		
+{
 	ts->tv_nsec += delay;
 	if(ts->tv_nsec >= 1000*1000*1000)
 	{
@@ -81,23 +81,30 @@ void dumptimestamps(int unused)
 {
 	long diff_ts[MAX_LOGENTRIES-1];
 	double dummy_calc, mean = 0.0, std = 0.0;
-	int i;
+	int i, total_pos_entries=0;
 	for(i=1; i < MAX_LOGENTRIES; i++)
 	{
 		dummy_calc = difftime(t[i].tv_sec, t[i-1].tv_sec);
 		diff_ts[i-1] = t[i].tv_nsec - t[i-1].tv_nsec;
 		if(dummy_calc>0.0)
 			diff_ts[i-1] += 1000*1000*1000;
-		mean += (double)diff_ts[i-1];
+		if(diff_ts[i-1]>=0)
+		{
+			mean += (double)diff_ts[i-1];
+			total_pos_entries++;
+		}
 	}
-	mean /= (double)(MAX_LOGENTRIES-1);
+	mean /= (double)(total_pos_entries);  //(MAX_LOGENTRIES-1);
 	for(i=0; i < MAX_LOGENTRIES-1; i++)
 	{
-		dummy_calc = (double)diff_ts[i];
-		dummy_calc -= mean;
-		std += dummy_calc*dummy_calc;
+		if(diff_ts[i]>=0)
+		{
+			dummy_calc = (double)diff_ts[i];
+			dummy_calc -= mean;
+			std += dummy_calc*dummy_calc;
+		}
 	}
-	std /= (double)(MAX_LOGENTRIES-1);
+	std /= (double)(total_pos_entries);  //(MAX_LOGENTRIES-1);
 	std = sqrt(std);
 	end_gpio(PIN_VALUE, pin0);
 	fprintf(stderr, "\n\nEstatisticas dos timestamps:\n\n");

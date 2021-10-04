@@ -55,8 +55,8 @@ send_signal_by_name $E SIGINT
 
 echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' e './eatmem.out' em paralelo..."
-./eatmem.out &
 sudo $E &
+./eatmem.out &
 sleep $T
 send_signal_by_name $E SIGINT
 sleep 1
