@@ -59,7 +59,7 @@ static struct file_operations fops = {
 
 #define CLEAN_GPIO_DEVICE_CLASS_MAJOR 0
 #define CLEAN_DEVICE_CLASS_MAJOR      1
-#define CLEAN_DEVICE_MAJOR            2
+#define CLEAN_CLASS_MAJOR             2
 #define CLEAN_MAJOR                   3
 void module_clean_level(unsigned int level)
 {
@@ -104,7 +104,7 @@ int init_module(void)
 	gpiomod_output_Device = device_create(gpiomod_output_Class, NULL, MKDEV(Major, Minor), NULL, DEVICE_NAME);
 	if(IS_ERR(gpiomod_output_Device)) // Se houve erro no registro
 	{
-		module_clean_level(CLEAN_DEVICE_MAJOR);
+		module_clean_level(CLEAN_CLASS_MAJOR);
 		MSG_BAD("falhou em criar o device driver", PTR_ERR(gpiomod_output_Device));
 		return PTR_ERR(gpiomod_output_Device);
 	}
