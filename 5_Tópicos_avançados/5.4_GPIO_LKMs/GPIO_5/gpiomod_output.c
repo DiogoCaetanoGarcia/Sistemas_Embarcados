@@ -22,7 +22,7 @@ MODULE_DESCRIPTION("Ola gpiomod_output driver!");
 #define LED1_NAME "LED1"
 
 static struct timer_list blink_timer;
-static long int periodo=HZ/5;
+static long int meio_periodo=HZ/5;
 
 #ifdef NEWER_KERNEL_TIMER
 static void blink_timer_func(struct timer_list* data)
@@ -31,7 +31,7 @@ static void blink_timer_func(unsigned long data)
 #endif
 {
 	// Agendar proxima execucao
-	blink_timer.expires = jiffies + periodo;
+	blink_timer.expires = jiffies + meio_periodo;
 	add_timer(&blink_timer);
 	gpio_set_value(LED1, !gpio_get_value(LED1));
 }
@@ -124,7 +124,7 @@ int init_module(void)
 	init_timer(&blink_timer);
 #endif
 	blink_timer.function = blink_timer_func;
-	blink_timer.expires = jiffies + periodo;
+	blink_timer.expires = jiffies + meio_periodo;
 	add_timer(&blink_timer);
 	return 0;
 }
@@ -152,6 +152,11 @@ static int device_release(struct inode *inode, struct file *file)
 	return 0;
 }
 
+int arredondar_divisao(int divisor, int dividendo)
+{
+	return (divisor + dividendo/2)/dividendo;
+}
+
 static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 			char *buffer,	/* buffer to fill with data */
 			size_t length,	/* length of the buffer     */
@@ -159,54 +164,54 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 {
 	int F;
 	char Fstr[10];
-	int i, j;
-	F = (100*HZ+periodo)/(2*periodo);
-	sprintf(Fstr, "%d", F);
-	for(i=0; Fstr[i]!='\0'; i++);
-	Fstr[i+1] = Fstr[i];
-	Fstr[i] = Fstr[i-1];
-	Fstr[i-1] = Fstr[i-2];
-	Fstr[i-2] = '.';
-	i++;
-	if(Device_Counter>=i)
+	int tam_str, j;
+	// Obter frequencia_atual*100 
+	F = arredondar_divisao(100*HZ, 2*meio_periodo);
+	// Escrever frequência atual em string
+	// com duas casas decimais 
+	sprintf(Fstr, "%d.%02d\n", F/100, F%100);
+	// Obter tamanho da string da frequência
+	tam_str = strlen(Fstr); //for(tam_str=0; Fstr[tam_str]!='\0'; tam_str++);
+	// Escrever string da frequência no buffer
+	// indicado pelo usuário
+	if(Device_Counter>=tam_str)
 		return 0;
-	for(j=0; (j<length) && (Device_Counter<i); Device_Counter++, j++)
+	for(j=0; (j<length) && (Device_Counter<tam_str); Device_Counter++, j++)
 		put_user(Fstr[Device_Counter], buffer+j);
+	// Retornar quantidade de caracteres escritos
 	return j;
 }
 
 static ssize_t device_write(struct file *filp, const char *buff, size_t len, loff_t * off)
 {
-	int x1, x2, casas_decimais;
-	if(strstr(buff,".")==NULL)
+	int parte_inteira=0, casas_decimais=0, cnt, n_casas, freq_sem_casas_decimais;
+	// Obter parte inteira e casas decimais da frequencia
+	// indicada pelo usuário. 'cnt' indica quantos valores
+	// foram detectados
+	cnt = sscanf(buff, "%d.%d", &parte_inteira, &casas_decimais);
+	// Precisamos de 1 ou 2 valores positivos detectados
+	if((cnt<1)||(cnt>2)||(parte_inteira<0)||(casas_decimais<0))
 	{
-		if(sscanf(buff, "%d", &x1)<1)
-		{
-			MSG_BAD("Invalid frequency value!", -1l);
-			return 0;
-		}
-		if(x1<=0)
-		{
-			MSG_BAD("Invalid frequency value!", -1l);
-			return 0;
-		}
-		periodo = (HZ+x1)/(2*x1);
+		MSG_BAD("Invalid frequency value!", -1l);
+		return 0;
 	}
-	else
+	// Calcular quantidade de casas decimais.
+	// P.ex., se o usuário indicou 2.50, temos
+	// parte_inteira=2 e casas_decimais=50,
+	// e obtemos n_casas=100
+	for(n_casas=1; n_casas<=casas_decimais; n_casas*=10);
+	// Calcular frequência sem casas decimais.
+	// P.ex., se o usuário indicou 2.50, temos
+	// parte_inteira=2, casas_decimais=50, n_casas=100
+	// e obtemos freq_sem_casas_decimais=2*100+50=250
+	freq_sem_casas_decimais = parte_inteira*n_casas+casas_decimais;
+	// Não podemos ter uma frequência nula
+	if(freq_sem_casas_decimais==0)
 	{
-		if(sscanf(buff, "%d.%d", &x1, &x2)<2)
-		{
-			MSG_BAD("Invalid frequency value!", -1l);
-			return 0;
-		}
-		if(x1<=0)
-		{
-			MSG_BAD("Invalid frequency value!", -1l);
-			return 0;
-		}
-		for(casas_decimais=1; casas_decimais<=x2; casas_decimais*=10);
-		x1 = x1*casas_decimais+x2;
-		periodo = (HZ*casas_decimais+x1)/(2*x1);
+		MSG_BAD("Invalid frequency value!", -1l);
+		return 0;
 	}
+	// Calcular meio período
+	meio_periodo = arredondar_divisao(HZ*n_casas, 2*freq_sem_casas_decimais);
 	return len;
 }
