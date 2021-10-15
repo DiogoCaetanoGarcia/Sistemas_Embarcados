@@ -152,9 +152,9 @@ static int device_release(struct inode *inode, struct file *file)
 	return 0;
 }
 
-int arredondar_divisao(int divisor, int dividendo)
+int arredondar_divisao(int dividendo, int divisor)
 {
-	return (divisor + dividendo/2)/dividendo;
+	return (dividendo + (divisor/2))/divisor;
 }
 
 static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
@@ -171,7 +171,7 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 	// com duas casas decimais 
 	sprintf(Fstr, "%d.%02d\n", F/100, F%100);
 	// Obter tamanho da string da frequência
-	tam_str = strlen(Fstr); //for(tam_str=0; Fstr[tam_str]!='\0'; tam_str++);
+	tam_str = strlen(Fstr);
 	// Escrever string da frequência no buffer
 	// indicado pelo usuário
 	if(Device_Counter>=tam_str)
