@@ -173,7 +173,7 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 	// End of file
 	if(Device_Counter>=LCD_LINE_LEN)
 		return 0;
-	for(i=0; (i<length)&&(Device_Counter<LCD_LINE_LEN); i++, Device_Counter++)
+	for(i=0; (i<length)&&(Device_Counter<LCD_LINE_LEN)&&(lcd_text[Device_Counter]!='\0'); i++, Device_Counter++)
 		put_user(lcd_text[Device_Counter], buffer+i);
 	return i;
 }
