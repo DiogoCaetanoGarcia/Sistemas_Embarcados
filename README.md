@@ -88,9 +88,14 @@ Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso
 
 <!--Todos os relatórios dos pontos de controle serão entregues através do mesmo repositório GitHub das respostas às perguntas em sala de aula. Crie uma pasta separada no repositório para a entrega dos pontos de controle. DEVERÁ HAVER SOMENTE UM ARQUIVO POR RELATÓRIO, EM FORMATO PDF. Em caso de cópias (integrais ou parciais), ambos os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:-->
 
+<!--
 - Word: http://goo.gl/ghgLsR
 - Unix LaTeX: http://goo.gl/p3ExfQ
 - Windows LaTeX: http://goo.gl/gAxi96
+-->
+- Word: https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/word_a4_format_nov12.zip
+- Unix LaTeX: https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/unix_latex_template.zip
+- Windows LaTeX: https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/windows_latex_template.zip
 
 # Programa
 
