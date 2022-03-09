@@ -26,7 +26,7 @@ int main(void)
 	contador = 0;
 	while(1)
 	{
-		usleep(10000);
+		usleep(10000-100);
 		buffer_I2C[0] = 0x55;
 		write(i2c_fd, &buffer_I2C[0], 1);
 		usleep(100);
