@@ -35,6 +35,7 @@ void iniciaCal(QMC_data *q);
 void encerraCal(QMC_data *q);
 void calibra(QMC_data *q);
 
+// Código fez uma única leitura fixa várias vezes
 int main(void)
 {
 	signal(SIGINT, ctrl_c);
