@@ -1,4 +1,4 @@
-all: Ex01.out Ex02.out Ex03.out Ex04.out Ex05.out Ex06.out Ex07.out Ex08.out Ex09.out
+all: Ex01.out Ex02.out Ex03.out Ex04.out Ex05.out Ex06.out Ex07.out Ex08.out Ex09.out Ex10.out
 Ex01.out: Ex01.c
 	gcc Ex01.c -o Ex01.out -lwiringPi
 Ex02.out: Ex02.c
@@ -17,5 +17,7 @@ Ex08.out: Ex08.c
 	gcc Ex08.c -o Ex08.out -lwiringPi
 Ex09.out: Ex09.c
 	gcc Ex09.c -o Ex09.out -lwiringPi
+Ex10.out: Ex10.c
+	gcc Ex10.c -o Ex10.out -lwiringPi
 clean:
 	rm -f *.out *.bin *.txt out.elf

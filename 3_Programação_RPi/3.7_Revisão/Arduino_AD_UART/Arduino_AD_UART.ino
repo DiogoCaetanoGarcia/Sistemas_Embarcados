@@ -1,5 +1,5 @@
 int ADcount = 0;
-int t = 0;
+unsigned long int t = 0;
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);      // set LED pin as output
