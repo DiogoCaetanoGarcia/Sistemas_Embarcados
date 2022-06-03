@@ -9,17 +9,7 @@
 
 # Datas importantes
 
-![Calendário 2021/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calend%C3%A1rio.png)
-
-<!--
-- 26/02/2020: entrega do primeiro ponto de controle
-- 12/03/2020: primeiro teste
-- 26/03/2020: entrega do segundo ponto de controle
-- 09/04/2020: segundo teste
-- 23/04/2020: entrega do terceiro ponto de controle
-- 03/05/2020: entrega do quarto ponto de controle
-- 14/05/2020: entrega do projeto final
--->
+![Calendário 2021/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendario.jpg)
 
 # Objetivos
 
