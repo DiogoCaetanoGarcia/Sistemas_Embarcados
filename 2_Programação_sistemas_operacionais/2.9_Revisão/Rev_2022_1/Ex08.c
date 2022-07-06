@@ -15,8 +15,11 @@ int main()
 		if(getpid()==pid_pai)
 		{
 			pid_filhos[i] = fork();
-			printf("PID = %d, PID filho = %d\n",
-				getpid(), pid_filhos[i]);
+			if(pid_filhos[i]>0)
+			{
+				printf("PID = %d, PID filho = %d\n",
+					getpid(), pid_filhos[i]);
+			}
 		}
 	}
 	return 0;
