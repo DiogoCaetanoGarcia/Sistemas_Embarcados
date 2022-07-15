@@ -39,6 +39,7 @@ int main(void)
 			puts("Borda de descida em GPIO4!");
 		if((pfd[1].revents)&(POLLPRI|POLLERR))
 			puts("Borda de descida em GPIO17!");
+		usleep(300000);
 	}
 	close(pfd[0].fd);
 	close(pfd[1].fd);
