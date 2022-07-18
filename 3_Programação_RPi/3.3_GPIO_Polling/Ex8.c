@@ -8,13 +8,13 @@ int pin = 7;
 void interrupcao(void)
 {
 	puts("Executando a interrupção...");
-	// Se lermos um 0 nos próximos 100us,
+	// Se lermos um 0 nos próximos 300us,
 	// consideramos que foi um bounce
 	for(int i=0; i<1000; i++)
 	{
 		if(digitalRead(pin)==0)
 			return;
-		usleep(100);
+		usleep(300);
 	}
 	i_global++;
 	printf("Botao solto, i_global = %d\n", i_global);
