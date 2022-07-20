@@ -6,7 +6,7 @@ volatile char receivedData = 0;
 
 void blink(int led_pin, int num_blinks, int period)
 {
-  int t = millis();
+  unsigned long t = millis();
   period /= 2;
   while(num_blinks--)
   {

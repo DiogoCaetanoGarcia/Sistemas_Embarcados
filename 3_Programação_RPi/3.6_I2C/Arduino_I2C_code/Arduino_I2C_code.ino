@@ -7,12 +7,16 @@ unsigned char sentData = 1;
 
 void blink(int led_pin, int num_blinks, int period)
 {
+  unsigned long t = millis();
+  period /= 2;
   while(num_blinks--)
   {
     digitalWrite(led_pin, HIGH);
-    delay(period/2);
+    while((millis()-t)<period);
+    t += period;
     digitalWrite(led_pin, LOW);
-    delay(period/2);
+    while((millis()-t)<period);
+    t += period;
   }
 }
 
