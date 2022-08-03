@@ -26,15 +26,11 @@ int main(void)
 	while(1)
 	{
 		usleep(10000);
-		buffer_SPI = 0x55;
-		wiringPiSPIDataRW(0, &buffer_SPI, 1);
-		if(buffer_SPI != 0xAA)
+		do
 		{
-			buffer_SPI = 0x02;
-			wiringPiSPIDataRW(0, &buffer_SPI, 1);
 			buffer_SPI = 0x55;
 			wiringPiSPIDataRW(0, &buffer_SPI, 1);
-		}
+		} while(buffer_SPI != 0xAA);
 		usleep(100);
 		buffer_SPI = 0x01;
 		wiringPiSPIDataRW(0, &buffer_SPI, 1);
