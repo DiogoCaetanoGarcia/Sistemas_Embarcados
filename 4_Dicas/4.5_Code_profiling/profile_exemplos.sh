@@ -30,7 +30,7 @@ if [ $# -lt 2 ]; then
 	echo " Modo de uso deste script:"
 	echo " $0 NÚMERO_DO_CÓDIGO MODO_OTIMIZAÇÃO"
 	echo
-	echo "    NÚMERO_DO_CÓDIGO: número do código a ser executado [1-5]"
+	echo "    NÚMERO_DO_CÓDIGO: número do código a ser executado [1-7]"
 	echo "    MODO_OTIMIZAÇÃO:  modo de otimização, onde"
 	echo "       1: nenhuma otimização"
 	echo "       2: otimizar código para executar mais rapidamente"

@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 	x = (int *)malloc(N*sizeof(int));
 	y = (int *)malloc(N*sizeof(int));
-	
+
 	// srandom(time(NULL));
 	preencher_vetor(x, N);
 	preencher_vetor(y, N);
@@ -38,11 +38,11 @@ int main(int argc, char *argv[])
 	media_x[1] = calc_media2(x, N);
 	media_y[1] = calc_media2(y, N);
 	dist_eucl[1] = distancia_euclidiana2(x, y, N);
-	
+
 	check_diff(media_x, "media_x");
 	check_diff(media_y, "media_y");
 	check_diff(dist_eucl, "dist_eucl");
-	
+
 	// printf("Resultado %s:\n", argv[0]);
 	// printf("   Media(x) = %3.1f\n",
 	// 	media_x);
@@ -115,5 +115,4 @@ void check_diff(double a[2], char *s)
 	if(a[0] != a[1])
 		printf("%s = (%f,%f), erro = %f\n",
 			s, a[0], a[1], a[0]-a[1]);
-	
 }

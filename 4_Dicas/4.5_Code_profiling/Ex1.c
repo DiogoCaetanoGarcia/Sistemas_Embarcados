@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 			(((double)x[i])-((double)y[i]));
 	dist_eucl = sqrt(dist_eucl);
 
-
 	printf("Resultado %s:\n", argv[0]);
 	printf("   Media(x) = %3.1f\n",
 		media_x);

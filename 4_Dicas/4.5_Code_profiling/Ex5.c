@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	v1.tam = N;
 	v2.x = (int *)malloc(N*sizeof(int));
 	v2.tam = N;
-	
+
 	// srandom(time(NULL));
 	preencher_vetor(&v1);
 	preencher_vetor(&v2);

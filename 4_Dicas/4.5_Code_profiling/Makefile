@@ -1,6 +1,6 @@
 all: Ex1.out Ex2.out Ex3.out Ex4.out Ex5.out Ex6.out Ex7.out
 Ex1.out: Ex1.c
-	gcc $(CFLAGS) Ex1.c -o Ex1.out -lm -lpthread 
+	gcc $(CFLAGS) Ex1.c -o Ex1.out -lm -lpthread
 Ex2.out: Ex2.c
 	gcc $(CFLAGS) Ex2.c -o Ex2.out -lm -lpthread
 Ex3.out: Ex3.c

@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
 	x = (int *)malloc(N*sizeof(int));
 	y = (int *)malloc(N*sizeof(int));
-	
+
 	// srandom(time(NULL));
 	preencher_vetor(x, N);
 	media_x = calc_media(x, N);
