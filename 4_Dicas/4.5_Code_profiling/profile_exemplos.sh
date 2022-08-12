@@ -49,7 +49,9 @@ case $1 in
 	"3") CODIGO=Ex3.out;;
 	"4") CODIGO=Ex4.out;;
 	"5") CODIGO=Ex5.out;;
-	* ) echo "O número do código a ser executado deve estar entre 1 e 5!"; exit -2;;
+	"6") CODIGO=Ex6.out;;
+	"7") CODIGO=Ex7.out;;
+	* ) echo "O número do código a ser executado deve estar entre 1 e 7!"; exit -2;;
 esac
 
 case $2 in
