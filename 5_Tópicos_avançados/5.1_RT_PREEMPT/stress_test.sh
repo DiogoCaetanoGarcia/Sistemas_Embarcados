@@ -41,10 +41,16 @@ sudo $E &
 sleep $T
 send_signal_by_name $E SIGINT
 
+echo "Aperte ENTER"
+read
+
 echo "Executando '$E' por $T segundos com nice 19..."
 nice -n 19 sudo $E &
 sleep $T
 send_signal_by_name $E SIGINT
+
+echo "Aperte ENTER"
+read
 
 echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' em paralelo..."
@@ -52,6 +58,9 @@ cat /dev/urandom > /dev/null &
 sudo $E &
 sleep $T
 send_signal_by_name $E SIGINT
+
+echo "Aperte ENTER"
+read
 
 echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' e './eatmem.out' em paralelo..."
