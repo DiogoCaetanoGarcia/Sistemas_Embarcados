@@ -186,5 +186,8 @@ case $1 in
 		sudo cp /var/www/html/index.html /var/www/html/index_original.html
 		sudo update-rc.d apache2 enable
 		sudo /etc/init.d/apache2 start;;
+	23) show_box "Instalar o Apache2"
+		sudo apt-get update
+		sudo apt-get install apache2;;
 	*) echo "Opção inválida";;
 esac
