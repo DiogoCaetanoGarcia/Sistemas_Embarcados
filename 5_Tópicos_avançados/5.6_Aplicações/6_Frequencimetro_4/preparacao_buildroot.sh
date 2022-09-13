@@ -49,17 +49,21 @@ cd ~/exemplos_buildroot
 git clone https://github.com/buildroot/buildroot.git buildroot
 mkdir frequencimetro
 cd frequencimetro
+
+PASTA_REPO_1="https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/5_T%C3%B3picos_avan%C3%A7ados/5.6_Aplica%C3%A7%C3%B5es/"
+PASTA_REPO_2="4_Frequencimetro_2/"
+PASTA_REPO_3="5_Frequencimetro_3/"
 for arq in Makefile freq.c freq.h lcd.c lcd.h main.c
 do
-	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/04_Frequencimetro_2/$arq
+	wget ${PASTA_REPO_1}${PASTA_REPO_2}${arq}
 done
-wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/05_Frequencimetro_3/frequencimetro-init
+wget ${PASTA_REPO_1}${PASTA_REPO_3}frequencimetro-init
 cd ../buildroot/package
 mkdir frequencimetro
 cd frequencimetro
 for arq in Config.in frequencimetro.mk
 do
-	wget https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/Code/27_Aplica%C3%A7%C3%B5es/05_Frequencimetro_3/$arq
+	wget ${PASTA_REPO_1}${PASTA_REPO_3}$arq
 done
 cd ..
 sed -i '/menu "Miscellaneous"/a\\tsource "package/frequencimetro/Config.in"' Config.in
