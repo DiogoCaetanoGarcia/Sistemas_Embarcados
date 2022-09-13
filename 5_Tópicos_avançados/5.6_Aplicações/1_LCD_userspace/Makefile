@@ -1,4 +1,4 @@
 olalcd: Ola_LCD.c
-	gcc -lwiringPi Ola_LCD.c -o olalcd.out
+	gcc Ola_LCD.c -o olalcd.out -lwiringPi
 clean:
 	rm olalcd.out
