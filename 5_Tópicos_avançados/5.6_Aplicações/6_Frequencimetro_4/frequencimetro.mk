@@ -14,7 +14,7 @@ define FREQUENCIMETRO_BUILD_CMDS
 endef
 
 define FREQUENCIMETRO_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/freq $(TARGET_DIR)/usr/bin/freq.out
+	$(INSTALL) -D -m 0755 $(@D)/freq.out $(TARGET_DIR)/usr/bin/freq.out
 
 	$(INSTALL) -D -m 0755 $(@D)/frequencimetro-init $(TARGET_DIR)/etc/init.d/S90frequencimetro
 endef
