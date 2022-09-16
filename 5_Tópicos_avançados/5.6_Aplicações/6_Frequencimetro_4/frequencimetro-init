@@ -1,9 +1,11 @@
 #!/bin/sh
 
-logger "["$(cut -d ' ' -f1 /proc/uptime)"] Frequencimetro: Starting /usr/bin/freq.out"
+#logger "["$(cut -d ' ' -f1 /proc/uptime)"] Frequencimetro: Starting /usr/bin/freq.out"
 
 case "$1" in
   start)
+    killall pigpiod
+    sleep 3
     /usr/bin/freq.out &
     ;;
   stop)

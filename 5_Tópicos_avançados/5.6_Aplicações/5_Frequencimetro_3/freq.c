@@ -5,7 +5,7 @@ struct freq_calc fc;
 void config_freq(void)
 {
 	gpioInitialise();
-	gpioSetPullUpDown(PINO_ENT, conta_eventos);
+	gpioSetAlertFunc(PINO_ENT, conta_eventos);
 	Config_Pins();
 	Config_LCD();
 }
