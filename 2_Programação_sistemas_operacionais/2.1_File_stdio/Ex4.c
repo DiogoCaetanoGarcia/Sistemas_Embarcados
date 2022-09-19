@@ -3,7 +3,7 @@
 int main(int argc, const char * argv[])
 {
 	FILE *fp;
-	char c;
+	int c;
 	fp = fopen("arquivo.txt","r");
 	if(!fp)
 	{
