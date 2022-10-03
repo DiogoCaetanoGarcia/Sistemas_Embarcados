@@ -68,7 +68,7 @@ void SPI_Read_Write(int fd, unsigned char *data, int length)
 
 int main(void)
 {
-	unsigned char user_input=1, send_msp430;
+	unsigned char user_input=1, send_microcontroller;
 	int mode;
 
 	signal(SIGINT, ctrl_c);
@@ -83,17 +83,17 @@ int main(void)
 	SPI_Config();
 	while(user_input!=0)
 	{
-		puts("Digite um numero entre 1 e 5");
-		puts("para mandar o MSP430 piscar seus LEDs,");
+		puts("Digite um numero entre 1 e 5 para mandar");
+		puts("o microcontrolador piscar seus LEDs,");
 		puts("ou digite 0 para terminar o programa. ");
 		scanf("%d", &user_input);
 		if((user_input<0) || (user_input>5))
 			puts("Valor invalido");
 		else if(user_input>0)
 		{
-			send_msp430 = user_input;
-			SPI_Read_Write(spi_fd, &send_msp430, 1);
-			printf("MSP430_return = %d\n", send_msp430);
+			send_microcontroller = user_input;
+			SPI_Read_Write(spi_fd, &send_microcontroller, 1);
+			printf("Retorno do microcontrolador = %d\n", send_microcontroller);
 			sleep(1+user_input/2);
 		}
 		puts("");

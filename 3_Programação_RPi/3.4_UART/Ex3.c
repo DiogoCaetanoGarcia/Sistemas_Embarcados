@@ -42,8 +42,8 @@ int main(void)
 	if(serialDataAvail(uart0_fd)!=0) puts("Oh oh");
 	while(user_input!=0)
 	{
-		puts("Digite um numero entre 1 e 5");
-		puts("para mandar o MSP430 piscar seus LEDs,");
+		puts("Digite um numero entre 1 e 5 para mandar");
+		puts("o microcontrolador piscar seus LEDs,");
 		puts("ou digite 0 para terminar o programa. ");
 		scanf("%d", &user_input);
 		if((user_input<0) || (user_input>5))
@@ -51,7 +51,7 @@ int main(void)
 		else if(user_input>0)
 		{
 			serialPutchar(uart0_fd, user_input);
-			printf("MSP430_return = %d\n", serialGetchar(uart0_fd));
+			printf("Retorno do microcontrolador = %d\n", serialGetchar(uart0_fd));
 		}
 		puts("");
 	}

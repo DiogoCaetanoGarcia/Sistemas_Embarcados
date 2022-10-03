@@ -41,8 +41,8 @@ int main(void)
 	serialFlush(uart0_fd);
 	while(user_input!=0)
 	{
-		puts("Digite um numero entre 1 e 5");
-		puts("para mandar o MSP430 piscar seus LEDs,");
+		puts("Digite um numero entre 1 e 5 para mandar");
+		puts("o microcontrolador piscar seus LEDs,");
 		puts("ou digite 0 para terminar o programa. ");
 		scanf("%d", &user_input);
 		if((user_input<0) || (user_input>5))

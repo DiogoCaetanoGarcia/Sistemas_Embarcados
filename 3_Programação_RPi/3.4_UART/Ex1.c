@@ -21,7 +21,7 @@ void ctrl_c(int sig)
 int main(void)
 {
 	struct termios options;
-	char user_input, msp430_return=0;
+	char user_input;
 
 	signal(SIGINT, ctrl_c);
 	uart0_fd = open(TTY, O_RDWR); // | O_NOCTTY); // | O_NDELAY);
@@ -48,20 +48,17 @@ int main(void)
 	user_input = 1;
 	while(user_input!=0)
 	{
-		puts("Digite um numero entre 1 e 5");
-		puts("para mandar o MSP430 piscar seus LEDs,");
+		puts("Digite um numero entre 1 e 5 para mandar");
+		puts("o microcontrolador piscar seus LEDs,");
 		puts("ou digite 0 para terminar o programa. ");
 		scanf("%d", &user_input);
 		if((user_input<0) || (user_input>5))
 			puts("Valor invalido");
 		else if(user_input>0)
 		{
-			//tcflush(uart0_fd, TCIOFLUSH);
 			if(write(uart0_fd, &user_input, 1)==1)
 			{
 				sleep(1+user_input/2);
-				//if(read(uart0_fd, &msp430_return, 1)==1)
-				//	printf("MSP430_return = %d\n", msp430_return);
 			}
 			else
 			{

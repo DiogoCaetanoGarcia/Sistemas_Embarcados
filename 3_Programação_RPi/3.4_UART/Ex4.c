@@ -21,7 +21,7 @@ void ctrl_c(int sig)
 
 int main(void)
 {
-	unsigned char msp430_input=1;
+	unsigned char microcontroller_input=1;
 	int serial_status;
 
 	signal(SIGINT, ctrl_c);
@@ -42,11 +42,11 @@ int main(void)
 	system("stty -F " TTY);
 	puts("");
 	serialFlush(uart0_fd);
-	while(msp430_input!=5)
+	while(microcontroller_input!=5)
 	{
-		msp430_input = (unsigned char) serialGetchar(uart0_fd);
+		microcontroller_input = (unsigned char) serialGetchar(uart0_fd);
 		serial_status = serialDataAvail(uart0_fd);
-		printf("MSP430_return = %d\n", msp430_input);
+		printf("Retorno do microcontrolador = %d\n", microcontroller_input);
 		if(serial_status==-1)
 			printf("Erro = %s\n", strerror(errno));
 		else
