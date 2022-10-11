@@ -3,7 +3,7 @@
 #include <time.h>
 #include <math.h>
 
-#define N 10000000
+#define N 1000000
 
 struct vetor_int
 {
