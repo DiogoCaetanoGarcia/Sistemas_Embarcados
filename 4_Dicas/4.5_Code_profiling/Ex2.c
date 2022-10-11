@@ -3,7 +3,7 @@
 #include <time.h>
 #include <math.h>
 
-#define N 10000000
+#define N 1000000
 
 void preencher_vetores(
 	int x[], int y[], int tam);
