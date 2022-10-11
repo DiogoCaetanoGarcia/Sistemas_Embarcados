@@ -1,22 +1,16 @@
-import cProfile, math, sys
+import cProfile, numpy, sys
 
 def preencher_vetores(N):
-	a = [1000//((i+1)&(2**32-1)) for i in range(N)]
-	b = [1000//((3*i*i+5*i+1)&(2**32-1)) for i in range(N)]
+	i = numpy.arange(N,dtype=numpy.int32)
+	a = 1000//numpy.bitwise_and(i+1, 2**32-1)
+	b = 1000//numpy.bitwise_and(3*i*i+5*i+1, 2**32-1)
 	return a, b
 
 def calc_media(a):
-	media_a = 0
-	N = len(a)
-	for i in range(N):
-		media_a += a[i]
-	return media_a/N
+	return numpy.average(a)
 
 def distancia_euclidiana(a, b):
-	dist_eucl = 0
-	for i in range(len(a)):
-		dist_eucl += (a[i]-b[i])**2
-	return math.sqrt(dist_eucl)
+	return numpy.sqrt(numpy.sum((a-b)**2))
 
 def main():
 	N = 1000000
