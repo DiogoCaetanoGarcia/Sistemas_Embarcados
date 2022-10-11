@@ -21,8 +21,9 @@ struct dist_eucl_thread_params
 
 void* media_thread(void* parameters);
 void* dist_eucl_thread(void* parameters);
-void preencher_vetor(
-	struct vetor_int *v);
+void preencher_vetores(
+	struct vetor_int *vx,
+	struct vetor_int *vy);
 void calc_media(
 	struct vetor_int *v);
 double distancia_euclidiana(
@@ -41,8 +42,7 @@ int main(int argc, char *argv[])
 	v2.tam = N;
 
 	// srandom(time(NULL));
-	preencher_vetor(&v1);
-	preencher_vetor(&v2);
+	preencher_vetores(&v1, &v2);
 
 	run_media_thread(&v1, 8);
 	run_media_thread(&v2, 8);
@@ -50,11 +50,11 @@ int main(int argc, char *argv[])
 	// dist_eucl = distancia_euclidiana(&v1, &v2);
 
 	printf("Resultado %s:\n", argv[0]);
-	printf("   Media(x) = %3.1f\n",
+	printf("   Media(x) = %1.10f\n",
 		v1.media);
-	printf("   Media(y) = %3.1f\n",
+	printf("   Media(y) = %1.10f\n",
 		v2.media);
-	printf("   Dist_euclidiana(x,y) = %3.1f\n\n",
+	printf("   Dist_euclidiana(x,y) = %3.10f\n\n",
 		dist_eucl);
 
 	free(v1.x);
@@ -62,11 +62,14 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void preencher_vetor(struct vetor_int *v)
+void preencher_vetores(struct vetor_int *vx, struct vetor_int *vy)
 {
 	int i;
-	for(i=0; i<(v->tam); i++)
-		v->x[i] = 100*((char)random())+5;
+	for(i=0; i<(vx->tam); i++)
+	{
+		vx->x[i] = 1000/(i+1);
+		vy->x[i] = 1000/(3*i*i+5*i+1);
+	}
 }
 
 void* media_thread(void* parameters)

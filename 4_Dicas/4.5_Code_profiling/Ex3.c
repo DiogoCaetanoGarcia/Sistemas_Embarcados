@@ -5,8 +5,8 @@
 
 #define N 10000000
 
-void preencher_vetor(
-	int a[], int tam);
+void preencher_vetores(
+	int x[], int y[], int tam);
 double calc_media1(
 	int a[], int tam);
 double calc_media2(
@@ -27,9 +27,7 @@ int main(int argc, char *argv[])
 	x = (int *)malloc(N*sizeof(int));
 	y = (int *)malloc(N*sizeof(int));
 
-	// srandom(time(NULL));
-	preencher_vetor(x, N);
-	preencher_vetor(y, N);
+	preencher_vetores(x, y, N);
 
 	media_x[0] = calc_media1(x, N);
 	media_y[0] = calc_media1(y, N);
@@ -44,11 +42,11 @@ int main(int argc, char *argv[])
 	check_diff(dist_eucl, "dist_eucl");
 
 	// printf("Resultado %s:\n", argv[0]);
-	// printf("   Media(x) = %3.1f\n",
+	// printf("   Media(x) = %1.10f\n",
 	// 	media_x);
-	// printf("   Media(y) = %3.1f\n",
+	// printf("   Media(y) = %1.10f\n",
 	// 	media_y);
-	// printf("   Dist_euclidiana(x,y) = %3.1f\n\n",
+	// printf("   Dist_euclidiana(x,y) = %3.10f\n\n",
 	// 	dist_eucl);
 
 	free(x);
@@ -56,11 +54,14 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void preencher_vetor(int a[], int tam)
+void preencher_vetores(int x[], int y[], int tam)
 {
 	int i;
 	for(i=0; i<tam; i++)
-		a[i] = 100*((char)random())+5;
+	{
+		x[i] = 1000/(i+1);
+		y[i] = 1000/(3*i*i+5*i+1);
+	}
 }
 
 double calc_media1(int a[], int tam)
