@@ -4,7 +4,7 @@
 #include <math.h>
 #include <pthread.h>
 
-#define N 10000000
+#define N 1000000
 
 struct vetor_int
 {
