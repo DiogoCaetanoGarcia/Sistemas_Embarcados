@@ -1,7 +1,7 @@
 import cProfile, numpy, sys
 
 def preencher_vetores(N):
-	i = numpy.arange(N,dtype=numpy.int32)
+	i = numpy.arange(N)
 	a = 1000//numpy.bitwise_and(i+1, 2**32-1)
 	b = 1000//numpy.bitwise_and(3*i*i+5*i+1, 2**32-1)
 	return a, b
