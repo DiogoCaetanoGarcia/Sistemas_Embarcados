@@ -25,14 +25,14 @@ function dist_eucl = distancia_euclidiana(a, b)
 	dist_eucl = sqrt(dist_eucl);
 endfunction
 
-if length(argv())>1
+if length(argv())>0
 	profile on
 end
 [x,y] = preencher_vetores(N);
 media_x = calc_media(x);
 media_y = calc_media(y);
 dist_eucl = distancia_euclidiana(x,y);
-if length(argv())>1
+if length(argv())>0
 	profile off
 	profshow()
 end
