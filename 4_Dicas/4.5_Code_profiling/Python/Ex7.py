@@ -1,23 +1,30 @@
-import math, sys, time
+import cProfile, math, sys
 
-N = 1000000
+def preencher_vetores(N):
+	a = [1000//((i+1)&(2**32-1)) for i in range(N)]
+	b = [1000//((3*i*i+5*i+1)&(2**32-1)) for i in range(N)]
+	return a, b
 
-t = [None]*6
-t[0] = time.time()
-x = [1000//((i+1)&(2**32-1)) for i in range(N)]
-t[1] = time.time()
-y = [1000//((3*i*i+5*i+1)&(2**32-1)) for i in range(N)]
-t[2] = time.time()
-media_x = sum(x)/N
-t[3] = time.time()
-media_y = sum(y)/N
-t[4] = time.time()
-dist_eucl = math.sqrt(sum([(x[i]-y[i])**2 for i in range(N)]))
-t[5] = time.time()
+def calc_media(a):
+	return sum(a)/len(a)
 
-print("Resultado %s:" % sys.argv[0])
-print("   Media(x) = %1.10f" % media_x)
-print("   Media(y) = %1.10f" % media_y)
-print("   Dist_euclidiana(x,y) = %3.10f\n" % dist_eucl)
-print("Diferenças de tempos:\n   %f %f %f %f %f" %
-	(t[1]-t[0],t[2]-t[1],t[3]-t[2],t[4]-t[3],t[5]-t[4]))
+def distancia_euclidiana(a, b):
+	dif_quad = [(ai-bi)*(ai-bi) for ai,bi in zip(a,b)]
+	return math.sqrt(sum(dif_quad))
+
+def main():
+	N = 1000000
+	x,y = preencher_vetores(N)
+	media_x = calc_media(x)
+	media_y = calc_media(y)
+	dist_eucl = distancia_euclidiana(x,y)
+
+	print("Resultado %s:" % sys.argv[0])
+	print("   Media(x) = %1.10f" % media_x)
+	print("   Media(y) = %1.10f" % media_y)
+	print("   Dist_euclidiana(x,y) = %3.10f" % dist_eucl)
+
+if len(sys.argv)>1:
+	cProfile.run('main()')
+else:
+	main()
