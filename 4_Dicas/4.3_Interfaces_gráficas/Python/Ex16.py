@@ -33,7 +33,4 @@ class MyWindow(Gtk.Window):
 		new_f_menu.popup_at_pointer(None)
 		new_f_menu.show_all()
 
-
-
-
 win = MyWindow()

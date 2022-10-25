@@ -41,7 +41,4 @@ class MyWindow(Gtk.Window):
 		print("Return code = %d" % result)
 		dialog.destroy()
 
-
-
-
 win = MyWindow()
