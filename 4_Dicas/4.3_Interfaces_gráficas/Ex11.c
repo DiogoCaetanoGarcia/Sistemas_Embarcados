@@ -12,7 +12,6 @@ void main(int argc, char *argv[])
 	GtkWidget *btn = gtk_button_new_with_label("Close window");
 	g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL);
 	g_signal_connect(win, "delete_event", G_CALLBACK(end_program), NULL);
-	GtkWidget *lbl = gtk_label_new("My label");
 	// Adicionar botão de múltipla escolha
 	GtkWidget *rad1 = gtk_radio_button_new_with_label(NULL, "Button 1");
 	// Criar grupo de botões de múltipla escolha
