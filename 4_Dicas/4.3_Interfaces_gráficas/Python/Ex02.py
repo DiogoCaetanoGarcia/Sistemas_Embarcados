@@ -12,7 +12,7 @@ class MyWindow(Gtk.Window):
 		super().__init__(title=sys.argv[0])
 		self.btn = Gtk.Button(label="Close window")
 		self.add(self.btn)
+		self.show_all()
+		Gtk.main()
 
 win = MyWindow()
-win.show_all()
-Gtk.main()

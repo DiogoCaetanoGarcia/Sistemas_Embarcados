@@ -14,11 +14,10 @@ class MyWindow(Gtk.Window):
 		self.add(self.btn)
 		self.lbl = Gtk.Label(label="My label")
 		self.add(self.lbl)
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 	def on_button_clicked(self, widget):
 		Gtk.main_quit()
 
-
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

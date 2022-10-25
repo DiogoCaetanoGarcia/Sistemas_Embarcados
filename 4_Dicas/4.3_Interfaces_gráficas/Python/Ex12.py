@@ -10,7 +10,7 @@ class MyWindow(Gtk.Window):
 	def __init__(self):
 		super().__init__(title=sys.argv[0])
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", self.on_button_clicked)
+		self.btn.connect("clicked", Gtk.main_quit)
 		self.rad1 = Gtk.RadioButton(label="Button 1")
 		self.rad2 = Gtk.RadioButton.new_from_widget(self.rad1)
 		self.rad2.set_label("Button 2")
@@ -28,13 +28,11 @@ class MyWindow(Gtk.Window):
 		self.tbl.attach(self.btn, 0, 1, 1, 1)
 		self.tbl.attach(self.comb, 1, 1, 1, 1)
 		self.add(self.tbl)
-	def on_button_clicked(self, widget):
-		Gtk.main_quit()
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 	def combo_changed(self, widget):
 		print("O valor do combo é: posição %d (opção '%s')" %
 			(self.comb.get_active(), self.comb.get_active_text()))
 
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

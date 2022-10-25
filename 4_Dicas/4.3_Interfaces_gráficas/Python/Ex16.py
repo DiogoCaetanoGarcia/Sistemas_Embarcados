@@ -7,9 +7,8 @@ from gi.repository import Gtk
 class MyWindow(Gtk.Window):
 	def __init__(self):
 		super().__init__(title=sys.argv[0])
-		self.connect("destroy", Gtk.main_quit)
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", Gtk.main_quit)
+		self.btn.connect("clicked", self.button_popup)
 		self.mbar = Gtk.MenuBar()
 		self.f_menu = Gtk.Menu()
 		self.file_mi = Gtk.MenuItem(label="File")
@@ -23,9 +22,18 @@ class MyWindow(Gtk.Window):
 		self.tbl.add(self.mbar)
 		self.tbl.attach(self.btn, 0, 1, 1, 1)
 		self.add(self.tbl)
-		self.show_all()
 		self.connect("destroy", Gtk.main_quit)
 		self.show_all()
 		Gtk.main()
+	def button_popup(self, widget):
+		new_f_menu = Gtk.Menu()
+		new_quit_mi = Gtk.MenuItem(label="Quit")
+		new_quit_mi.connect("activate", Gtk.main_quit)
+		new_f_menu.append(new_quit_mi)
+		new_f_menu.popup_at_pointer(None)
+		new_f_menu.show_all()
+
+
+
 
 win = MyWindow()

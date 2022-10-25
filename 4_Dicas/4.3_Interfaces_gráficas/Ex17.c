@@ -8,7 +8,9 @@ void end_program(GtkWidget *wid, gpointer ptr)
 void open_dialog(GtkWidget *wid, gpointer ptr)
 {
 	// Abrir caixa de diálogo
-	GtkWidget *dlg = gtk_dialog_new_with_buttons("My dialog", GTK_WINDOW(ptr), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, "Cancel", 0, "OK", 1, NULL);
+	GtkWidget *dlg = gtk_dialog_new_with_buttons("My dialog",
+		GTK_WINDOW(ptr), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+		"Cancel", 0, "OK", 1, NULL);
 	int result = gtk_dialog_run(GTK_DIALOG(dlg));
 	gtk_widget_destroy(dlg);
 	// Mostrar no terminal o resultado

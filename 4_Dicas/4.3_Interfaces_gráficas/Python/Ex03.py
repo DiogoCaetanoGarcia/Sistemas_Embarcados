@@ -12,10 +12,10 @@ class MyWindow(Gtk.Window):
 		self.btn = Gtk.Button(label="Close window")
 		self.btn.connect("clicked", self.on_button_clicked)
 		self.add(self.btn)
+		self.show_all()
+		Gtk.main()
 	def on_button_clicked(self, widget):
 		Gtk.main_quit()
 
 
 win = MyWindow()
-win.show_all()
-Gtk.main()

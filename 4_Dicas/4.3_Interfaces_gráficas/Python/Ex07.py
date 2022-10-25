@@ -13,7 +13,7 @@ class MyWindow(Gtk.Window):
 		self.btn2 = Gtk.Button(label="Count button")
 		self.btn2.connect("clicked", self.count_button)
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", self.on_button_clicked)
+		self.btn.connect("clicked", Gtk.main_quit)
 		self.tbl = Gtk.Grid()
 		self.tbl.set_column_homogeneous(True)
 		self.tbl.add(self.lbl)
@@ -21,14 +21,11 @@ class MyWindow(Gtk.Window):
 		self.tbl.attach(self.btn,  0, 1, 2, 1)
 		self.add(self.tbl)
 		self.count = 0
-	def on_button_clicked(self, widget):
-		Gtk.main_quit()
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 	def count_button(self, widget):
 		self.count += 1
 		self.lbl.set_text("Button pressed %d times" % self.count)
 
-
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

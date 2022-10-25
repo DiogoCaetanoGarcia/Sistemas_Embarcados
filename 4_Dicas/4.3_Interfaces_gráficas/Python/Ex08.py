@@ -12,7 +12,7 @@ class MyWindow(Gtk.Window):
 		self.lbl = Gtk.Label(label="My label")
 		self.txt = Gtk.Entry()
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", self.on_button_clicked)
+		self.btn.connect("clicked", Gtk.main_quit)
 		self.btn2 = Gtk.Button(label="Copy button")
 		self.btn2.connect("clicked", self.copy_text)
 		self.tbl = Gtk.Grid()
@@ -22,13 +22,10 @@ class MyWindow(Gtk.Window):
 		self.tbl.attach(self.btn,  0, 1, 1, 1)
 		self.tbl.attach(self.txt,  1, 1, 1, 1)
 		self.add(self.tbl)
-	def on_button_clicked(self, widget):
-		Gtk.main_quit()
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 	def copy_text(self, widget):
 		self.lbl.set_text(self.txt.get_text())
 
-
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

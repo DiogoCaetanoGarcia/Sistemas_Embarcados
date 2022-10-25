@@ -10,7 +10,7 @@ class MyWindow(Gtk.Window):
 	def __init__(self):
 		super().__init__(title=sys.argv[0])
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", self.on_button_clicked)
+		self.btn.connect("clicked", Gtk.main_quit)
 		self.lbl = Gtk.Label(label="My label")
 		self.btn2 = Gtk.Button(label="Count button")
 		self.btn2.connect("clicked", self.count_button)
@@ -20,14 +20,11 @@ class MyWindow(Gtk.Window):
 		self.box.add(self.btn)
 		self.add(self.box)
 		self.count = 0
-	def on_button_clicked(self, widget):
-		Gtk.main_quit()
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 	def count_button(self, widget):
 		self.count += 1
 		self.lbl.set_text("Button pressed %d times" % self.count)
 
-
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

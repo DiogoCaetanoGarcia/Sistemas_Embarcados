@@ -12,8 +12,9 @@ void button_popup(GtkWidget *wid, gpointer ptr)
 	gtk_menu_shell_append(GTK_MENU_SHELL(f_menu), quit_mi);
 	g_signal_connect(quit_mi, "activate", G_CALLBACK(end_program), NULL);
 	gtk_widget_show_all(f_menu);
-	gtk_menu_popup(GTK_MENU(f_menu), NULL, NULL, NULL, NULL, 1,
-	gtk_get_current_event_time());
+	gtk_menu_popup(GTK_MENU(f_menu),
+		NULL, NULL, NULL, NULL, 1,
+		gtk_get_current_event_time());
 }
 
 void main(int argc, char *argv[])

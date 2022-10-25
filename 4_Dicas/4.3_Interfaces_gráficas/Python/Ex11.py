@@ -13,7 +13,7 @@ class MyWindow(Gtk.Window):
 		self.txt = Gtk.SpinButton()
 		self.txt.set_adjustment(self.adj)
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", self.on_button_clicked)
+		self.btn.connect("clicked", Gtk.main_quit)
 		self.rad1 = Gtk.RadioButton(label="Button 1")
 		self.rad2 = Gtk.RadioButton.new_from_widget(self.rad1)
 		self.rad2.set_label("Button 2")
@@ -24,13 +24,10 @@ class MyWindow(Gtk.Window):
 		self.tbl.attach(self.btn, 0, 1, 1, 1)
 		self.tbl.attach(self.txt, 1, 1, 1, 1)
 		self.add(self.tbl)
-	def on_button_clicked(self, widget):
-		Gtk.main_quit()
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 	def check_toggled(self, widget):
 		print("The state of the button is %d" % self.chk.get_active())
 
-
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

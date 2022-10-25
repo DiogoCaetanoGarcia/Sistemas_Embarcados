@@ -10,7 +10,7 @@ class MyWindow(Gtk.Window):
 	def __init__(self):
 		super().__init__(title=sys.argv[0])
 		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", self.on_button_clicked)
+		self.btn.connect("clicked", Gtk.main_quit)
 		self.ls = Gtk.ListStore(int, str)
 		self.ls.append([0, "Option 1"])
 		self.ls.append([1, "Option 2"])
@@ -25,10 +25,8 @@ class MyWindow(Gtk.Window):
 		self.tbl.add(self.tv)
 		self.tbl.attach(self.btn, 0, 1, 1, 1)
 		self.add(self.tbl)
-	def on_button_clicked(self, widget):
-		Gtk.main_quit()
+		self.connect("destroy", Gtk.main_quit)
+		self.show_all()
+		Gtk.main()
 
 win = MyWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()

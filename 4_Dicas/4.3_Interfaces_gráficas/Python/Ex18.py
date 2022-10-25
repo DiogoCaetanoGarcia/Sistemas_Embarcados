@@ -4,12 +4,21 @@ import gi, sys
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
+class DialogExample(Gtk.Dialog):
+	def __init__(self, parent):
+		super().__init__(title="My Dialog", transient_for=parent, flags=0)
+		self.add_buttons(Gtk.STOCK_CANCEL, 0, Gtk.STOCK_OK, 1)
+		box = self.get_content_area()
+		label = Gtk.Label(label="A question for the user")
+		box = self.get_content_area()
+		box.add(label)
+		self.show_all()
+
 class MyWindow(Gtk.Window):
 	def __init__(self):
 		super().__init__(title=sys.argv[0])
-		self.connect("destroy", Gtk.main_quit)
-		self.btn = Gtk.Button(label="Close window")
-		self.btn.connect("clicked", Gtk.main_quit)
+		self.btn = Gtk.Button(label="Botão")
+		self.btn.connect("clicked", self.open_dialog)
 		self.mbar = Gtk.MenuBar()
 		self.f_menu = Gtk.Menu()
 		self.file_mi = Gtk.MenuItem(label="File")
@@ -23,9 +32,16 @@ class MyWindow(Gtk.Window):
 		self.tbl.add(self.mbar)
 		self.tbl.attach(self.btn, 0, 1, 1, 1)
 		self.add(self.tbl)
-		self.show_all()
 		self.connect("destroy", Gtk.main_quit)
 		self.show_all()
 		Gtk.main()
+	def open_dialog(self, widget):
+		dialog = DialogExample(self)
+		result = dialog.run()
+		print("Return code = %d" % result)
+		dialog.destroy()
+
+
+
 
 win = MyWindow()
