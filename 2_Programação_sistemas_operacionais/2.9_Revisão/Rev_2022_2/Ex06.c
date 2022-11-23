@@ -4,34 +4,37 @@
 
 int main(int argc, char *argv[])
 {
-	char *arq, *chave = argv[1];
-	int tamanho_arq, i_arq, i_chave, cont;
-	FILE* fp;
-	fp = fopen(argv[2], "r");
-	fseek(fp, 0, SEEK_END);
-	tamanho_arq = ftell(fp);
-	arq = (char*)malloc(tamanho_arq);
-	rewind(fp); //fseek(fp, 0, SEEK_SET);
-	fread(arq, sizeof(char), tamanho_arq, fp);
-	fclose(fp);
-	for(cont=i_chave=i_arq=0; i_arq<tamanho_arq; i_arq++)
+	if(argc<3)
 	{
-		if(arq[i_arq]==chave[i_chave])
+		printf("Indique a palavra-chave e o nome do arquivo nos argumentos de entrada!\n");
+		return -1;
+	}
+	char *conteudo, *palavra;
+	int tam, contagem = 0, i1, i2;
+	FILE* fp = fopen(argv[2], "r");
+	fseek(fp, 0, SEEK_END);
+	tam = ftell(fp);
+	rewind(fp);
+	conteudo = (char*) malloc(tam);
+	fread(conteudo, sizeof(char), tam, fp);
+	fclose(fp);
+	palavra = argv[1];
+	for(i1=0, i2=0; i1<tam; i1++)
+	{
+		if(conteudo[i1]==palavra[i2])
 		{
-			i_chave++;
-			if(chave[i_chave]=='\0')
+			i2++;
+			if(palavra[i2]=='\0')
 			{
-				cont++;
-				i_chave=0;
+				contagem++;
+				i2=0;
 			}
 		}
 		else
-		{
-			i_chave=0;
-		}
+			i2=0;
 	}
 	printf("'%s' ocorre %d vezes no arquivo '%s'.\n",
-		chave, cont, argv[2]);
-	free(arq);
+		palavra, contagem, argv[2]);
+	free(conteudo);
 	return 0;
 }

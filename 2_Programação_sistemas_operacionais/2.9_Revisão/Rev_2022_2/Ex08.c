@@ -5,20 +5,18 @@
 
 int main()
 {
-	pid_t pid_filhos[3];
-	pid_t pid_pai = getpid();
+	pid_t pid_pai = getpid(), pid_filhos[3];
 	int i;
 	
-	printf("PID pai = %d\n", pid_pai);
+	printf("PID(pai) = %d\n", pid_pai);
 	for(i=0; i<3; i++)
 	{
 		if(getpid()==pid_pai)
 		{
-			pid_filhos[i] = fork();
-			if(pid_filhos[i]>0)
+			pid_filhos[i]= fork();
+			if(pid_filhos[i]!=0)
 			{
-				printf("PID = %d, PID filho = %d\n",
-					getpid(), pid_filhos[i]);
+				printf("PID(filho) = %d\n", pid_filhos[i]);
 			}
 		}
 	}

@@ -1,21 +1,14 @@
 #!/bin/bash
 
-### 1a opção
-EH_MES=1
+par_ou_impar=0
 for arg in $@
 do
-	if [ $EH_MES == 1 ]
+	if [ $par_ou_impar -eq 0 ]
 	then
-		MES=$arg
-		EH_MES=0
+		mes=$arg
+		par_ou_impar=1
 	else
-		cal $MES $arg
-		EH_MES=1
+		cal $mes $arg
+		par_ou_impar=0
 	fi
-done
-
-### 2a opção
-for arg in $(seq 1 2 $#)
-do
-	cal ${@:arg:2}
 done
