@@ -1,10 +1,10 @@
 #include "gpio_dev_mem.h"
 
-extern int  mem_fd;
-extern void *gpio_map;
+int  mem_fd;
+void *gpio_map;
 
 // I/O access
-extern volatile unsigned *gpio;
+volatile unsigned *gpio;
 
 //
 // Set up a memory regions to access GPIO
