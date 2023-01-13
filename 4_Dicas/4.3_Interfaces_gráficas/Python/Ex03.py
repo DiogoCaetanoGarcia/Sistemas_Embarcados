@@ -1,10 +1,7 @@
 # https://python-gtk-3-tutorial.readthedocs.io/pt_BR/latest/introduction.html
-
 import gi, sys
-
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-
 
 class MyWindow(Gtk.Window):
 	def __init__(self):
@@ -16,6 +13,5 @@ class MyWindow(Gtk.Window):
 		Gtk.main()
 	def on_button_clicked(self, widget):
 		Gtk.main_quit()
-
 
 win = MyWindow()
