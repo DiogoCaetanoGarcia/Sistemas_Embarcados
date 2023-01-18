@@ -167,3 +167,12 @@ double distancia_euclidiana(struct vetor_int *v1, struct vetor_int *v2)
 	}
 	return sqrt(dist_eucl);
 }
+
+//
+// Repare nas saídas do gprof para este exemplo.
+// Os resultados não são consistentes com o
+// exemplo anterior, porque o gprof precisa de
+// algumas mudanças para funcionar com várias threads.
+//
+// http://sam.zoy.org/writings/programming/gprof.html
+//
