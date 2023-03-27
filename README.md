@@ -3,13 +3,13 @@
 - Código: FGA0103
 - Créditos: 6
 - Turma: A
-- Locais e horários: Lab SS, 2as, 4as e 6as feiras, sempre das 14:00 às 15:50
+- Locais e horários: Lab SS, 2<sup>as</sup>, 4<sup>as</sup> e 6<sup>as</sup> feiras, sempre das 14:00 às 15:50
 - Professor: Diogo Caetano Garcia
 - Email: diogogarcia(at)unb.br
 
 # Datas importantes
 
-![Calendário 2022/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendario.jpg)
+![Calendário 2023/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendario.jpg)
 
 # Objetivos
 
@@ -59,20 +59,46 @@ Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno deci
 
 Os alunos formarão duplas para montar um projeto final de maior dificuldade, cobrindo os tópicos vistos em sala de aula. Os projetos serão propostos pelos alunos, e será apresentado um protótipo em funcionamento e o relatório do mesmo, na forma de relatório científico com formatação IEEE, contendo os seguintes tópicos:
 
-  1. Resumo (1 ponto): Apresentar o projeto de forma geral e em poucas palavras.
-  2. Introdução (1 ponto): Descrição do problema a ser resolvido e revisão bibliográfica do assunto.
-  3. Desenvolvimento (5 pontos): Solução, com justificativa baseada em fundamentos teóricos. O desenvolvimento deverá conter a descrição do hardware e do software:
+1. Resumo (1 ponto): Apresentar o projeto de forma geral e em poucas palavras.
+2. Introdução (1 ponto): Descrição do problema a ser resolvido e revisão bibliográfica do assunto.
+3. Desenvolvimento (5 pontos): Solução, com justificativa baseada em fundamentos teóricos. O desenvolvimento deverá conter a descrição do hardware e do software:
     1. Descrição do hardware (2 pontos) , incluindo a BOM (bill of materials) e a montagem (diagrama de blocos, esquemático, descrição textual etc.).
     2. Descrição do software (3 pontos) , apresentando e justificando o algoritmo desenvolvido. Esta seção do relatório NÃO CONSISTE em simplesmente replicar o código, e sim em explicar como ele funciona, com base em fluxogramas, pseudo-códigos etc. O código deverá ser apresentado como um apêndice do relatório.
-  4. Resultados (2 pontos): Explicar os experimentos definidos para validar o projeto proposto, seguido de análise crítica dos resultados esperados e obtidos. Em caso de divergências, apontar as possíveis causas.
-  5. Conclusão (1 ponto): Retomar sucintamente os principais pontos do relatório: descrição do problema, solução utilizada e resultados obtidos.
+4. Resultados (2 pontos): Explicar os experimentos definidos para validar o projeto proposto, seguido de análise crítica dos resultados esperados e obtidos. Em caso de divergências, apontar as possíveis causas.
+5. Conclusão (1 ponto): Retomar sucintamente os principais pontos do relatório: descrição do problema, solução utilizada e resultados obtidos.
 
 Os pontos de controle serão prévias do projeto final. Cada dia de atraso na apresentação dos pontos de controle acarreta na perda de 0,5 pontos da nota do mesmo. Serão esperados os seguintes resultados para cada ponto de controle:
 
-- PC1: proposta do projeto (justificativa, objetivos, requisitos, benefícios, revisão bibliográfica).
-- PC2: protótipo funcional do projeto, utilizando as ferramentas mais básicas da placa de desenvolvimento, bibliotecas prontas etc.
+- PC1: proposta do projeto
+    - Apresentação do tema escolhido pela dupla
+    - Definição do problema a ser resolvido
+    - Pesquisa realizada: produtos já existentes, artigos etc.
+    - **Texto:** introdução, incluindo justificativa, objetivos, requisitos, benefícios e revisão bibliográfica.
+- PC2: funcionamento básico de cada parte fundamental:
+    - Conectar partes fundamentais ao Raspberry Pi, de acordo com o projeto proposto (GPS, temperatura, envio de e-mail, câmera digital, reconhecimento facial etc.)
+    - Demonstrar que é possível utilizar cada uma das partes com o Raspberry Pi;
+    - Permitido utilizar linguagens interpretadas (Python, Octave etc.) e programas prontos.
+    - **Texto:** acrescentar descrição de _hardware_, descrição de _software_ e resultados obtidos.
+- PC3: refinamento do protótipo
+    - Conectar as partes fundamentais.
+    - Acrescentar recursos básicos de sistema (múltiplos processos e threads, pipes, sinais, semáforos, MUTEX etc.).
+    - Desenvolver em linguagem C.
+    - **Texto:** atualizar descrição de _hardware_, descrição de _software_ e resultados obtidos.
+- PC4: refinamento do protótipo
+    - Conectar as partes fundamentais.
+    - Acrescentar recursos básicos de sistema (recursos de Linux em tempo real etc.).
+    - Desenvolver em linguagem C.
+    - **Texto:** atualizar descrição de _hardware_, descrição de _software_ e resultados obtidos.
+
+Uma analogia com o projeto: montagem de um quebra-cabeças
+- PC1: escolha do quebra-cabeças
+- PC2: disposição de **todas as peças** do quebra-cabeças sobre a mesa
+- PC3: montagem do quebra-cabeças
+- PC4: montagem do quebra-cabeças
+
+<!--- PC2: protótipo funcional do projeto, utilizando as ferramentas mais básicas da placa de desenvolvimento, bibliotecas prontas etc.
 - PC3: refinamento do protótipo, acrescentando recursos básicos de sistema (múltiplos processos e threads, pipes, sinais, semáforos, MUTEX etc.).
-- PC4: refinamento do protótipo, acrescentando recursos de Linux em tempo real.
+- PC4: refinamento do protótipo, acrescentando recursos de Linux em tempo real.-->
 
 Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso de cópias (integrais ou parciais), os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:
 
@@ -92,67 +118,67 @@ Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso
 
 1. Introdução aos sistemas embarcados
 2. Introdução ao OS Linux
-  1. Obtendo informações do sistema
-  2. Principais comandos
-  3. Estrutura de diretórios
-  4. Instalação padrão de programas
+    1. Obtendo informações do sistema
+    2. Principais comandos
+    3. Estrutura de diretórios
+    4. Instalação padrão de programas
 3. Desenvolvimento para sistemas embarcados
-  1. Conceito de cross-platform
-  2. Componentes e suas funções (host, target, interface de comunicação, etc)
-  3. Processo de geração de imagens
-  4. Utilização de makefiles
+    1. Conceito de cross-platform
+    2. Componentes e suas funções (host, target, interface de comunicação, etc)
+    3. Processo de geração de imagens
+    4. Utilização de makefiles
 4. Inicialização em Sistemas Embarcados
-  1. Ferramentas do target
-  2. Transferência de imagens
-  3. Ferramentas para o Target System
-  4. Transferência de imagens
-  5. Cenários de boot do target
-  6. Seqüência de inicialização do target
+    1. Ferramentas do target
+    2. Transferência de imagens
+    3. Ferramentas para o Target System
+    4. Transferência de imagens
+    5. Cenários de boot do target
+    6. Seqüência de inicialização do target
 5. Subsistema de I/Os.
-  1. Conceito básico de I/Os
-  2. O subsistema de I/Os
-  3. Modo de transferência serial e em blocos
-  4. Funções de um subsistema de I/O
+    1. Conceito básico de I/Os
+    2. O subsistema de I/Os
+    3. Modo de transferência serial e em blocos
+    4. Funções de um subsistema de I/O
 6. Recursos do sistema I
-  1. Processos, sinais e threads
-  2. Comunicação e sincronismo entre processos
-  3. Programação para redes (sockets)
+    1. Processos, sinais e threads
+    2. Comunicação e sincronismo entre processos
+    3. Programação para redes (sockets)
 7. Introdução ao RTOS
-  1. Características dos sistemas RT
-  2. Conceitos de Hard Real-Time e Soft Real-Time
-  3. Conceito de latência e Jitter
-  4. Introdução ao framework Xenomai
+    1. Características dos sistemas RT
+    2. Conceitos de Hard Real-Time e Soft Real-Time
+    3. Conceito de latência e Jitter
+    4. Introdução ao framework Xenomai
 8. Recursos de sistema II
-  1. Tarefas
-  2. Alarmes
-  3. Mutex
-  4. Semáforos
-  5. Variáveis condicionais
-  6. Fila de mensagens
+    1. Tarefas
+    2. Alarmes
+    3. Mutex
+    4. Semáforos
+    5. Variáveis condicionais
+    6. Fila de mensagens
 9. Introdução ao LKM
-  1. Introdução
-  2. Módulos do kernel
-  3. Desenvolvimento de um módulo
-  4. Comandos do modutils
+    1. Introdução
+    2. Módulos do kernel
+    3. Desenvolvimento de um módulo
+    4. Comandos do modutils
 10. Introdução aos device drivers
-  1. Conceitos básicos sobre device driver
-  2. Estrutura de um device driver
-  3. Funções de um device driver
-  4. Instalação e carregamento de um device driver
+    1. Conceitos básicos sobre device driver
+    2. Estrutura de um device driver
+    3. Funções de um device driver
+    4. Instalação e carregamento de um device driver
 
 # Bibliografia
 
 Bibliografia básica: 
-1) Doug Abbott, Embedded Technology: Linux for Embedded and Real-Time Applications, 2nd Ed., Newnes, USA, 2006. 
-2) Mark Mitchell, Jeffrey Oldham e Alex Samuel, Advanced Linux Programming, New Riders, USA, 2001. 
-3) Christopher Hallinan, Embedded Linux Primer: A Practical Real-World Approach, Prentice Hall, USA, 2006. 
-4) Qing Li e Caroline Yao, Real-Time Concepts for Embedded Systems, CMP, USA, 2003. 
+1. Doug Abbott, Embedded Technology: Linux for Embedded and Real-Time Applications, 2nd Ed., Newnes, USA, 2006. 
+2. Mark Mitchell, Jeffrey Oldham e Alex Samuel, Advanced Linux Programming, New Riders, USA, 2001. 
+3. Christopher Hallinan, Embedded Linux Primer: A Practical Real-World Approach, Prentice Hall, USA, 2006. 
+4. Qing Li e Caroline Yao, Real-Time Concepts for Embedded Systems, CMP, USA, 2003. 
 
 Bibliografia complementar: 
-1) Rajaram Regupathy, Bootstrap Yourself with Linux-USB Stack : Design, Develop, Debug, and Validate Embedded USB, Course Technology, USA, 2011. 
-2) Daniel Bovet e Marco Cesati, Understanding the Linux Kernel, 3rd Ed., O'Reilly, USA, 2005. 
-3) Jonathan Corbet, Alessandro Rubini e Greg Kroah-Hartman, Linux Device Drivers, 3rd Ed., O'Reilly, USA, 2005. 
-4) Karim Yaghmour, Jon Masters e Gilad Ben-Yossef, Building Embedded Linux Systems, 3rd Ed., O'Reilly, USA, 2003.
+1. Rajaram Regupathy, Bootstrap Yourself with Linux-USB Stack : Design, Develop, Debug, and Validate Embedded USB, Course Technology, USA, 2011. 
+2. Daniel Bovet e Marco Cesati, Understanding the Linux Kernel, 3rd Ed., O'Reilly, USA, 2005. 
+3. Jonathan Corbet, Alessandro Rubini e Greg Kroah-Hartman, Linux Device Drivers, 3rd Ed., O'Reilly, USA, 2005. 
+4. Karim Yaghmour, Jon Masters e Gilad Ben-Yossef, Building Embedded Linux Systems, 3rd Ed., O'Reilly, USA, 2003.
 
 <!--
 Básica:
