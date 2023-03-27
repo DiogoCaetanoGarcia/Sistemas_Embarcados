@@ -45,7 +45,9 @@ O aluno pode tirar dúvidas via fórum de dúvidas no Moodle da disciplina, ou p
 
 <!--Todas as respostas deverão ser armazenadas em um repositório GitHub público. Utilize arquivos diferentes para as respostas, separando-as por data. Organize bem o seu repositório, com pastas individuais nomeadas **1_Respostas**, **2_PCs** e **3_Trabalho** para guardar as respostas das aulas, os pontos de controle e o trabalho final, respectivamente.-->
 
-A presença dos alunos será conferida via lista de participantes nas video-conferências pela plataforma Microsoft Teams. **FAVOR CONFERIR SEU NOME NA PLATAFORMA, PARA EVITAR ERROS NAS LISTAS DE PRESENÇA.** Alunos que não tiverem condições de acompanhar as aulas sincronamente deverão assistir às aulas gravadas e indicar que o fizeram pela plataforma Teams.
+<!--A presença dos alunos será conferida via lista de participantes nas video-conferências pela plataforma Microsoft Teams. **FAVOR CONFERIR SEU NOME NA PLATAFORMA, PARA EVITAR ERROS NAS LISTAS DE PRESENÇA.** Alunos que não tiverem condições de acompanhar as aulas sincronamente deverão assistir às aulas gravadas e indicar que o fizeram pela plataforma Teams.-->
+
+A presença dos alunos será conferida via lista de participantes na página Moodle da disciplina.
 
 Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno decidir qual modelo de Raspberry Pi utilizar, de acordo com suas necessidades no projeto final.
 
@@ -82,12 +84,12 @@ Os pontos de controle serão prévias do projeto final. Cada dia de atraso na ap
 - PC3: refinamento do protótipo
     - Conectar as partes fundamentais.
     - Acrescentar recursos básicos de sistema (múltiplos processos e threads, pipes, sinais, semáforos, MUTEX etc.).
-    - Desenvolver em linguagem C.
+    - Desenvolver em linguagem C e/ou C++.
     - **Texto:** atualizar descrição de _hardware_, descrição de _software_ e resultados obtidos.
 - PC4: refinamento do protótipo
     - Conectar as partes fundamentais.
     - Acrescentar recursos básicos de sistema (recursos de Linux em tempo real etc.).
-    - Desenvolver em linguagem C.
+    - Desenvolver em linguagem C e/ou C++.
     - **Texto:** atualizar descrição de _hardware_, descrição de _software_ e resultados obtidos.
 
 Uma analogia com o projeto: montagem de um quebra-cabeças
