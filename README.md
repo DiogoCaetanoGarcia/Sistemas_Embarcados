@@ -14,7 +14,7 @@
 # Objetivos
 
 - Conhecer os fundamentos básicos de sistemas embarcados;
-- Compreender o processo de desenvolvimento de software para um sistema embarcado;
+- Compreender o processo de desenvolvimento de _software_ para um sistema embarcado;
 - Conhecer as técnicas de desenvolvimento de aplicações e drivers para sistemas embarcados.
 
 # Ementa
@@ -63,9 +63,9 @@ Os alunos formarão duplas para montar um projeto final de maior dificuldade, co
 
 1. Resumo (1 ponto): Apresentar o projeto de forma geral e em poucas palavras.
 2. Introdução (1 ponto): Descrição do problema a ser resolvido e revisão bibliográfica do assunto.
-3. Desenvolvimento (5 pontos): Solução, com justificativa baseada em fundamentos teóricos. O desenvolvimento deverá conter a descrição do hardware e do software:
-    1. Descrição do hardware (2 pontos) , incluindo a BOM (bill of materials) e a montagem (diagrama de blocos, esquemático, descrição textual etc.).
-    2. Descrição do software (3 pontos) , apresentando e justificando o algoritmo desenvolvido. Esta seção do relatório NÃO CONSISTE em simplesmente replicar o código, e sim em explicar como ele funciona, com base em fluxogramas, pseudo-códigos etc. O código deverá ser apresentado como um apêndice do relatório.
+3. Desenvolvimento (5 pontos): Solução, com justificativa baseada em fundamentos teóricos. O desenvolvimento deverá conter a descrição do _hardware_ e do _software_:
+    1. Descrição do _hardware_ (2 pontos), incluindo a BOM (_bill of materials_) e a montagem (diagrama de blocos, esquemático e descrição textual).
+    2. Descrição do _software_ (3 pontos), apresentando e justificando o algoritmo desenvolvido. Esta seção do relatório NÃO CONSISTE em simplesmente replicar o código, e sim em explicar textulmente como ele funciona, com base em fluxogramas ou pseudo-códigos. O código deverá ser apresentado como um apêndice do relatório.
 4. Resultados (2 pontos): Explicar os experimentos definidos para validar o projeto proposto, seguido de análise crítica dos resultados esperados e obtidos. Em caso de divergências, apontar as possíveis causas.
 5. Conclusão (1 ponto): Retomar sucintamente os principais pontos do relatório: descrição do problema, solução utilizada e resultados obtidos.
 
@@ -77,7 +77,7 @@ Os pontos de controle serão prévias do projeto final. Cada dia de atraso na ap
     - Pesquisa realizada: produtos já existentes, artigos etc.
     - **Texto:** introdução, incluindo justificativa, objetivos, requisitos, benefícios e revisão bibliográfica.
 - PC2: funcionamento básico de cada parte fundamental:
-    - Conectar partes fundamentais ao Raspberry Pi, de acordo com o projeto proposto (GPS, temperatura, envio de e-mail, câmera digital, reconhecimento facial etc.)
+    - Conectar partes fundamentais ao Raspberry Pi, de acordo com o projeto proposto (por exemplo, GPS, temperatura, envio de e-mail, câmera digital, reconhecimento facial etc.)
     - Demonstrar que é possível utilizar cada uma das partes com o Raspberry Pi;
     - Permitido utilizar linguagens interpretadas (Python, Octave etc.) e programas prontos.
     - **Texto:** acrescentar descrição de _hardware_, descrição de _software_ e resultados obtidos.
