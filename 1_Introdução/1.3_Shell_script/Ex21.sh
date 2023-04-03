@@ -1,16 +1,18 @@
 #!/bin/bash
 
-contagem()
-{
-  echo 3 1os parâmetros = $1 $2 $3
-  for i in $(seq $1)
-  do
-    echo i = $i
-  done
-}
+# Referência: https://www.vivaolinux.com.br/dica/Utilizando-arrays-em-shell-script
 
-contagem 6 Ab Cde
-echo -------------
-contagem 2 10000000
-echo -------------
-contagem 5
+vals=( "ABC" "DEF" "GHI" "JKL" )
+
+echo ${vals[0]}
+echo ${vals[1]}
+echo ${vals[2]}
+echo ${vals[3]}
+
+echo ----------------
+
+echo O vetor vals tem ${#vals[@]} elementos
+for i in ${vals[@]}
+do
+	echo i = $i
+done
