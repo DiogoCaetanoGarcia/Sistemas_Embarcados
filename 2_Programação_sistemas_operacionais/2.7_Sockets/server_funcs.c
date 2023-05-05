@@ -1,5 +1,8 @@
 #include "server_funcs.h"
 
+char socket_name[100];
+int  socket_id;
+
 int print_client_message(int client_socket)
 {
 	int length, end_server_ok;

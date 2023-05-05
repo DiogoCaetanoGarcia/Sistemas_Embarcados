@@ -10,8 +10,9 @@
 #include <sys/un.h>
 #include <arpa/inet.h>
 
-char socket_name[100];
-int  socket_id;
+extern char socket_name[100];
+extern int  socket_id;
+
 int  print_client_message(int client_socket);
 void end_server(int signum);
 
