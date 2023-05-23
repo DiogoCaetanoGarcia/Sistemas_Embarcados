@@ -189,5 +189,22 @@ case $1 in
 	23) show_box "Instalar o Apache2"
 		sudo apt-get update
 		sudo apt-get install apache2;;
+	24) show_box "Bot Telegram"
+		if [ $# -lt 3 ]; then
+			echo - Abra um chat com o bot @botfather no Telegram
+			echo - Digite '\newbot'
+			echo - Escolha um nome adequado para o seu bot
+			echo - Anote o token indicado por @botfather
+			echo - Abra um chat com o seu novo bot
+			echo - Mande uma mensagem para ele
+			echo - Acesse \"curl https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates\"
+			echo - Confira o \"id\" da sua conversa com seu bot, e anote este \"id\" 
+			echo - Execute \"./exemplos.sh 24 TELEGRAM_BOT_TOKEN CHAT_ID MSG \"
+			return
+		fi
+		echo Enviando mensagem \"${4}\" para o bot...
+		curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "${3}", "text": "$4", "disable_notification": true}' https://api.telegram.org/bot${2}/sendMessage
+		echo Conferindo respostas no bot...
+		curl https://api.telegram.org/bot${2}/getUpdates;;
 	*) echo "Opção inválida";;
 esac
