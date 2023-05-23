@@ -182,5 +182,5 @@ function google_drive_download()
 
 function calc()
 {
-    python -c 'print('${1}')';
+     echo ${1} = $(python -c 'print('${1}')')
 }
