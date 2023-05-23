@@ -202,7 +202,7 @@ case $1 in
 			echo - Execute \"./exemplos.sh 24 TELEGRAM_BOT_TOKEN CHAT_ID MSG \"
 		else
 			echo Enviando mensagem \"${4}\" para o bot...
-			curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "'${3}'", "text": "'${4}'", "disable_notification": true}' https://api.telegram.org/bot${2}/sendMessage
+			curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "'"${3}"'", "text": "'"${4}"'", "disable_notification": true}' https://api.telegram.org/bot${2}/sendMessage
 			echo
 			echo Conferindo respostas no bot...
 			curl https://api.telegram.org/bot${2}/getUpdates
