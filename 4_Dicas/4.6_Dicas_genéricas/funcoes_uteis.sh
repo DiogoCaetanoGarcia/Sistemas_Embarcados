@@ -78,6 +78,16 @@ function search_ps()
     ps aux | grep grep -v | grep "ps aux" -v | grep $1
 }
 
+function search_apt_installed()
+{
+    apt list --installed | grep $1
+}
+
+function search_apt_package()
+{
+    apt-cache search $1
+}
+
 function disk_usage()
 {
     df -h | head -1
@@ -106,6 +116,28 @@ function folders_size()
     done
 }
 
+function apt_update()
+{
+        sudo apt --allow-unauthenticated update
+        sudo apt upgrade
+        sudo apt --with-new-pkgs upgrade
+        sudo apt clean
+        sudo apt autoremove
+}
+
+function pull_gits()
+{
+    CUR_FOLDER=$(pwd);
+    for f in $(find . -type d -name .git)
+    do
+        f1=$(dirname $f)
+        cd $f1
+        pwd
+        git pull
+        cd ${CUR_FOLDER}
+    done
+}
+
 function pinout()
 {
     gpio readall
@@ -128,4 +160,27 @@ function testa_desempenho_SO()
     sudo cyclictest -l100000 -m -S -p90 -i200 -h400 -q > $arq
     tail -8 $arq
     rm $arq
+}
+
+function google_drive_download()
+{
+    if [ $# -lt 2 ]; then
+        echo
+        echo First, extract the ID of your desire file from Google Drive:
+        echo - In your browser, navigate to \"drive.google.com\"
+        echo - Right-click on the file, and click \"Get a shareable link\"
+        echo - Then extract the ID of the file from URL \"https://drive.google.com/file/d/FILEID/view\"
+        echo Next, call \"google_drive_download FILEID FILENAME\"
+        echo
+        return
+    fi
+    FILEID=$1
+    FILENAME=$2
+    CONFIRM=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id='${FILEID} -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')
+    wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=${CONFIRM}&id="${FILEID} -O ${FILENAME} && rm -rf /tmp/cookies.txt
+}
+
+function calc()
+{
+    python -c 'print('${1}')';
 }
