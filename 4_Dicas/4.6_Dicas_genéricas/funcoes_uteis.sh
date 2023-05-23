@@ -32,6 +32,7 @@ function mkcd()
 }
 
 alias lsla='ls -la'
+alias lh='ls -lh'
 
 function extract ()
 {
