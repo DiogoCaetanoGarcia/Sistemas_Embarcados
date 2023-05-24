@@ -163,6 +163,37 @@ function testa_desempenho_SO()
     rm $arq
 }
 
+function pip_upgrade()
+{
+    f=req_$(date +'%Y_%m_%d_%H_%M_%S').txt
+    python -m pip freeze > $f
+    sed -i "s/==/>=/g" $f
+    sudo python -m pip install -r $f --upgrade
+    rm $f
+}
+
+function telegram_send_to_bot()
+{
+    if [ $# -lt 3 ]; then
+		echo - Abra um chat com o bot @botfather no Telegram
+		echo - Digite '\newbot'
+		echo - Escolha um nome adequado para o seu bot
+		echo - Anote o token indicado por @botfather
+		echo - Abra um chat com o seu novo bot
+		echo - Mande uma mensagem para ele
+		echo - Acesse \"curl https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates\"
+		echo - Confira o \"id\" da sua conversa com seu bot, e anote este \"id\" 
+		echo - Execute \"telegram_send_to_bot TELEGRAM_BOT_TOKEN CHAT_ID MSG \"
+	else
+		curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "'"${2}"'", "text": "'"${3}"'", "disable_notification": true}' https://api.telegram.org/bot${1}/sendMessage
+	fi
+}
+
+function telegram_get_from_bot()
+{
+    curl https://api.telegram.org/bot${1}/getUpdates
+}
+
 function google_drive_download()
 {
     if [ $# -lt 2 ]; then
