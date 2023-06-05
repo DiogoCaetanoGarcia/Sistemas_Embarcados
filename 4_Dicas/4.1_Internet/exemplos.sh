@@ -129,7 +129,7 @@ case $1 in
 		echo --corpo_msg >> email.txt
 		echo Content-Type: image/png\; name=\"$nome_imagem\" >> email.txt
 		echo Content-Transfer-Encoding: base64 >> email.txt
-		echo Content-Disposition: attachment; filename=\"$nome_imagem\" >> email.txt
+		echo Content-Disposition: attachment\; filename=\"$nome_imagem\" >> email.txt
 		echo >> email.txt
 		cat $nome_imagem | base64 >> email.txt
 		echo --corpo_msg-- >> email.txt
