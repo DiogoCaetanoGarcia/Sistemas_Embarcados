@@ -164,6 +164,7 @@ case $1 in
 		echo $(date) >> index.html
 		echo '</h1><p>' >> index.html
 		echo $(/opt/vc/bin/vcgencmd measure_temp) >> index.html
+		echo $(/usr/bin/vcgencmd measure_temp) >> index.html
 		echo '</p></div></body></html>' >> index.html
 		sudo cp index.html /var/www/html/index.html
 		show_box "Acesse o servidor em um browser"
