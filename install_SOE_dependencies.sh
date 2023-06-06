@@ -53,6 +53,6 @@ sudo apt install libopencv-dev
 show_box "Install OpenCV (Python)"
 sudo apt install python3-opencv
 show_box "Install GTK"
-sudo apt install gtk2.0
+sudo apt install libgtk2.0-dev
 show_box "Instalação demorada para os códigos das aulas finais (LKMs)"
 curl https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/5_T%C3%B3picos_avan%C3%A7ados/5.2_LKMs/README.md
