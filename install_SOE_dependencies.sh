@@ -56,6 +56,13 @@ show_box "Install GTK"
 sudo apt install libgtk2.0-dev
 show_box "Install rt-tests"
 sudo apt-get install libnuma-dev
+show_box "Install buildroot dependencies and get buildroot repository"
+sudo apt-get install build-essential libncurses5-dev bzr cvs git mercurial rsync subversion
+CUR_FOLDER=$(pwd)
+mkdir ~/exemplos_buildroot
+cd ~/exemplos_buildroot
+git clone https://github.com/buildroot/buildroot.git buildroot
+cd ${CUR_FOLDER}
 CUR_FOLDER=$(pwd)
 cd ~
 git clone git://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
