@@ -17,7 +17,7 @@ function show_box()
 	echo
 }
 
-show_box "Instruções para treinar rede Yolo-Tiny v7 para detectar buracos na rua"
+show_box "Instruções para treinar rede Yolo-Tiny v4 para detectar buracos no asfalto a partir de imagens"
 show_box "https://learnopencv.com/pothole-detection-using-yolov4-and-darknet/"
 
 show_box "Download de base de dados (2.3 GB!)"
