@@ -1,0 +1,5 @@
+classes = 1
+train  = train.txt
+valid  = valid.txt
+names = build/darknet/x64/data/pothole.names
+backup = backup_yolov4_tiny

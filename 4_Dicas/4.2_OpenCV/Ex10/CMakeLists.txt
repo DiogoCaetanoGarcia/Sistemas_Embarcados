@@ -1,6 +1,0 @@
-cmake_minimum_required(VERSION 2.8)
-project( Media_linhas_colunas )
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-add_executable( Media_linhas_colunas Media_linhas_colunas.cpp )
-target_link_libraries( Media_linhas_colunas ${OpenCV_LIBS} )
