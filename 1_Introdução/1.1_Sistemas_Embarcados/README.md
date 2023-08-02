@@ -1364,10 +1364,8 @@ Thanks to all [contributors](https://github.com/fffaraz/awesome-cpp/graphs/contr
 
 #### *If you see a project or link here that is no longer maintained or is not a good fit, please submit a pull request to improve this document. Thank you!*
 
-# Books
 
-
-## C
+## Cursos e livros sobre C
 
 * [A Tutorial on Pointers and Arrays in C](https://sites.cs.ucsb.edu/~mikec/cs16/misc/ptrtut12/pointers.htm)
 * [Advanced Linux Programming](http://www.advancedlinuxprogramming.com/)
@@ -1386,7 +1384,7 @@ Thanks to all [contributors](https://github.com/fffaraz/awesome-cpp/graphs/contr
 * [TONC GBA Programming - Game Boy Advance Development](http://www.coranac.com/tonc/text/toc.htm)
 * [Using C on the UNIX System - David A. Curry](http://www.bitsinthewind.com/about-dac/publications/using-c-on-the-unix-system)
 
-## C++
+## Cursos e livros sobre C++
 
 * [C++ Annotations](http://cppannotations.sourceforge.net/) 
 * [C++ Cookbook](http://staff.ppu.edu/dkhalid/O'Reilly%20-%20C++%20Cookbook%20%282007%29.pdf) (PDF)
@@ -1410,7 +1408,7 @@ Thanks to all [contributors](https://github.com/fffaraz/awesome-cpp/graphs/contr
 * Also see: [The Definitive C++ Book Guide and List](https://stackoverflow.com/a/388282)
 * [Object Oriented Programmming](https://www.javatpoint.com/cpp-oops-concepts)
 
-# Videos
+# Videos sobre C++
 
 * [Modern C++: What You Need to Know](https://www.youtube.com/watch?v=TJHgp1ugKGM) - This talk will give an update on recent progress and near-future directions for C++, both at Microsoft and across the industry. This is a great introduction to the current state of the language, including a glimpse into the future of general purpose, performance-intensive, power-friendly, powerful native programming. [Apr 7, 2014]
 * [Bjarne Stroustrup - The Essence of C++](https://www.youtube.com/watch?v=86xWVb4XIyE) - Bjarne Stroustrup, creator and developer of C++, delivers his talk entitled, The Essence of C++. Stroustrup has held distinguished posts at Texas A&M University and spent significant time in the Computer Science Departments of Cambridge, Columbia and Princeton. [May 6, 2014]
