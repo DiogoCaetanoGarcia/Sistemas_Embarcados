@@ -2,6 +2,9 @@
 
 - [Projeto completo de um sistema embarcado](https://docs.google.com/spreadsheets/d/16TWhtjxsPnWEz60Zb41fvLBf7V_lsDYVgnN0B5eFZDs/edit?usp=sharing)
 - [Awesome C++](https://github.com/fffaraz/awesome-cpp) (replicado a seguir):
+- [Cursos e livros sobre C](#cursos-e-livros-sobre-c)
+- [Cursos e livros sobre C++](#cursos-e-livros-sobre-c-1)
+- [Videos sobre C++](#videos-sobre-c)
 
 # Awesome C++ [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![Track Awesome List](https://www.trackawesomelist.com/badge.svg)](https://www.trackawesomelist.com/fffaraz/awesome-cpp/)
 A curated list of awesome C++ (or C) frameworks, libraries, resources, and shiny things. Inspired by awesome-... stuff.
