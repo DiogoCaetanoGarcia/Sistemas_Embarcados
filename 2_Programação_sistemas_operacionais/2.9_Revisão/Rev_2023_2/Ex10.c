@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 	pid_t pid_pai = getpid(), pid_filho;
 	char *lista_de_argumentos[] = {NULL, NULL};
 	int i;
-	
+
 	for(i=1; i<argc; i++)
 	{
 		if(getpid() == pid_pai)
@@ -19,6 +19,7 @@ int main(int argc, char** argv)
 			{
 				lista_de_argumentos[0] = argv[i];
 				execvp(lista_de_argumentos[0], lista_de_argumentos);
+				printf("Comando '%s' deu erro!\n", argv[i]);
 			}
 			else
 			{
@@ -26,5 +27,6 @@ int main(int argc, char** argv)
 			}
 		}
 	}
+	printf("Processo %d terminando!\n", getpid());
 	return 0;
 }
