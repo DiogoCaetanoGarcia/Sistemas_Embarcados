@@ -6,7 +6,7 @@ char *build_get_query(char *host, char *page)
 	char *getpage = page;
 	query = (char *)malloc(strlen(host)+strlen(getpage)+100);
 	sprintf(query,
-		"GET %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: HTMLGET 1.1\r\nAccept: */*\r\n\r\n",
+		"GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: HTMLGET 1.0\r\nAccept: */*\r\n\r\n",
 		getpage,
 		host);
 	return query;

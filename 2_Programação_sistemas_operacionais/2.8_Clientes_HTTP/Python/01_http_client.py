@@ -1,7 +1,7 @@
 import socket, struct, sys
 
 def build_get_query(host, page):
-	query = "GET %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: HTMLGET 1.1\r\nAccept: */*\r\n\r\n" % (page, host);
+	query = "GET %s HTTP/1.0\r\nHost: %s\r\nUser-Agent: HTMLGET 1.1\r\nAccept: */*\r\n\r\n" % (page, host);
 	return query
 
 if len(sys.argv) < 3:
