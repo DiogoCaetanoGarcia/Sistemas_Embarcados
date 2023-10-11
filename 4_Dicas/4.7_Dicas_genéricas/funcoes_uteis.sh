@@ -216,3 +216,23 @@ function calc()
 {
      echo ${1} = $(python -c 'print('${1}')')
 }
+
+function highlight_cal_days()
+{
+	for my in $(cat $1 | sed 's/^...//' | uniq | sort)
+	do
+		my1=$(echo $my | sed 's/\// /')
+		c=$(cal $my1)
+		for d in $(grep $my $1 | sed 's/........$//')
+		do
+			if [ $d -lt '10' ]
+			then
+				d=$(echo $d | sed 's/0//')
+				c=$(echo "$c" | sed 's, '$d' ,\x1b[31m&\x1b[0m,')
+			else
+				c=$(echo "$c" | sed 's,'$d' ,\x1b[31m&\x1b[0m,')
+			fi
+		done
+		echo "$c"
+	done
+}
