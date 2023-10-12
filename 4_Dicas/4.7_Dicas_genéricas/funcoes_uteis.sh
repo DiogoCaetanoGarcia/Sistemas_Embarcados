@@ -217,13 +217,14 @@ function calc()
      echo ${1} = $(python -c 'print('${1}')')
 }
 
+# Lê um arquivo contendo datas no formato YYYY/MM/DD (1 por linha),
+# e apresenta os calendários correspondentes com os dias em cor vermelha
 function highlight_cal_days()
 {
-	for my in $(cat $1 | sed 's/^...//' | uniq | sort)
+	for my in $(cat $1 | sed 's/...$//' | uniq | sort)
 	do
-		my1=$(echo $my | sed 's/\// /')
-		c=$(cal $my1)
-		for d in $(grep $my $1 | sed 's/........$//')
+		c=$(cal ${my:5:2} ${my:0:4})
+		for d in $(grep $my $1 | sed 's/^........//')
 		do
 			if [ $d -lt '10' ]
 			then
