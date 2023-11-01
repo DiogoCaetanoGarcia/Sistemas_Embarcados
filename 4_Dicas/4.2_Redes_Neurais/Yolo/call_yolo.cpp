@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 
 		char text[100];
 		snprintf(text, sizeof(text), "%s: %.2f", classes[classIds[i]].c_str(), scores[i]);
+		printf("%s: %s\n", argv[1], text);
 		putText(img, text, Point(boxes[i].x, boxes[i].y - 5), cv::FONT_HERSHEY_SIMPLEX, 1,
 				Scalar(0, 255, 0), 2);
 	}
