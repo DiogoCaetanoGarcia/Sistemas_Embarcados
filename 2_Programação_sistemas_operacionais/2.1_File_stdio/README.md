@@ -1,3 +1,5 @@
+# Questões
+
 1. Crie um código em C para escrever "Ola mundo!" em um arquivo chamado **ola_mundo.txt**. Utilize as funções da biblioteca `stdio.h` de leitura e de escrita em arquivo (`fopen()`, `fclose()`, `fwrite()`, `fread()`, dentre outras). Compile os códigos com o `gcc` e execute-os via terminal.
 
 2. Crie um código em C que pergunta ao usuário seu nome e sua idade, e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de `ola_usuario_1`:
