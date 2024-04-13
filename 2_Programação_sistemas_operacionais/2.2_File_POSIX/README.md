@@ -1,4 +1,6 @@
-1.Considerando a biblioteca-padrão da linguagem C e a norma POSIX, indique as funções correspondentes.
+# Questões
+
+1. Considerando a biblioteca-padrão da linguagem C e a norma POSIX, indique as funções correspondentes.
 
 - Função da biblioteca `stdio.h` para abertura de arquivos.
 - Função da biblioteca `stdio.h` para fechamento de arquivos.
@@ -26,7 +28,7 @@ $ cat Eu.txt
 
 Utilize as funções da norma POSIX (`open()`, `close()`, `write()`, `read()` e `lseek()`). Compile os códigos com o `gcc` e execute-os via terminal.
 
-3. Crie um código em C que recebe o nome do usuário e e sua idade como argumentos de entrada (usando as variáveis `argc` e `*argv[]`), e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de `ola_usuario_2`:
+4. Crie um código em C que recebe o nome do usuário e e sua idade como argumentos de entrada (usando as variáveis `argc` e `*argv[]`), e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de `ola_usuario_2`:
 
 ```
 $ ./ola_usuario_2 Eu 30
@@ -37,7 +39,7 @@ $ cat Eu.txt
 
 Utilize as funções da norma POSIX (`open()`, `close()`, `write()`, `read()` e `lseek()`). Compile os códigos com o `gcc` e execute-os via terminal.
 
-4. Crie um código em C que conta a ocorrência de uma palavra-chave em um arquivo-texto, e escreve o resultado no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de `busca_e_conta`:
+5. Crie um código em C que conta a ocorrência de uma palavra-chave em um arquivo-texto, e escreve o resultado no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de `busca_e_conta`:
 
 ```
 $ echo Ola mundo cruel! Ola universo ingrato! > ola.txt
