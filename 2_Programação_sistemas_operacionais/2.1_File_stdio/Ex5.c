@@ -36,7 +36,7 @@ FILE * abre_arq(char* arquivo, char *modo)
 
 void le_arq(FILE *p)
 {
-	char c = getc(p);
+	int c = getc(p);
 	while( c != EOF )
 	{
 		printf("%c", c);
