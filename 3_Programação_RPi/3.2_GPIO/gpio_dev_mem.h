@@ -1,7 +1,8 @@
 #ifndef _GPIO_DEV_MEM_H_
 #define _GPIO_DEV_MEM_H_
 
-#define BCM2708_PERI_BASE        0x20000000
+// #define BCM2708_PERI_BASE        0x20000000 // RPi 0, 0W, 1 e 2
+#define BCM2708_PERI_BASE        0x3F000000 // else(RPi)
 #define GPIO_BASE                (BCM2708_PERI_BASE + 0x200000) /* GPIO controller */
 
 #include <stdio.h>
