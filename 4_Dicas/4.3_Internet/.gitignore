@@ -7,4 +7,5 @@
 *.md.*
 *.txt
 *.pdf
+email.conf
 !4.3_Internet.pdf
