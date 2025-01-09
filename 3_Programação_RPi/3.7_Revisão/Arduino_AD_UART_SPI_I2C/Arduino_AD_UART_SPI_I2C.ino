@@ -8,6 +8,13 @@ int sensorValueI2C;
 void receiveEvent(int receivedBytes)
 {
   receivedDataI2C = Wire.read();
+  if(receivedDataI2C == 0x55)
+  {
+    sensorValueI2C = analogRead(A0);
+    sentDataI2C[0] = sensorValueI2C & 0xFF;
+    sentDataI2C[1] = sensorValueI2C >> 8;
+    receivedDataI2C = 0;
+  }
 }
 void requestEvent()
 {
@@ -15,11 +22,24 @@ void requestEvent()
 }
 
 // SPI
-volatile char receivedDataSPI = 0;
-int sensorValueSPI;
 ISR (SPI_STC_vect)
 {
-  receivedDataSPI = SPDR;
+  char receivedDataSPI = SPDR;
+  int sensorValueSPI;
+  switch(receivedDataSPI)
+  {
+    case 0x55:
+      sensorValueSPI = analogRead(A0);
+      SPDR = sensorValueSPI & 0xFF;
+      break;
+    case 0x1:
+      SPDR = sensorValueSPI >> 8;
+      break;
+    case 0x2:
+      SPDR = 0xAA;
+      break;
+  }
+  receivedDataSPI = 0;
 }
 
 // UART
@@ -44,32 +64,6 @@ void setup()
 
 void loop()
 {
-  // I2C
-  if(receivedDataI2C == 0x55)
-  {
-    sensorValueI2C = analogRead(A0);
-    sentDataI2C[0] = sensorValueI2C & 0xFF;
-    sentDataI2C[1] = sensorValueI2C >> 8;
-    receivedDataI2C = 0;
-  }
-  // SPI
-  switch(receivedDataSPI)
-  {
-    case 0x55:
-      sensorValueSPI = analogRead(A0);
-      SPDR = sensorValueSPI & 0xFF;
-      receivedDataSPI = 0;
-      break;
-    case 0x1:
-      SPDR = sensorValueSPI >> 8;
-      receivedDataSPI = 0;
-      break;
-    case 0x2:
-      SPDR = 0xAA;
-      receivedDataSPI = 0;
-      break;
-  }
-  // UART
   if((millis()-t_UART)>=10)
   {
     t_UART = millis();
