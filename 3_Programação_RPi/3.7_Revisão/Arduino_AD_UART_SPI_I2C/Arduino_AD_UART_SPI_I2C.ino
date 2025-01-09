@@ -2,18 +2,14 @@
 #include <SPI.h>
 
 // I2C
-volatile char receivedDataI2C = 0;
 char sentDataI2C[2];
-int sensorValueI2C;
 void receiveEvent(int receivedBytes)
 {
-  receivedDataI2C = Wire.read();
-  if(receivedDataI2C == 0x55)
+  if(Wire.read() == 0x55)
   {
-    sensorValueI2C = analogRead(A0);
+    int sensorValueI2C = analogRead(A0);
     sentDataI2C[0] = sensorValueI2C & 0xFF;
     sentDataI2C[1] = sensorValueI2C >> 8;
-    receivedDataI2C = 0;
   }
 }
 void requestEvent()
@@ -22,11 +18,10 @@ void requestEvent()
 }
 
 // SPI
+int sensorValueSPI;
 ISR (SPI_STC_vect)
 {
-  char receivedDataSPI = SPDR;
-  int sensorValueSPI;
-  switch(receivedDataSPI)
+  switch(SPDR)
   {
     case 0x55:
       sensorValueSPI = analogRead(A0);
@@ -39,11 +34,9 @@ ISR (SPI_STC_vect)
       SPDR = 0xAA;
       break;
   }
-  receivedDataSPI = 0;
 }
 
 // UART
-int sensorValueUART;
 unsigned long int t_UART = 0;
 
 void setup()
@@ -64,10 +57,11 @@ void setup()
 
 void loop()
 {
-  if((millis()-t_UART)>=10)
+  unsigned long int cur_t = millis();
+  if((cur_t - t_UART)>=10)
   {
-    t_UART = millis();
-    sensorValueUART = analogRead(A0);
+    t_UART = cur_t;
+    int sensorValueUART = analogRead(A0);
     Serial.write(sensorValueUART & 0xFF);
     Serial.write(sensorValueUART >> 8);
   }
