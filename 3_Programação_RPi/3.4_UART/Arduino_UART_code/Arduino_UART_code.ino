@@ -19,6 +19,7 @@ void setup()
   pinMode(buttonPin, INPUT_PULLUP);
   digitalWrite(LED_BUILTIN, LOW);    // switch off LED pin
   Serial.begin(9600);            // initialize UART with baud rate of 9600
+  blink(6, blinkT);
 }
 
 void loop() {
