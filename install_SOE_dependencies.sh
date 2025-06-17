@@ -72,4 +72,6 @@ make all
 sudo make install
 cd ${CUR_FOLDER}
 show_box "Instalação demorada para os códigos das aulas finais (LKMs)"
-curl https://raw.githubusercontent.com/DiogoCaetanoGarcia/Sistemas_Embarcados/master/5_T%C3%B3picos_avan%C3%A7ados/5.2_LKMs/README.md
+echo https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/5_T%C3%B3picos_avan%C3%A7ados/5.1_LKMs/README.md
+show_box "Instalação demorada do RT PREEMPT"
+echo https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/5_T%C3%B3picos_avan%C3%A7ados/5.4_RT_PREEMPT/README.md
