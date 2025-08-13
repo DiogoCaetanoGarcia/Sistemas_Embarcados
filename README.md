@@ -9,7 +9,7 @@
 
 # Datas importantes
 
-![Calendário 2023/1](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendario.jpg)
+![Calendário 2025/2](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/blob/master/Calendario.jpg)
 
 # Objetivos
 
@@ -196,3 +196,4 @@ Complementar:
 - Karim Yaghmour, Building Embedded Linux Systems, Publisher: O'Reilly, 2003.
 - David Kalinsky, Introduction to Real-Time Operating Systems, White paper Xenomai API, www.xenomai.org.
 -->
+
