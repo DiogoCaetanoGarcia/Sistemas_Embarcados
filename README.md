@@ -59,6 +59,8 @@ Será utilizada a placa Raspberry Pi em toda a disciplina. Caberá ao aluno deci
 - Respostas dos questionários das aulas no Moodle (10% da nota final).
 <!--- Respostas dos ciclos Pomodoro em sala de aula (10% da nota final).-->
 
+## Projeto final
+
 Os alunos formarão duplas para montar um projeto final de maior dificuldade, cobrindo os tópicos vistos em sala de aula. Os projetos serão propostos pelos alunos, e será apresentado um protótipo em funcionamento e o relatório do mesmo, na forma de relatório científico com formatação IEEE, contendo os seguintes tópicos:
 
 1. Resumo (1 ponto): Apresentar o projeto de forma geral e em poucas palavras.
@@ -102,7 +104,7 @@ Uma analogia com o projeto: montagem de um quebra-cabeças
 - PC3: refinamento do protótipo, acrescentando recursos básicos de sistema (múltiplos processos e threads, pipes, sinais, semáforos, MUTEX etc.).
 - PC4: refinamento do protótipo, acrescentando recursos de Linux em tempo real.-->
 
-## Atenção!
+### Atenção!
 - Todos os relatórios dos pontos de controle serão entregues via Moodle.
 - Em caso de cópias (integrais ou parciais), os relatórios ficarão com nota ZERO.
 - O _template_ com formatação IEEE está disponível em [https://www.overleaf.com/read/djkphgstpqsh#36c54d](https://www.overleaf.com/read/djkphgstpqsh#36c54d).
@@ -201,5 +203,6 @@ Complementar:
 - Karim Yaghmour, Building Embedded Linux Systems, Publisher: O'Reilly, 2003.
 - David Kalinsky, Introduction to Real-Time Operating Systems, White paper Xenomai API, www.xenomai.org.
 -->
+
 
 
