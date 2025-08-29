@@ -132,48 +132,48 @@ Uma analogia com o projeto: montagem de um quebra-cabeças
     3. Estrutura de diretórios
     4. Instalação padrão de programas
 3. Desenvolvimento para sistemas embarcados
-    1. Conceito de cross-platform
-    2. Componentes e suas funções (host, target, interface de comunicação, etc)
+    1. Conceito de _cross-platform_
+    2. Componentes e suas funções (_host_, _target_, interface de comunicação, etc)
     3. Processo de geração de imagens
-    4. Utilização de makefiles
+    4. Utilização de _makefiles_
 4. Inicialização em Sistemas Embarcados
-    1. Ferramentas do target
+    1. Ferramentas do _target_
     2. Transferência de imagens
-    3. Ferramentas para o Target System
+    3. Ferramentas para o _Target System_
     4. Transferência de imagens
-    5. Cenários de boot do target
-    6. Seqüência de inicialização do target
+    5. Cenários de _boot_ do _target_
+    6. Seqüência de inicialização do _target_
 5. Subsistema de I/Os.
     1. Conceito básico de I/Os
     2. O subsistema de I/Os
     3. Modo de transferência serial e em blocos
     4. Funções de um subsistema de I/O
 6. Recursos do sistema I
-    1. Processos, sinais e threads
+    1. Processos, sinais e _threads_
     2. Comunicação e sincronismo entre processos
-    3. Programação para redes (sockets)
+    3. Programação para redes (_sockets_)
 7. Introdução ao RTOS
     1. Características dos sistemas RT
-    2. Conceitos de Hard Real-Time e Soft Real-Time
-    3. Conceito de latência e Jitter
-    4. Introdução ao framework Xenomai
+    2. Conceitos de _Hard_ e _Soft Real-Time_
+    <!--3. Conceito de latência e Jitter
+    4. Introdução ao framework Xenomai-->
 8. Recursos de sistema II
     1. Tarefas
     2. Alarmes
     3. Mutex
-    4. Semáforos
+    <!--4. Semáforos
     5. Variáveis condicionais
-    6. Fila de mensagens
+    6. Fila de mensagens-->
 9. Introdução ao LKM
     1. Introdução
-    2. Módulos do kernel
+    2. Módulos do _kernel_
     3. Desenvolvimento de um módulo
-    4. Comandos do modutils
-10. Introdução aos device drivers
-    1. Conceitos básicos sobre device driver
-    2. Estrutura de um device driver
-    3. Funções de um device driver
-    4. Instalação e carregamento de um device driver
+    4. Comandos do _modutils_
+10. Introdução aos _device drivers_
+    1. Conceitos básicos sobre _device driver_
+    2. Estrutura de um _device driver_
+    3. Funções de um _device driver_
+    4. Instalação e carregamento de um _device driver_
 
 # Bibliografia
 
@@ -203,6 +203,7 @@ Complementar:
 - Karim Yaghmour, Building Embedded Linux Systems, Publisher: O'Reilly, 2003.
 - David Kalinsky, Introduction to Real-Time Operating Systems, White paper Xenomai API, www.xenomai.org.
 -->
+
 
 
 
