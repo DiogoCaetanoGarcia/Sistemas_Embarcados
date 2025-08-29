@@ -177,13 +177,13 @@ Uma analogia com o projeto: montagem de um quebra-cabeças
 
 # Bibliografia
 
-Bibliografia básica: 
+## Básica: 
 1. Doug Abbott, Embedded Technology: Linux for Embedded and Real-Time Applications, 2nd Ed., Newnes, USA, 2006. 
 2. Mark Mitchell, Jeffrey Oldham e Alex Samuel, Advanced Linux Programming, New Riders, USA, 2001. 
 3. Christopher Hallinan, Embedded Linux Primer: A Practical Real-World Approach, Prentice Hall, USA, 2006. 
 4. Qing Li e Caroline Yao, Real-Time Concepts for Embedded Systems, CMP, USA, 2003. 
 
-Bibliografia complementar: 
+## Complementar: 
 1. Rajaram Regupathy, Bootstrap Yourself with Linux-USB Stack : Design, Develop, Debug, and Validate Embedded USB, Course Technology, USA, 2011. 
 2. Daniel Bovet e Marco Cesati, Understanding the Linux Kernel, 3rd Ed., O'Reilly, USA, 2005. 
 3. Jonathan Corbet, Alessandro Rubini e Greg Kroah-Hartman, Linux Device Drivers, 3rd Ed., O'Reilly, USA, 2005. 
@@ -203,6 +203,7 @@ Complementar:
 - Karim Yaghmour, Building Embedded Linux Systems, Publisher: O'Reilly, 2003.
 - David Kalinsky, Introduction to Real-Time Operating Systems, White paper Xenomai API, www.xenomai.org.
 -->
+
 
 
 
