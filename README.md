@@ -102,7 +102,16 @@ Uma analogia com o projeto: montagem de um quebra-cabeças
 - PC3: refinamento do protótipo, acrescentando recursos básicos de sistema (múltiplos processos e threads, pipes, sinais, semáforos, MUTEX etc.).
 - PC4: refinamento do protótipo, acrescentando recursos de Linux em tempo real.-->
 
-Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso de cópias (integrais ou parciais), os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:
+## Atenção!
+- Todos os relatórios dos pontos de controle serão entregues via Moodle.
+- Em caso de cópias (integrais ou parciais), os relatórios ficarão com nota ZERO.
+- O _template_ com formatação IEEE está disponível em [https://www.overleaf.com/read/djkphgstpqsh#36c54d](https://www.overleaf.com/read/djkphgstpqsh#36c54d).
+
+<!--Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso de cópias (integrais ou parciais), os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:
+- [Word](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/word_a4_format_nov12.zip)
+- [Unix LaTeX](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/unix_latex_template.zip)
+- [Windows LaTeX](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/windows_latex_template.zip)
+-->
 
 <!--Todos os relatórios dos pontos de controle serão entregues através do mesmo repositório GitHub das respostas às perguntas em sala de aula. Crie uma pasta separada no repositório para a entrega dos pontos de controle. DEVERÁ HAVER SOMENTE UM ARQUIVO POR RELATÓRIO, EM FORMATO PDF. Em caso de cópias (integrais ou parciais), ambos os relatórios ficarão com nota ZERO. Os diferentes templates com formatação IEEE estão disponíveis em:-->
 
@@ -111,10 +120,6 @@ Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso
 - Unix LaTeX: http://goo.gl/p3ExfQ
 - Windows LaTeX: http://goo.gl/gAxi96
 -->
-
-- [Word](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/word_a4_format_nov12.zip)
-- [Unix LaTeX](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/unix_latex_template.zip)
-- [Windows LaTeX](https://github.com/DiogoCaetanoGarcia/Sistemas_Embarcados/raw/master/Refs/windows_latex_template.zip)
 
 # Programa
 
@@ -196,4 +201,5 @@ Complementar:
 - Karim Yaghmour, Building Embedded Linux Systems, Publisher: O'Reilly, 2003.
 - David Kalinsky, Introduction to Real-Time Operating Systems, White paper Xenomai API, www.xenomai.org.
 -->
+
 
