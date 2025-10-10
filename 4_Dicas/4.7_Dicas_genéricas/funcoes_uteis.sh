@@ -1,5 +1,22 @@
 #! /bin/bash
 
+function show_box()
+{
+	SHOW_BOX_MSG=$1
+	SHOW_BOX_L=${#SHOW_BOX_MSG}
+	SHOW_BOX_L=$((SHOW_BOX_L+4))
+	SHOW_BOX_LINE=""
+	for SHOW_BOX_i in $(seq $SHOW_BOX_L)
+	do
+		SHOW_BOX_LINE=${SHOW_BOX_LINE}"-"
+	done
+	echo
+	echo ${SHOW_BOX_LINE}
+	echo \| $SHOW_BOX_MSG \|
+	echo ${SHOW_BOX_LINE}
+	echo
+}
+
 function weather()
 {
     curl -s "wttr.in/$1?m1"
@@ -23,6 +40,16 @@ function count_lines()
     N=$(wc -l < $1)
     N=$((N+1))
     echo $N
+}
+
+function count_files()
+{
+	ls -1p $1 | grep -v "/$" | wc -l
+}
+
+function count_files_and_folders()
+{
+	ls -1 $1 | wc -l
 }
 
 function mkcd()
@@ -133,7 +160,7 @@ function pull_gits()
     do
         f1=$(dirname $f)
         cd $f1
-        pwd
+        show_box $f1
         git pull
         cd ${CUR_FOLDER}
     done
@@ -214,7 +241,7 @@ function google_drive_download()
 
 function calc()
 {
-     echo ${1} = $(python -c 'print('${1}')')
+     echo ${1} = $(python3 -c 'print('${1}')')
 }
 
 # Lê um arquivo contendo datas no formato YYYY/MM/DD (1 por linha),
