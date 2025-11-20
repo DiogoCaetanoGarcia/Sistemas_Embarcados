@@ -15,30 +15,25 @@
 
 #include "rt_lib.h"
 
-#define test_pthread_call(ret, s) if(ret){printf(s); return ret;}
-
-void *thread_func(void *data)
+void* thread_func(void* data)
 {
+	struct timespec *log_t = (struct timespec*)data;
 	struct timespec ts;
-	unsigned int logindex=0;
-	int val = 0;
 
-	pin0 = init_gpio(PIN_VALUE);
-	signal(SIGINT, dumptimestamps);
+	init_gpio(PIN_VALUE);
 	clock_gettime(CLOCK_MONOTONIC, &ts);
-	while(1)
+	for(unsigned int logindex=0; logindex<MAX_LOGENTRIES; logindex++)
 	{
 		sleep_until(&ts, DELAY_NS);
-		setiopin(pin0,val);
-		INC_CNT(logindex, MAX_LOGENTRIES);
-		INC_CNT(val, 2);
-		logtimestamp(&t[logindex]);
+		setiopin(PIN_VALUE, logindex%2);
+		logtimestamp(&log_t[logindex]);
 	}
 	return NULL;
 }
 
-int main(int argc, char* argv[])
+int main(void)
 {
+	struct timespec log_t[MAX_LOGENTRIES];
 	struct sched_param param;
 	pthread_attr_t attr;
 	pthread_t thread;
@@ -78,7 +73,7 @@ int main(int argc, char* argv[])
 	}
 
 	/* Create a pthread with specified attributes */
-	ret = pthread_create(&thread, &attr, thread_func, NULL);
+	ret = pthread_create(&thread, &attr, &thread_func, log_t);
 	if (ret) {
 		printf("create pthread failed\n");
 		return ret;
@@ -93,6 +88,8 @@ int main(int argc, char* argv[])
 		printf("join pthread failed: %m\n");
 		return ret;
 	}
+	dumptimestamps(log_t);
+	end_gpio(PIN_VALUE);
 
-	return ret;
+	return 0;
 }

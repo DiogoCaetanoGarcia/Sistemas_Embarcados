@@ -17,18 +17,18 @@
 
 int main(void)
 {
+	struct timespec t[MAX_LOGENTRIES];
 	struct timespec ts;
-	unsigned int logindex=0;
-	int val = 0;
-	pin0 = init_gpio(PIN_VALUE);
-	signal(SIGINT, dumptimestamps);
+
+	init_gpio(PIN_VALUE);
 	clock_gettime(CLOCK_MONOTONIC, &ts);
-	while(1)
+	for(unsigned int logindex=0; logindex<MAX_LOGENTRIES; logindex++)
 	{
 		sleep_until(&ts, DELAY_NS);
-		setiopin(pin0,val);
-		INC_CNT(logindex, MAX_LOGENTRIES);
-		INC_CNT(val, 2);
+		setiopin(PIN_VALUE, logindex%2);
 		logtimestamp(&t[logindex]);
 	}
+	dumptimestamps(t);
+	end_gpio(PIN_VALUE);
+	return 0;
 }

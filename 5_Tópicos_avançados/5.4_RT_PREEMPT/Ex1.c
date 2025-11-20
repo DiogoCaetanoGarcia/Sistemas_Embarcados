@@ -14,16 +14,15 @@
 
 int main(void)
 {
-	unsigned int logindex=0;
-	int val = 0;
-	pin0 = init_gpio(PIN_VALUE);
-	signal(SIGINT, dumptimestamps);
-	while(1)
+	struct timespec t[MAX_LOGENTRIES];
+	init_gpio(PIN_VALUE);
+	for(unsigned int logindex=0; logindex<MAX_LOGENTRIES; logindex++)
 	{
 		usleep(DELAY_US);
-		setiopin(pin0,val);
-		INC_CNT(logindex, MAX_LOGENTRIES);
-		INC_CNT(val, 2);
+		setiopin(PIN_VALUE, logindex%2);
 		logtimestamp(&t[logindex]);
 	}
+	dumptimestamps(t);
+	end_gpio(PIN_VALUE);
+	return 0;
 }

@@ -29,45 +29,36 @@ then
 fi
 
 
-T=10.1
 E=./Ex${1}.out
 if [ ! -f $E ]; then
 	echo Programa $E não existe!
 	exit -2
 fi
 
-echo "Executando '$E' por $T segundos..."
-sudo $E &
-sleep $T
-send_signal_by_name $E SIGINT
+echo "Executando '$E'..."
+sudo $E
 
-echo "Aperte ENTER"
-read
+# echo "Aperte ENTER"
+# read
 
-echo "Executando '$E' por $T segundos com nice 19..."
-nice -n 19 sudo $E &
-sleep $T
-send_signal_by_name $E SIGINT
+echo "Executando '$E' com nice 19..."
+nice -n 19 sudo $E
 
-echo "Aperte ENTER"
-read
+# echo "Aperte ENTER"
+# read
 
 echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' em paralelo..."
 cat /dev/urandom > /dev/null &
-sudo $E &
-sleep $T
-send_signal_by_name $E SIGINT
+sudo $E
 
-echo "Aperte ENTER"
-read
+# echo "Aperte ENTER"
+# read
 
 echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' e './eatmem.out' em paralelo..."
-sudo $E &
 ./eatmem.out &
-sleep $T
-send_signal_by_name $E SIGINT
-sleep 1
+sudo $E
+# sleep 1
 send_signal_by_name cat
 send_signal_by_name "./eatmem.out"
