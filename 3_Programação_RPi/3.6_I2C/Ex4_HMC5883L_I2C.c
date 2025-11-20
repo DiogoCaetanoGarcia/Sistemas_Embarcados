@@ -5,6 +5,7 @@
 #include <sys/ioctl.h>
 #include <linux/i2c-dev.h>
 #include <unistd.h>
+#include <time.h>
 #include <math.h>
 
 typedef struct
@@ -165,21 +166,33 @@ void encerraCal(QMC_data *q)
 	}
 }
 
+long millis(void)
+{
+	return ((long)clock())*1000/CLOCKS_PER_SEC;
+}
+
+void delay(long t)
+{
+	long t0 = millis();
+	while((millis()-t0)<t);
+}
+
 void calibra(QMC_data *q)
 {
-	int pos;
+	int pos=0;
 	iniciaCal(q);
-	// long tmpFim = millis() + 20000L;
-	// while (millis() < tmpFim)
-	// {
-	// 	leDirecao(q);
-	// 	aponta(pos);
-	// 	pos += 5;
-	// 	if (pos == 360)
-	// 	{
-	// 		pos = 0;
-	// 	}
-	// 	delay (10);
-	// }
+	long tmpFim = millis() + 20000L;
+	printf("t0 = %ld\n", tmpFim - 20000L);
+	while (millis() < tmpFim)
+	{
+		leDirecao(q);
+		//aponta(pos);
+		pos += 5;
+		if (pos == 360)
+		{
+			pos = 0;
+		}
+		delay (10);
+	}
 	encerraCal(q);
 }

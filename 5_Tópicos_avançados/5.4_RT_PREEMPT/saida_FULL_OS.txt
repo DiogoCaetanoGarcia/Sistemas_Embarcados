@@ -1,0 +1,120 @@
+1
+
+
+Estatisticas dos timestamps:
+
+   Media         = 1.072376 ms
+   Desvio-padrao = 0.003748 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 1.073198 ms
+   Desvio-padrao = 0.006951 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 1.060955 ms
+   Desvio-padrao = 0.005449 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 1.073585 ms
+   Desvio-padrao = 0.247860 ms
+
+./stress_test.sh: line 4:  1686 Killed                  cat /dev/urandom > /dev/null
+2
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999996 ms
+   Desvio-padrao = 0.034188 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999976 ms
+   Desvio-padrao = 0.005655 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999982 ms
+   Desvio-padrao = 0.002210 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999967 ms
+   Desvio-padrao = 0.374388 ms
+
+./stress_test.sh: line 4:  1712 Killed                  cat /dev/urandom > /dev/null
+3
+
+
+Estatisticas dos timestamps:
+
+   Media         = 1.000000 ms
+   Desvio-padrao = 0.002404 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999997 ms
+   Desvio-padrao = 0.001925 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999979 ms
+   Desvio-padrao = 0.001362 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999966 ms
+   Desvio-padrao = 0.013908 ms
+
+./stress_test.sh: line 4:  1731 Killed                  cat /dev/urandom > /dev/null
+4
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999998 ms
+   Desvio-padrao = 0.002241 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999997 ms
+   Desvio-padrao = 0.001567 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999997 ms
+   Desvio-padrao = 0.000904 ms
+
+
+
+Estatisticas dos timestamps:
+
+   Media         = 0.999983 ms
+   Desvio-padrao = 0.017312 ms
+
+./stress_test.sh: line 4:  1751 Killed                  cat /dev/urandom > /dev/null

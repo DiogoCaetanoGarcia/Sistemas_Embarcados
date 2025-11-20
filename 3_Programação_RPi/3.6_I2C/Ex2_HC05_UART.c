@@ -42,13 +42,13 @@ int main(void)
 		if(cellphone_input=='0')
 		{
 			puts("\tTelefone celular mandou apagar o LED.");
-			system("sudo sh -c \"echo 1 > /sys/class/leds/led0/brightness\"");
+			system("sudo sh -c \"echo 0 > /sys/class/leds/ACT/brightness\"");
 			serialPrintf(uart0_fd, "Confira o LED do RPi!\n");
 		}
 		else if(cellphone_input=='1')
 		{
 			puts("\tTelefone celular mandou acender o LED.");
-			system("sudo sh -c \"echo 0 > /sys/class/leds/led0/brightness\"");
+			system("sudo sh -c \"echo 1 > /sys/class/leds/ACT/brightness\"");
 			serialPrintf(uart0_fd, "Confira o LED do RPi!\n");
 		}
 		else if(cellphone_input=='2')
@@ -64,7 +64,7 @@ int main(void)
 			serialPrintf(uart0_fd, "Caractere %c desconhecido!\n", cellphone_input);
 		}
 	}
-	system("sudo sh -c \"echo 0 > /sys/class/leds/led0/brightness\"");
+	system("sudo sh -c \"echo 0 > /sys/class/leds/ACT/brightness\"");
 	serialClose(uart0_fd);
 	return 0;
 }
