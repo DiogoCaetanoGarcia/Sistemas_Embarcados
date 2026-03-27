@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-FILE * abre_arq(char* arquivo, char *modo);
+#include "file_stdio.h"
 
 int main()
 {
@@ -21,15 +21,4 @@ int main()
 		pilido);
 	fclose(fp);
 	return(0);
-}
-
-FILE * abre_arq(char* arquivo, char *modo)
-{
-	FILE *p = fopen(arquivo, modo);
-	if(p==NULL)
-	{
-		printf("Erro! Impossivel abrir o arquivo!\n");
-		exit(-1);
-	}
-	return p;
 }

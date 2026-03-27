@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-FILE * abre_arq(char* arquivo, char *modo);
+#include "file_stdio.h"
 
 int main()
 {
@@ -11,7 +11,7 @@ int main()
 	fp = abre_arq("arquivo.txt", "w");
 	fprintf(fp, "pi = %f\n", pi);
 	fclose(fp);
-	
+
 	fp = abre_arq("arquivo.txt", "r");
 	fscanf(fp, "pi = %f\n", &pilido);
 	printf("O valor de PI "
@@ -19,15 +19,4 @@ int main()
 		pilido);
 	fclose(fp);
 	return(0);
-}
-
-FILE * abre_arq(char* arquivo, char *modo)
-{
-	FILE *p = fopen(arquivo, modo);
-	if(p==NULL)
-	{
-		printf("Erro! Impossivel abrir o arquivo!\n");
-		exit(-1);
-	}
-	return p;
 }

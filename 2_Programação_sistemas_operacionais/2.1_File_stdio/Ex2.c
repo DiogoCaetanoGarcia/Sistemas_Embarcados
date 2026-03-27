@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-void erro_fopen(FILE *fp)
-{
-	if (fp==NULL)
-	{
-		printf("Erro na abertura do arquivo.\n");
-		printf(" Fim de programa.\n");
-		exit(1);
-	}
-}
+#include "file_stdio.h"
 
 int main(int argc, const char * argv[])
 {

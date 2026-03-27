@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-FILE * abre_arq(char* arquivo, char *modo);
-void le_arq(FILE *p);
+#include "file_stdio.h"
 
 int main(int argc, const char * argv[])
 {
@@ -21,25 +19,4 @@ int main(int argc, const char * argv[])
 	le_arq(p);
 	fclose(p);
 	return 0;
-}
-
-FILE * abre_arq(char* arquivo, char *modo)
-{
-	FILE *p = fopen(arquivo, modo);
-	if(p==NULL)
-	{
-		printf("Erro! Impossivel abrir o arquivo!\n");
-		exit(-1);
-	}
-	return p;
-}
-
-void le_arq(FILE *p)
-{
-	int c = getc(p);
-	while( c != EOF )
-	{
-		printf("%c", c);
-		c = getc(p);
-	}
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-FILE * abre_arq(char* arquivo, char *modo);
+#include "file_stdio.h"
 
 int main()
 {
@@ -17,15 +17,4 @@ int main()
 		putc('\n', fp);
 	} while(strlen(string) > 0);
 	fclose(fp);
-}
-
-FILE * abre_arq(char* arquivo, char *modo)
-{
-	FILE *p = fopen(arquivo, modo);
-	if(p==NULL)
-	{
-		printf("Erro! Impossivel abrir o arquivo!\n");
-		exit(-1);
-	}
-	return p;
 }

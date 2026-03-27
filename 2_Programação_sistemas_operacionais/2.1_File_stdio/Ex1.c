@@ -11,7 +11,8 @@ int main(int argc, const char * argv[])
 	// Mensagem de erro caso o
 	// arquivo nao seja aberto
 	if(fp==NULL)
-		printf("Erro na abertura do arquivo.");
-	fclose(fp);
+		printf("Erro na abertura do arquivo.\n");
+	else
+		fclose(fp);
 	return 0;
 }
