@@ -1,15 +1,15 @@
-#include "gpio_sysfs.h"
+#include <stdio.h>
 #include <unistd.h>
+#include "inc/gpiod_lib.h"
 
 int main()
 {
-	int pin=4;
-	if(setGPIOdirection(pin, "out")<0)
-		return -1;
-	if(GPIOwrite(pin, 1)<0)
-		return -2;
+	puts("Acendendo o LED.");
+	gpio_write(4, 1);
+	puts("Aguardando 5 segundos...");
 	sleep(5);
-	if(unsetGPIO(pin)<0)
-		return -3;
+        puts("Apagando o LED.");
+	gpio_write(4, 0);
+        puts("Fim.");
 	return 0;
 }

@@ -5,6 +5,7 @@ Para rodar os exemplos desta aula, execute
 ```
 sudo apt-get install build-essential
 sudo apt-get install git-all
+sudo apt install gpiod libgpiod-dev
 cd ~
 git clone https://github.com/WiringPi/WiringPi
 cd ~/WiringPi
