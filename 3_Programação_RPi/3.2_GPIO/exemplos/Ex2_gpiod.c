@@ -4,7 +4,7 @@
 int main(void)
 {
 	int i = 0;
-	unsigned int pin = 4;
+	unsigned int pin = 17;
 	gpio_t *btn = gpio_open(&pin, 1, GPIO_INPUT, GPIO_BIAS_NONE, GPIO_EDGE_NONE);
 	while(i<15)
 	{

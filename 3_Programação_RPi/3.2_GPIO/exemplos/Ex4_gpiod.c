@@ -1,6 +1,14 @@
 #include "../inc/gpiod_lib.h"
+#include <signal.h>
 #include <stdio.h>
 #include <unistd.h>
+
+int ctrl_c = 0;
+
+void funcao_para_control_c()
+{
+	ctrl_c = 1;
+}
 
 int main(void)
 {
@@ -9,6 +17,7 @@ int main(void)
 	int periodo_us;
 	int periodo_alto;
 	int periodo_baixo;
+	signal(SIGINT, funcao_para_control_c);
 
 	printf("Digite a frequência desejada: ");
 	scanf("%f", &freq);
@@ -28,12 +37,13 @@ int main(void)
 	periodo_alto = (int) (periodo_us*duty_cyc/100);
 	periodo_baixo = periodo_us - periodo_alto;
 	gpio_t *led = gpio_open(&pin, 1, GPIO_OUTPUT, GPIO_BIAS_NONE, GPIO_EDGE_NONE);
-	while(1)
+	while(ctrl_c==0)
 	{
 		gpio_write(led, 0, 1);
 		usleep(periodo_alto);
 		gpio_write(led, 0, 0);
 		usleep(periodo_baixo);
 	}
+	gpio_write(led, 0, 0);
 	return 0;
 }
