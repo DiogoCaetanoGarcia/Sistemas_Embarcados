@@ -43,4 +43,3 @@ int gpio_read(gpio_t *g, int index);
 void gpio_set_callback(gpio_t *g, gpio_callback_t cb);
 int gpio_poll(gpio_t *g, int timeout_ms, unsigned int *triggered, int max_events);
 void gpio_flush_events(gpio_t *g);
-//static void* gpio_thread(void *arg);
