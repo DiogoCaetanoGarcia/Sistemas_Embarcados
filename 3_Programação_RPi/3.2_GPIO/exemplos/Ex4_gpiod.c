@@ -1,11 +1,10 @@
-// Access from ARM Running Linux
-#include "../inc/gpio_dev_mem.h"
-#include <unistd.h>
+#include "../inc/gpiod_lib.h"
 #include <stdio.h>
+#include <unistd.h>
 
 int main(void)
 {
-	int pin = 4;
+	unsigned int pin = 4;
 	float freq, duty_cyc;
 	int periodo_us;
 	int periodo_alto;
@@ -28,16 +27,13 @@ int main(void)
 	periodo_us = (int) (1.0e6/freq);
 	periodo_alto = (int) (periodo_us*duty_cyc/100);
 	periodo_baixo = periodo_us - periodo_alto;
-	setup_io();
-	INP_GPIO(pin);
-	OUT_GPIO(pin);
+	gpio_t *led = gpio_open(&pin, 1, GPIO_OUTPUT, GPIO_BIAS_NONE, GPIO_EDGE_NONE);
 	while(1)
 	{
-		GPIO_SET = 1<<pin;
+		gpio_write(led, 0, 1);
 		usleep(periodo_alto);
-		GPIO_CLR = 1<<pin;
+		gpio_write(led, 0, 0);
 		usleep(periodo_baixo);
 	}
 	return 0;
 }
-

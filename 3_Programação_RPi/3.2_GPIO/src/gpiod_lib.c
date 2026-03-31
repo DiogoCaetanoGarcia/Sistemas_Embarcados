@@ -1,28 +1,6 @@
 #include "../inc/gpiod_lib.h"
 
-static void* gpio_thread(void *arg)
-{
-	gpio_t *g = (gpio_t*)arg;
-
-	while (g->running) {
-		int ret = gpiod_line_request_wait_edge_events(g->req, -1);
-		if (ret > 0) {
-			struct gpiod_edge_event_buffer *buf =
-				gpiod_edge_event_buffer_new(1);
-
-			int n = gpiod_line_request_read_edge_events(g->req, buf, 1);
-			if (n > 0 && g->cb) {
-				int val = gpiod_line_request_get_value(g->req, g->pin);
-				g->cb(val);
-			}
-
-			gpiod_edge_event_buffer_free(buf);
-		}
-	}
-	return NULL;
-}
-
-gpio_t* gpio_open(int pin, gpio_mode_t mode, gpio_bias_t bias, gpio_edge_t edge)
+gpio_t* gpio_open(unsigned int *pins, int count, gpio_mode_t mode, gpio_bias_t bias, gpio_edge_t edge)
 {
 	gpio_t *g = calloc(1, sizeof(gpio_t));
 	if (!g) return NULL;
@@ -52,38 +30,20 @@ gpio_t* gpio_open(int pin, gpio_mode_t mode, gpio_bias_t bias, gpio_edge_t edge)
 		gpiod_line_settings_set_edge_detection(s, GPIOD_LINE_EDGE_BOTH);
 
 	struct gpiod_line_config *cfg = gpiod_line_config_new();
-	unsigned int offsets[] = {pin};
-	gpiod_line_config_add_line_settings(cfg, offsets, 1, s);
+	gpiod_line_config_add_line_settings(cfg, pins, count, s);
 
 	struct gpiod_request_config *rcfg = gpiod_request_config_new();
 
 	g->req = gpiod_chip_request_lines(g->chip, rcfg, cfg);
 	if (!g->req) return NULL;
 
-	g->pin = pin;
+	g->pins = malloc(sizeof(unsigned int) * count);
+	for (int i = 0; i < count; i++)
+		g->pins[i] = pins[i];
+
+	g->count = count;
+
 	return g;
-}
-
-void gpio_set_callback(gpio_t *g, gpio_callback_t cb)
-{
-	g->cb = cb;
-	g->running = 1;
-	pthread_create(&g->thread, NULL, gpio_thread, g);
-}
-
-void gpio_write(gpio_t *g, int value)
-{
-	gpiod_line_request_set_value(g->req, g->pin, value);
-}
-
-int gpio_read(gpio_t *g)
-{
-	return gpiod_line_request_get_value(g->req, g->pin);
-}
-
-int gpio_poll(gpio_t *g, int timeout_ms)
-{
-    return gpiod_line_request_wait_edge_events(g->req, timeout_ms);
 }
 
 void gpio_close(gpio_t *g)
@@ -99,4 +59,75 @@ void gpio_close(gpio_t *g)
 	if (g->chip) gpiod_chip_close(g->chip);
 
 	free(g);
+}
+
+void gpio_write(gpio_t *g, int index, int value)
+{
+	gpiod_line_request_set_value(g->req, g->pins[index], value);
+}
+
+int gpio_read(gpio_t *g, int index)
+{
+	return gpiod_line_request_get_value(g->req, g->pins[index]);
+}
+
+int gpio_poll(gpio_t *g, int timeout_ms, unsigned int *triggered, int max_events)
+{
+	int ret = gpiod_line_request_wait_edge_events(g->req, timeout_ms);
+	if (ret <= 0) return ret;
+
+	struct gpiod_edge_event_buffer *buf =
+		gpiod_edge_event_buffer_new(max_events);
+
+	int n = gpiod_line_request_read_edge_events(g->req, buf, max_events);
+
+	for (int i = 0; i < n; i++) {
+		struct gpiod_edge_event *ev =
+			gpiod_edge_event_buffer_get_event(buf, i);
+
+		triggered[i] =
+			gpiod_edge_event_get_line_offset(ev);
+	}
+
+	gpiod_edge_event_buffer_free(buf);
+	return n;
+}
+
+void gpio_flush_events(gpio_t *g)
+{
+	struct gpiod_edge_event_buffer *buf =
+		gpiod_edge_event_buffer_new(16);
+
+	while (gpiod_line_request_wait_edge_events(g->req, 0) > 0) {
+		gpiod_line_request_read_edge_events(g->req, buf, 16);
+	}
+
+	gpiod_edge_event_buffer_free(buf);
+}
+
+static void* gpio_thread(void *arg)
+{
+	gpio_t *g = (gpio_t*)arg;
+	unsigned int events[8];
+	while (g->running)
+	{
+		int n = gpio_poll(g, -1, events, 8);
+		if (n > 0 && g->cb)
+		{
+			for (int i = 0; i < n; i++)
+			{
+				unsigned int pin = events[i];
+				int val = gpiod_line_request_get_value(g->req, pin);
+				g->cb(pin, val);
+			}
+		}
+	}
+	return NULL;
+}
+
+void gpio_set_callback(gpio_t *g, gpio_callback_t cb)
+{
+	g->cb = cb;
+	g->running = 1;
+	pthread_create(&g->thread, NULL, gpio_thread, g);
 }

@@ -1,4 +1,4 @@
- // Access from ARM Running Linux
+// Access from ARM Running Linux
 #include "../inc/gpio_dev_mem.h"
 
 //Compile junto com o arquivo gpio_dev_mem.c
