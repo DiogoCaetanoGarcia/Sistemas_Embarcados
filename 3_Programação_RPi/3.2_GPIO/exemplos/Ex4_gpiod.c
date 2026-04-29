@@ -45,5 +45,6 @@ int main(void)
 		usleep(periodo_baixo);
 	}
 	gpio_write(led, 0, 0);
+	gpio_close(led);
 	return 0;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <gpiod.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
 

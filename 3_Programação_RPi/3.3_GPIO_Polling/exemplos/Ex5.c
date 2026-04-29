@@ -27,4 +27,6 @@ int main()
 			}
 		}
 	}
+	gpio_close(g);
+	return 0;
 }

@@ -10,6 +10,7 @@ int main()
 	{
 		gpio_poll(btn, -1, NULL, 0);
 		puts("Borda de descida!");
+		gpio_flush_events(btn);
 	}
 	gpio_close(btn);
 	return 0;
