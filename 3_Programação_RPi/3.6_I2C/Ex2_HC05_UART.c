@@ -59,8 +59,8 @@ int main(void)
 		}
 		else
 		{
-			printf("\tTelefone celular mandou caractere desconhecido: %c\n",
-				cellphone_input);
+			printf("\tTelefone celular mandou caractere desconhecido: \"%c\" / %d \n",
+				cellphone_input, cellphone_input);
 			serialPrintf(uart0_fd, "Caractere %c desconhecido!\n", cellphone_input);
 		}
 	}

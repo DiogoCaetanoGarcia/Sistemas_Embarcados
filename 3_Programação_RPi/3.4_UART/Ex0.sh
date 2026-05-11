@@ -10,9 +10,9 @@ stty -F $UART ispeed 9600 ospeed 9600 cs8 -cstopb -parenb
 # Confira o resultado da configuracao
 stty -F $UART -a
 
-echo Pressione ENTER para ver o LED do MSP430 piscar 1 vez
+echo Pressione ENTER para ver o LED do microcontrolador piscar 1 vez
 read
 echo -n -e \\x01 >> $UART
-echo Pressione ENTER para ver o LED do MSP430 piscar 3 vezes
+echo Pressione ENTER para ver o LED do microcontrolador piscar 3 vezes
 read
 echo -n -e \\x03 >> $UART
