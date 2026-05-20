@@ -264,3 +264,10 @@ function highlight_cal_days()
 		echo "$c"
 	done
 }
+
+function arduino_nano_old_build()
+{
+	cd $1
+	arduino-cli compile --fqbn arduino:avr:nano:cpu=atmega328old && \
+		arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:nano:cpu=atmega328old
+}
