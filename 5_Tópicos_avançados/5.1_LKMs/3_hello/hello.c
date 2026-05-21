@@ -27,14 +27,14 @@ module_param(hello_str, charp, 0000);
 MODULE_PARM_DESC(hello_str, "Uma string de entrada para o modulo");
 
 //static int __init hello_init(void)
-int hello_init(void)
+static int hello_init(void)
 {
 	printk(KERN_INFO "Hello World, hello_int = %d, hello_str[] = %s\n", hello_int, hello_str);
 	return 0;
 }
 
 //static void __exit hello_exit(void)
-void hello_exit(void)
+static void hello_exit(void)
 {
 	pr_alert("Goodbye World!\n");
 }

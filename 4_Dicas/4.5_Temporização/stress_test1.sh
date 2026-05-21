@@ -1,6 +1,9 @@
 #!/bin/bash
 
 cat /dev/urandom > /dev/null &
+cat /dev/urandom > /dev/null &
+cat /dev/urandom > /dev/null &
+cat /dev/urandom > /dev/null &
 
 printf "Cálculo de tempo usando "
 printf "clock_gettime():\n\n"

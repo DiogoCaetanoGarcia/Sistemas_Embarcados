@@ -1,12 +1,12 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 
-int hello_init(void)
+static int hello_init(void)
 {
     pr_alert("Hello World :)\n");
     return 0;
 }
-void hello_exit(void)
+static void hello_exit(void)
 {
     pr_alert("Goodbye World!\n");
 }
