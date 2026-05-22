@@ -19,7 +19,7 @@ function show_box()
 
 case $1 in
 	0) show_box "Apagar arquivos desnecessários"
-		rm -f *.txt index.html saida.html Arquivo_na_nuvem1.pdf Arquivo_na_nuvem2.pdf README.md;;
+		rm -f *.txt index.html saida.html saida1.html saida2.html Arquivo_na_nuvem1.pdf Arquivo_na_nuvem2.pdf README.md;;
 	1) show_box "Listar redes Wi-Fi. Interfaces disponíveis:"
 		ifconfig -s
 		show_box "Digite o nome da interface"
@@ -53,22 +53,25 @@ case $1 in
 		show_box "Arquivo '${filename}' baixado"
 		ls -l ${filename};;
 	7) show_box "Busca no Google pelo termo 'raspberry pi'"
-		curl -o saida.html https://www.google.com/search?q=raspberry+pi;;
+		curl -o saida1.html "https://www.google.com/search?q=raspberry+pi"
+		show_box "Busca no DuckDuckGo pelo termo 'raspberry pi'"
+		curl -o saida2.html -A "Mozilla/5.0" "https://html.duckduckgo.com/html/?q=raspberry+pi"
+		show_box "Busca na API do DuckDuckGo pelo termo 'raspberry pi'"
+		curl -s "https://api.duckduckgo.com/?q=raspberry+pi&format=json" | jq . | less;;
 	8) show_box "Hora atual pela internet, baseado no IP"
 		curl http://worldtimeapi.org/api/ip.txt
+		curl -s "https://timeapi.io/api/time/current/ip?ipAddress="$(curl -s ifconfig.me) | jq
 		echo;;
 	9) show_box "Hora atual pela internet, baseado no fuso horário de São-Paulo"
 		curl http://worldtimeapi.org/api/timezone/America/Sao_Paulo.txt
+		curl "https://timeapi.io/api/time/current/zone?timeZone=America/Sao_Paulo" | jq
 		echo;;
 	10) show_box "Fuso-horários disponíveis"
 		curl http://worldtimeapi.org/api/timezone.txt
+		curl "https://timeapi.io/api/TimeZone/AvailableTimeZones" | jq
 		echo;;
 	11) show_box "Exemplo de requisição POST"
-		curl -v -o saida.html -d searchword=eletronica https://noticias.unb.br/component/search/
-		show_box "Aperte ENTER para continuar"
-		xdg-open saida.html
-		read
-		rm saida.html;;
+		curl -v -o saida.html -d searchword=eletronica https://noticias.unb.br/component/search/;;
 	12) show_box "Bot Telegram"
 		if [ $# -lt 3 ]; then
 			echo - Abra um chat com o bot @botfather no Telegram
@@ -79,7 +82,7 @@ case $1 in
 			echo - Mande uma mensagem para ele
 			echo - Acesse \"curl https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getUpdates\"
 			echo - Confira o \"id\" da sua conversa com seu bot, e anote este \"id\" 
-			echo - Execute \"./exemplos.sh 24 TELEGRAM_BOT_TOKEN CHAT_ID MSG \"
+			echo - Execute \"./exemplos.sh 12 TELEGRAM_BOT_TOKEN CHAT_ID MSG \"
 		else
 			echo Enviando mensagem \"${4}\" para o bot...
 			curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "'"${3}"'", "text": "'"${4}"'", "disable_notification": true}' https://api.telegram.org/bot${2}/sendMessage
@@ -138,7 +141,7 @@ case $1 in
 			--tlsv1.2 -T email.txt
 		rm email.txt;;
 	16) show_box "Envio de dados do browser para o RPi usando o Apache"
-		./exemplos.sh 22
+		./exemplos.sh 21
 		sudo cp formulario_RPi1.html /var/www/html/index.html
 		sudo cp obrigado.html /var/www/html/obrigado.html
 		show_box "Acesse o servidor em um browser e responda o formulário"
@@ -147,9 +150,9 @@ case $1 in
 		show_box "Confira se a sua resposta chegou ao RPi"
 		tail -1 /var/log/apache2/access.log
 		sudo cp /var/www/html/index_original.html /var/www/html/index.html
-		./exemplos.sh 21;;
+		./exemplos.sh 20;;
 	17) show_box "Envio de dados do browser para o RPi usando o Apache, com um formulário mais bonito"
-		./exemplos.sh 22
+		./exemplos.sh 21
 		sudo cp formulario_RPi2.html /var/www/html/index.html
 		sudo cp obrigado.html /var/www/html/obrigado.html
 		show_box "Acesse o servidor em um browser e responda o formulário"
@@ -157,9 +160,9 @@ case $1 in
 		read
 		show_box "Confira se a sua resposta chegou ao RPi"
 		tail -1 /var/log/apache2/access.log
-		./exemplos.sh 21;;
+		./exemplos.sh 20;;
 	18) show_box "Mostrar temperatura do RPi no browser"
-		./exemplos.sh 22
+		./exemplos.sh 21
 		echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>Temperatura do Raspberry Pi</title></head><body><div class="container"><h1>' > index.html
 		echo $(date) >> index.html
 		echo '</h1><p>' >> index.html
@@ -172,12 +175,13 @@ case $1 in
 		show_box "Acesse novamente o servidor em um browser, e repare que os dados não mudaram"
 		show_box "Quando terminar, aperte ENTER aqui"
 		read
-		./exemplos.sh 21;;
+		./exemplos.sh 20;;
 	19) show_box "Mostrar temperatura do RPi no browser, atualizando a cada segundo"
-		./exemplos.sh 22
+		./exemplos.sh 21
 		show_box "Acesse o servidor em um browser, e atualize a página periodicamente"
-		show_box "Quando terminar, aperte CTRL-C para matar este processo e execute './exemplos.sh 21'"
-		./update_servidor.sh;;
+		show_box "Quando terminar, aperte CTRL-C para matar este processo e execute './exemplos.sh 20'"
+		./update_servidor.sh
+		./exemplos.sh 20;;
 	20) show_box "Parar a execução do Apache"
 		sudo cp /var/www/html/index_original.html /var/www/html/index.html
 		sudo /etc/init.d/apache2 stop
