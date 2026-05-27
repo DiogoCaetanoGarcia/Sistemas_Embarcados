@@ -1,11 +1,11 @@
 *.html
+*.html.*
 !formulario_RPi1.html
 !formulario_RPi2.html
 !obrigado.html
+*.pdf
+!4.3_Internet.pdf
 *.md
-*.html.*
 *.md.*
 *.txt
-*.pdf
 email.conf
-!4.3_Internet.pdf

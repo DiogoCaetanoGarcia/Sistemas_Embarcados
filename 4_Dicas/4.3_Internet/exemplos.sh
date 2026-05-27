@@ -59,15 +59,12 @@ case $1 in
 		show_box "Busca na API do DuckDuckGo pelo termo 'raspberry pi'"
 		curl -s "https://api.duckduckgo.com/?q=raspberry+pi&format=json" | jq . | less;;
 	8) show_box "Hora atual pela internet, baseado no IP"
-		curl http://worldtimeapi.org/api/ip.txt
 		curl -s "https://timeapi.io/api/time/current/ip?ipAddress="$(curl -s ifconfig.me) | jq
 		echo;;
 	9) show_box "Hora atual pela internet, baseado no fuso horário de São-Paulo"
-		curl http://worldtimeapi.org/api/timezone/America/Sao_Paulo.txt
 		curl "https://timeapi.io/api/time/current/zone?timeZone=America/Sao_Paulo" | jq
 		echo;;
 	10) show_box "Fuso-horários disponíveis"
-		curl http://worldtimeapi.org/api/timezone.txt
 		curl "https://timeapi.io/api/TimeZone/AvailableTimeZones" | jq
 		echo;;
 	11) show_box "Exemplo de requisição POST"
@@ -103,21 +100,19 @@ case $1 in
 		SUBJECT="Hello from Curl"
 		BODY="This is the email body sent using Curl and SMTP."
 		MESSAGE="Subject: $SUBJECT\n\n$BODY"
+		show_box "EMAIL ENVIADO: ${MESSAGE}"
 		curl --url "smtp://smtp.gmail.com:587" \
 			--ssl-reqd --mail-from "$SMTP_USERNAME" \
 			--mail-rcpt "$TO" --user "$SMTP_USERNAME:$SMTP_PASSWORD" \
 			--tlsv1.2 -T <(echo -e "$MESSAGE");;
 	15) show_box "Envio de e-mail com imagem em anexo"
-		TO="EMAIL_DE_DESTINO"
+		TO="srcaetano@gmail.com"
 		SMTP_USERNAME=$(grep "Username:" email.conf|sed "s/Username: //")
 		SMTP_PASSWORD=$(grep "Password:" email.conf|sed "s/Password: //")
 		SUBJECT="Hello from Curl"
 		BODY="This is the email body sent using Curl and SMTP."
 		nome_imagem="unb.png"
-		email_from="EMAIL_REMETENTE"
-		passw_from="SENHA_REMETENTE"
-		email_to="EMAIL_DESTINATARIO"
-		echo "From: <${SMTP_USERNAME}.gmail.com>" > email.txt
+		echo "From: <${SMTP_USERNAME}@gmail.com>" > email.txt
 		echo "To: <$TO>" >> email.txt
 		echo Subject: $SUBJECT >> email.txt
 		echo Date: $(date) >> email.txt
@@ -135,6 +130,7 @@ case $1 in
 		echo >> email.txt
 		cat $nome_imagem | base64 >> email.txt
 		echo --corpo_msg-- >> email.txt
+		less email.txt
 		curl --url "smtp://smtp.gmail.com:587" \
 			--ssl-reqd --mail-from "$SMTP_USERNAME" \
 			--mail-rcpt "$TO" --user "$SMTP_USERNAME:$SMTP_PASSWORD" \
