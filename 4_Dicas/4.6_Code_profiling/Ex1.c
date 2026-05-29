@@ -3,7 +3,7 @@
 #include <time.h>
 #include <math.h>
 
-#define N 1000000
+#define N 10000000
 
 int main(int argc, char *argv[])
 {
