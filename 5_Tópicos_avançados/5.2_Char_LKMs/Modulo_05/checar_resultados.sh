@@ -23,15 +23,16 @@ sudo insmod chardev.ko
 
 show_box "Gerar lista de primos pelo Octave"
 octave --eval "disp(primes(1000)')" > primos.txt
-sed -i "s/ /g" primos.txt
+sed -i "s/ //g" primos.txt
 
 show_box "Gerar lista de primos pelo LKM"
 rm -f primos_lkm.txt
 for i in {1..168}
 do
 	sudo cat /dev/chardev >> primos_lkm.txt
+	echo >> primos_lkm.txt
 done
-sed -i "s/ /g" primos_lkm.txt
+sed -i "s/ //g" primos_lkm.txt
 
 show_box "Comparar listas de primos"
 diff primos.txt primos_lkm.txt

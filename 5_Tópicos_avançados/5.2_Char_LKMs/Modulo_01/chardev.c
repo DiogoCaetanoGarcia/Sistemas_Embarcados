@@ -84,3 +84,6 @@ static ssize_t device_write(struct file *filp, const char *buff, size_t len, lof
 	printk(KERN_ALERT "Operacao nao suportada.\n");
 	return -EINVAL;
 }
+
+
+

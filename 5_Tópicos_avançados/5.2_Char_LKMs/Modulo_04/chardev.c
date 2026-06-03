@@ -50,7 +50,7 @@ int init_module(void)
 	}
 	printk(KERN_INFO "Chardev: registrado corretamente com major number %d\n", Major);
 	// Registrar a classe do dispositivo
-	chardev_Class = class_create(THIS_MODULE, CLASS_NAME);
+	chardev_Class = class_create(CLASS_NAME);
 	if(IS_ERR(chardev_Class)) // Se houve erro no registro
 	{
 		unregister_chrdev(Major, DEVICE_NAME);
