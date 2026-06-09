@@ -3,12 +3,12 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/fs.h>
-#include <asm/uaccess.h> /* for put_user */
 #include <linux/init.h>  // Macros used to mark up functions e.g. __init __exit
 #include <linux/device.h> // Header to support the kernel Driver Model
-#include <linux/gpio.h>
-
-#define NEWER_KERNEL_TIMER
+#include <linux/uaccess.h>
+#include <linux/gpio/consumer.h>
+#include <linux/gpio/driver.h>
+#include <linux/timer.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Sistemas Embarcados");
@@ -18,22 +18,20 @@ MODULE_DESCRIPTION("Ola gpiomod_output driver!");
 #define CLASS_NAME  "gpiomod_output_class"
 #define MSG_OK(s) printk(KERN_INFO "%s: %s\n", DEVICE_NAME, s)
 #define MSG_BAD(s, err_val) printk(KERN_ERR "%s: %s %ld\n", DEVICE_NAME, s, err_val)
+#define GPIOCHIP_BASE 512
+#define BCM_GPIO(n) (GPIOCHIP_BASE + (n))
 #define LED1 4
-#define LED1_NAME "LED1"
 
+static struct gpio_desc *led;
 static struct timer_list blink_timer;
 static long int meio_periodo=HZ/5;
 
-#ifdef NEWER_KERNEL_TIMER
 static void blink_timer_func(struct timer_list* data)
-#else
-static void blink_timer_func(unsigned long data)
-#endif
 {
 	// Agendar proxima execucao
 	blink_timer.expires = jiffies + meio_periodo;
 	add_timer(&blink_timer);
-	gpio_set_value(LED1, !gpio_get_value(LED1));
+	gpiod_set_value(led, !gpiod_get_value(led));
 }
 
 int init_module(void);
@@ -65,8 +63,7 @@ void module_clean_level(unsigned int level)
 {
 	if(level<1)
 	{
-		gpio_set_value(LED1, 0);
-		gpio_free(LED1);
+		gpiod_set_value(led, 0);
 	}
 	if(level<2) // Remove o dispositivo
 		device_destroy(gpiomod_output_Class, MKDEV(Major, 0));
@@ -81,7 +78,6 @@ void module_clean_level(unsigned int level)
 
 int init_module(void)
 {
-	int ret;
 	// Obter major number dinamicamente
 	Major = register_chrdev(0, DEVICE_NAME, &fops);
 	if(Major < 0)
@@ -91,7 +87,7 @@ int init_module(void)
 	}
 	MSG_OK("registrado corretamente");
 	// Registrar a classe do dispositivo
-	gpiomod_output_Class = class_create(THIS_MODULE, CLASS_NAME);
+	gpiomod_output_Class = class_create(CLASS_NAME);
 	if(IS_ERR(gpiomod_output_Class)) // Se houve erro no registro
 	{
 		module_clean_level(CLEAN_MAJOR);
@@ -109,21 +105,17 @@ int init_module(void)
 		return PTR_ERR(gpiomod_output_Device);
 	}
 	MSG_OK("dispositivo criado corretamente");
-	ret = gpio_request_one(LED1, GPIOF_OUT_INIT_LOW, LED1_NAME);
-	if(ret)
+	led = gpio_to_desc(BCM_GPIO(LED1));
+	if (!led)
 	{
 		module_clean_level(CLEAN_DEVICE_CLASS_MAJOR);
-		MSG_BAD("não conseguiu acesso ao GPIO", (long int)ret);
-		return ret;
+		MSG_BAD("GPIO nao encontrado", (long int) -1);
+		return -ENODEV;
 	}
+	gpiod_direction_output(led, 0);
 	MSG_OK("obteve acesso ao GPIO");
-// Comeca o timer
-#ifdef NEWER_KERNEL_TIMER
-	__init_timer(&blink_timer, blink_timer_func, 0);
-#else
-	init_timer(&blink_timer);
-#endif
-	blink_timer.function = blink_timer_func;
+	// Comeca o timer
+	timer_setup(&blink_timer, blink_timer_func, 0);
 	blink_timer.expires = jiffies + meio_periodo;
 	add_timer(&blink_timer);
 	return 0;
@@ -131,7 +123,7 @@ int init_module(void)
 
 void cleanup_module(void)
 {
-	del_timer_sync(&blink_timer);
+	timer_delete_sync(&blink_timer);
 	module_clean_level(CLEAN_GPIO_DEVICE_CLASS_MAJOR);
 	MSG_OK("modulo descarregado");
 }
@@ -163,13 +155,13 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 			loff_t * offset)
 {
 	int F;
-	char Fstr[10];
+	char Fstr[30];
 	int tam_str, j;
-	// Obter frequencia_atual*100 
+	// Obter frequencia_atual*100
 	F = arredondar_divisao(100*HZ, 2*meio_periodo);
 	// Escrever frequência atual em string
-	// com duas casas decimais 
-	sprintf(Fstr, "%d.%02d\n", F/100, F%100);
+	// com duas casas decimais
+	sprintf(Fstr, "f = %d.%02d, mp = %ld\n", F/100, F%100, meio_periodo);
 	// Obter tamanho da string da frequência
 	tam_str = strlen(Fstr);
 	// Escrever string da frequência no buffer

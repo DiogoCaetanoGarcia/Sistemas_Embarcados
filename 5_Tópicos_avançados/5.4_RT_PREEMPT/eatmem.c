@@ -36,7 +36,7 @@ from Andreas Ehliar.
 int main(int argc, char **argv)
 {
 	int i;
-	for(i=0; i < 500; i++){
+	for(i=0; i < 1024; i++){
 		char *tmp;
 		int j;
 		tmp = malloc(1024*1024);

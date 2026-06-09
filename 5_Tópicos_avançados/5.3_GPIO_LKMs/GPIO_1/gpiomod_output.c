@@ -1,33 +1,41 @@
 // Modulo do kernel para acender um LED no GPIO4
-// Baseado em https://github.com/wendlers/rpi-kmod-samples/tree/master/modules/kmod-gpio_output
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/gpio.h>
+#include <linux/gpio/consumer.h>
+#include <linux/gpio/driver.h>
 
 #define DEVICE_NAME "gpiomod_output"
 #define MSG_OK(s) printk(KERN_INFO "%s: %s\n", DEVICE_NAME, s)
-#define MSG_BAD(s, err_val) printk(KERN_ERR "%s: %s %d\n", DEVICE_NAME, s, err_val)
+#define MSG_BAD(s, err) printk(KERN_ERR "%s: %s %ld\n", DEVICE_NAME, s, PTR_ERR(err))
+#define GPIOCHIP_BASE 512
+#define BCM_GPIO(n) (GPIOCHIP_BASE + (n))
 #define LED1 4
-#define LED1_NAME "LED1"
 
-int init_module(void)
+static struct gpio_desc *led;
+
+static int __init gpiomod_init(void)
 {
-	// Registrar GPIO para LED, ligar LED
-	int ret = gpio_request_one(LED1, GPIOF_OUT_INIT_HIGH, LED1_NAME);
-	if(ret)
-		MSG_BAD("não conseguiu acesso ao GPIO", ret);
-	else
-		MSG_OK("modulo carregado");
-	return ret;
+	led = gpio_to_desc(BCM_GPIO(LED1));
+	if (!led)
+	{
+		MSG_BAD("GPIO não encontrado\n", led);
+		return -ENODEV;
+	}
+	gpiod_direction_output(led, 1);
+	MSG_OK("modulo carregado");
+	return 0;
 }
 
-void cleanup_module(void)
+static void __exit gpiomod_exit(void)
 {
-	gpio_set_value(LED1, 0);
-	gpio_free(LED1);
+	if (led)
+		gpiod_set_value(led, 0);
 	MSG_OK("modulo descarregado");
 }
 
+module_init(gpiomod_init);
+module_exit(gpiomod_exit);
+
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Sistemas Embarcados");
-MODULE_DESCRIPTION("Ola GPIO!");
+MODULE_DESCRIPTION("Ola GPIO usando gpiod");

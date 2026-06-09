@@ -1,0 +1,19 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "brcm,bcm2835";
+
+        fragment@0 {
+                target-path = "/";
+
+                __overlay__ {
+
+                        gpiomod_output {
+                                compatible = "soe,gpiomod-output";
+
+                                my-led-gpios = <&gpio 4 0>;
+                        };
+                };
+        };
+};

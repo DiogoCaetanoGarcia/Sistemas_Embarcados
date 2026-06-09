@@ -3,34 +3,43 @@
 // Baseado em https://github.com/wendlers/rpi-kmod-samples/blob/master/modules/kmod-gpio_inpirq/gpiomod_inpirq.c
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/gpio.h>
 #include <linux/interrupt.h>
 #include <linux/delay.h>
+#include <linux/gpio/consumer.h>
+#include <linux/gpio/driver.h>
+#define GPIOCHIP_BASE 512
+#define BCM_GPIO(n) (GPIOCHIP_BASE + (n))
 
-static struct gpio leds[] = {
-		{ 24, GPIOF_OUT_INIT_LOW, "LED 1" },
-};
+#define NLEDS 1
+#define NBTNS 1
 
-static struct gpio btns[] = {
-		{ 17, GPIOF_IN, "BUTTON 1" },
-};
+static const int led_gpios[NLEDS] = {24};
+static const int btn_gpios[NBTNS] = {17};
+
+static struct gpio_desc *leds[NLEDS];
+static struct gpio_desc *btns[NBTNS];
 
 static int button_irqs[] = {-1};
 
 static irqreturn_t button_isr(int irq, void *data)
 {
-	int i;
-	for(i=0; i<ARRAY_SIZE(btns); i++)
+	for(int i=0; i<ARRAY_SIZE(btns); i++)
 	{
 		if(irq==button_irqs[i])
 		{
-			gpio_set_value(leds[i].gpio, !gpio_get_value(leds[i].gpio));
-			while(gpio_get_value(btns[i].gpio)==0);
+			gpiod_set_value(leds[i], !gpiod_get_value(leds[i]));
+			while(gpiod_get_value(btns[i])==0);
 			mdelay(200);
 			return IRQ_HANDLED;
 		}
 	}
 	return IRQ_HANDLED;
+}
+
+static void turn_leds_off(int led_start, int led_end)
+{
+	for(int i = led_start; i <= led_end; i++)
+		gpiod_set_value(leds[i], 0);
 }
 
 /*
@@ -43,33 +52,39 @@ static int __init gpiomode_init(void)
 
 	printk(KERN_INFO "%s\n", __func__);
 
-	// register LED gpios
-	ret = gpio_request_array(leds, ARRAY_SIZE(leds));
-	if (ret)
+	for (i = 0; i < NLEDS; i++)
 	{
-		printk(KERN_ERR "Unable to request GPIOs for LED: %d\n", ret);
-		return ret;
+		leds[i] = gpio_to_desc(BCM_GPIO(led_gpios[i]));
+		if (!leds[i])
+		{
+			printk(KERN_ERR	"Unable to get LED GPIO %d\n", led_gpios[i]);
+			turn_leds_off(0, i-1);
+			return -ENODEV;
+		}
+		gpiod_direction_output(leds[i], 1);
 	}
 
-	// register BUTTON gpios
-	ret = gpio_request_array(btns, ARRAY_SIZE(btns));
-	if (ret)
+	for (i = 0; i < NBTNS; i++)
 	{
-		printk(KERN_ERR "Unable to request GPIOs for BUTTON: %d\n", ret);
-		gpio_free_array(leds, ARRAY_SIZE(leds));
-		return ret;
+		btns[i] = gpio_to_desc(BCM_GPIO(btn_gpios[i]));
+		if (!btns[i])
+		{
+			printk(KERN_ERR "Unable to get BUTTON GPIO %d\n", btn_gpios[i]);
+			turn_leds_off(0, NLEDS-1);
+			return -ENODEV;
+		}
+		gpiod_direction_input(btns[i]);
 	}
 
-	printk(KERN_INFO "Current button1 value: %d\n", gpio_get_value(btns[0].gpio));
+	printk(KERN_INFO "Current button1 value: %d\n", gpiod_get_value(btns[0]));
 
-	for(i=0; i<ARRAY_SIZE(btns); i++)
+	for(i=0; i<NBTNS; i++)
 	{
-		ret = gpio_to_irq(btns[i].gpio);
+		ret = gpiod_to_irq(btns[i]);
 		if(ret < 0)
 		{
 			printk(KERN_ERR "Unable to map IRQ: %d\n", ret);
-			gpio_free_array(btns, ARRAY_SIZE(btns));
-			gpio_free_array(leds, ARRAY_SIZE(leds));
+			turn_leds_off(0, NLEDS-1);
 			return ret;
 		}
 		button_irqs[i] = ret;
@@ -82,34 +97,25 @@ static int __init gpiomode_init(void)
 		if(ret)
 		{
 			printk(KERN_ERR "Unable to request IRQ: %d\n", ret);
-			gpio_free_array(btns, ARRAY_SIZE(btns));
-			gpio_free_array(leds, ARRAY_SIZE(leds));
+			turn_leds_off(0, NLEDS-1);
 			return ret;
 		}
 	}
 	return 0;
 }
 
+
+
 /**
  * Module exit function
  */
 static void __exit gpiomode_exit(void)
 {
-	int i;
-
 	printk(KERN_INFO "%s\n", __func__);
-
 	// free irqs
-	for(i = 0; i < ARRAY_SIZE(btns); i++)
+	for(int i = 0; i < NBTNS; i++)
 		free_irq(button_irqs[i], NULL);
-
-	// turn all LEDs off
-	for(i = 0; i < ARRAY_SIZE(leds); i++)
-		gpio_set_value(leds[i].gpio, 0);
-
-	// unregister
-	gpio_free_array(leds, ARRAY_SIZE(leds));
-	gpio_free_array(btns, ARRAY_SIZE(btns));
+	turn_leds_off(0, NLEDS-1);
 }
 
 MODULE_LICENSE("GPL");

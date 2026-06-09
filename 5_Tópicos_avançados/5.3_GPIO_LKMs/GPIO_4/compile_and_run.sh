@@ -15,15 +15,21 @@ echo Lendo o valor atual do pino...
 sudo cat /dev/$MOD
 echo
 echo
-echo Acendendo o LED...
-sudo echo 1 > /dev/$MOD
-echo
-echo Lendo o valor atual do pino...
-sudo cat /dev/$MOD
-echo
-echo
-echo Aguardando 5 segundos...
-sleep 5
+for k in {1..5}
+do
+	echo Acendendo o LED...
+	sudo echo 1 > /dev/$MOD
+	echo Lendo o valor atual do pino...
+	sudo cat /dev/$MOD
+	echo
+	sleep 0.5
+	echo Apagando o LED...
+	sudo echo 0 > /dev/$MOD
+	echo Lendo o valor atual do pino...
+	sudo cat /dev/$MOD
+	echo
+	sleep 0.5
+done
 echo
 echo Descarregando o módulo e apagando o LED...
 sudo rmmod $MOD

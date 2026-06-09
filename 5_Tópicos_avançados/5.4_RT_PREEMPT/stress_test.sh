@@ -50,6 +50,9 @@ nice -n 19 sudo $E
 echo "Executando '$E' por $T segundos, com"
 echo "'cat /dev/urandom > /dev/null &' em paralelo..."
 cat /dev/urandom > /dev/null &
+cat /dev/urandom > /dev/null &
+cat /dev/urandom > /dev/null &
+cat /dev/urandom > /dev/null &
 sudo $E
 
 # echo "Aperte ENTER"

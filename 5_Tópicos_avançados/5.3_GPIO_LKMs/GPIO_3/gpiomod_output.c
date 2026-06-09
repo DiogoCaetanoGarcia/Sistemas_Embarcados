@@ -1,68 +1,61 @@
 // Modulo do kernel para piscar um LED no GPIO4
-// Baseado em https://github.com/wendlers/rpi-kmod-samples/tree/master/modules/kmod-gpio_outptimer
 #include <linux/module.h>
 #include <linux/kernel.h>
-#include <linux/gpio.h>
-
-#define NEWER_KERNEL_TIMER
+#include <linux/gpio/consumer.h>
+#include <linux/gpio/driver.h>
+#include <linux/timer.h>
 
 #define DEVICE_NAME "gpiomod_output"
 #define MSG_OK(s) printk(KERN_INFO "%s: %s\n", DEVICE_NAME, s)
-#define MSG_BAD(s, err_val) printk(KERN_ERR "%s: %s %d\n", DEVICE_NAME, s, err_val)
+#define GPIOCHIP_BASE 512
+#define BCM_GPIO(n) (GPIOCHIP_BASE + (n))
 #define LED1 4
-#define LED1_NAME "LED1"
 #define LED_FREQ_2 (HZ/5)
+
+static struct gpio_desc *led;
 static struct timer_list blink_timer;
 static unsigned long t;
 
-#ifdef NEWER_KERNEL_TIMER
-static void blink_timer_func(struct timer_list* data)
-#else
-static void blink_timer_func(unsigned long data)
-#endif
+static void blink_timer_func(struct timer_list *data)
 {
 	t += LED_FREQ_2;
-	// Agendar proxima execucao
-	blink_timer.expires = t;//jiffies + LED_FREQ_2;
+	/* agenda próxima execução */
+	blink_timer.expires = t;
 	add_timer(&blink_timer);
-	gpio_set_value(LED1, !gpio_get_value(LED1));
+	gpiod_set_value(led, !gpiod_get_value(led));
 }
 
-int init_module(void)
+static int __init gpiomod_init(void)
 {
-	// Registrar GPIO para LED, ligar LED
-	int ret = gpio_request_one(LED1, GPIOF_OUT_INIT_LOW, LED1_NAME);
-	if(ret)
+	led = gpio_to_desc(BCM_GPIO(LED1));
+
+	if (!led)
 	{
-		MSG_BAD("não conseguiu acesso ao GPIO", ret);
-		return ret;
+		printk(KERN_ERR "%s: GPIO%d nao encontrado\n",
+		       DEVICE_NAME, LED1);
+		return -ENODEV;
 	}
+	gpiod_direction_output(led, 0);
 	MSG_OK("modulo carregado");
-	// Comeca o timer
-#ifdef NEWER_KERNEL_TIMER
-	__init_timer(&blink_timer, blink_timer_func, 0);
-#else
-	init_timer(&blink_timer);
-#endif
-	// Ao final da contagem do timer, a funcao blink_timer_func() deve ser executada
-	blink_timer.function = blink_timer_func;
-	// jiffies eh uma variavel global que indica a quantidade de periodos do clock desde que ocorreu o boot do sistema
-	// HZ representa a quantidade de ciclos para contabilizar um segundo
-	// LED_FREQ_2 = 200ms
-	blink_timer.expires = t = jiffies + LED_FREQ_2;
+
+	timer_setup(&blink_timer, blink_timer_func, 0);
+	t = jiffies + LED_FREQ_2;
+	blink_timer.expires = t;
 	add_timer(&blink_timer);
-	return ret;
+	return 0;
 }
 
-void cleanup_module(void)
+static void __exit gpiomod_exit(void)
 {
-	// Desativa o timer, se ele estiver rodando
-	del_timer_sync(&blink_timer);
-	gpio_set_value(LED1, 0);
-	gpio_free(LED1);
+	timer_delete_sync(&blink_timer);
+	if (led)
+		gpiod_set_value(led, 0);
 	MSG_OK("modulo descarregado");
 }
 
+module_init(gpiomod_init);
+module_exit(gpiomod_exit);
+
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Sistemas Embarcados");
-MODULE_DESCRIPTION("Ola GPIO!");
+MODULE_DESCRIPTION("Ola GPIO usando gpiod");

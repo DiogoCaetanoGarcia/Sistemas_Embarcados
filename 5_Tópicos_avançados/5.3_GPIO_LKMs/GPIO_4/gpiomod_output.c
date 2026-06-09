@@ -3,10 +3,11 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/fs.h>
-#include <asm/uaccess.h> /* for put_user */
+#include <linux/uaccess.h> /* for put_user */
 #include <linux/init.h>  // Macros used to mark up functions e.g. __init __exit
 #include <linux/device.h> // Header to support the kernel Driver Model
-#include <linux/gpio.h>
+#include <linux/gpio/consumer.h>
+#include <linux/gpio/driver.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Sistemas Embarcados");
@@ -16,8 +17,11 @@ MODULE_DESCRIPTION("Ola gpiomod_output driver!");
 #define CLASS_NAME  "gpiomod_output_class"
 #define MSG_OK(s) printk(KERN_INFO "%s: %s\n", DEVICE_NAME, s)
 #define MSG_BAD(s, err_val) printk(KERN_ERR "%s: %s %ld\n", DEVICE_NAME, s, err_val)
+#define GPIOCHIP_BASE 512
+#define BCM_GPIO(n) (GPIOCHIP_BASE + (n))
+
 #define LED1 4
-#define LED1_NAME "LED1"
+static struct gpio_desc *led;
 
 int init_module(void);
 void cleanup_module(void);
@@ -44,12 +48,12 @@ static struct file_operations fops = {
 #define CLEAN_DEVICE_CLASS_MAJOR      1
 #define CLEAN_CLASS_MAJOR             2
 #define CLEAN_MAJOR                   3
-void module_clean_level(unsigned int level)
+static void module_clean_level(unsigned int level)
 {
 	if(level<1)
 	{
-		gpio_set_value(LED1, 0);
-		gpio_free(LED1);
+		if (led)
+			gpiod_set_value(led, 0);
 	}
 	if(level<2) // Remove o dispositivo
 		device_destroy(gpiomod_output_Class, MKDEV(Major, 0));
@@ -64,7 +68,6 @@ void module_clean_level(unsigned int level)
 
 int init_module(void)
 {
-	int ret;
 	// Obter major number dinamicamente
 	Major = register_chrdev(0, DEVICE_NAME, &fops);
 	if(Major < 0)
@@ -74,7 +77,7 @@ int init_module(void)
 	}
 	MSG_OK("registrado corretamente");
 	// Registrar a classe do dispositivo
-	gpiomod_output_Class = class_create(THIS_MODULE, CLASS_NAME);
+	gpiomod_output_Class = class_create(CLASS_NAME);
 	if(IS_ERR(gpiomod_output_Class)) // Se houve erro no registro
 	{
 		module_clean_level(CLEAN_MAJOR);
@@ -92,13 +95,15 @@ int init_module(void)
 		return PTR_ERR(gpiomod_output_Device);
 	}
 	MSG_OK("dispositivo criado corretamente");
-	ret = gpio_request_one(LED1, GPIOF_OUT_INIT_LOW, LED1_NAME);
-	if(ret)
+
+	led = gpio_to_desc(BCM_GPIO(LED1));
+	if (!led)
 	{
 		module_clean_level(CLEAN_DEVICE_CLASS_MAJOR);
-		MSG_BAD("não conseguiu acesso ao GPIO", (long int)ret);
-		return ret;
+		MSG_BAD("GPIO nao encontrado", (long int) 0);
+		return -ENODEV;
 	}
+	gpiod_direction_output(led, 1);
 	MSG_OK("obteve acesso ao GPIO");
 	return 0;
 }
@@ -134,7 +139,7 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 	if(Device_Counter>0)
 		return 0;
 	// Caso contrario, retorne '0' ou '1' de acordo com o valor do GPIO
-	if(gpio_get_value(LED1))
+	if(gpiod_get_value(led))
 		put_user('1', buffer);
 	else
 		put_user('0', buffer);
@@ -145,9 +150,9 @@ static ssize_t device_read(struct file *filp,	/* see include/linux/fs.h   */
 static ssize_t device_write(struct file *filp, const char *buff, size_t len, loff_t * off)
 {
 	if(buff[0]=='0')
-		gpio_set_value(LED1, 0);
+		gpiod_set_value(led, 0);
 	else if(buff[0]=='1')
-		gpio_set_value(LED1, 1);
+		gpiod_set_value(led, 1);
 	else
 		return 0;
 	return len;
