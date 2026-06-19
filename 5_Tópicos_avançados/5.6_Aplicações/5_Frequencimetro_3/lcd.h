@@ -3,6 +3,8 @@
 
 #include <pigpio.h> // gpioSetMode() e gpioWrite()
 #include <unistd.h> // usleep()
+#include <string.h>
+#include <stdio.h>
 
 #define EN 4
 #define RS 17

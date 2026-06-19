@@ -68,42 +68,14 @@ void Send_String(char *str)
 
 void Send_Int(int x)
 {
-	int pot10=1;
-	int i=0;
-	if(x<0)
-	{
-		Send_String("-");
-		x = -x;
-	}
-	if(x==0)
-	{
-		Send_String("0");
-		return;
-	}
-	for(pot10=1; pot10<=x; pot10 *= 10){}
-	pot10 /= 10;
-	for(i=0; pot10>0; i++)
-	{
-		Send_Byte(x/pot10 + '0', DADO);
-		x = x%pot10;
-		pot10 /=10;
-	}
+	char buffer[16];
+	snprintf(buffer, sizeof(buffer), "%d", x);
+	Send_String(buffer);
 }
 
 void Send_Double(double x, int decimal_places)
 {
-	int i, N;
-	N = (int)x;
-	Send_Int(N);
-	x -= (double)N;
-	if(x<0.0)
-		x = -x;
-	Send_String(".");
-	for(i=0; i<decimal_places; i++)
-	{
-		x *= 10;
-		if(x<1.0)
-			Send_Int(0);
-	}
-	Send_Int((int)x);
+	char buffer[32];
+	snprintf(buffer, sizeof(buffer), "%.*f", decimal_places, x);
+	Send_String(buffer);
 }

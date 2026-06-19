@@ -3,6 +3,8 @@
 
 #include <wiringPi.h> // pinMode() e digitalWrite()
 #include <unistd.h> // usleep()
+#include <string.h>
+#include <stdio.h>
 
 #define EN 7
 #define RS 0
