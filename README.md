@@ -98,13 +98,12 @@ A proposta deve, portanto, partir de um **problema concreto**, definir uma **sol
 - Recursos do sistema operacional
 	- Processos, sinais e threads
 	- Comunicação e sincronismo entre processos
+	- Fila de mensagens
 	- Programação para redes (sockets)
-	- Tarefas
 	- Alarmes
 	- MUTEX
 	- Semáforos
 	- Variáveis condicionais
-	- Fila de mensagens
 - Desenvolvimento para sistemas embarcados
 	- Conceito de cross-platform
 	- Componentes e suas funções (host, target, interface de comunicação, etc)
