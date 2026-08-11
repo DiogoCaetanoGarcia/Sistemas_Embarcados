@@ -42,14 +42,15 @@ Os pontos de controle serão prévias do projeto final. Cada dia de atraso na ap
 	- 4.1 - Projeto conceitual de hardware
 	- 4.2 - Projeto conceitual de software
 	- 5 - Cronograma
-	- 6 - Orçamento
 - PC3: testes de componentes e algoritmos
-	- 7.1 - Testes de hardware
-	- 7.2 - Testes de software
+	- 6.1 - Testes de hardware
+	- 6.2 - Testes de software
 - PC4: integração de componentes
-	- 7.3 - Testes de integração
+	- 6.3 - Testes de integração
 - PC5: integração de componentes
-	- 7.3 - Testes de integração
+	- 6.3 - Testes de integração
+- Entrega final
+	- 7 - Relatório de encerramento do projeto
 
 Fazendo uma analogia com o projeto com a montagem de um quebra-cabeças:
 
@@ -59,6 +60,22 @@ Fazendo uma analogia com o projeto com a montagem de um quebra-cabeças:
 - PC4 e PC5: montagem do quebra-cabeças
 
 Todos os relatórios dos pontos de controle serão entregues via Moodle. Em caso de cópias (integrais ou parciais), os relatórios ficarão com nota ZERO.
+
+### Orientações para a escolha do tema do projeto
+
+A escolha do tema do projeto é responsabilidade dos alunos. Entretanto, a proposta deverá observar as seguintes orientações:
+
+1. **O projeto deverá resultar em um protótipo funcional.** Não é permitida a representação simbólica de suas saídas ou componentes. Por exemplo, representar a abertura de uma porta com um LED ou utilizar palitos de picolé para representar catracas físicas.
+
+2. **A proposta deve partir de um problema, e não de uma tecnologia.** Evitem escolher primeiro uma tecnologia ou componente e só depois procurar uma aplicação para ele. Por exemplo, é possível usar um Raspberry Pi para construir um cubo de LEDs, mas qual problema ele resolve?
+
+3. **O projeto deverá justificar o uso do Raspberry Pi.** A utilização do Raspberry Pi deve ser necessária. Não serão consideradas adequadas propostas que possam ser implementadas utilizando apenas um microcontrolador.
+
+4. **O escopo deverá ser compatível com a duração do semestre.** É preferível desenvolver uma solução menor, porém completa e funcional, do que propor um sistema abrangente que não possa ser concluído adequadamente.
+
+5. **O custo do projeto deverá ser considerado desde a definição da proposta.** Caso ele tenha um custo elevado, recomenda-se modificar a proposta, por meio da substituição de componentes, da redução do escopo ou da alteração da solução técnica.
+
+A proposta deve, portanto, partir de um **problema concreto**, definir uma **solução com escopo bem delimitado** e, somente então, selecionar as tecnologias e componentes necessários para sua implementação.
 
 ## Ementa
 
