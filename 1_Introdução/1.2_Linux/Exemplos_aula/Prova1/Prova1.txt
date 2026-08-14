@@ -1,0 +1,8 @@
+# Prova 1
+
+1. Resolva o problema "P vs. NP": todo problema cuja resposta correta pode ser verificada rapidamente por um computador também pode ser resolvido rapidamente?
+
+2. Prove ou disprove a Conjectura de Hodge.
+
+3. Prove ou disprove a Conjectura de Poincaré.
+

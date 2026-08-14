@@ -1,0 +1,7 @@
+# Prova 3
+
+1. Comprove a existência e a suavidade da equação de Navier-Stokes.
+
+2. Comprove a Conjectura de Birch e Swinnerton-Dyer.
+
+
