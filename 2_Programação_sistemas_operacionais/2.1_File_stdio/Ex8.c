@@ -18,5 +18,7 @@ int main()
 		"(lido do arquivo) eh: %f\n",
 		pilido);
 	fclose(fp);
+	if(pi==pilido) puts("==");
+	else puts("!=");
 	return(0);
 }

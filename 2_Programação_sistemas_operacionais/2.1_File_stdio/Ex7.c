@@ -20,5 +20,12 @@ int main()
 		"(lido do arquivo) eh: %f\n",
 		pilido);
 	fclose(fp);
+	if(pi==pilido) puts("Iguais");
+	else puts("Diferentes");
 	return(0);
 }
+
+
+
+
+
