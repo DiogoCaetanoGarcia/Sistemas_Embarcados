@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 		else
 		{
 			i2=0;
+			// Corrigir erro quando aparece "OOla"
+			// no arquivo e buscamos a palavra "Ola"
 			if(conteudo[i1]==palavra[i2])
 				i1--;
 

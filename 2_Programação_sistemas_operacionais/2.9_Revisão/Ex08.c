@@ -7,7 +7,7 @@ int main()
 {
 	pid_t pid_pai = getpid(), pid_filhos[3];
 	int i;
-	
+
 	printf("PID(pai) = %d\n", pid_pai);
 	for(i=0; i<3; i++)
 	{
