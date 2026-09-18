@@ -8,6 +8,7 @@ int main(int argc, char **argv)
 	// Set up gpi pointer for direct register access
 	setup_io();
 	INP_GPIO(pin);
+	GPIO_PULL |= 1<<pin;
 	while(i<15)
 	{
 		printf("i = %d\n", i);
