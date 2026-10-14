@@ -158,7 +158,7 @@ int main()
 
 		printf("%d,%d,%d\n", x, y, z);
 
-		usleep(300000);
+		sleep(1); //usleep(300000);
 	}
 
 	close(fd);
