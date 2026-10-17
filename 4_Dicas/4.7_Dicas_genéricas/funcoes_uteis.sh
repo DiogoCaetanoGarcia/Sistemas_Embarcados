@@ -156,7 +156,7 @@ function apt_update()
 function pull_gits()
 {
     CUR_FOLDER=$(pwd);
-    for f in $(find . -type d -name .git)
+    for f in $(find . -maxdepth 3 -type d -name .git)
     do
         f1=$(dirname $f)
         cd $f1
